@@ -1,0 +1,12 @@
+.env
+*.tar
+*.zip
+apps/
+frappe_docker/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+sites/
+logs/
+assets/
