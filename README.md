@@ -1,117 +1,69 @@
 <div align="center">
-  <img src="docs/public/frappe-docker.png" alt="Frappe Docker" width="80" />
-  <h1>Frappe Docker</h1>
-  <p>Docker images and orchestration for Frappe applications.</p>
-  <p>
-    <a href="https://github.com/frappe/frappe_docker/actions/workflows/core-build-stable.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/frappe/frappe_docker/core-build-stable.yml?branch=main&label=Build%20Stable" alt="Build Stable" />
-    </a>
-    <a href="https://github.com/frappe/frappe_docker/actions/workflows/core-build-develop.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/frappe/frappe_docker/core-build-develop.yml?branch=main&label=Build%20Develop" alt="Build Develop" />
-    </a>
-    <a href="https://frappe.github.io/frappe_docker/">
-      <img src="https://img.shields.io/badge/Docs-Open%20Site-0A7EA4" alt="Docs" />
-    </a>
-  </p>
+  <img src="apps/smriti_retail_os/smriti_retail_os/public/images/logo.svg" alt="SMRITI Retail OS" width="120" />
+  <h1>SMRITI Retail OS</h1>
+  <p>Official Docker Orchestration for the SMRITI Retail Experience Layer.</p>
 </div>
 
 ## What is this?
 
-This repository is the official container setup for Frappe applications.
+This repository contains the Docker configuration and orchestration required to run **SMRITI Retail OS**. It provides a pre-configured environment that integrates:
 
-It provides Docker images, Compose configurations, and documentation for running Frappe applications, including ERPNext, CRM, Helpdesk, and other Frappe apps, in containers.
+- **Frappe Framework v16**
+- **ERPNext v16** (Core Business Logic)
+- **India Compliance** (GST, E-Invoicing, Audit Trail)
+- **SMRITI Retail OS** (Premium Experience Layer & Custom POS)
 
-Use it if you want to:
+## Features of this Setup
 
-- run ERPNext, CRM, Helpdesk, or other Frappe apps with Docker
-- start from a quick demo setup
-- use production-ready Docker images and Compose setups
-- build custom app images
-- deploy and operate Frappe in production
-
-## Repository Structure
-
-```bash
-frappe_docker/
-├── docs/                 # Complete documentation
-├── overrides/            # Docker Compose configurations for different scenarios
-├── compose.yaml          # Base Compose File for production setups
-├── pwd.yml               # Single Compose File for quick disposable demo
-├── images/               # Dockerfiles for building Frappe images
-├── development/          # Development environment configurations
-├── devcontainer-example/ # VS Code devcontainer setup
-└── resources/            # Helper scripts and configuration templates
-```
-
-> This section describes the structure of **this repository**, not the Frappe framework itself.
-
-### Key Components
-
-- `docs/` - Canonical documentation for all deployment and operational workflows
-- `overrides/` - Opinionated Compose overrides for common deployment patterns
-- `compose.yaml` - Base compose file for production setups (production)
-- `pwd.yml` - Disposable demo environment (non-production)
-
-## Documentation
-
-The full `frappe_docker` documentation is available in [`docs/`](docs/) and published at [frappe.github.io/frappe_docker](https://frappe.github.io/frappe_docker/).
-
-### Recommended entry points:
-
-- **New here:** [Getting Started Guide](docs/getting-started.md)
-- **Choosing a setup:** [Deployment methods](docs/01-getting-started/01-choosing-a-deployment-method.md)
-- **ARM64 notes:** [ARM64](docs/01-getting-started/03-arm64.md)
-- **Container setup overview:** [Container Setup Overview](docs/02-setup/01-overview.md)
-- **Running in production:** [Production docs](docs/03-production/)
-- **Operating a deployment:** [Operations docs](docs/04-operations/)
-- **Development workflows:** [Development](docs/05-development/01-development.md)
-- **FAQ:** [Frequently Asked Questions](https://github.com/frappe/frappe_docker/wiki/Frequently-Asked-Questions)
+- **Automated Installation**: The `pwd.yml` workflow automatically installs all required apps and performs database migrations.
+- **Shared Assets Volume**: Includes a dedicated volume for compiled CSS and JS, ensuring the custom SMRITI Light Theme loads instantly on the frontend.
+- **Automated Builds**: Running `bench build` is integrated into the site creation lifecycle.
+- **Performance Optimized**: Configured with dedicated workers for short and long queues, and optimized Redis caching.
 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose v2](https://docs.docker.com/compose/)
-- [git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
+- [git](https://git-scm.com/)
 
-> For Docker basics and best practices refer to Docker's [documentation](http://docs.docker.com)
+## Quick Start
 
-## Demo setup
+The fastest way to launch the SMRITI Retail environment locally:
 
-The fastest way to try Frappe locally is with the single-file demo setup in `pwd.yml`.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/erpnbook/smriti-docker.git
+   cd smriti-docker
+   ```
 
-### Try on your environment
+2. **Launch the containers**:
+   ```bash
+   docker compose -f pwd.yml up -d
+   ```
 
-> **⚠️ Disposable demo only**
->
-> **This setup is intended for short-lived evaluation only.** You will not be able to install custom apps to this setup. For production deployments, custom configurations, and detailed explanations, see the full documentation.
+3. **Wait for initialization**:
+   The first boot takes about 2-5 minutes as it sets up the database and installs SMRITI OS. You can monitor progress with:
+   ```bash
+   docker logs -f smriti_retail_os-create-site-1
+   ```
 
-First clone the repo:
+4. **Access the System**:
+   - **URL**: [http://localhost:8080](http://localhost:8080)
+   - **Username**: `Administrator`
+   - **Password**: `admin`
 
-```sh
-git clone https://github.com/frappe/frappe_docker
-cd frappe_docker
-```
+## Repository Structure
 
-Then run:
+- `pwd.yml`: The primary orchestration file for local development and staging.
+- `apps/`: (Mount Point) Contains the source code for SMRITI Retail OS and India Compliance.
+- `sites/`: (Volume) Persistent storage for site configurations and file uploads.
+- `assets/`: (Volume) Shared storage for compiled frontend assets.
 
-```sh
-docker compose -f pwd.yml up -d
-```
+## SMRITI UI Conventions
 
-Wait for a couple of minutes for ERPNext site to be created or check `create-site` container logs before opening browser on port `8080`. (username: `Administrator`, password: `admin`)
-
-## Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-This repository is only for container related stuff. You also might want to contribute to:
-
-## Resources
-
-- [Frappe framework](https://github.com/frappe/frappe),
-- [ERPNext](https://github.com/frappe/erpnext),
-- [Frappe Bench](https://github.com/frappe/bench).
+- **Clean Naming**: All internal modules are named without "SMRITI" prefixes (e.g., *Retail Billing*, *Inventory Operations*) to ensure a professional, uncluttered interface.
+- **Premium Light Theme**: Default high-contrast theme optimized for retail store lighting conditions.
 
 ## License
 
-This repository is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This orchestration setup is provided under the MIT License.
