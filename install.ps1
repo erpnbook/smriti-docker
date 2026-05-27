@@ -32,7 +32,7 @@ function Write-Banner  {
 # -- Constants -----------------------------------------------------------------
 $COMPOSE_FILE   = "pwd.yml"
 $SMRITI_REPO    = "https://github.com/erpnbook/smriti.git"
-$SMRITI_BRANCH  = "v1.0.0"
+$SMRITI_BRANCH  = "main"
 $IC_REPO        = "https://github.com/resilient-tech/india-compliance.git"
 $IC_BRANCH      = "version-16"
 $APP_URL        = "http://localhost:8080"
