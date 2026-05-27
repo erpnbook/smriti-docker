@@ -10,7 +10,7 @@ def verify_smriti_retail_os():
     pos_fields = frappe.get_meta("POS Invoice").fields
     field_names = [f.fieldname for f in pos_fields]
     
-    expected_fields = ["discount_amount", "gstin", "owner"]
+    expected_fields = ["discount_amount", "billing_address_gstin", "owner"]
     for f in expected_fields:
         if f in field_names or f == "owner":
             print(f"  [OK] Field '{f}' verified.")
@@ -20,10 +20,10 @@ def verify_smriti_retail_os():
 
     # 2. Check Child Tables
     print("\n2. Verifying Child Tables:")
-    if frappe.db.exists("DocType", "POS Invoice Payment"):
-        print("  [OK] 'POS Invoice Payment' table exists.")
+    if frappe.db.exists("DocType", "Sales Invoice Payment"):
+        print("  [OK] 'Sales Invoice Payment' table exists.")
     else:
-        print("  [ERROR] 'POS Invoice Payment' table missing!")
+        print("  [ERROR] 'Sales Invoice Payment' table missing!")
         errors += 1
 
     # 3. Test Reporting API
