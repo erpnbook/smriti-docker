@@ -9,7 +9,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
     entrypoint:
@@ -48,6 +47,7 @@ services:
         bench set-config -g redis_queue "redis://$$REDIS_QUEUE";
         bench set-config -g redis_socketio "redis://$$REDIS_QUEUE";
         bench set-config -gp socketio_port $$SOCKETIO_PORT;
+        bench set-config -g allow_cors_origin "http://localhost:8080";
     environment:
       DB_HOST: db
       DB_PORT: "3306"
@@ -57,7 +57,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
 
@@ -71,7 +70,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
     entrypoint:
@@ -97,7 +95,9 @@ services:
         echo "sites/common_site_config.json found";
         /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
         bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app india_compliance --install-app smriti_retail_os --set-default frontend &&
-        bench --site frontend build --app smriti_retail_os --app india_compliance;
+        bench --site frontend build --app smriti_retail_os --app india_compliance &&
+        bench --site frontend execute smriti_retail_os.setup.setup_smriti_retail_os &&
+        bench --site frontend execute smriti_retail_os.sync_assets.sync_assets;
 
   db:
     image: mariadb:11.8
@@ -145,7 +145,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
     ports:
@@ -168,7 +167,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
 
@@ -189,7 +187,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
 
@@ -228,7 +225,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
 
@@ -248,7 +244,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
 
 volumes:
   db-data:

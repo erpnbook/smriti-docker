@@ -55,7 +55,7 @@ git clone https://github.com/erpnbook/smriti-docker.git
 cd smriti-docker
 mkdir -p apps
 git clone --branch v1.0.0 https://github.com/erpnbook/smriti.git apps/smriti_retail_os
-git clone --branch version-16 https://github.com/resilient-tech/india_compliance.git apps/india_compliance
+git clone --branch version-16 https://github.com/resilient-tech/india-compliance.git apps/india_compliance
 docker compose -f pwd.yml up -d
 ```
 *(Wait 2 minutes for creation, then run setup hooks and asset sync).*
