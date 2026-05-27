@@ -9,7 +9,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
     entrypoint:
@@ -38,7 +39,7 @@ services:
     command:
       - >
         /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
-        ls -1 apps > sites/apps.txt;
+        ls -1 /home/frappe/frappe-bench/apps > sites/apps.txt;
         bench set-config -g db_host $$DB_HOST;
         bench set-config -gp db_port $$DB_PORT;
         bench set-config -g redis_cache "redis://$$REDIS_CACHE";
@@ -54,9 +55,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
-      - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
-      - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
 
   create-site:
     image: frappe/erpnext:v16.19.1
@@ -68,7 +68,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
     entrypoint:
@@ -142,7 +143,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
     ports:
@@ -165,9 +167,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
-      - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
-      - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
     environment:
       FRAPPE_REDIS_CACHE: redis://redis-cache:6379
       FRAPPE_REDIS_QUEUE: redis://redis-queue:6379
@@ -189,9 +190,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
-      - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
-      - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
     environment:
       FRAPPE_REDIS_CACHE: redis://redis-cache:6379
       FRAPPE_REDIS_QUEUE: redis://redis-queue:6379
@@ -231,9 +231,8 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
-      - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
-      - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
 
   websocket:
     image: frappe/erpnext:v16.19.1
@@ -251,16 +250,14 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - assets:/home/frappe/frappe-bench/assets
-      - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
-      - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/assets
+      - D:/Smriti_Retail_OS/assets:/home/frappe/frappe-bench/sites/assets
 
 volumes:
   db-data:
   redis-queue-data:
   sites:
   logs:
-  assets:
 
 networks:
   frappe_network:
