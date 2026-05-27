@@ -164,6 +164,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - ./frappe.conf.template:/templates/nginx/frappe.conf.template
     ports:
       - "8080:8080"
 
