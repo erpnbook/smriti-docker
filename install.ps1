@@ -120,7 +120,7 @@ if ($SkipClone) {
             New-Item -ItemType Directory -Path "apps\smriti_retail_os" -Force | Out-Null
         }
         $items = Get-ChildItem "apps\smriti_retail_os" -ErrorAction SilentlyContinue
-        if ($items.Count -eq 0) {
+        if (-not $items) {
             Write-Step "Cloning smriti_retail_os from GitHub..."
             git clone --branch $SMRITI_BRANCH --depth 1 $SMRITI_REPO "apps\smriti_retail_os"
             if ($LASTEXITCODE -ne 0) { Write-Fail "Failed to clone smriti_retail_os. Check your internet connection and the repo URL." }
@@ -139,7 +139,7 @@ if ($SkipClone) {
             New-Item -ItemType Directory -Path "apps\india_compliance" -Force | Out-Null
         }
         $items = Get-ChildItem "apps\india_compliance" -ErrorAction SilentlyContinue
-        if ($items.Count -eq 0) {
+        if (-not $items) {
             Write-Step "Cloning india_compliance from GitHub..."
             git clone --branch $IC_BRANCH --depth 1 $IC_REPO "apps\india_compliance"
             if ($LASTEXITCODE -ne 0) { Write-Fail "Failed to clone india_compliance. Check your internet connection." }
