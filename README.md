@@ -11,7 +11,7 @@ This repository contains the Docker configuration and orchestration required to 
 - **Frappe Framework v16**
 - **ERPNext v16** (Core Business Logic)
 - **India Compliance** (GST, E-Invoicing, Audit Trail)
-- **SMRITI Retail OS** (Premium Experience Layer & Custom POS)
+- **SMRITI Retail OS** (Premium Experience Layer & Custom POS and B2b/Warehouse/Retail  )
 
 ## Features of this Setup
 
