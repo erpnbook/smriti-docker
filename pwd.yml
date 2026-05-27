@@ -8,7 +8,7 @@ services:
         condition: on-failure
     # ── SMRITI FIX 1: Healthcheck so frontend never connects before Gunicorn is ready
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      test: ["CMD", "curl", "-f", "-H", "Host: frontend", "http://localhost:8000"]
       interval: 10s
       timeout: 5s
       retries: 10
