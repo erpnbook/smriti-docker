@@ -32,6 +32,9 @@ services:
       DB_PORT: "3306"
       MYSQL_ROOT_PASSWORD: admin
       MARIADB_ROOT_PASSWORD: admin
+      # ── SMRITI FIX: Ensure Frappe's importlib can find custom apps
+      PYTHONPATH: /home/frappe/frappe-bench/apps/smriti_retail_os:/home/frappe/frappe-bench/apps/india_compliance:/home/frappe/frappe-bench/apps/erpnext:/home/frappe/frappe-bench/apps/frappe
+
 
   configurator:
     image: frappe/erpnext:v16.19.1
