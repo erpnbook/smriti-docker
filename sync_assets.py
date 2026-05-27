@@ -38,8 +38,8 @@ def sync_assets():
                     with open(dst, "r") as f:
                         dst_data = json.load(f)
                     merged = {}
-                    merged.update(dst_data)
                     merged.update(src_data)
+                    merged.update(dst_data)
                     with open(dst, "w") as f:
                         json.dump(merged, f, indent=4)
                     print(f"  - Merged {json_file}")
