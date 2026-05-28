@@ -18,6 +18,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - ./backups:/home/frappe/frappe-bench/backups
     entrypoint:
       - bash
       - -c
@@ -187,6 +188,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - ./backups:/home/frappe/frappe-bench/backups
 
   queue-short:
     image: frappe/erpnext:v16.19.1
@@ -207,6 +209,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - ./backups:/home/frappe/frappe-bench/backups
 
   redis-queue:
     image: redis:6.2-alpine
@@ -245,6 +248,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
+      - ./backups:/home/frappe/frappe-bench/backups
 
   websocket:
     image: frappe/erpnext:v16.19.1
