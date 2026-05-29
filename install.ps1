@@ -200,17 +200,17 @@ Write-OK "All containers launched."
 # =============================================================================
 Write-Header "Phase 5 - Waiting for Site Initialization"
 
-Write-Step "Streaming create-site logs (this takes 2-5 minutes)..."
-Write-Host "  Press Ctrl+C to stop watching logs at any time.`n" -ForegroundColor DarkGray
+Write-Step "Waiting for site creation (this takes 3-8 minutes on first run)..."
+Write-Host "  Press Ctrl+C to stop watching at any time.`n" -ForegroundColor DarkGray
 
 # Find the create-site container name dynamically
 $folderName = (Get-Item -Path ".").Name -replace '[^a-z0-9]', '_'
 $createSiteContainer = "${folderName}-create-site-1"
 
-# Try to follow logs; timeout after 10 minutes
-$timeout = 600
+# Timeout after 15 minutes (create-site now waits for configurator first)
+$timeout = 900
 $elapsed = 0
-$interval = 10
+$interval = 15
 $siteReady = $false
 
 # Brief initial wait for container to start
@@ -241,8 +241,9 @@ while ($elapsed -lt $timeout) {
 }
 
 if (-not $siteReady) {
-    Write-Warn "Timed out waiting for site creation. The process may still be running."
-    Write-Warn "Run 'docker logs $createSiteContainer --tail 50' to check progress."
+    Write-Warn "Timed out waiting for site creation after 15 minutes."
+    Write-Warn "Run 'docker logs $createSiteContainer --tail 100' to check progress."
+    Write-Warn "Run '.\check.ps1' to diagnose."
 }
 
 # =============================================================================
@@ -254,29 +255,29 @@ Write-Header "Phase 6 - Post-Install Setup"
 $backendContainer = "${folderName}-backend-1"
 
 Write-Step "Waiting for backend container to be healthy..."
+Write-Host "  (Backend starts only after site creation completes)" -ForegroundColor DarkGray
 $healthy = $false
-for ($i = 0; $i -lt 12; $i++) {
-    $bStatus = docker inspect --format='{{.State.Status}}' $backendContainer 2>&1
-    if ($bStatus -eq "running") { $healthy = $true; break }
-    Start-Sleep -Seconds 5
+for ($i = 0; $i -lt 30; $i++) {
+    $bStatus = docker inspect --format='{{.State.Health.Status}}' $backendContainer 2>&1
+    if ($bStatus -eq "healthy") { $healthy = $true; break }
+    $cStatus = docker inspect --format='{{.State.Status}}' $backendContainer 2>&1
+    if ($cStatus -eq "running") {
+        Write-Host "  [${i}] Backend running, waiting for healthy..." -ForegroundColor DarkGray
+    } else {
+        Write-Host "  [${i}] Backend status: $cStatus (waiting for create-site to finish)..." -ForegroundColor DarkGray
+    }
+    Start-Sleep -Seconds 10
 }
 
 if ($healthy) {
-    Write-Step "Running SMRITI setup..."
-    docker exec $backendContainer bench --site $SITE_NAME execute smriti_retail_os.setup.setup_smriti_retail_os 2>&1
-    Write-OK "SMRITI setup complete."
-
-    Write-Step "Syncing assets to Nginx (fixes MIME-type issues)..."
-    docker exec $backendContainer bench --site $SITE_NAME execute smriti_retail_os.sync_assets.sync_assets 2>&1
-    Write-OK "Assets synced."
-
+    # NOTE: setup and sync_assets are already handled by the create-site container.
+    # We only need to clear cache here.
     Write-Step "Clearing cache..."
     docker exec $backendContainer bench --site $SITE_NAME clear-cache 2>&1
     Write-OK "Cache cleared."
 } else {
-    Write-Warn "Backend container not running yet. You may need to run post-install steps manually:"
-    Write-Host "  docker exec $backendContainer bench --site $SITE_NAME execute smriti_retail_os.setup.setup_smriti_retail_os" -ForegroundColor DarkGray
-    Write-Host "  docker exec $backendContainer bench --site $SITE_NAME execute smriti_retail_os.sync_assets.sync_assets" -ForegroundColor DarkGray
+    Write-Warn "Backend container not healthy yet. The site may still be initializing."
+    Write-Warn "Run '.\check.ps1' in a few minutes to verify system health."
 }
 
 # =============================================================================

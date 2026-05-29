@@ -3,6 +3,11 @@ services:
     image: frappe/erpnext:v16.19.1
     networks:
       - frappe_network
+    # ── SMRITI FIX 4: Backend must wait for create-site to finish DB migrations
+    #    Otherwise concurrent SELECT queries cause metadata lock deadlock on tabDocType
+    depends_on:
+      create-site:
+        condition: service_completed_successfully
     deploy:
       restart_policy:
         condition: on-failure
@@ -77,6 +82,12 @@ services:
     image: frappe/erpnext:v16.19.1
     networks:
       - frappe_network
+    # ── SMRITI FIX 5: Wait for configurator to write common_site_config.json first
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
     deploy:
       restart_policy:
         condition: none
@@ -93,23 +104,18 @@ services:
         wait-for-it -t 120 db:3306;
         wait-for-it -t 120 redis-cache:6379;
         wait-for-it -t 120 redis-queue:6379;
-        export start=`date +%s`;
-        until [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".db_host // empty"` ]] && \
-          [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".redis_cache // empty"` ]] && \
-          [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".redis_queue // empty"` ]];
-        do
-          echo "Waiting for sites/common_site_config.json to be created";
-          sleep 5;
-          if (( `date +%s`-start > 120 )); then
-            echo "could not find sites/common_site_config.json with required keys";
-            exit 1
-          fi
-        done;
-        echo "sites/common_site_config.json found";
+        echo "Dependencies ready. Installing custom apps...";
         /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
-        bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app india_compliance --install-app smriti_retail_os --set-default frontend &&
-        bench --site frontend build --app smriti_retail_os --app india_compliance &&
-        bench --site frontend execute smriti_retail_os.setup.setup_smriti_retail_os &&
+        if [ -f sites/frontend/site_config.json ]; then
+          echo "Site 'frontend' already exists — running migrate...";
+          bench --site frontend migrate --skip-failing &&
+          bench --site frontend build --app smriti_retail_os --app india_compliance;
+        else
+          echo "Creating new site 'frontend'...";
+          bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app india_compliance --install-app smriti_retail_os --set-default frontend &&
+          bench --site frontend build --app smriti_retail_os --app india_compliance &&
+          bench --site frontend execute smriti_retail_os.setup.setup_smriti_retail_os;
+        fi &&
         bench --site frontend execute smriti_retail_os.sync_assets.sync_assets;
 
   db:
@@ -173,6 +179,10 @@ services:
     image: frappe/erpnext:v16.19.1
     networks:
       - frappe_network
+    # ── SMRITI FIX 6: Workers must not start until DB migrations complete
+    depends_on:
+      create-site:
+        condition: service_completed_successfully
     deploy:
       restart_policy:
         condition: on-failure
@@ -194,6 +204,10 @@ services:
     image: frappe/erpnext:v16.19.1
     networks:
       - frappe_network
+    # ── SMRITI FIX 7: Workers must not start until DB migrations complete
+    depends_on:
+      create-site:
+        condition: service_completed_successfully
     deploy:
       restart_policy:
         condition: on-failure
@@ -233,6 +247,10 @@ services:
     image: frappe/erpnext:v16.19.1
     networks:
       - frappe_network
+    # ── SMRITI FIX 8: Scheduler must not start until DB migrations complete
+    depends_on:
+      create-site:
+        condition: service_completed_successfully
     deploy:
       restart_policy:
         condition: on-failure
