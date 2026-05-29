@@ -250,6 +250,39 @@ bash install.sh --force
 
 ---
 
+## 🗑️ How to Uninstall & Stop
+
+If you want to stop the services, wipe the environment, or completely uninstall SMRITI Retail OS from your machine:
+
+### 1. Stop the Services (Temporary)
+To temporarily stop all running SMRITI Docker containers without losing any database data or configurations:
+```bash
+docker compose -f pwd.yml down
+```
+
+### 2. Completely Uninstall (Deletes All Data)
+To completely remove all SMRITI Docker containers, backend volumes, network bridges, and local database storage:
+```bash
+docker compose -f pwd.yml down -v
+```
+
+### 3. Remove Source Files (Optional)
+To delete all local orchestration configuration files and bind-mounted applications:
+
+**Windows (PowerShell):**
+```powershell
+cd ..
+Remove-Item -Recurse -Force smriti_retail
+```
+
+**Linux / macOS (Bash):**
+```bash
+cd ..
+rm -rf smriti_retail
+```
+
+---
+
 ## ❓ Common Issues
 
 | Symptom | Quick Fix |
