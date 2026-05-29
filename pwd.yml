@@ -29,8 +29,18 @@ services:
       - -c
     command:
       - >
-        /home/frappe/frappe-bench/env/bin/pip install -q -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
-        (sleep 15 && /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/apps/smriti_retail_os/smriti_retail_os/sync_assets.py) &
+        /home/frappe/frappe-bench/env/bin/pip install -q --no-deps --no-index -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
+        /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/apps/smriti_retail_os/smriti_retail_os/sync_assets.py &&
+        (
+          echo "[SMRITI Asset Guard] In-container watchdog started";
+          while true; do
+            if [ -L /home/frappe/frappe-bench/sites/assets ] || [ ! -d /home/frappe/frappe-bench/sites/assets/smriti_retail_os ]; then
+              echo "[SMRITI Asset Guard] Symlink or missing assets detected! Re-syncing...";
+              /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/apps/smriti_retail_os/smriti_retail_os/sync_assets.py;
+            fi;
+            sleep 60;
+          done
+        ) &
         /usr/local/bin/entrypoint.sh start.sh
 
     environment:
@@ -54,11 +64,11 @@ services:
       - -c
     command:
       - >
-        /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
-        echo "smriti_retail_os" > sites/apps.txt;
-        echo "india_compliance" >> sites/apps.txt;
-        echo "erpnext" >> sites/apps.txt;
-        echo "frappe" >> sites/apps.txt;
+        /home/frappe/frappe-bench/env/bin/pip install --no-deps --no-index -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
+        echo "frappe" > sites/apps.txt &&
+        echo "erpnext" >> sites/apps.txt &&
+        echo "india_compliance" >> sites/apps.txt &&
+        echo "smriti_retail_os" >> sites/apps.txt &&
         bench set-config -g db_host $$DB_HOST;
         bench set-config -gp db_port $$DB_PORT;
         bench set-config -g redis_cache "redis://$$REDIS_CACHE";
@@ -105,7 +115,7 @@ services:
         wait-for-it -t 120 redis-cache:6379;
         wait-for-it -t 120 redis-queue:6379;
         echo "Dependencies ready. Installing custom apps...";
-        /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
+        /home/frappe/frappe-bench/env/bin/pip install --no-deps --no-index -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
         if [ -f sites/frontend/site_config.json ]; then
           echo "Site 'frontend' already exists — running migrate...";
           bench --site frontend migrate --skip-failing &&
@@ -191,7 +201,7 @@ services:
       - -c
     command:
       - >
-        /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
+        /home/frappe/frappe-bench/env/bin/pip install --no-deps --no-index -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
         /usr/local/bin/entrypoint.sh bench worker --queue long,default,short
     volumes:
       - sites:/home/frappe/frappe-bench/sites
@@ -216,7 +226,7 @@ services:
       - -c
     command:
       - >
-        /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
+        /home/frappe/frappe-bench/env/bin/pip install --no-deps --no-index -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
         /usr/local/bin/entrypoint.sh bench worker --queue short,default
     volumes:
       - sites:/home/frappe/frappe-bench/sites
@@ -259,7 +269,7 @@ services:
       - -c
     command:
       - >
-        /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
+        /home/frappe/frappe-bench/env/bin/pip install --no-deps --no-index -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
         /usr/local/bin/entrypoint.sh bench schedule
     volumes:
       - sites:/home/frappe/frappe-bench/sites
@@ -285,39 +295,6 @@ services:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
 
-  # ── SMRITI FIX 3: Asset Guard — permanent watchdog for branding assets
-  #    Runs forever, checks every 30s if sites/assets is a symlink.
-  #    If symlink detected (meaning a container re-linked it), re-runs
-  #    sync_assets to restore physical SMRITI branding files.
-  #    This makes branding restoration AUTOMATIC and PERMANENT.
-  smriti-asset-guard:
-    image: frappe/erpnext:v16.19.1
-    networks:
-      - frappe_network
-    depends_on:
-      backend:
-        condition: service_healthy
-    deploy:
-      restart_policy:
-        condition: on-failure
-    volumes:
-      - sites:/home/frappe/frappe-bench/sites
-      - logs:/home/frappe/frappe-bench/logs
-      - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
-    entrypoint:
-      - bash
-      - -c
-    command:
-      - >
-        echo "[SMRITI Asset Guard] Started — watching sites/assets every 30s";
-        sleep 20;
-        while true; do
-          if [ -L /home/frappe/frappe-bench/sites/assets ] || [ ! -d /home/frappe/frappe-bench/sites/assets/smriti_retail_os ]; then
-            echo "[SMRITI Asset Guard] Symlink or missing assets detected! Re-syncing...";
-            python /home/frappe/frappe-bench/apps/smriti_retail_os/smriti_retail_os/sync_assets.py;
-          fi;
-          sleep 30;
-        done
 
 volumes:
   db-data:
