@@ -266,6 +266,15 @@ To completely remove all SMRITI Docker containers, backend volumes, network brid
 docker compose -f pwd.yml down -v
 ```
 
+> [!WARNING]
+> If Docker reports **`Resource is still in use`** (or fails to delete network/volumes), it is because the dangling `asset-guard` container is still active. Stop and remove it manually before rerunning down:
+> ```bash
+> docker stop smriti_retail-smriti-asset-guard-1
+> docker rm smriti_retail-smriti-asset-guard-1
+> # Now retry:
+> docker compose -f pwd.yml down -v
+> ```
+
 ### 3. Remove Source Files (Optional)
 To delete all local orchestration configuration files and bind-mounted applications:
 
