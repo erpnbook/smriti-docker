@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clean Neumorphic Hybrid — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS — The Single Source of Truth
+   ═══════════════════════════════════════════════════════ */
+:root {
+  /* ── Surfaces ──────────────────────────────────────── */
+  --bg:              #e8ecf2;   /* Neumorphic base — slightly warm slate */
+  --surface:         #ffffff;   /* Flat data containers */
+  --surface-2:       #f8fafc;   /* Secondary flat surface */
+  --border:          #e2e8f0;   /* Crisp thin border */
+  --border-strong:   #cbd5e1;
+
+  /* ── Typography ────────────────────────────────────── */
+  --text-primary:    #0f172a;
+  --text-secondary:  #475569;
+  --text-muted:      #94a3b8;
+  --text-on-accent:  #ffffff;
+
+  /* ── Brand ─────────────────────────────────────────── */
+  --accent:          #6366f1;
+  --accent-2:        #8b5cf6;
+  --accent-hover:    #4f46e5;
+  --success:         #10b981;
+  --warning:         #f59e0b;
+  --danger:          #ef4444;
+  --info:            #0ea5e9;
+
+  /* ══ NEUMORPHIC SHADOW TOKENS (Light Mode) ══════════
+     Source: bg #e8ecf2
+     Dark shadow:  #c8ccd6   Light shadow: #ffffff
+  ════════════════════════════════════════════════════ */
+  --neu-float:
+    6px  6px 14px  #c5c9d4,
+    -6px -6px 14px #ffffff;
+
+  --neu-float-lg:
+    10px  10px 24px #c0c4d0,
+    -10px -10px 24px #ffffff;
+
+  --neu-pressed:
+    inset 6px  6px 12px #c5c9d4,
+    inset -6px -6px 12px #ffffff;
+
+  --neu-pressed-sm:
+    inset 3px  3px 7px  #c8ccd6,
+    inset -3px -3px 7px #ffffff;
+
+  /* ── Flat shadows for elevated surfaces ────────────── */
+  --shadow-sm:  0 1px 3px rgba(15,23,42,.07), 0 1px 2px rgba(15,23,42,.04);
+  --shadow-md:  0 4px 12px rgba(15,23,42,.08), 0 2px 4px rgba(15,23,42,.04);
+  --shadow-lg:  0 12px 28px rgba(15,23,42,.10), 0 4px 8px rgba(15,23,42,.04);
+  --shadow-xl:  0 24px 48px rgba(15,23,42,.12), 0 8px 16px rgba(15,23,42,.05);
+
+  /* ── Radii ─────────────────────────────────────────── */
+  --r-sm:  6px;
+  --r-md:  10px;
+  --r-lg:  14px;
+  --r-xl:  18px;
+  --r-2xl: 24px;
+  --r-full: 9999px;
+
+  /* ── Transitions ───────────────────────────────────── */
+  --ease:     cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast:   0.12s;
+  --t-base:   0.20s;
+  --t-slow:   0.35s;
+
+  /* ── Sidebar ───────────────────────────────────────── */
+  --sidebar-w: 240px;
+  --navbar-h:  60px;
+}
+
+/* ═══ DARK MODE TOKENS ═══════════════════════════════ */
+[data-theme="dark"] {
+  --bg:              #0f172a;
+  --surface:         #1e293b;
+  --surface-2:       #162032;
+  --border:          #334155;
+  --border-strong:   #475569;
+  --text-primary:    #f1f5f9;
+  --text-secondary:  #94a3b8;
+  --text-muted:      #475569;
+
+  --neu-float:
+    6px  6px 14px #0a1120,
+    -6px -6px 14px #1e293b;
+
+  --neu-float-lg:
+    10px 10px 24px #080f1c,
+    -10px -10px 24px #20304a;
+
+  --neu-pressed:
+    inset 6px  6px 12px #080f1c,
+    inset -6px -6px 12px #1e293b;
+
+  --neu-pressed-sm:
+    inset 3px  3px 7px  #08101d,
+    inset -3px -3px 7px #1c2b3f;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.3);
+  --shadow-md:  0 4px 12px rgba(0,0,0,.35);
+  --shadow-lg:  0 12px 28px rgba(0,0,0,.4);
+  --shadow-xl:  0 24px 48px rgba(0,0,0,.5);
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--t-slow) var(--ease), color var(--t-slow) var(--ease);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ATOMIC COMPONENTS — FLAT (Data / Structure)
+   ═══════════════════════════════════════════════════════ */
+
+/* Flat Card — Data containers, charts, tables */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  transition: border-color var(--t-base) var(--ease);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+}
+
+.card-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+/* Section Label */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ATOMIC COMPONENTS — NEUMORPHIC (Interactive Elements)
+   ═══════════════════════════════════════════════════════ */
+
+/* Metric Card — Primary interactive neumorphic card */
+.neu-card {
+  background: var(--bg);
+  border-radius: var(--r-xl);
+  padding: 22px 24px;
+  box-shadow: var(--neu-float);
+  cursor: pointer;
+  transition:
+    box-shadow var(--t-base) var(--ease),
+    transform   var(--t-base) var(--ease);
+  user-select: none;
+  border: none;
+  outline: none;
+}
+
+.neu-card:hover {
+  box-shadow: var(--neu-float-lg);
+  transform: translateY(-1px);
+}
+
+.neu-card:active,
+.neu-card.pressed {
+  box-shadow: var(--neu-pressed);
+  transform: translateY(0);
+}
+
+.neu-card.selected {
+  box-shadow: var(--neu-pressed);
+}
+
+/* Neu Button */
+.btn-neu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 20px;
+  border-radius: var(--r-md);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--t-base) var(--ease);
+  position: relative;
+  background: var(--bg);
+  color: var(--text-primary);
+  box-shadow: var(--neu-float);
+}
+
+.btn-neu:hover {
+  box-shadow: var(--neu-float-lg);
+  transform: translateY(-1px);
+}
+
+.btn-neu:active {
+  box-shadow: var(--neu-pressed);
+  transform: translateY(0);
+}
+
+/* Accent button variation */
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  box-shadow:
+    5px 5px 12px rgba(99, 102, 241, 0.35),
+    -3px -3px 8px rgba(139, 92, 246, 0.20);
+}
+
+.btn-accent:hover {
+  box-shadow:
+    7px 7px 16px rgba(99, 102, 241, 0.42),
+    -4px -4px 10px rgba(139, 92, 246, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-accent:active {
+  box-shadow:
+    inset 4px 4px 8px rgba(79, 70, 229, 0.4),
+    inset -2px -2px 5px rgba(109, 72, 216, 0.2);
+  transform: translateY(0);
+}
+
+.btn-sm { padding: 7px 14px; font-size: 12px; }
+.btn-icon { width: 36px; height: 36px; padding: 0; border-radius: var(--r-md); }
+
+/* Neu Input */
+.neu-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid transparent;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  box-shadow: var(--neu-pressed-sm);
+  outline: none;
+  transition: all var(--t-base) var(--ease);
+}
+
+.neu-input::placeholder { color: var(--text-muted); }
+
+.neu-input:focus {
+  border-color: var(--accent);
+  box-shadow:
+    var(--neu-pressed-sm),
+    0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* Neu Toggle Switch */
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: var(--r-full);
+  background: var(--bg);
+  box-shadow: var(--neu-pressed-sm);
+  cursor: pointer;
+  transition: all var(--t-base) var(--ease);
+  flex-shrink: 0;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  top: 3px;
+  left: 3px;
+  transition: all var(--t-base) var(--ease);
+  box-shadow: var(--neu-float);
+}
+
+.toggle.on::after {
+  left: 23px;
+  background: var(--accent);
+  box-shadow:
+    3px 3px 7px rgba(99,102,241,.35),
+    -2px -2px 5px rgba(139,92,246,.2);
+}
+
+/* Neu Segmented Control */
+.segmented {
+  display: inline-flex;
+  background: var(--bg);
+  border-radius: var(--r-md);
+  box-shadow: var(--neu-pressed-sm);
+  padding: 4px;
+  gap: 2px;
+}
+
+.seg-btn {
+  padding: 7px 16px;
+  border-radius: calc(var(--r-md) - 2px);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--t-base) var(--ease);
+  user-select: none;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.seg-btn.active {
+  background: var(--bg);
+  color: var(--text-primary);
+  box-shadow: var(--neu-float);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════ */
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  grid-template-rows: var(--navbar-h) 1fr;
+  min-height: 100vh;
+}
+
+/* ── Sidebar (FLAT) ──────────────────────────────────── */
+.sidebar {
+  grid-row: 1 / -1;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sidebar-brand {
+  padding: 0 20px;
+  height: var(--navbar-h);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-sm);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 14px 8px 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--r-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--t-fast) var(--ease);
+  text-decoration: none;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: var(--surface-2);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-item .nav-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.nav-item.active .nav-icon { opacity: 1; }
+
+.nav-badge {
+  margin-left: auto;
+  background: var(--accent);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--r-full);
+  min-width: 18px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  padding: 16px 12px;
+  border-top: 1px solid var(--border);
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+
+.user-row:hover { background: var(--surface-2); }
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.user-info { flex: 1; min-width: 0; }
+.user-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.user-role { font-size: 11px; color: var(--text-muted); }
+
+/* ── Topbar (FLAT) ───────────────────────────────────── */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 16px;
+}
+
+.topbar-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.topbar-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border-radius: var(--r-md);
+  padding: 7px 12px;
+  box-shadow: var(--neu-pressed-sm);
+  width: 220px;
+  cursor: text;
+}
+
+.topbar-search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: var(--text-primary);
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.topbar-search input::placeholder { color: var(--text-muted); }
+
+/* ── Main Content ────────────────────────────────────── */
+.main {
+  padding: 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--bg);
+}
+
+/* KPI Grid — Neumorphic interactive cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.kpi-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+}
+
+.kpi-change.up { color: var(--success); background: rgba(16,185,129,.10); }
+.kpi-change.down { color: var(--danger); background: rgba(239,68,68,.10); }
+.kpi-change.neutral { color: var(--text-muted); background: var(--surface-2); }
+
+.kpi-sparkline {
+  margin-top: 14px;
+  height: 36px;
+}
+
+.kpi-accent-bar {
+  height: 3px;
+  border-radius: var(--r-full);
+  margin-bottom: 16px;
+}
+
+/* Content Grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+}
+
+.content-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* ── Table (FLAT) ────────────────────────────────────── */
+.data-table { width: 100%; border-collapse: collapse; }
+
+.data-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table th:first-child { border-radius: var(--r-sm) 0 0 0; }
+.data-table th:last-child { border-radius: 0 var(--r-sm) 0 0; }
+
+.data-table td {
+  padding: 11px 14px;
+  font-size: 13px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.data-table tbody tr { transition: background var(--t-fast); }
+
+.data-table tbody tr:hover td { background: var(--surface-2); }
+
+.data-table tbody tr:last-child td { border-bottom: none; }
+
+/* Status Pill — FLAT */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--r-full);
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.status-pill.paid   { color: var(--success); background: rgba(16,185,129,.08); border-color: rgba(16,185,129,.18); }
+.status-pill.pending { color: var(--warning); background: rgba(245,158,11,.08); border-color: rgba(245,158,11,.18); }
+.status-pill.failed  { color: var(--danger);  background: rgba(239,68,68,.08);  border-color: rgba(239,68,68,.18);  }
+.status-pill.info    { color: var(--info);    background: rgba(14,165,233,.08);  border-color: rgba(14,165,233,.18); }
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Progress Bar — FLAT track */
+.progress-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  transition: width 0.6s var(--ease);
+}
+
+/* Donut */
+.donut-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Activity Feed — FLAT */
+.activity-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.activity-item:last-child { border-bottom: none; }
+
+.activity-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.activity-body { flex: 1; }
+.activity-text { font-size: 13px; color: var(--text-primary); }
+.activity-text strong { font-weight: 600; }
+.activity-time { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+/* ── Theme Toggle (Neumorphic!) ──────────────────────── */
+#theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-md);
+  background: var(--bg);
+  box-shadow: var(--neu-float);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all var(--t-base) var(--ease);
+  color: var(--text-secondary);
+}
+
+#theme-toggle:hover { box-shadow: var(--neu-float-lg); transform: translateY(-1px); }
+#theme-toggle:active { box-shadow: var(--neu-pressed); transform: translateY(0); }
+
+/* Notification Bell */
+.notif-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-md);
+  background: var(--bg);
+  box-shadow: var(--neu-float);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all var(--t-base) var(--ease);
+  color: var(--text-secondary);
+}
+
+.notif-btn:hover { box-shadow: var(--neu-float-lg); transform: translateY(-1px); }
+.notif-btn:active { box-shadow: var(--neu-pressed); }
+
+.notif-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+  border: 2px solid var(--surface);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--border);
+  border: none;
+  margin: 0;
+}
+
+/* Tag */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(99,102,241,.08);
+  color: var(--accent);
+  border: 1px solid rgba(99,102,241,.16);
+}
+
+/* Text helpers */
+.text-sm     { font-size: 12px; }
+.text-xs     { font-size: 11px; }
+.text-muted  { color: var(--text-muted); }
+.text-accent { color: var(--accent); }
+.text-success{ color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-warning{ color: var(--warning); }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+
+/* Flexbox utils */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+
+/* Spacing */
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.main > * {
+  animation: fadeUp 0.4s var(--ease) both;
+}
+
+.main > *:nth-child(1) { animation-delay: 0.00s; }
+.main > *:nth-child(2) { animation-delay: 0.06s; }
+.main > *:nth-child(3) { animation-delay: 0.12s; }
+.main > *:nth-child(4) { animation-delay: 0.18s; }
+.main > *:nth-child(5) { animation-delay: 0.24s; }
+
+/* Design System Showcase Panel */
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.ds-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.ds-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: var(--r-full); }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ═══════════════ SIDEBAR (FLAT) ═══════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">N</div>
+      <span class="brand-name">NeuEnterprise</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Core</div>
+
+      <button class="nav-item active">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+        <span class="nav-badge">4</span>
+      </button>
+
+      <button class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 11h18v4H3zM3 19h18v4H3z" opacity=".5"/><line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+        Orders
+      </button>
+
+      <button class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        Products
+      </button>
+
+      <button class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Customers
+      </button>
+
+      <div class="nav-section-label">Analytics</div>
+
+      <button class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+        Reports
+      </button>
+
+      <button class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </button>
+
+      <div class="nav-section-label">System</div>
+
+      <button class="nav-item">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+        Settings
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="avatar">AR</div>
+        <div class="user-info">
+          <div class="user-name">Arjun Rao</div>
+          <div class="user-role">Admin · Store Manager</div>
+        </div>
+        <svg style="color:var(--text-muted);flex-shrink:0" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════ TOPBAR (FLAT) ═══════════════ -->
+  <header class="topbar">
+    <div>
+      <div class="topbar-title">Dashboard <span class="topbar-sub">/ Overview</span></div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;background:var(--bg);padding:4px;border-radius:var(--r-md);box-shadow:var(--neu-pressed-sm)">
+      <button class="seg-btn active" onclick="setRange(this,'7d')">7 Days</button>
+      <button class="seg-btn" onclick="setRange(this,'30d')">30 Days</button>
+      <button class="seg-btn" onclick="setRange(this,'90d')">90 Days</button>
+    </div>
+
+    <div class="topbar-right">
+      <div class="topbar-search">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--text-muted);flex-shrink:0"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search anything…">
+      </div>
+
+      <button class="notif-btn" title="Notifications">
+        🔔
+        <span class="notif-badge"></span>
+      </button>
+
+      <button id="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☀️</button>
+
+      <button class="btn-neu btn-accent" style="padding:8px 16px;font-size:13px;">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New Report
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <main class="main">
+
+    <!-- ── Row 1: KPI Cards (NEUMORPHIC) ── -->
+    <div class="kpi-grid">
+
+      <div class="neu-card selected" id="kpi-revenue" onclick="selectKpi(this)">
+        <div class="kpi-accent-bar" style="background:linear-gradient(90deg,var(--accent),var(--accent-2))"></div>
+        <div class="kpi-label">Total Revenue</div>
+        <div class="kpi-value">₹48.2L</div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span class="kpi-change up">▲ 12.4%</span>
+          <span class="text-xs text-muted">vs last period</span>
+        </div>
+        <div class="kpi-sparkline">
+          <canvas id="spark-1" width="180" height="36"></canvas>
+        </div>
+      </div>
+
+      <div class="neu-card" id="kpi-orders" onclick="selectKpi(this)">
+        <div class="kpi-accent-bar" style="background:linear-gradient(90deg,var(--success),#34d399)"></div>
+        <div class="kpi-label">Orders Today</div>
+        <div class="kpi-value">1,284</div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span class="kpi-change up">▲ 8.1%</span>
+          <span class="text-xs text-muted">vs yesterday</span>
+        </div>
+        <div class="kpi-sparkline">
+          <canvas id="spark-2" width="180" height="36"></canvas>
+        </div>
+      </div>
+
+      <div class="neu-card" id="kpi-aov" onclick="selectKpi(this)">
+        <div class="kpi-accent-bar" style="background:linear-gradient(90deg,var(--warning),#fcd34d)"></div>
+        <div class="kpi-label">Avg Order Value</div>
+        <div class="kpi-value">₹375</div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span class="kpi-change down">▼ 2.3%</span>
+          <span class="text-xs text-muted">vs last week</span>
+        </div>
+        <div class="kpi-sparkline">
+          <canvas id="spark-3" width="180" height="36"></canvas>
+        </div>
+      </div>
+
+      <div class="neu-card" id="kpi-customers" onclick="selectKpi(this)">
+        <div class="kpi-accent-bar" style="background:linear-gradient(90deg,var(--info),#38bdf8)"></div>
+        <div class="kpi-label">Active Customers</div>
+        <div class="kpi-value">6,041</div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span class="kpi-change up">▲ 5.7%</span>
+          <span class="text-xs text-muted">this month</span>
+        </div>
+        <div class="kpi-sparkline">
+          <canvas id="spark-4" width="180" height="36"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Row 2: Revenue Chart + Donut ── -->
+    <div class="content-grid">
+
+      <!-- Revenue Chart — FLAT card -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Revenue Trend</div>
+            <div class="card-subtitle">Daily revenue over the selected period</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn-neu btn-sm">Export</button>
+            <button class="btn-neu btn-sm btn-accent">View All</button>
+          </div>
+        </div>
+        <canvas id="revenue-chart" height="180"></canvas>
+      </div>
+
+      <!-- Channel Split Donut — FLAT card -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Sales Channels</div>
+            <div class="card-subtitle">Revenue split by channel</div>
+          </div>
+        </div>
+        <div class="donut-wrap">
+          <canvas id="donut-chart" width="180" height="180"></canvas>
+          <div style="width:100%;display:flex;flex-direction:column;gap:10px">
+            <div id="legend-items"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Row 3: Transactions Table + Activity ── -->
+    <div class="content-grid">
+
+      <!-- Transactions Table — FLAT -->
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="card-header" style="padding:20px 24px;margin:0">
+          <div>
+            <div class="card-title">Recent Transactions</div>
+            <div class="card-subtitle">Showing latest 6 transactions</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn-neu btn-sm">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+              Filter
+            </button>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Invoice</th>
+              <th>Customer</th>
+              <th>Items</th>
+              <th>Amount</th>
+              <th>Channel</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="fw-600 text-accent">#INV-0091</span></td>
+              <td><div class="fw-600">Priya Sharma</div><div class="text-xs text-muted">priya@email.com</div></td>
+              <td>4 items</td>
+              <td class="fw-700">₹2,480</td>
+              <td><span class="tag">POS</span></td>
+              <td><span class="status-pill paid"><span class="status-dot"></span>Paid</span></td>
+            </tr>
+            <tr>
+              <td><span class="fw-600 text-accent">#INV-0090</span></td>
+              <td><div class="fw-600">Rahul Mehta</div><div class="text-xs text-muted">rahul@email.com</div></td>
+              <td>2 items</td>
+              <td class="fw-700">₹890</td>
+              <td><span class="tag" style="background:rgba(14,165,233,.08);color:var(--info);border-color:rgba(14,165,233,.18)">Online</span></td>
+              <td><span class="status-pill pending"><span class="status-dot"></span>Pending</span></td>
+            </tr>
+            <tr>
+              <td><span class="fw-600 text-accent">#INV-0089</span></td>
+              <td><div class="fw-600">Anil Kumar</div><div class="text-xs text-muted">anil@email.com</div></td>
+              <td>7 items</td>
+              <td class="fw-700">₹5,120</td>
+              <td><span class="tag">POS</span></td>
+              <td><span class="status-pill paid"><span class="status-dot"></span>Paid</span></td>
+            </tr>
+            <tr>
+              <td><span class="fw-600 text-accent">#INV-0088</span></td>
+              <td><div class="fw-600">Sneha Patil</div><div class="text-xs text-muted">sneha@email.com</div></td>
+              <td>1 item</td>
+              <td class="fw-700">₹349</td>
+              <td><span class="tag" style="background:rgba(16,185,129,.08);color:var(--success);border-color:rgba(16,185,129,.18)">App</span></td>
+              <td><span class="status-pill failed"><span class="status-dot"></span>Failed</span></td>
+            </tr>
+            <tr>
+              <td><span class="fw-600 text-accent">#INV-0087</span></td>
+              <td><div class="fw-600">Vikram Singh</div><div class="text-xs text-muted">vikram@email.com</div></td>
+              <td>3 items</td>
+              <td class="fw-700">₹1,750</td>
+              <td><span class="tag">POS</span></td>
+              <td><span class="status-pill paid"><span class="status-dot"></span>Paid</span></td>
+            </tr>
+            <tr>
+              <td><span class="fw-600 text-accent">#INV-0086</span></td>
+              <td><div class="fw-600">Meena Iyer</div><div class="text-xs text-muted">meena@email.com</div></td>
+              <td>5 items</td>
+              <td class="fw-700">₹3,200</td>
+              <td><span class="tag" style="background:rgba(14,165,233,.08);color:var(--info);border-color:rgba(14,165,233,.18)">Online</span></td>
+              <td><span class="status-pill info"><span class="status-dot"></span>Processing</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Activity Feed — FLAT -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Live Activity</div>
+            <div class="card-subtitle">Real-time system events</div>
+          </div>
+          <span class="status-pill paid"><span class="status-dot" style="animation:pulse 1.5s infinite"></span>Live</span>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon">🛍️</div>
+          <div class="activity-body">
+            <div class="activity-text"><strong>New order</strong> placed by Priya Sharma — ₹2,480</div>
+            <div class="activity-time">Just now · POS Terminal 2</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">📦</div>
+          <div class="activity-body">
+            <div class="activity-text"><strong>Stock alert:</strong> Basmati Rice 5kg — 8 units left</div>
+            <div class="activity-time">3 min ago · Warehouse</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">💳</div>
+          <div class="activity-body">
+            <div class="activity-text"><strong>Payment failed</strong> — INV-0088, retrying</div>
+            <div class="activity-time">7 min ago · Online Gateway</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">👤</div>
+          <div class="activity-body">
+            <div class="activity-text"><strong>New customer</strong> Vikram Singh registered</div>
+            <div class="activity-time">14 min ago · App</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">🔄</div>
+          <div class="activity-body">
+            <div class="activity-text"><strong>Shift opened</strong> by Cashier Ravi Kumar</div>
+            <div class="activity-time">1 hr ago · POS Terminal 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Row 4: Stock Progress + Design System Showcase ── -->
+    <div class="content-grid-3">
+
+      <!-- Stock Levels — FLAT data -->
+      <div class="card">
+        <div class="card-header" style="padding-bottom:14px;margin-bottom:16px">
+          <div class="card-title">Stock Health</div>
+          <span class="tag">6 alerts</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span class="text-sm fw-600">Basmati Rice 5kg</span>
+              <span class="text-sm text-danger fw-700">8 / 200</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:4%;background:var(--danger)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span class="text-sm fw-600">Toor Dal 1kg</span>
+              <span class="text-sm text-warning fw-700">34 / 150</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:23%;background:var(--warning)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span class="text-sm fw-600">Amul Butter 500g</span>
+              <span class="text-sm text-success fw-700">92 / 120</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:77%;background:var(--success)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span class="text-sm fw-600">Aashirvaad Atta 10kg</span>
+              <span class="text-sm fw-700" style="color:var(--accent)">110 / 180</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:61%;background:var(--accent)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span class="text-sm fw-600">Maggi Noodles 70g</span>
+              <span class="text-sm text-warning fw-700">28 / 200</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:14%;background:var(--warning)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+              <span class="text-sm fw-600">Colgate 200g</span>
+              <span class="text-sm text-success fw-700">145 / 160</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:91%;background:var(--success)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DESIGN SYSTEM SHOWCASE — Interactive Elements ── -->
+      <div class="card" style="grid-column: 2 / 4">
+        <div class="card-header">
+          <div class="card-title">🎛️ Design System — Interactive Component Library</div>
+          <span class="tag">Neumorphic affordances only</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+
+          <!-- Buttons -->
+          <div>
+            <div class="ds-section-title">Buttons (Neumorphic)</div>
+            <div class="ds-row" style="flex-direction:column;align-items:flex-start;">
+              <div class="ds-row">
+                <button class="btn-neu btn-accent">Primary Action</button>
+                <button class="btn-neu">Secondary</button>
+                <button class="btn-neu btn-sm">Small</button>
+              </div>
+              <div class="ds-row">
+                <button class="btn-neu" style="color:var(--danger)">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+                  Delete
+                </button>
+                <button class="btn-neu" style="color:var(--success)">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  Approve
+                </button>
+                <button class="btn-neu btn-icon">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M4.93 4.93a10 10 0 000 14.14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inputs -->
+          <div>
+            <div class="ds-section-title">Inputs (Neumorphic Inset)</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <input class="neu-input" type="text" placeholder="Search products…">
+              <div style="display:flex;gap:8px">
+                <input class="neu-input" type="number" placeholder="Quantity" style="width:50%">
+                <select class="neu-input" style="width:50%">
+                  <option>All Channels</option>
+                  <option>POS</option>
+                  <option>Online</option>
+                  <option>App</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Toggles -->
+          <div>
+            <div class="ds-section-title">Toggles & Switches (Neumorphic)</div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div class="toggle-wrap" onclick="this.querySelector('.toggle').classList.toggle('on')">
+                <div class="toggle on"></div>
+                <span class="text-sm fw-600">Auto-reconcile stock</span>
+                <span class="status-pill paid" style="margin-left:auto">Enabled</span>
+              </div>
+              <div class="toggle-wrap" onclick="this.querySelector('.toggle').classList.toggle('on')">
+                <div class="toggle"></div>
+                <span class="text-sm fw-600">Email receipts</span>
+                <span class="status-pill pending" style="margin-left:auto">Disabled</span>
+              </div>
+              <div class="toggle-wrap" onclick="this.querySelector('.toggle').classList.toggle('on')">
+                <div class="toggle on"></div>
+                <span class="text-sm fw-600">Live inventory sync</span>
+                <span class="status-pill paid" style="margin-left:auto">Enabled</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segmented Controls -->
+          <div>
+            <div class="ds-section-title">Segmented Controls (Neumorphic)</div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div>
+                <div class="text-xs text-muted mb-2">View Mode</div>
+                <div class="segmented">
+                  <button class="seg-btn active" onclick="activateSeg(this)">Grid</button>
+                  <button class="seg-btn" onclick="activateSeg(this)">List</button>
+                  <button class="seg-btn" onclick="activateSeg(this)">Table</button>
+                </div>
+              </div>
+              <div>
+                <div class="text-xs text-muted mb-2">Date Range</div>
+                <div class="segmented">
+                  <button class="seg-btn active" onclick="activateSeg(this)">Day</button>
+                  <button class="seg-btn" onclick="activateSeg(this)">Week</button>
+                  <button class="seg-btn" onclick="activateSeg(this)">Month</button>
+                  <button class="seg-btn" onclick="activateSeg(this)">Year</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<style>
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.5; transform:scale(1.3); }
+}
+</style>
+
+<script>
+/* ═══════════════════════════════════════
+   THEME TOGGLE
+   ═══════════════════════════════════════ */
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  if (html.dataset.theme === 'light') {
+    html.dataset.theme = 'dark';
+    btn.textContent = '🌙';
+  } else {
+    html.dataset.theme = 'light';
+    btn.textContent = '☀️';
+  }
+  // Redraw charts after theme change
+  setTimeout(() => { drawAll(); }, 50);
+}
+
+/* ═══════════════════════════════════════
+   INTERACTIVE STATE — KPI cards
+   ═══════════════════════════════════════ */
+function selectKpi(card) {
+  document.querySelectorAll('.neu-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+}
+
+/* ═══════════════════════════════════════
+   SEGMENTED CONTROLS
+   ═══════════════════════════════════════ */
+function activateSeg(btn) {
+  const parent = btn.closest('.segmented');
+  parent.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function setRange(btn, range) {
+  document.querySelectorAll('.topbar .seg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Redraw charts
+  drawAll();
+}
+
+/* ═══════════════════════════════════════
+   CHARTS — Pure Canvas
+   ═══════════════════════════════════════ */
+function getCSSVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function isDark() { return document.documentElement.dataset.theme === 'dark'; }
+
+/* Sparklines */
+function drawSparkline(id, data, color) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 180;
+  const H = canvas.offsetHeight || 36;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const range = max - min || 1;
+
+  const pad = 3;
+  const stepX = (W - pad * 2) / (data.length - 1);
+
+  const pts = data.map((v, i) => ({
+    x: pad + i * stepX,
+    y: H - pad - ((v - min) / range) * (H - pad * 2)
+  }));
+
+  // Gradient fill
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, H);
+  pts.forEach(p => ctx.lineTo(p.x, p.y));
+  ctx.lineTo(pts[pts.length - 1].x, H);
+  ctx.closePath();
+  const grad = ctx.createLinearGradient(0, 0, 0, H);
+  grad.addColorStop(0, color + '40');
+  grad.addColorStop(1, color + '00');
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Line
+  ctx.beginPath();
+  pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+
+  // End dot
+  const last = pts[pts.length - 1];
+  ctx.beginPath();
+  ctx.arc(last.x, last.y, 3.5, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+/* Revenue Area Chart */
+function drawRevenueChart() {
+  const canvas = document.getElementById('revenue-chart');
+  if (!canvas) return;
+  const parent = canvas.parentElement;
+  const dpr = window.devicePixelRatio || 1;
+  const W = parent.clientWidth - 48;
+  const H = 180;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const data1  = [62000, 81000, 74000, 95000, 88000, 112000, 97000]; // Revenue
+  const data2  = [41000, 55000, 49000, 64000, 59000, 73000, 65000];  // Costs
+
+  const padL = 48, padR = 16, padT = 12, padB = 36;
+  const cW = W - padL - padR;
+  const cH = H - padT - padB;
+
+  const allVals = [...data1, ...data2];
+  const maxV = Math.max(...allVals) * 1.1;
+
+  const xAt = i => padL + (i / (labels.length - 1)) * cW;
+  const yAt = v => padT + cH - (v / maxV) * cH;
+
+  // Grid
+  const textColor = isDark() ? '#475569' : '#cbd5e1';
+  const gridColor = isDark() ? '#1e293b' : '#f1f5f9';
+  ctx.font = '11px Inter';
+  ctx.textAlign = 'right';
+
+  for (let i = 0; i <= 4; i++) {
+    const y = padT + (cH / 4) * i;
+    const v = Math.round(maxV - (maxV / 4) * i);
+    ctx.fillStyle = textColor;
+    ctx.fillText('₹' + (v >= 1000 ? (v/1000).toFixed(0) + 'k' : v), padL - 8, y + 4);
+    ctx.strokeStyle = gridColor;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padL, y);
+    ctx.lineTo(padL + cW, y);
+    ctx.stroke();
+  }
+
+  // Area for data2 (Costs)
+  ctx.beginPath();
+  ctx.moveTo(xAt(0), yAt(data2[0]));
+  data2.forEach((v, i) => ctx.lineTo(xAt(i), yAt(v)));
+  ctx.lineTo(xAt(labels.length - 1), padT + cH);
+  ctx.lineTo(xAt(0), padT + cH);
+  ctx.closePath();
+  const grd2 = ctx.createLinearGradient(0, padT, 0, padT + cH);
+  grd2.addColorStop(0, '#10b98130');
+  grd2.addColorStop(1, '#10b98100');
+  ctx.fillStyle = grd2;
+  ctx.fill();
+
+  ctx.beginPath();
+  data2.forEach((v, i) => i === 0 ? ctx.moveTo(xAt(i), yAt(v)) : ctx.lineTo(xAt(i), yAt(v)));
+  ctx.strokeStyle = '#10b981';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([4, 3]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Area for data1 (Revenue)
+  ctx.beginPath();
+  ctx.moveTo(xAt(0), yAt(data1[0]));
+  data1.forEach((v, i) => ctx.lineTo(xAt(i), yAt(v)));
+  ctx.lineTo(xAt(labels.length - 1), padT + cH);
+  ctx.lineTo(xAt(0), padT + cH);
+  ctx.closePath();
+  const grd1 = ctx.createLinearGradient(0, padT, 0, padT + cH);
+  grd1.addColorStop(0, '#6366f140');
+  grd1.addColorStop(1, '#6366f100');
+  ctx.fillStyle = grd1;
+  ctx.fill();
+
+  ctx.beginPath();
+  data1.forEach((v, i) => i === 0 ? ctx.moveTo(xAt(i), yAt(v)) : ctx.lineTo(xAt(i), yAt(v)));
+  ctx.strokeStyle = '#6366f1';
+  ctx.lineWidth = 2.5;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+
+  // Dots on data1
+  data1.forEach((v, i) => {
+    ctx.beginPath();
+    ctx.arc(xAt(i), yAt(v), 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#6366f1';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(xAt(i), yAt(v), 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+  });
+
+  // X Labels
+  ctx.textAlign = 'center';
+  ctx.font = '11px Inter';
+  ctx.fillStyle = textColor;
+  labels.forEach((l, i) => {
+    ctx.fillText(l, xAt(i), H - 8);
+  });
+
+  // Legend
+  ctx.font = '11px Inter';
+  ctx.fillStyle = '#6366f1';
+  ctx.fillRect(padL, padT - 2, 12, 4);
+  ctx.fillStyle = isDark() ? '#f1f5f9' : '#0f172a';
+  ctx.textAlign = 'left';
+  ctx.fillText('Revenue', padL + 16, padT + 3);
+
+  ctx.strokeStyle = '#10b981';
+  ctx.setLineDash([4, 3]);
+  ctx.beginPath();
+  ctx.moveTo(padL + 80, padT);
+  ctx.lineTo(padL + 92, padT);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = isDark() ? '#94a3b8' : '#475569';
+  ctx.fillText('Cost of Goods', padL + 96, padT + 3);
+}
+
+/* Donut Chart */
+function drawDonut() {
+  const canvas = document.getElementById('donut-chart');
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = 180 * dpr;
+  canvas.height = 180 * dpr;
+  canvas.style.width = '180px';
+  canvas.style.height = '180px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const data = [
+    { label: 'POS Terminal',  value: 48, color: '#6366f1' },
+    { label: 'Online Store',  value: 28, color: '#10b981' },
+    { label: 'Mobile App',    value: 16, color: '#f59e0b' },
+    { label: 'Wholesale',     value:  8, color: '#0ea5e9' },
+  ];
+
+  const total = data.reduce((s, d) => s + d.value, 0);
+  const cx = 90, cy = 90, r = 70, inner = 44;
+  let start = -Math.PI / 2;
+
+  data.forEach(d => {
+    const angle = (d.value / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, start, start + angle);
+    ctx.closePath();
+    ctx.fillStyle = d.color;
+    ctx.fill();
+    start += angle;
+  });
+
+  // Inner circle (donut hole)
+  ctx.beginPath();
+  ctx.arc(cx, cy, inner, 0, Math.PI * 2);
+  ctx.fillStyle = isDark() ? '#1e293b' : '#ffffff';
+  ctx.fill();
+
+  // Center text
+  ctx.textAlign = 'center';
+  ctx.font = `700 20px Outfit`;
+  ctx.fillStyle = isDark() ? '#f1f5f9' : '#0f172a';
+  ctx.fillText(total + '%', cx, cy + 7);
+
+  // Legend
+  const legendEl = document.getElementById('legend-items');
+  if (legendEl) {
+    legendEl.innerHTML = data.map(d => `
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:10px;height:10px;border-radius:3px;background:${d.color};flex-shrink:0;display:inline-block"></span>
+          <span style="font-size:12px;color:var(--text-secondary)">${d.label}</span>
+        </div>
+        <span style="font-size:13px;font-weight:700;color:var(--text-primary);font-variant-numeric:tabular-nums">${d.value}%</span>
+      </div>
+    `).join('');
+  }
+}
+
+/* Draw Everything */
+function drawAll() {
+  // Sparkline data
+  const spark1 = [40,55,48,72,65,88,92,75,85,97];
+  const spark2 = [800,950,880,1100,1020,1180,1240,1090,1210,1284];
+  const spark3 = [410,390,405,380,360,388,375,365,380,375];
+  const spark4 = [4800,5100,5050,5400,5600,5750,5900,5980,6010,6041];
+
+  drawSparkline('spark-1', spark1, '#6366f1');
+  drawSparkline('spark-2', spark2, '#10b981');
+  drawSparkline('spark-3', spark3, '#f59e0b');
+  drawSparkline('spark-4', spark4, '#0ea5e9');
+  drawRevenueChart();
+  drawDonut();
+}
+
+// Init
+window.addEventListener('load', () => {
+  drawAll();
+  window.addEventListener('resize', drawAll);
+});
+</script>
+</body>
+</html>
