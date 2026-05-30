@@ -84,11 +84,22 @@ docker exec smriti_retail-backend-1 bench --site frontend run-tests --app smriti
 
 ## Updating to a New Version
 
+To pull the latest changes and update the application inside Docker:
+
 ```bash
+# 1. Pull the latest code in the app directory
 cd apps/smriti_retail_os && git pull origin main && cd ../..
-docker exec smriti_retail-backend-1 bench --site frontend migrate
+
+# 2. Build assets inside the container
 docker exec smriti_retail-backend-1 bench build --app smriti_retail_os
-docker exec smriti_retail-backend-1 bench --site frontend execute smriti_retail_os.sync_assets.sync_assets
+
+# 3. Migrate database (if schema changed)
+docker exec smriti_retail-backend-1 bench --site frontend migrate
+
+# 4. Sync assets to the shared volume
+docker exec smriti_retail-backend-1 /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/apps/smriti_retail_os/smriti_retail_os/sync_assets.py
+
+# 5. Clear cache
 docker exec smriti_retail-backend-1 bench --site frontend clear-cache
 ```
 
