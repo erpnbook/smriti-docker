@@ -18,6 +18,12 @@ cd smriti_retail
 .\install.ps1
 ```
 
+> [!TIP]
+> If Windows blocks the execution with a `SecurityError` (running scripts is disabled on this system), run the installer with a bypass policy instead:
+> ```powershell
+> PowerShell -ExecutionPolicy Bypass -File .\install.ps1
+> ```
+
 ### Linux / macOS (Bash)
 
 ```bash
@@ -302,6 +308,7 @@ rm -rf smriti_retail
 | `Invalid credentials` | `docker exec smriti_retail-backend-1 bench --site frontend set-admin-password NewPass` |
 | Container name wrong | Run `docker ps` to find actual names (depends on folder name) |
 | `ERPNEXT_VERSION not set` | Copy `example.env` to `.env` |
+| Script execution disabled | Run `PowerShell -ExecutionPolicy Bypass -File .\install.ps1` |
 
 For detailed solutions, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
 

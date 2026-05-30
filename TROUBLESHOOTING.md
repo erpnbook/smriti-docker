@@ -360,6 +360,38 @@ Start-Process "http://localhost:8080"
 
 ---
 
+## 🔴 Issue 10: "running scripts is disabled" — Windows PowerShell Execution Policy Restriction
+
+### Symptom
+```powershell
+.\install.ps1 : File D:\smriti_retail\install.ps1 cannot be loaded because running scripts is disabled on this system.
+For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+CategoryInfo          : SecurityError: (:) [], PSSecurityException
+FullyQualifiedErrorId : UnauthorizedAccess
+```
+
+### Root Cause
+Windows security blocks the execution of unsigned third-party scripts by default. The local PowerShell Execution Policy is set to `Restricted`.
+
+### Fix
+You do not need to change your global Windows security configuration. Run the installer script with a one-time execution policy bypass:
+
+```powershell
+PowerShell -ExecutionPolicy Bypass -File .\install.ps1
+```
+
+Alternatively, if you want to permanently allow local scripts for your current Windows user, run this command:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+Then run the installer as usual:
+```powershell
+.\install.ps1
+```
+
+---
+
 ## ✅ Full Health Check — Run This First
 
 Before debugging any issue, run this full health check:

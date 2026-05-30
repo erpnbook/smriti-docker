@@ -16,6 +16,12 @@ cd smriti_retail
 .\install.ps1
 ```
 
+> [!TIP]
+> If Windows blocks the execution with a `SecurityError` (running scripts is disabled), run the installer with a bypass policy instead:
+> ```powershell
+> PowerShell -ExecutionPolicy Bypass -File .\install.ps1
+> ```
+
 **Linux / macOS (Bash):**
 ```bash
 git clone https://github.com/erpnbook/smriti-docker.git smriti_retail
