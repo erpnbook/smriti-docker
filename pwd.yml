@@ -188,6 +188,7 @@ services:
       - ./frappe.conf.template:/templates/nginx/frappe.conf.template
     ports:
       - "8080:8080"
+      - "9000:9000"
 
   queue-long:
     image: frappe/erpnext:v16.19.1
