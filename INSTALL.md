@@ -155,10 +155,13 @@ Once `create-site` has exited successfully:
 
 ```bash
 # Run initial SMRITI configuration
-docker exec smriti_retail-backend-1 bench --site frontend execute smriti_retail_os.setup.setup_smriti_retail_os
+docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.setup.setup_smriti_retail_os
+
+# Run Excel spreadsheet company details sync
+docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.setup_tattly_threads.run
 
 # Sync compiled assets to Nginx (prevents CSS/JS MIME-type errors)
-docker exec smriti_retail-backend-1 bench --site frontend execute smriti_retail_os.sync_assets.sync_assets
+docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets
 ```
 
 > [!IMPORTANT]
@@ -225,14 +228,14 @@ git pull origin main
 cd ../..
 
 # 2. Run database migrations
-docker exec smriti_retail-backend-1 bench --site frontend migrate
+docker exec smriti_retail-backend-1 bench --site smriti_retail migrate
 
 # 3. Rebuild and sync assets
 docker exec smriti_retail-backend-1 bench build --app smriti_retail_os
-docker exec smriti_retail-backend-1 bench --site frontend execute smriti_retail_os.sync_assets.sync_assets
+docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets
 
 # 4. Clear cache
-docker exec smriti_retail-backend-1 bench --site frontend clear-cache
+docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 ```
 
 ---
@@ -304,8 +307,8 @@ rm -rf smriti_retail
 |---|---|
 | Backend keeps restarting | `apps/smriti_retail_os/` is empty → re-run `.\install.ps1` |
 | `502 Bad Gateway` | `docker restart smriti_retail-frontend-1` |
-| Blank/unstyled UI | Run asset sync: `bench --site frontend execute smriti_retail_os.sync_assets.sync_assets` |
-| `Invalid credentials` | `docker exec smriti_retail-backend-1 bench --site frontend set-admin-password NewPass` |
+| Blank/unstyled UI | Run asset sync: `bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets` |
+| `Invalid credentials` | `docker exec smriti_retail-backend-1 bench --site smriti_retail set-admin-password NewPass` |
 | Container name wrong | Run `docker ps` to find actual names (depends on folder name) |
 | `ERPNEXT_VERSION not set` | Copy `example.env` to `.env` |
 | Script execution disabled | Run `PowerShell -ExecutionPolicy Bypass -File .\install.ps1` |
