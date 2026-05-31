@@ -36,7 +36,7 @@ $SMRITI_BRANCH  = "main"
 $IC_REPO        = "https://github.com/resilient-tech/india-compliance.git"
 $IC_BRANCH      = "version-16"
 $APP_URL        = "http://localhost:8080"
-$SITE_NAME      = "frontend"
+$SITE_NAME      = "smriti_retail"
 
 Write-Banner
 

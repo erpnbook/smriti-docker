@@ -25,6 +25,7 @@ services:
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
       - ./backups:/home/frappe/frappe-bench/backups
       - pip-cache:/home/frappe/.cache/pip
+      - ./company:/home/frappe/frappe-bench/company
     entrypoint:
       - bash
       - -c
@@ -109,6 +110,7 @@ services:
       - ./apps/smriti_retail_os:/home/frappe/frappe-bench/apps/smriti_retail_os
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
       - pip-cache:/home/frappe/.cache/pip
+      - ./company:/home/frappe/frappe-bench/company
     entrypoint:
       - bash
       - -c
@@ -119,17 +121,18 @@ services:
         wait-for-it -t 120 redis-queue:6379;
         echo "Dependencies ready. Installing custom apps...";
         /home/frappe/frappe-bench/env/bin/pip install -e /home/frappe/frappe-bench/apps/smriti_retail_os -e /home/frappe/frappe-bench/apps/india_compliance &&
-        if [ -f sites/frontend/site_config.json ]; then
-          echo "Site 'frontend' already exists — running migrate...";
-          bench --site frontend migrate --skip-failing &&
-          bench --site frontend build --app smriti_retail_os --app india_compliance;
+        if [ -f sites/smriti_retail/site_config.json ]; then
+          echo "Site 'smriti_retail' already exists — running migrate...";
+          bench --site smriti_retail migrate --skip-failing &&
+          bench --site smriti_retail build --app smriti_retail_os --app india_compliance;
         else
-          echo "Creating new site 'frontend'...";
-          bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app india_compliance --install-app smriti_retail_os --set-default frontend &&
-          bench --site frontend build --app smriti_retail_os --app india_compliance &&
-          bench --site frontend execute smriti_retail_os.setup.setup_smriti_retail_os;
+          echo "Creating new site 'smriti_retail'...";
+          bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app india_compliance --install-app smriti_retail_os --set-default smriti_retail &&
+          bench --site smriti_retail build --app smriti_retail_os --app india_compliance &&
+          bench --site smriti_retail execute smriti_retail_os.setup.setup_smriti_retail_os &&
+          bench --site smriti_retail execute smriti_retail_os.setup_tattly_threads.run;
         fi &&
-        bench --site frontend execute smriti_retail_os.sync_assets.sync_assets;
+        bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets;
 
   db:
     image: mariadb:11.8
@@ -173,7 +176,7 @@ services:
       - nginx-entrypoint.sh
     environment:
       BACKEND: backend:8000
-      FRAPPE_SITE_NAME_HEADER: frontend
+      FRAPPE_SITE_NAME_HEADER: smriti_retail
       SOCKETIO: websocket:9000
       UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
       UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
