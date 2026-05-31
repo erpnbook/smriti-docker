@@ -100,3 +100,10 @@ A: Click the down-arrow in the progress panel to expand per-row error details. A
 
 **Q: Color not auto-created**  
 A: Ensure the `Color` Item Attribute exists in ERPNext (`/app/item-attribute/Color`). The system will add new values to it automatically.
+
+**Q: I previously got import errors due to missing colors or categories. Do I need to clean up the database before re-importing?**  
+A: No. Failed rows are not partially imported, so there is no corrupt data to clean up. To resolve:
+1. Refresh the `/sizewise_item` page.
+2. Re-paste the exact same Excel data.
+3. Use the new **Pre-Import Verification** panel to confirm/correct the missing attributes.
+4. Click **Confirm & Enable Import** and then click **Import All Styles & Variants**. The import will now succeed.
