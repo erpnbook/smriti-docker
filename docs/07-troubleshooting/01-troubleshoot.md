@@ -6,6 +6,7 @@ title: Troubleshoot
 - [docker-compose does not recognize variables from `.env` file](#docker-compose-does-not-recognize-variables-from-env-file)
 - [Windows Based Installation](#windows-based-installation)
 - [Redo installation](#redo-installation)
+- [Resetting Administrator Password / Invalid Credentials](#resetting-administrator-password--invalid-credentials)
 
 ### Fixing MariaDB issues after rebuilding the container
 
@@ -82,3 +83,17 @@ If you are using old version of `docker-compose` the .env file needs to be locat
   - images
   - volumes
 - Install a fresh
+
+### Resetting Administrator Password / Invalid Credentials
+
+If you encounter an "Invalid credentials" error on the login screen while signing in as `Administrator`, you can reset the password directly inside the Docker backend container.
+
+Run the following command in your terminal, replacing `smriti_retail` with your site name if different:
+
+```shell
+docker exec smriti_retail_os-backend-1 bench --site smriti_retail set-admin-password admin
+```
+
+After executing the command, you can sign in using:
+- **Username**: `Administrator` (case-sensitive)
+- **Password**: `admin` (or the new password you specified)
