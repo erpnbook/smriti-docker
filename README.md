@@ -64,7 +64,7 @@ This repository contains the official Docker Compose configuration and orchestra
 - **Automated Installation & Config**: The `pwd.yml` workflow automatically mounts required folders, installs custom apps, and sets up site credentials.
 - **Robust Physical Asset Sync**: Custom built-in hard-sync utility (`sync_assets`) that unlinks complex app symlinks and copies physical bundles straight to Nginx, completely bypassing Nginx MIME-type/404 errors.
 - **Day-to-day Operations Optimized**: Fully pre-allocated queues (long, short) and background workers.
-- **High Stability**: Integrated 19/19 passing automated test suite.
+- **High Stability**: Integrated 81/81 passing automated test suite.
 
 ---
 
@@ -82,9 +82,9 @@ Expected: all checks show ✔
 ## Running Automated Tests
 
 ```bash
-docker exec smriti_retail-backend-1 bench --site frontend run-tests --app smriti_retail_os
+docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
 ```
-*(All 19/19 tests must complete with **`OK`** status)*
+*(All 81/81 tests must complete with **`OK`** status)*
 
 ---
 
@@ -100,13 +100,13 @@ cd apps/smriti_retail_os && git pull origin main && cd ../..
 docker exec smriti_retail-backend-1 bench build --app smriti_retail_os
 
 # 3. Migrate database (if schema changed)
-docker exec smriti_retail-backend-1 bench --site frontend migrate
+docker exec smriti_retail-backend-1 bench --site smriti_retail migrate
 
 # 4. Sync assets to the shared volume
-docker exec smriti_retail-backend-1 /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/apps/smriti_retail_os/smriti_retail_os/sync_assets.py
+docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets
 
 # 5. Clear cache
-docker exec smriti_retail-backend-1 bench --site frontend clear-cache
+docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 ```
 
 ---
@@ -126,7 +126,7 @@ docker exec smriti_retail-backend-1 bench --site frontend clear-cache
 | Backend keeps restarting | `apps/smriti_retail_os/` is empty — re-run `.\install.ps1` |
 | `502 Bad Gateway` | `docker restart smriti_retail-frontend-1` |
 | Blank/unstyled UI | Run asset sync step in INSTALL.md |
-| `Invalid credentials` | `bench --site frontend set-admin-password NewPass` |
+| `Invalid credentials` | `docker exec -it smriti_retail-backend-1 bench --site smriti_retail set-admin-password NewPass` |
 
 See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for complete solutions.
 

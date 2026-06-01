@@ -54,10 +54,10 @@ docker ps --format "table {{.Names}}\t{{.Status}}"
 Then use the correct name:
 ```powershell
 # ✅ Correct
-docker exec -it smriti_retail-backend-1 bench --site frontend migrate
+docker exec -it smriti_retail-backend-1 bench --site smriti_retail migrate
 
 # ❌ Wrong (assumes folder name = "demotest")
-docker exec -it demotest-backend-1 bench --site frontend migrate
+docker exec -it demotest-backend-1 bench --site smriti_retail migrate
 ```
 
 > [!TIP]
@@ -122,7 +122,7 @@ docker ps --format "table {{.Names}}\t{{.Status}}"
 
 ### Symptom
 ```
-Site frontend already exists, use `--force` to proceed anyway
+Site smriti_retail already exists, use `--force` to proceed anyway
 ```
 
 ### Root Cause
@@ -140,7 +140,7 @@ docker compose up -d     # starts fresh
 
 If you just want to **run migrations** on the existing site:
 ```powershell
-docker exec -it smriti_retail-backend-1 bench --site frontend migrate
+docker exec -it smriti_retail-backend-1 bench --site smriti_retail migrate
 ```
 
 ---
@@ -219,7 +219,7 @@ Run `bench migrate` after:
 docker ps --format "table {{.Names}}\t{{.Status}}"
 
 # Then run migration
-docker exec -it smriti_retail-backend-1 bench --site frontend migrate
+docker exec -it smriti_retail-backend-1 bench --site smriti_retail migrate
 ```
 
 ### If Migration Fails
@@ -238,7 +238,7 @@ docker exec smriti_retail-backend-1 cat /home/frappe/frappe-bench/logs/bench.log
 ### Fix — Clear Cache and Rebuild Assets
 ```powershell
 # Clear server cache
-docker exec smriti_retail-backend-1 bench --site frontend clear-cache
+docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 
 # Rebuild JS/CSS assets
 docker exec smriti_retail-backend-1 bench build --app smriti_retail_os
@@ -297,16 +297,16 @@ docker compose restart scheduler queue-long queue-short
 
 ---
 
-## 🔴 Issue 9: "404 Not Found: frontend does not exist" — Site Never Created
+## 🔴 Issue 9: "404 Not Found: smriti_retail does not exist" — Site Never Created
 
 ### Symptom
 ```
-bench --site frontend migrate
-→ Error: 404 Not Found: frontend does not exist.
+bench --site smriti_retail migrate
+→ Error: 404 Not Found: smriti_retail does not exist.
 ```
 
 ### Root Cause
-The `frontend` site was never created. The `create-site` service in `pwd.yml` either failed or was never run. Also, `common_site_config.json` may be empty `{}`.
+The `smriti_retail` site was never created. The `create-site` service in `pwd.yml` either failed or was never run. Also, `common_site_config.json` may be empty `{}`.
 
 ### Verify
 ```powershell
@@ -342,13 +342,13 @@ docker exec smriti_retail-backend-1 bench new-site ^
   --install-app erpnext ^
   --install-app india_compliance ^
   --install-app smriti_retail_os ^
-  --set-default frontend
+  --set-default smriti_retail
 ```
 
 This takes 2-5 minutes. After completion:
 ```powershell
 # Build frontend assets
-docker exec smriti_retail-backend-1 bench --site frontend build --app smriti_retail_os --app india_compliance
+docker exec smriti_retail-backend-1 bench --site smriti_retail build --app smriti_retail_os --app india_compliance
 
 # Open the site
 Start-Process "http://localhost:8080"
@@ -489,4 +489,4 @@ docker compose logs -f backend
 
 ---
 
-*Last updated: May 2026 | Smriti Retail OS Docker Deployment*
+*Last updated: June 2026 | Smriti Retail OS Docker Deployment*

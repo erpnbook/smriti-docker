@@ -15,7 +15,7 @@ def run():
     print("Exporting items to CSV...")
     
     # We query for all variants of the articles we imported
-    target_articles = ["20016", "2006", "20001", "10019", "2097"]
+    target_articles = ["20016", "1455", "20001", "10019", "2097"]
     
     # Find all variants
     variants = frappe.get_all(

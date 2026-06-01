@@ -27,9 +27,14 @@ This release represents a complete hardening of container mounts, database schem
 - Dynamic glassmorphism dashboard overlay featuring backdrop-blur controls and elegant state slates (Draft, Submitted, Cancelled).
 - Bypasses System Managers automatically to maintain standard ERPNext desk workflows for administrators.
 
-### 5. 🧪 100% Passing Test Suite
+### 5. 🧪 Hardened 81-Test Suite (100% Passing)
 - Hardened test setups to isolate company boundaries (`_Test Company`), active fiscal years, and clean DB child table structures.
-- **19/19 tests completed with OK status**.
+- **81/81 tests completed with OK status**.
+
+### 6. 🛡️ System Audit & Hardening
+- Removed critical security vulnerability in `get_admin_session_for_pdf` by removing guest access and enforcing a System Manager role check.
+- Fixed malformed translation file `en.csv` that generated 352+ error log entries on every page load.
+- Re-engineered `check.ps1` to automatically detect running container names from Docker Compose project name, ensuring accurate health reporting.
 
 ---
 
@@ -43,10 +48,10 @@ git pull origin main
 cd ../..
 
 # Run migrations & rebuild bundles inside container
-docker exec smriti_retail_os-backend-1 bench --site frontend migrate
-docker exec smriti_retail_os-backend-1 bench --site frontend build --app smriti_retail_os
-docker exec smriti_retail_os-backend-1 bench --site frontend execute smriti_retail_os.sync_assets.sync_assets
-docker exec smriti_retail_os-backend-1 bench --site frontend clear-cache
+docker exec smriti_retail-backend-1 bench --site smriti_retail migrate
+docker exec smriti_retail-backend-1 bench build --app smriti_retail_os
+docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets
+docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 ```
 
 ### 2. Fresh Installation:

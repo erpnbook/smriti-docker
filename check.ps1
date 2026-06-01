@@ -130,7 +130,17 @@ $dockerRunning = $false
 try { $null = docker info 2>&1; $dockerRunning = ($LASTEXITCODE -eq 0) } catch {}
 
 if ($dockerRunning) {
-    $folderName = (Get-Item -Path ".").Name -replace '[^a-z0-9_]', '_'
+    # Auto-detect Docker Compose project name from running containers
+    $folderName = ""
+    try {
+        $runningContainer = docker ps --format '{{.Names}}' 2>&1 | Select-String '-backend-1$' | Select-Object -First 1
+        if ($runningContainer) {
+            $folderName = ($runningContainer -replace '-backend-1$', '')
+        }
+    } catch {}
+    if (-not $folderName) {
+        $folderName = (Get-Item -Path ".").Name.ToLower() -replace '[^a-z0-9_]', '_'
+    }
 
     $expectedContainers = @(
         "backend", "frontend", "db", "websocket",

@@ -160,7 +160,7 @@ Entering correct password shows `Invalid credentials. Please try again.`
 
 ### Fix A — Reset Administrator Password
 ```powershell
-docker exec smriti_retail-backend-1 bench --site frontend set-admin-password NewPassword123
+docker exec smriti_retail-backend-1 bench --site smriti_retail set-admin-password NewPassword123
 ```
 
 ### Fix B — Check Site Name
@@ -172,11 +172,11 @@ The site must match what's in `common_site_config.json`:
 ```powershell
 docker exec smriti_retail-backend-1 cat /home/frappe/frappe-bench/sites/common_site_config.json
 ```
-Look for `"default_site": "frontend"` (or whatever your site name is).
+Look for `"default_site": "smriti_retail"` (or whatever your site name is).
 
 ### Fix C — Rebuild Auth Cache
 ```powershell
-docker exec smriti_retail-backend-1 bench --site frontend clear-cache
+docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 docker restart smriti_retail-backend-1
 ```
 
@@ -219,12 +219,12 @@ Or edit `sites/common_site_config.json` directly to add:
 
 ### Check Site Status
 ```powershell
-docker exec smriti_retail-backend-1 bench --site frontend list-apps
+docker exec smriti_retail-backend-1 bench --site smriti_retail list-apps
 ```
 
 ### Create Site from Scratch
 ```powershell
-docker exec smriti_retail-backend-1 bench new-site frontend \
+docker exec smriti_retail-backend-1 bench new-site smriti_retail \
   --mariadb-root-password=admin \
   --admin-password=admin \
   --install-app erpnext \
@@ -234,8 +234,8 @@ docker exec smriti_retail-backend-1 bench new-site frontend \
 
 ### Install a Missing App on Existing Site
 ```powershell
-docker exec smriti_retail-backend-1 bench --site frontend install-app smriti_retail_os
-docker exec smriti_retail-backend-1 bench --site frontend migrate
+docker exec smriti_retail-backend-1 bench --site smriti_retail install-app smriti_retail_os
+docker exec smriti_retail-backend-1 bench --site smriti_retail migrate
 ```
 
 ---
@@ -265,7 +265,7 @@ docker logs smriti_retail-backend-1 --tail 100
 
 ### Run Tests
 ```powershell
-docker exec smriti_retail-backend-1 bench --site frontend run-tests --app smriti_retail_os
+docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
 ```
 
 ### Common Failures
@@ -296,20 +296,20 @@ All bench commands must run **inside the backend container**:
 
 ```powershell
 # Template
-docker exec smriti_retail-backend-1 bench --site frontend <command>
+docker exec smriti_retail-backend-1 bench --site smriti_retail <command>
 ```
 
 | Task | Command |
 |---|---|
-| Clear cache | `bench --site frontend clear-cache` |
-| Run migrations | `bench --site frontend migrate` |
-| Install app | `bench --site frontend install-app <app>` |
-| List installed apps | `bench --site frontend list-apps` |
-| Reset admin password | `bench --site frontend set-admin-password <pwd>` |
-| Run unit tests | `bench --site frontend run-tests --app smriti_retail_os` |
+| Clear cache | `bench --site smriti_retail clear-cache` |
+| Run migrations | `bench --site smriti_retail migrate` |
+| Install app | `bench --site smriti_retail install-app <app>` |
+| List installed apps | `bench --site smriti_retail list-apps` |
+| Reset admin password | `bench --site smriti_retail set-admin-password <pwd>` |
+| Run unit tests | `bench --site smriti_retail run-tests --app smriti_retail_os` |
 | Build assets | `bench build --app frappe` |
 | Rebuild assets (all) | `bench build` |
-| Check asset paths | `bench --site frontend execute "frappe.utils.get_url()"` |
+| Check asset paths | `bench --site smriti_retail execute "frappe.utils.get_url()"` |
 | Restart services | `bench restart` (inside container) |
 
 ---
@@ -331,7 +331,7 @@ docker volume rm smriti_retail_sites smriti_retail_logs
 docker compose -f pwd.yml up -d
 
 # Step 4: Wait for DB to be ready (~30s), then create site
-docker exec smriti_retail-backend-1 bench new-site frontend `
+docker exec smriti_retail-backend-1 bench new-site smriti_retail `
   --mariadb-root-password=admin `
   --admin-password=admin `
   --install-app erpnext `
@@ -381,4 +381,4 @@ Browser (port 8080)
 
 ---
 
-*Last updated: May 2026 | Smriti Retail OS v1.0*
+*Last updated: June 2026 | Smriti Retail OS v1.0*

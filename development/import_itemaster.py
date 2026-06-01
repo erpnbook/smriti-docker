@@ -21,7 +21,7 @@ grid_data = [
     },
     {
         "base_barcode": "23052026003",
-        "article": "2006",
+        "article": "1455",
         "color": "BLACK",
         "category": "CHAPPAL",
         "sub_category": "BURMY",

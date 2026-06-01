@@ -340,4 +340,4 @@ Browser (port 8080)
 
 ---
 
-*Last updated: May 2026 | Smriti Retail OS v1.0.0*
+*Last updated: June 2026 | Smriti Retail OS v1.0.0*
