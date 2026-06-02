@@ -61,3 +61,24 @@ This file tracks the officially completed, verified, and locked features of the 
   - Backend API: [sizewise_invoice_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sizewise_invoice_api.py)
   - Diagnostic Script: [check.ps1](file:///d:/Smriti_Retail_OS/check.ps1)
   - Translation: [en.csv](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/translations/en.csv)
+
+### 4. SMRITI Store Address Management & Setup Wizard Casing Hardening
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-02
+* **Description**: Implemented the complete Store Address Management under the ERPNext-First paradigm and hardened the Setup Wizard deployment block against casing collisions and payment duplicate errors.
+* **Key Mechanisms**:
+  - **ERPNext-First Core Address**: Keeping `SMRITI Company Settings` clean of duplicate fields, and reading/writing company registered office address parameters directly from standard ERPNext `Address` documents via `get_store_address` and `save_store_address` whitelisted endpoints.
+  - **Dynamic Schema Safeguard**: Equipped the universal `Address` hook `after_address_save` in `hooks_logic.py` with dynamic meta-inspections (`frappe.get_meta('Address')`) to only audit and query fields that exist in the active site's database schema, avoiding OperationalErrors for missing columns like landmark, latitude, or longitude.
+  - **Case-Insensitive Normalization**: Resolved standard ERPNext `Same Company is entered more than once` link validation errors by normalizing company_name variables to `co.name` (database primary key) immediately after saving, and executing whitespace-stripped case-insensitive checks in child table mappings.
+  - **Defensive Deduplication**: Implemented automatic child table deduplication on both `Mode of Payment` accounts and `POS Profile` payments, dynamically handling both the `create` and `update` (if profile already exists) deployment branches safely.
+* **Modified Files**:
+  - Backend Logic:
+    - [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py)
+    - [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py)
+    - [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py)
+    - [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
+    - [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py)
+    - [website_context.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/website_context.py)
+  - Frontend Views:
+    - [configure.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/configure.html)
+    - [setup_wizard.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/setup_wizard.html)
