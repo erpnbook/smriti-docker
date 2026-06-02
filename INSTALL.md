@@ -172,7 +172,13 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 Open your browser at:
 
 ```
-http://localhost:8080
+http://localhost:8080/setup-wizard
+```
+
+And run the initial site provisioning. Once completed, login at:
+
+```
+http://localhost:8080/login
 ```
 
 | Field | Value |

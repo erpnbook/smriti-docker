@@ -31,7 +31,8 @@ bash install.sh
 
 > 📖 **For a full step-by-step guide, see [INSTALL.md](./INSTALL.md)**
 
-Once complete → open **http://localhost:8080** — login with `Administrator / admin`
+Once complete → open **http://localhost:8080/setup-wizard** to run the initial site provisioning.
+After setup, login at **http://localhost:8080/login** with `Administrator / admin`
 
 ---
 
