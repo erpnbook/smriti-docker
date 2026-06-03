@@ -82,3 +82,17 @@ This file tracks the officially completed, verified, and locked features of the 
   - Frontend Views:
     - [configure.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/configure.html)
     - [setup_wizard.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/setup_wizard.html)
+
+### 5. Enhanced Supplier Registry & Indian GST/Logistics Controls
+* **Status**: Completed, Tested & Locked (No further changes or breaks)
+* **Date**: 2026-06-03
+* **Description**: Enhanced the Supplier Registry module to fully support all standard and advanced supplier fields available in ERPNext/Frappe v16, offering a clean, retail-centric creation flow while exposing complete compliance, purchase controls, and defaults.
+* **Key Mechanisms**:
+  - **Dynamic Collapsible UI**: Structured the creation/edit modal into a General Profile basic details section (shown by default) and an Advanced Details collapsible toggling section.
+  - **Status Mapping**: Mapped `Active`, `Disabled`, and `On Hold` dropdown values to standard Frappe `disabled` and `on_hold` boolean flags, with support for hold types (`All`, `Invoices`, `Payments`) and custom release dates.
+  - **India GST & Address Syncing**: Enabled auto-creation and linking of `Billing` and `Shipping` address documents (supporting "Same as Billing" copy logic), and auto-resolved state names using India GSTIN state code mappings.
+  - **ERPNext-First Dynamic Options**: Automatically queried database options for Supplier Group, Naming Series, Payment Terms Template, default pricing, default currency, and Company bank accounts.
+  - **Association Path Correcting**: Resolved database `DoesNotExistError` on saving by applying `parenttype="Contact"` filters to query the correct dynamic links, avoiding collision errors with Address dynamic links.
+* **Modified Files**:
+  - Backend API: [master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/master_api.py)
+  - Frontend View: [suppliers.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/suppliers.html)
