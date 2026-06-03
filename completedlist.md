@@ -96,3 +96,56 @@ This file tracks the officially completed, verified, and locked features of the 
 * **Modified Files**:
   - Backend API: [master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/master_api.py)
   - Frontend View: [suppliers.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/suppliers.html)
+
+### 6. Barcode Hardening — Option B: Primary + Secondary Barcode Architecture
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-03
+* **Description**: Implemented the full Option B barcode architecture across all import paths, providing system-wide EAN-13 collision protection, manual barcode validation, and consistent barcode population strategy.
+* **Key Mechanisms**:
+  - **`custom_is_primary` Field**: Added `custom_is_primary` (Check field) to `Item Barcode` child table. Exactly one primary barcode enforced per item across all import paths.
+  - **System-Wide Collision Protection**: Barcodes checked against both `Item Barcode` table AND `Item.item_code` namespace before assignment. Prevents cross-item collisions.
+  - **Manual Barcode Validation**: Barcodes validated for allowed characters (`A-Z`, `a-z`, `0-9`, `-`, `_`), minimum 6 chars, maximum 20 chars. Spaces and special characters hard-rejected.
+  - **Secondary Barcode Preservation**: Secondary barcodes (vendor-supplied, marketplace, legacy) preserved across style creation, variant updates, pivot imports, and standard imports. Never unintentionally deleted.
+  - **Barcode Printing Fallback**: Print logic follows `Primary Barcode → First Barcode → Item Code` cascade.
+  - **Missing Barcode Detection**: Added validation/report for active sellable variants without any barcode. Template items (with variants) excluded.
+* **Modified Files**:
+  - Backend API: [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py)
+  - Import Logic: [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+
+### 7. Sizewise Invoice — Barcode Scan Feature (HID Scanner Support)
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-03
+* **Description**: Added a dedicated barcode scan bar to the Sizewise B2B Invoice page. Supports USB HID (keyboard-wedge) scanners and manual barcode entry. Automatically resolves barcodes to article/color/size and increments grid quantities.
+* **Key Mechanisms**:
+  - **`resolve_barcode()` API**: New whitelisted endpoint in `sizewise_invoice_api.py`. Resolves via `Item Barcode` child table first, falls back to direct `item_code` match. Extracts article, color, size from variant attributes with additional fallback to `ARTICLE-COLOR-SIZE` item_code pattern. Returns full pricing details (mrp, rate, gst_pct, hsn_code, category).
+  - **Scan Bar UI**: Always-visible input above the grid with pulsing `barcode_scanner` icon, inline status label, and `USB / BT scanner supported` hint.
+  - **`processBarcode()`**: Async function — calls API, handles ⏳/✅/❌ states, clears input on success.
+  - **`applyScanToGrid()`**: Finds existing Article+Color row or auto-creates one. Increments size qty +1 per scan. Auto-adds unknown size columns dynamically. Flashes green glow on the size cell.
+  - **`flashScanBar()`**: Green flash on success, red flash on error (CSS animation, 350ms).
+  - **`showScanStatus()`**: Inline label auto-clears after 5 seconds.
+  - **Global HID Listener**: `document.addEventListener('keydown')` captures USB/BT scanner output when no input is focused — standard retail POS behaviour. Blocked during modal-open state.
+  - **Enter Key Handler**: Scan bar input Enter key directly triggers `processBarcode()`.
+* **Modified Files**:
+  - Backend API: [sizewise_invoice_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sizewise_invoice_api.py)
+  - Frontend View: [sizewise_invoice.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/sizewise_invoice.html)
+
+### 8. Item Master Excel Import — Barcode Handling Hardening
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-03
+* **Description**: Fixed three critical bugs in `import_item_master` and `validate_import_rows` that caused Excel copy-paste imports to fail silently or incorrectly reject valid re-imports.
+* **Key Mechanisms**:
+  - **Bug 1 — Re-import False Rejection**: Old logic rejected any barcode already in the system, even if it belonged to the exact same variant being re-imported. Fixed by computing `variant_code_early = f"{style}-{color}-{size}"` and allowing the barcode through if `existing_on_system == variant_code_early`.
+  - **Bug 2 — Excel Blank Cell NaN Guard**: Excel blank cells arrive as the string `"nan"` or `"None"` after JSON serialization. Added guard: `if barcode.lower() in ("", "nan", "none", "null", "0"): barcode = ""`. Barcode attachment fully skipped when empty.
+  - **Bug 3 — `custom_is_primary` None-Safety**: Old `not b.custom_is_primary` mis-classified pre-migration barcode rows where `custom_is_primary` is `None`. Fixed to `not int(b.get("custom_is_primary") or 0)`.
+  - **Both `validate_import_rows` and `import_item_master` updated**: Re-import fix applied to both the validation pass and the import pass consistently.
+  - **`SIS` Purchase Class added to UI dropdown**: Added `SIS` as a valid purchase class option in the Item Master paste grid.
+* **Standard Excel Format Supported**:
+  ```
+  BARCODE NO | PRODUCT STYLE CODE | ITEM DESCRIPTION | BRAND NAME | COLOR | SIZE |
+  PLANNED MRP | COST PRICE | PRODUCT TAX | HSN CODE | GENDER | VENDOR CODE |
+  PURCHASE CLASS | DEPARTMENT | MERCHANDISE CATEGORY | Sub category |
+  HEELS | UPPER MATERIAL | OUTSOLE | IMAGE LINK
+  ```
+* **Modified Files**:
+  - Backend API: [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+  - Frontend View: [item_master.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/item_master.html)

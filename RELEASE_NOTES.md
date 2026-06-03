@@ -1,12 +1,35 @@
-# 🚀 Release Notes — SMRITI Retail OS v1.0.0 (Production Release)
-
-We are proud to present **SMRITI Retail OS `v1.0.0`**, the first fully stable production release of the Docker Orchestration stack for ERPNext + India Compliance + SMRITI Experience Layer!
-
-This release represents a complete hardening of container mounts, database schema initializations, physical asset compilation, Nginx caching, and isolated unit test runner boundaries.
+# 🚀 Release Notes — SMRITI Retail OS
 
 ---
 
-## 🎯 Release Highlights (`v1.0.0`)
+## 🆕 v1.1.0 — Barcode & B2B Invoice Hardening (2026-06-03)
+
+### 🔖 1. Barcode Hardening — Option B Architecture (`barcode_api.py`, `item_master_api.py`)
+- Added `custom_is_primary` (Check) field to `Item Barcode` child table
+- Enforced exactly **one primary barcode per item** across all import paths
+- System-wide EAN-13 collision protection (checks `Item Barcode` table + `Item.item_code` namespace)
+- Secondary barcodes preserved across style creation, variant updates, pivot & standard imports
+- Barcode print fallback: `Primary → First → Item Code`
+- Missing barcode detection report for active sellable variants (excludes templates)
+
+### 📷 2. Sizewise Invoice — Barcode Scan Bar (`sizewise_invoice_api.py`, `sizewise_invoice.html`)
+- New `resolve_barcode()` API: resolves EAN-13, vendor barcodes, and item_code barcodes
+- Dedicated scan bar UI with pulsing scanner icon, inline status label, USB/BT hint
+- Finds or auto-creates Article+Color row in the pivot grid; increments size qty +1 per scan
+- Auto-adds unknown size columns dynamically on scan
+- Green/red CSS flash feedback on the input and size cell
+- **Global HID keyboard-wedge listener** — works even when scanner fires without input focus
+
+### 🛠️ 3. Item Master Excel Import Fixes (`item_master_api.py`, `item_master.html`)
+- **Bug 1** — Re-import false rejection: allowed re-import if barcode belongs to same variant
+- **Bug 2** — Excel blank cell NaN guard: `"nan"/"none"/"null"` normalized to empty string
+- **Bug 3** — `custom_is_primary` None-safety: `int(b.get(...) or 0)` coercion
+- Fixes applied to **both** `validate_import_rows` and `import_item_master`
+- Added `SIS` to Purchase Class dropdown
+
+---
+
+## 📦 v1.0.0 — Production Release
 
 ### 1. 🏗️ Robust Container Bootstrap (`pwd.yml`)
 - Fixed missing volume mounts in `pwd.yml` for custom apps (`smriti_retail_os` and `india_compliance`).
