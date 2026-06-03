@@ -2,6 +2,57 @@
 
 ---
 
+## 🆕 v1.2.0 — Advanced PWA & Supplier Hardening (2026-06-04)
+
+### 📲 1. Advanced PWA — All 4 Phases (`sw.js`, `smriti_pwa.js`, `smriti_offline_store.js`)
+
+**Phase 1 — Foundation**
+- Updated `manifest.json`: Added app shortcuts (POS Billing, Item Master, B2B Invoice, Purchase Manager), PNG icon references, orientation `any`, categories
+- Generated 192×192 and 512×512 PNG icons deployed to `public/images/`
+- Service Worker exposed at root `/sw.js` via `www/sw.py` + `website_route_rules` — gives full `scope: '/'` control
+
+**Phase 2 — Smart Multi-Strategy Caching** (`sw.js` v2.0)
+- `Cache First` → `/assets/`, `/files/`, `/favicon` (static resources, instant serve)
+- `Network First` → `/api/`, `/method/` (live data; falls back to cached JSON offline)
+- `Stale While Revalidate` → all 15 SMRITI pages (instant load + background refresh)
+- Auto-purges stale cache versions on `activate`; new SW skips waiting immediately
+
+**Phase 3 — Offline IndexedDB Store** (`smriti_offline_store.js`)
+- `SmritiOfflineStore`: Full IndexedDB abstraction (`SmritiRetailOS` DB, v1 schema)
+- `pending_invoices`: save/count/delete/incrementRetry — offline POS bill queue
+- `items_cache`: bulk load + substring search (item_code + item_name) — offline barcode lookup
+- `customers_cache`: bulk load + search (name + mobile_no)
+- `sync_log`: timestamped audit trail of all sync events
+- Background Sync auto-submits queued invoices via `sync-pending-invoices` tag when back online
+
+**Phase 4 — Push Notifications** (`sw.js`)
+- Handles `push` events: shows branded notifications with icon, badge, vibrate
+- `notificationclick`: focuses existing window or opens deep-link URL
+
+**PWA Controller** (`smriti_pwa.js`)
+- Registers SW, detects updates → shows animated **"New Version Available"** banner
+- Captures `beforeinstallprompt` → shows **"📲 Install SMRITI App"** button
+- Online/offline detection → shows toast (Frappe or vanilla fallback)
+- Triggers `sync-pending-invoices` background sync immediately on reconnection
+- Auto-injects `<link rel="manifest">` into `<head>` on all pages
+
+**Offline Fallback Page** (`offline.html`, `offline.py`)
+- Glassmorphic dark design with animated blobs
+- Live IndexedDB stats: pending invoice count + cached item count
+- Offline capabilities grid, retry button, auto-reload on `online` event
+
+### 🔗 2. Supplier Lookup Filter Fix (`purchase_order.js`)
+- Removed `supplier_type: "Company"` filter from Purchase Order/Receipt supplier query
+- All active suppliers (Individual + Company) now appear in PO/GRN supplier fields
+- Individual suppliers created via SMRITI dashboard are now correctly visible
+
+### ✅ 3. Supplier Vendor Code Validation (`item_master_api.py`, `setup.py`)
+- Added `custom_vendor_code` unique field on Supplier DocType
+- `_validate_vendor_code()` helper rejects unregistered vendor codes in all 3 import paths
+- Supplier linkage now resolves exclusively via `custom_vendor_code` lookup
+
+---
+
 ## 🆕 v1.1.0 — Barcode & B2B Invoice Hardening (2026-06-03)
 
 ### 🔖 1. Barcode Hardening — Option B Architecture (`barcode_api.py`, `item_master_api.py`)

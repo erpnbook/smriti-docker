@@ -180,4 +180,27 @@ This file tracks the officially completed, verified, and locked features of the 
   - Unit Tests: [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py)
   - Migration Script: [create_vendor_code_field.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/create_vendor_code_field.py)
 
+### 13. Advanced PWA — Offline Support, Background Sync & Install Prompt
+* **Status**: Completed, Deployed & Locked
+* **Date**: 2026-06-04
+* **Description**: Implemented a full 4-phase Progressive Web App layer across SMRITI Retail OS — cache strategies, offline fallback, IndexedDB queue, background sync for pending invoices, and push notification support.
+* **Key Mechanisms**:
+  - **Phase 1 — Foundation**: Updated `manifest.json` with shortcuts (POS, Items, B2B Invoice, Purchase), generated 192×192 and 512×512 PNG icons, registered Service Worker at root `/sw.js` scope via Frappe route rules.
+  - **Phase 2 — Smart Caching (sw.js v2)**: Three-strategy caching — `Cache First` for static assets (`/assets/`, `/files/`), `Network First` for API calls (`/api/`, `/method/`), `Stale While Revalidate` for all SMRITI pages. Auto-purges old cache versions on activate.
+  - **Phase 3 — Offline IndexedDB Store**: `SmritiOfflineStore` — full IndexedDB abstraction with `pending_invoices` (save/count/delete/retry), `items_cache` (bulk load + substring search), `customers_cache` (bulk load + search), and `sync_log` (audit trail). Background Sync auto-submits queued invoices when back online.
+  - **Phase 4 — Push Notifications**: SW handles `push` events and `notificationclick`, showing branded notifications with deep links.
+  - **PWA Controller (`smriti_pwa.js`)**: Service Worker registration + update detection banner, `beforeinstallprompt` capture + install button, online/offline toast detection, background sync trigger on reconnect, manifest link auto-injection into `<head>`.
+  - **Offline Page (`offline.html`)**: Glassmorphic offline fallback with live IndexedDB stats (pending invoice count, cached item count), animated blobs, capability grid, and auto-reload on connection restore.
+  - **Root SW Serving**: `www/sw.py` serves `public/js/sw.js` at `/sw.js` with `Service-Worker-Allowed: /` header for full-site scope.
+* **Modified Files**:
+  - Service Worker: [sw.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/sw.js)
+  - PWA Controller: [smriti_pwa.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_pwa.js)
+  - Offline Store: [smriti_offline_store.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_offline_store.js)
+  - Offline Page: [offline.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/offline.html)
+  - SW Route: [sw.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/sw.py)
+  - Offline Route: [offline.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/offline.py)
+  - Manifest: [manifest.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/manifest.json)
+  - Hooks: [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
+  - Icons: [icon-192.png](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/images/icon-192.png), [icon-512.png](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/images/icon-512.png)
+
 
