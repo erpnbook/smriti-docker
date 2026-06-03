@@ -146,3 +146,40 @@ All 5 page-level JS files verified without syntax errors via `node -e readFileSy
 | Barcode Printing (`smriti-barcode`) | Label printer with real filter data | ✅ |
 | Control Center (`smriti-desk`) | Quick access dashboard | ✅ |
 | Reports (`smriti-reports`) | Sales, GST, Stock, Outstanding reports | ✅ |
+
+---
+
+## 🏢 Enhanced Supplier Registry
+
+We have fully enhanced the Supplier Registry module in SMRITI Retail OS to support all standard and advanced fields available in ERPNext/Frappe v16:
+
+1. **General Profile (Basic Details)**:
+   - Contains: Naming Series, Supplier Name, Supplier Type, Contact Person, Status, Mobile, Email, GSTIN, GST Category, PAN, Billing Address, and Shipping Address (with "Same as Billing" checkbox).
+2. **Advanced Details (Collapsible Panel)**:
+   - Contains: Pricing & Defaults (Currency, Price list, Bank Account, Payment Terms), Internal & Logistics Settings (Transporter, Internal flag, Company representation), Purchase Controls & Holds (Invoice without PO/Receipt allowances, Frozen status, Hold Type, Release Date), Warnings & Prevent Rules (for RFQs and POs), and Extra details/metadata.
+3. **Address & Contact Synchronization**:
+   - Address saves automatically generate linked Address and Contact docs.
+   - Restored PO Supplier selection by removing the `supplier_type = "Company"` restriction to allow "Individual" supplier types.
+
+---
+
+## 🏷️ Barcode Hardening & Multi-Barcode Support (Option B)
+
+We implemented **Option B: Primary + Secondary Barcode Support** to allow multi-barcode management per SKU:
+
+1. **Schema Extension**:
+   - Registered `custom_is_primary` Check field in the `Item Barcode` child DocType.
+2. **Exactly One Primary Barcode**:
+   - Updates preserve existing secondary barcodes (`custom_is_primary = 0`) while ensuring exactly one barcode is set as primary (`custom_is_primary = 1`).
+3. **Importers & Creation Updates**:
+   - Standard Excel imports support `BARCODE NO` (Primary) and a comma-separated `SECONDARY BARCODES` column.
+   - Pre-existing secondary barcodes are preserved during manual creation, Variant updates, Pivot matrix imports, and Standard imports.
+4. **Validation and Collision Guards**:
+   - Block duplicate barcodes system-wide.
+   - Validate manual barcodes using `^[a-zA-Z0-9\-_]+$` (min 3, max 30 characters, no spaces/symbols).
+   - Prevent barcodes from colliding with any active `Item.item_code` in the system.
+5. **Print Routing Fallback**:
+   - Print engine resolves printing details following: `Primary -> First Barcode -> Item Code`.
+6. **Missing Barcode Audit**:
+   - Exposed a secure endpoint `get_items_missing_barcodes` returning active variants without any registered barcodes.
+
