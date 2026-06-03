@@ -149,3 +149,16 @@ This file tracks the officially completed, verified, and locked features of the 
 * **Modified Files**:
   - Backend API: [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
   - Frontend View: [item_master.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/item_master.html)
+
+### 9. Item Master Excel Import — HSN Code Handling & Fallback Hardening
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-03
+* **Description**: Resolved Excel import failures caused by missing, blank, or invalid HSN input fields, which would otherwise crash on save due to mandatory HSN/SAC validations enforced by the India Compliance app.
+* **Key Mechanisms**:
+  - **Defensive Input Parsing**: Added regex logic to extract only digits from HSN input fields, cleanly handling Excel double quotes (`"`), spaces, dashes, or custom placeholder strings like `NA`/`N/A`.
+  - **Auto-Formatting & Padding**: Automatically pads short digits (e.g. `6402` to `640200`) and format-corrects length issues dynamically to conform to the 6 or 8 digit validation constraints.
+  - **Smart Fallback**: Resolves empty or invalid inputs automatically to the standard footwear default HSN code `641590`.
+  - **Auto-Creation Safeguard**: Automatically creates the resolved HSN code in the database if it doesn't exist, preventing foreign key integrity checks from crashing the save transaction.
+* **Modified Files**:
+  - Backend API: [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+

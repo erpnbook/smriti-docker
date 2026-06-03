@@ -27,6 +27,12 @@
 - Fixes applied to **both** `validate_import_rows` and `import_item_master`
 - Added `SIS` to Purchase Class dropdown
 
+### 🛠️ 4. HSN Code Handling & Fallback Hardening (`item_master_api.py`)
+- Extracted digits only using regex to strip Excel quote strings (`"`), spaces, dashes, or `NA`/`N/A`
+- Added auto-formatting and padding (e.g. `6402` &rarr; `640200`) to comply with India Compliance's 6/8 digit validations
+- Added smart fallback default (`641590`) for blank or invalid HSN columns
+- Automatically ensures the HSN code is registered in the database, avoiding foreign key errors on insertion
+
 ---
 
 ## 📦 v1.0.0 — Production Release
