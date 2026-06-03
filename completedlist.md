@@ -117,8 +117,8 @@ This file tracks the officially completed, verified, and locked features of the 
 * **Date**: 2026-06-03
 * **Description**: Added a dedicated barcode scan bar to the Sizewise B2B Invoice page. Supports USB HID (keyboard-wedge) scanners and manual barcode entry. Automatically resolves barcodes to article/color/size and increments grid quantities.
 * **Key Mechanisms**:
-  - **`resolve_barcode()` API**: New whitelisted endpoint in `sizewise_invoice_api.py`. Resolves via `Item Barcode` child table first, falls back to direct `item_code` match. Extracts article, color, size from variant attributes with additional fallback to `ARTICLE-COLOR-SIZE` item_code pattern. Returns full pricing details (mrp, rate, gst_pct, hsn_code, category).
-  - **Scan Bar UI**: Always-visible input above the grid with pulsing `barcode_scanner` icon, inline status label, and `USB / BT scanner supported` hint.
+  - **`resolve_barcode()` API Hardening**: New whitelisted endpoint in `sizewise_invoice_api.py`. Enforces `Item` document read permissions (`frappe.has_permission`). Resolves via `Item Barcode` child table first, falling back to direct `item_code` match. Falls back to parent template properties (`custom_mrp`, `custom_gst_percentage`, `gst_hsn_code`, `custom_sub_category`) if they are blank on the variant. Extracts article, color, size from attributes, with regex fallback parsing from the `item_code` structure. Calculates net B2B rate from inclusive MRP.
+  - Scan Bar UI: Always-visible input above the grid with pulsing `barcode_scanner` icon, inline status label, and `USB / BT scanner supported` hint.
   - **`processBarcode()`**: Async function — calls API, handles ⏳/✅/❌ states, clears input on success.
   - **`applyScanToGrid()`**: Finds existing Article+Color row or auto-creates one. Increments size qty +1 per scan. Auto-adds unknown size columns dynamically. Flashes green glow on the size cell.
   - **`flashScanBar()`**: Green flash on success, red flash on error (CSS animation, 350ms).

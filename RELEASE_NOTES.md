@@ -13,7 +13,8 @@
 - Missing barcode detection report for active sellable variants (excludes templates)
 
 ### 📷 2. Sizewise Invoice — Barcode Scan Bar (`sizewise_invoice_api.py`, `sizewise_invoice.html`)
-- New `resolve_barcode()` API: resolves EAN-13, vendor barcodes, and item_code barcodes
+- Hardened `resolve_barcode()` API with user read permission checks (`frappe.has_permission`)
+- Implemented parent template field fallbacks (inherits `custom_mrp`, `custom_gst_percentage`, `gst_hsn_code`, `custom_sub_category` from template if blank on variant)
 - Dedicated scan bar UI with pulsing scanner icon, inline status label, USB/BT hint
 - Finds or auto-creates Article+Color row in the pivot grid; increments size qty +1 per scan
 - Auto-adds unknown size columns dynamically on scan
