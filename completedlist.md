@@ -163,3 +163,21 @@ This file tracks the officially completed, verified, and locked features of the 
 * **Modified Files**:
   - Backend API: [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
 
+### 10. Item Master Import — Supplier Vendor Code Validation
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-04
+* **Description**: Added strict Vendor Code validation for single style creation, Excel bulk import, and Pivot Matrix imports. Ensures any Vendor Code specified exists in the Supplier Master under a custom `custom_vendor_code` field before allowing items to be saved/imported.
+* **Key Mechanisms**:
+  - **Supplier Master Schema Update**: Created `custom_vendor_code` custom field on `Supplier` DocType with unique constraints.
+  - **Rigorous Validation helper `_validate_vendor_code()`**: Validates input vendor codes, ignoring empty, `None`, `nan`, `N/A` values, and raising a user-friendly error dialog with specific title if the supplier does not exist.
+  - **Single & Bulk Save Integrations**:
+    - Embedded validation checks in `create_style_with_variants()`, `import_item_master()`, and `import_pivot_item_master()`.
+    - Integrated hard check in `validate_import_rows()` to return validation errors during dry-run validations.
+  - **Supplier Linkage Update**: Refactored `_get_or_create_template()` to resolve `supplier_name` exclusively via lookup on `custom_vendor_code`.
+* **Modified Files**:
+  - Backend API: [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+  - DocType Setup: [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py)
+  - Unit Tests: [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py)
+  - Migration Script: [create_vendor_code_field.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/create_vendor_code_field.py)
+
+
