@@ -2,6 +2,23 @@
 
 ---
 
+## 🆕 v1.2.1 — Warehouse Hardening & Custom Warehouse Override (2026-06-04)
+
+### 🏢 1. Company-matching Default Warehouse (`purchase_api.py`, `inventory_api.py`)
+- Added `_get_default_warehouse(company)` helper to resolve warehouses with target company filters.
+- Prevents database mismatch issues (e.g., `Warehouse Stores - TCL does not belong to company _Test Company`).
+- Automatically queries first by name `"Stores"` (non-group) belonging to the target company, then falls back to any non-group warehouse for the company, and finally any warehouse for the company.
+
+### 🎛️ 2. Custom Warehouse Selection on Creation (`purchase_api.py`, `inventory_api.py`)
+- Added optional `warehouse` parameter to whitelisted API endpoints: `create_purchase_order`, `create_purchase_receipt`, and `create_grn`.
+- Allows custom warehouse overrides to be passed directly from the frontend or creation payload.
+
+### 🧪 3. Expanded Test Suite
+- Added new test cases verifying custom warehouse overrides in `test_purchase_api.py`.
+- Verified all **87 tests** pass cleanly.
+
+---
+
 ## 🆕 v1.2.0 — Advanced PWA & Supplier Hardening (2026-06-04)
 
 ### 📲 1. Advanced PWA — All 4 Phases (`sw.js`, `smriti_pwa.js`, `smriti_offline_store.js`)

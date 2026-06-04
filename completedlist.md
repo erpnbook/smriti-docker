@@ -203,4 +203,16 @@ This file tracks the officially completed, verified, and locked features of the 
   - Hooks: [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
   - Icons: [icon-192.png](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/images/icon-192.png), [icon-512.png](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/images/icon-512.png)
 
+### 14. Warehouse Hardening & Custom Warehouse Override
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-04
+* **Description**: Fixed the default warehouse and company mismatch issue by resolving warehouses specifically matching the transaction company. Also added support for custom warehouse overrides passed directly on creation.
+* **Key Mechanisms**:
+  - **Company-Matching Warehouse Resolver**: Added `_get_default_warehouse(company)` helper to query non-group warehouses filtered by the target company.
+  - **Custom Whitelisted API Arguments**: Added optional `warehouse` parameter to `create_purchase_order`, `create_purchase_receipt`, and `create_grn` API methods.
+* **Modified Files**:
+  - Purchase API: [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py)
+  - Inventory API: [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py)
+  - Unit Tests: [test_purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_purchase_api.py)
+
 

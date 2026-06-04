@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-05 · **Version:** v1.2.0
+> **Last Updated:** 2026-06-04 · **Version:** v1.2.1
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -217,6 +217,7 @@ smriti_retail_os/
 | 11 | **Supplier Lookup Filter Fix (Individual + Company)** | 2026-06-04 | [purchase_order.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/purchase_order.js) |
 | 12 | **Pre-Import Verification Panel (Sizewise Pivot)** | 2026-05-31 | [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [sizewise_item.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/sizewise_item.html) |
 | 13 | **Advanced PWA — Offline, Background Sync, IndexedDB, Push Notifications** | 2026-06-04 | [sw.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/sw.js), [smriti_pwa.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_pwa.js), [smriti_offline_store.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_offline_store.js), [offline.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/offline.html) |
+| 14 | **Warehouse Hardening & Custom Warehouse Override** | 2026-06-04 | [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py) |
 
 ---
 
@@ -320,7 +321,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 ### Run Test Suite
 ```bash
 docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
-# Expected: 81/81 OK
+# Expected: 87/87 OK
 ```
 
 ### Reset Admin Password
@@ -382,7 +383,7 @@ Full guide: [TROUBLESHOOTING.md](file:///d:/Smriti_Retail_OS/TROUBLESHOOTING.md)
 
 ### Automated Test Suite
 - **Location**: [tests/](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/)
-- **Test Count**: **81/81 passing** (verified as of 2026-06-04)
+- **Test Count**: **87/87 passing** (verified as of 2026-06-04)
 - **Run Command**:
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
@@ -441,7 +442,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.2.0** (current) |
+| SMRITI Retail OS | **v1.2.1** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
