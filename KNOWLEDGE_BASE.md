@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-04 · **Version:** v1.2.1
+> **Last Updated:** 2026-06-04 · **Version:** v1.2.2
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -179,6 +179,7 @@ smriti_retail_os/
 | [docs/walkthrough29-05-26.md](file:///d:/Smriti_Retail_OS/docs/walkthrough29-05-26.md) | 2026-05-29 | Initial deployment fixes |
 | [docs/walkthrough29-05-26-sizewise-verification.md](file:///d:/Smriti_Retail_OS/docs/walkthrough29-05-26-sizewise-verification.md) | 2026-05-31 | Pre-import verification & on-the-fly insert |
 | [docs/walkthrough-supplier-registry.md](file:///d:/Smriti_Retail_OS/docs/walkthrough-supplier-registry.md) | 2026-06-03 | Supplier Registry implementation |
+| [docs/walkthrough-vendor-mapping-itemmaster.md](file:///d:/Smriti_Retail_OS/docs/walkthrough-vendor-mapping-itemmaster.md) | 2026-06-04 | Vendor Code → Supplier linkage in Item Master import |
 | [docs/walkthrough-thesmes.md](file:///d:/Smriti_Retail_OS/docs/walkthrough-thesmes.md) | Various | Themes and UI customization |
 | [SUPPLIER_LOOKUP_FIX_REPORT.md](file:///d:/Smriti_Retail_OS/SUPPLIER_LOOKUP_FIX_REPORT.md) | 2026-06-04 | Supplier lookup filter fix |
 | [SUPPLIER_FILTER_ANALYSIS.md](file:///d:/Smriti_Retail_OS/SUPPLIER_FILTER_ANALYSIS.md) | 2026-06-04 | Analysis of supplier filter issue |
@@ -442,7 +443,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.2.1** (current) |
+| SMRITI Retail OS | **v1.2.2** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
