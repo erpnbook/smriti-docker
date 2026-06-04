@@ -158,7 +158,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 git clone https://github.com/erpnbook/smriti-docker.git
 cd smriti-docker
 mkdir -p apps
-git clone --branch v1.0.0 https://github.com/erpnbook/smriti.git apps/smriti_retail_os
+git clone --branch v1.2.2 https://github.com/erpnbook/smriti.git apps/smriti_retail_os
 git clone --branch version-16 https://github.com/resilient-tech/india-compliance.git apps/india_compliance
 docker compose -f pwd.yml up -d
 ```
