@@ -44,7 +44,7 @@ function _smriti_po_setup(frm) {
 1. **Suppliers List Verification**:
    * Verified that the database contains `Test Advanced Supplier` (Individual) and that it is active (`disabled: 0`).
 2. **Desk Purchase Order Form**:
-   * Logged in as `admin@smriti.io` (Store Manager role, which subjects them to the custom script query filters).
+   * Logged in as `admin@erpnbook.com` (Store Manager role, which subjects them to the custom script query filters).
    * Opened a new **Purchase Order** (`/app/purchase-order/new`).
    * Clicked the **Supplier** field. Both `Test Advanced Supplier` (Individual) and standard Company suppliers now correctly populate and are fully selectable.
 3. **Purchase Receipt (GRN) Verification**:

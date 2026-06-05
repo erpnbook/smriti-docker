@@ -6,7 +6,7 @@ SMRITI implements a hard programmatic split between the **Business Owner (Admin)
 ### 1.1 Administrator vs Business Owner
 - **Administrator (root)**: Reserved for recovery, schema updates, and high-risk security operations (handled by `check_administrator_only`).
 - **Admin (Business Owner)**: Specifically **blocked** from the SMRITI Security Center via `check_store_manager_or_admin` in `security_api.py`.
-- **Finding (P0)**: This is a robust governance feature that prevents "accidental elevation" by store owners, but it relies on string-matching ("Admin", "admin@smriti.io").
+- **Finding (P0)**: This is a robust governance feature that prevents "accidental elevation" by store owners, but it relies on string-matching ("Admin", "admin@erpnbook.com").
 - **Recommendation**: Formalize this into a "System Admin" flag on the User DocType to avoid email-dependency.
 
 ### 1.2 Permission Separation

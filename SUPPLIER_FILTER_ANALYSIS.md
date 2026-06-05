@@ -88,7 +88,7 @@ In [master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_reta
 After applying the fix, verify using the following steps:
 
 1. **Desk Purchase Order Form**:
-   * Log in as a Store Manager (e.g. `admin@smriti.io`).
+   * Log in as a Store Manager (e.g. `admin@erpnbook.com`).
    * Navigate to standard **Purchase Order** (`/app/purchase-order/new`).
    * Click on the **Supplier** field.
    * Verify that `Test Advanced Supplier` (which is of type `Individual`) is fully visible and selectable in the dropdown list.

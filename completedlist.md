@@ -293,5 +293,20 @@ This file tracks the officially completed, verified, and locked features of the 
 * **Modified Files**:
   - Wizard API: [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py)
 
+### 21. Domain Migration to erpnbook.com
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-05
+* **Description**: Migrated the system domain bindings from `smriti.io` to `erpnbook.com` across the entire codebase, templates, and scripts.
+* **Key Mechanisms**:
+  - **Support and App Email Changes**: Updated help desk link triggers, app publisher email, support system comments, and email headers/footers to point to `erpnbook.com`.
+  - **Manager Admin Accounts**: Re-routed hardcoded cashier onboarding placeholders and admin validation routines to verify `admin@erpnbook.com` instead of the old domain.
+  - **Cleanup of Old Verify Scripts**: Deleted duplicate `verify_security.py` at the app root, keeping only the updated version inside `/scripts/verify_security.py`.
+* **Modified Files**:
+  - Project Config: [pyproject.toml](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/pyproject.toml)
+  - Hooks Logic: [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
+  - Front-end Assets: [smriti_sidebar.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar.js), [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js)
+  - Email Layouts: [smriti_email_footer.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/templates/emails/smriti_email_footer.html), [smriti_email_header.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/templates/emails/smriti_email_header.html)
+  - Admin Portal: [security.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/security.html), [verify_security.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/scripts/verify_security.py)
+
 
 

@@ -39,7 +39,7 @@ This report documents the verification steps and data-level diagnostics performe
     }
   ]
   ```
-* **Status**: **Verified**. The role `SMRITI Store Manager` (held by user `admin@smriti.io` and `Administrator`) has full read/write permissions on the `Supplier` master. No database-level permission block is causing the blank field.
+* **Status**: **Verified**. The role `SMRITI Store Manager` (held by user `admin@erpnbook.com` and `Administrator`) has full read/write permissions on the `Supplier` master. No database-level permission block is causing the blank field.
 
 ### 4. Company Ownership Check
 * **Status**: **Verified**. Suppliers in ERPNext are global entities. No company-specific filtering at the database layer is restricting the record.
@@ -56,7 +56,7 @@ The lookup failure is caused by a **mismatch between client-side query filters a
        return { filters: { disabled: 0, supplier_type: "Company" } };
    });
    ```
-   This filter is applied to any user who is **not** a `System Manager` (which includes standard store managers like `admin@smriti.io`).
+   This filter is applied to any user who is **not** a `System Manager` (which includes standard store managers like `admin@erpnbook.com`).
 
 2. **Backend Type Mismatch**:
    In [master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/master_api.py), the `quick_create_supplier` method (which creates suppliers from the dashboard) hardcodes:
