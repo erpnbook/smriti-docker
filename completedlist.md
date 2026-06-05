@@ -215,4 +215,54 @@ This file tracks the officially completed, verified, and locked features of the 
   - Inventory API: [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py)
   - Unit Tests: [test_purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_purchase_api.py)
 
+### 15. New Company Creation — "Could not find Row #N: Company" Fix
+* **Status**: Completed, Deployed & Locked
+* **Date**: 2026-06-05
+* **Description**: Fixed company setup wizard failures caused by orphaned child rows for deleted companies in `tabMode of Payment Account` and `tabGST Account`.
+* **Key Mechanisms**:
+  - **Orphan Purge Loop**: Added a cleanup loop to strip payment accounts of non-existent companies before save.
+  - **Link Validation Bypass**: Injected `flags.ignore_links = True` on setup wizard payment entries and company setting insert hooks to bypass link verification crashes.
+* **Modified Files**:
+  - Wizard API: [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py)
+  - Company Settings API: [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py)
+
+### 16. Code Review Fixes — Dynamic State, E-Invoice Compliance
+* **Status**: Completed, Deployed & Locked
+* **Date**: 2026-06-05
+* **Description**: Implemented dynamic address state fallbacks, decoupled e-invoice validation limits, and optimized billing templates based on developer code reviews.
+* **Key Mechanisms**:
+  - **Dynamic State Lookup**: Reads `Company.state` instead of hardcoding `"Karnataka"`, enabling correct CGST/SGST splits for other Indian states.
+  - **Security Controls**: Tightened role check restrictions and verified guest access sanitization on PDF exports.
+* **Modified Files**:
+  - Backend Logic: [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py)
+  - Billing API: [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py)
+  - Security API: [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py)
+
+### 17. HSN-First GST% Auto-Derivation & Boilerplate Header Cleanup
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-05
+* **Description**: Automated GST% derivation from India Compliance HSN master, locking fields as read-only, and cleaned up copy-pasted headers across 55 files.
+* **Key Mechanisms**:
+  - **Backend HSN Lookup**: Added `get_hsn_gst_rate` API to retrieve derived rates from HSN master; integrated HSN-first validation in import dry-runs and records saves.
+  - **Form Customization**: Locked custom GST% as read-only and hooked HSN Code change event to automatically query and populate derived GST%.
+  - **Header Cleanup**: Cleaned boilerplate comments referencing user login/registration in 55 files, substituting them with descriptions matching each file's specific role.
+* **Modified Files**:
+  - Backend API: [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+  - Frontend JS: [item.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/item.js), [smriti_item_master.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_item_master/smriti_item_master.js)
+  - Unit Tests: [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py)
+
+### 18. Deep System Review & Architecture Hardening
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-05
+* **Description**: Addressed 5 critical code architecture findings from the deep review, focusing on security, N+1 query performance, transaction invariants, and report scalability. Test suite reached 94/94 passing.
+* **Key Mechanisms**:
+  - **Security & Randomization**: Replaced hardcoded default passwords (`SmritiUser123!`) with `secrets.token_urlsafe(16)` per user in `security_api.py`.
+  - **GST Jurisdiction Strictness**: Removed the silent `"Karnataka"` fallback in `hooks_logic.py`, now safely returns `None` and raises an Error Log warning to avoid incorrect CGST/SGST splits.
+  - **Sentinel Ghost Item Prevention**: Eliminated auto-created `_SMRITI_GENERIC_ITEM_` in `transaction_kernel.py`, instead enforcing clean item master state via ValidationError.
+  - **N+1 Performance Optimization**: Introduced `_build_import_lookup_cache()` in `item_master_api.py`, collapsing 600+ database queries down to 5 bulk queries per 100-row import.
+  - **Report Aggregation**: Transitioned in-memory Python invoice loops to SQL `SUM()`, `COUNT()`, and `GROUP BY` aggregations in `reports_api.py` for massive scalability.
+* **Modified Files**:
+  - Backend Logic: [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [transaction_kernel.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/transaction_kernel.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py)
+  - Unit Tests: [test_transaction_kernel.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_transaction_kernel.py), [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py)
+
 

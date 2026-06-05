@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-04 · **Version:** v1.2.2
+> **Last Updated:** 2026-06-05 · **Version:** v1.2.6
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -64,6 +64,8 @@
 
 | Decision | Rationale | Reference |
 |---|---|---|
+| **HSN-First GST Architecture** | `gst_hsn_code` is the primary source of truth for GST %. `custom_gst_percentage` is auto-derived via the lookup chain: `HSN Code → GST HSN Code.taxes → Item Tax Template → SUM(tax_rate)`. Falls back to manual entry when HSN has no configured taxes. | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) — `get_gst_rate_from_hsn()` |
+| **Dynamic State Fallback** | Address state resolution reads `Company.state` instead of hardcoded `"Karnataka"` — ensures correct CGST/SGST splits for any Indian state | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) — `_get_company_state_fallback()` |
 | **Physical Asset Sync** | Unlinks symlinks and hard-copies compiled bundles to Nginx shared volume — eliminates MIME-type 404 errors | [sync_assets.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sync_assets.py) |
 | **Code-driven Schema** | Custom fields and DocTypes created via `setup.py` Python migration, not JSON manifests | [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
 | **ERPNext-First Data** | Company/Address/Supplier data lives in standard ERPNext DocTypes; SMRITI reads/writes through standard APIs | [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) |
@@ -219,6 +221,10 @@ smriti_retail_os/
 | 12 | **Pre-Import Verification Panel (Sizewise Pivot)** | 2026-05-31 | [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [sizewise_item.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/sizewise_item.html) |
 | 13 | **Advanced PWA — Offline, Background Sync, IndexedDB, Push Notifications** | 2026-06-04 | [sw.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/sw.js), [smriti_pwa.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_pwa.js), [smriti_offline_store.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_offline_store.js), [offline.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/offline.html) |
 | 14 | **Warehouse Hardening & Custom Warehouse Override** | 2026-06-04 | [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py) |
+| 15 | **New Company Creation — "Could not find Row #N: Company" Fix** | 2026-06-05 | [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py), [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) |
+| 16 | **Code Review Fixes — HSN-First GST, Dynamic State, E-Invoice Compliance** | 2026-06-05 | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [item.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/item.js), [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) |
+| 17 | **HSN-First GST% Auto-Derivation & Boilerplate Header Cleanup** | 2026-06-05 | [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [item.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/item.js), [smriti_item_master.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_item_master/smriti_item_master.js) |
+| 18 | **Deep System Review & Architecture Hardening** | 2026-06-05 | [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [transaction_kernel.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/transaction_kernel.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py) |
 
 ---
 
@@ -340,8 +346,79 @@ docker exec -it smriti_retail-backend-1 bench --site smriti_retail set-admin-pas
 | Invalid credentials | Reset admin password command above |
 | All containers shown as NOT FOUND in `check.ps1` | Was fixed — script now auto-detects Docker Compose project name |
 | `en.csv` translation errors in logs | Was fixed — malformed translation file corrected |
+| **`Could not find Row #N: Company: <name>` during new company creation** | **Fixed (v1.2.3)** — `flags.ignore_links = True` added to `Mode of Payment`, `POS Profile`, and `ensure_company_settings` saves. See §12 below. |
 
 Full guide: [TROUBLESHOOTING.md](file:///d:/Smriti_Retail_OS/TROUBLESHOOTING.md)
+
+---
+
+## 12. Known Bugs & Resolutions
+
+### BUG-001 — `Could not find Row #N: Company: <name>` on New Company Creation
+
+**Status:** ✅ Verified Fixed — v1.2.3 (2026-06-05) · All 5 checks passed
+
+**Symptom:**  
+When creating a new company through the Setup Wizard, Frappe throws:
+```
+Could not find Row #2: Company: Test Company Ltd
+```
+The error appears even when creating a *different* company (e.g. "Verify Test Co") — the name in the error is the *previously deleted* company.
+
+**True Root Cause (two independent triggers):**
+
+| # | Trigger | Caller | Why it fails |
+|---|---|---|---|
+| 1 | `ERPNext company.py → set_mode_of_payment_account()` | Fires on every `Company.on_update` | Iterates ALL Mode of Payment docs, appends a row for the new company, saves **without `ignore_links`** — Frappe validates ALL rows including stale ones for deleted companies |
+| 2 | `india_compliance → delete_gst_settings_for_company()` | Fires on `Company.on_trash` | Saves `GST Settings` doc containing stale rows for deleted companies |
+
+**Root DB cause:** A previously created company (e.g. `Test Company Ltd` from testing) was deleted via `frappe.delete_doc`, but ERPNext and India Compliance **do not clean up child table rows** in `tabMode of Payment Account` and `tabGST Account`. These orphan rows cause Link validation to fail on every subsequent Company save.
+
+**Three-Layer Fix Applied:**
+
+**Layer 1 — Code: Orphan purge in wizard MoP loop** ([setup_wizard_api.py ~L511](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py))
+```python
+# Strip any MoP account rows whose Company no longer exists
+clean_accounts = [acc for acc in unique_accounts if frappe.db.exists("Company", acc.company)]
+mop_doc.accounts = clean_accounts
+mop_doc.flags.ignore_links = True   # belt-and-suspenders
+mop_doc.save(ignore_permissions=True)
+```
+
+**Layer 2 — Code: `ignore_links` in `ensure_company_settings` hook** ([company_api.py ~L357](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py))
+```python
+new_doc.flags.ignore_links = True   # hook fires inside Company.after_insert before outer commit
+new_doc.insert(ignore_permissions=True)
+```
+
+**Layer 3 — One-time DB cleanup** (run once on affected site)
+```sql
+-- Delete stale Mode of Payment Account rows for deleted companies
+DELETE FROM `tabMode of Payment Account`
+WHERE company NOT IN (SELECT name FROM `tabCompany`);
+
+-- Delete stale GST Account rows for deleted companies  
+DELETE FROM `tabGST Account`
+WHERE company NOT IN (SELECT name FROM `tabCompany`);
+```
+Scripts: [`scratch/purge_stale_mop.py`](file:///d:/Smriti_Retail_OS/scratch/purge_stale_mop.py) · [`scratch/purge_stale_gst.py`](file:///d:/Smriti_Retail_OS/scratch/purge_stale_gst.py)
+
+**Rows deleted from this site:**
+- `tabMode of Payment Account`: 1 row (Cash → Test Company Ltd)
+- `tabGST Account`: 4 rows (CGST/SGST/IGST/Cess → Test Company Ltd)
+
+**Verification Result (2026-06-05):**
+```
+[OK] run_setup_wizard() returned success=True
+[OK] Company exists in DB
+[OK] SMRITI Company Settings created
+[OK] Warehouse created (Main Store - VTC)
+[OK] POS Profile created (Standard POS Profile)
+RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
+```
+
+> [!IMPORTANT]
+> If this error reappears on a fresh install or after deleting companies, run the two purge scripts above against the site. Always use `delete_company()` in [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) instead of raw `frappe.delete_doc("Company", ...)` — it cleans up SMRITI Settings but ERPNext's own MoP/GST rows still need the purge scripts if companies were deleted through the ERPNext desk.
 
 ---
 
@@ -384,7 +461,7 @@ Full guide: [TROUBLESHOOTING.md](file:///d:/Smriti_Retail_OS/TROUBLESHOOTING.md)
 
 ### Automated Test Suite
 - **Location**: [tests/](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/)
-- **Test Count**: **87/87 passing** (verified as of 2026-06-04)
+- **Test Count**: **94/94 passing** (verified as of 2026-06-05)
 - **Run Command**:
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
@@ -443,7 +520,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.2.2** (current) |
+| SMRITI Retail OS | **v1.2.6** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
