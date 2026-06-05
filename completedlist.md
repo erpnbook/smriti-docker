@@ -265,4 +265,33 @@ This file tracks the officially completed, verified, and locked features of the 
   - Backend Logic: [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [transaction_kernel.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/transaction_kernel.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py)
   - Unit Tests: [test_transaction_kernel.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_transaction_kernel.py), [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py)
 
+### 19. Setup Wizard Whitelist & Audit Relocation
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-05
+* **Description**: Addressed 3 minor audit findings from the v4 deep review regarding bare throw translation wrappers, test files description corrections, and relocation of developer-only tools.
+* **Key Mechanisms**:
+  - **Setup Wizard Access Protection**: Added `allow_guest=True` whitelist decorators on setup wizard backend initialization and setup endpoints to support first-time guest deployments without raising whitelisting faults.
+  - **Translation Wrapping**: Wrapped the bare `frappe.throw()` inside `www/reports.py` with standard `_()` translation macros.
+  - **Relocation of Dev Tools**: Created a clean `/scripts` directory at the repository root and moved developer-only verify scripts (`verify_deep_audit.py`, `verify_pos_features.py`, `verify_security.py`) there, keeping them out of the production-installable python package.
+  - **Documentation Correction**: Fixed the misleading `@description` header inside `cleanup_test_data.py` to match its exact role.
+* **Modified Files**:
+  - Wizard API: [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py)
+  - Reports Route: [reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.py)
+  - Test Cleanup: [cleanup_test_data.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cleanup_test_data.py)
+  - Verification Scripts (Moved):
+    - [verify_deep_audit.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/scripts/verify_deep_audit.py)
+    - [verify_pos_features.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/scripts/verify_pos_features.py)
+    - [verify_security.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/scripts/verify_security.py)
+
+### 20. Warehouse Bootstrapping & Privilege Escalation
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-05
+* **Description**: Hotfixed two fatal deployment block bugs in the Setup Wizard related to missing standard ERPNext Warehouse Types and permission errors triggered by India Compliance hooks running in guest sessions.
+* **Key Mechanisms**:
+  - **Warehouse Type Seeding**: Added defensive bootstrapping logic in `setup_wizard_api.py` to check for and create standard ERPNext Warehouse Types (`Transit`, `Standard`, `Subcontracted`) if they are missing in the database before company creation, bypassing crashes in ERPNext's automatic default transit warehouse generation hooks.
+  - **Session Context Escalation**: Programmatically escalated the session user to `Administrator` via `frappe.set_user("Administrator")` for the duration of the setup wizard run. This resolves permission errors triggered by third-party overrides (specifically `india_compliance` tax withholding category inserts) when the wizard is initiated as a Guest.
+* **Modified Files**:
+  - Wizard API: [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py)
+
+
 

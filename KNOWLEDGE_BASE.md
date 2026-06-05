@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-05 · **Version:** v1.2.6
+> **Last Updated:** 2026-06-05 · **Version:** v1.2.7
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -225,6 +225,8 @@ smriti_retail_os/
 | 16 | **Code Review Fixes — HSN-First GST, Dynamic State, E-Invoice Compliance** | 2026-06-05 | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [item.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/item.js), [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) |
 | 17 | **HSN-First GST% Auto-Derivation & Boilerplate Header Cleanup** | 2026-06-05 | [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [item.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/item.js), [smriti_item_master.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_item_master/smriti_item_master.js) |
 | 18 | **Deep System Review & Architecture Hardening** | 2026-06-05 | [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [transaction_kernel.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/transaction_kernel.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py) |
+| 19 | **Setup Wizard Whitelist & Audit Relocation** | 2026-06-05 | [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py), [reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.py), [cleanup_test_data.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cleanup_test_data.py) |
+| 20 | **Warehouse Bootstrapping & Privilege Escalation** | 2026-06-05 | [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py) |
 
 ---
 
@@ -520,7 +522,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.2.6** (current) |
+| SMRITI Retail OS | **v1.2.7** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
