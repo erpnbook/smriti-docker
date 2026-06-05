@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-05 · **Version:** v1.2.8
+> **Last Updated:** 2026-06-06 · **Version:** v1.2.8
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -228,6 +228,8 @@ smriti_retail_os/
 | 19 | **Setup Wizard Whitelist & Audit Relocation** | 2026-06-05 | [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py), [reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.py), [cleanup_test_data.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cleanup_test_data.py) |
 | 20 | **Warehouse Bootstrapping & Privilege Escalation** | 2026-06-05 | [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py) |
 | 21 | **Domain Migration to erpnbook.com** | 2026-06-05 | [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [smriti_sidebar.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar.js), [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js) |
+| 22 | **SMRITI Label Studio v2.1 — QZ USB/Local Routing, Presets, Warnings & Aggregated Analytics** | 2026-06-05 | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
+| 23 | **Live Autocomplete & Debounce (300ms) for Style/Article Field** | 2026-06-06 | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
 
 ---
 
@@ -445,6 +447,8 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 | `smriti_retail_os.security_api.reset_user_password` | [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) | Reset store-level user password (governance-gated) |
 | `smriti_retail_os.backup_api.take_backup_now` | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) | Trigger manual backup |
 | `smriti_retail_os.sizewise_invoice_api.get_admin_session_for_pdf` | [sizewise_invoice_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sizewise_invoice_api.py) | Retrieve admin session for headless PDF export (System Manager role required) |
+| `smriti_retail_os.barcode_api.get_print_analytics` | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py) | Compiles SMRITI Print Run analytics from Activity Logs |
+| `smriti_retail_os.barcode_api.search_barcode_items` | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py) | Optimized search for Live Autocomplete suggestions |
 
 ### Frontend Pages
 
@@ -457,6 +461,7 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 | `/suppliers` | [suppliers.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/suppliers.html) | Supplier Registry |
 | `/configure` | [configure.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/configure.html) | Store configuration |
 | `/setup-wizard` | [setup_wizard.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/setup_wizard.html) | One-time setup wizard |
+| `/barcode` | [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) | SMRITI Label Studio (ZPL/ESC-POS printer management & label printing) |
 
 ---
 
