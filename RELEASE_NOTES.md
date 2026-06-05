@@ -2,6 +2,56 @@
 
 ---
 
+## 🆕 v1.2.8 — Domain Migration to erpnbook.com (2026-06-05)
+
+### 🌐 1. Domain Migration
+- Replaced all instances of `smriti.io` with `erpnbook.com` in code files, sidebar scripts, configuration files, and HTML/email templates.
+- Updated developer email in `pyproject.toml` to `admin@erpnbook.com`.
+- Changed support desk email to `support@erpnbook.com` and help links to `support.erpnbook.com` in `hooks.py`.
+- Updated placeholder cashiers and developer scripts to use the `erpnbook.com` domain.
+
+### 🗑️ 2. Duplicate Script Cleanup
+- Deleted duplicate `verify_security.py` from the root of `apps/smriti_retail_os`, keeping only the updated script at `/scripts/verify_security.py`.
+
+---
+
+## 🆕 v1.2.7 — Setup Wizard Whitelist, Warehouse Bootstrapping & Privilege Escalation (2026-06-05)
+
+### 🧙‍♂️ 1. Setup Wizard Whitelist (`setup_wizard_api.py`)
+- Added `allow_guest=True` whitelist flag to `get_setup_wizard_initial_data` and `run_setup_wizard` API endpoints to support first-time guest deployments without raising whitelisting errors.
+
+### 🛡️ 2. Privilege Escalation & Warehouse Bootstrapping (`setup_wizard_api.py`)
+- Added code to programmatically escalate the session user to `"Administrator"` via `frappe.set_user("Administrator")` during setup wizard execution, bypassing `PermissionError` caused by third-party hooks (such as `india_compliance` company overrides) executing under the context of `Guest` user session.
+- Implemented defensive bootstrapping logic to check for and create standard ERPNext Warehouse Types (`Transit`, `Standard`, `Subcontracted`) before company creation, resolving the fatal `Could not find Warehouse Type: Transit` validation crash.
+
+### 🧹 3. Audit Relocation & Code Review Fixes (`www/reports.py`, `cleanup_test_data.py`)
+- Relocated developer audit scripts (`verify_deep_audit.py`, `verify_pos_features.py`, `verify_security.py`) to a new `/scripts/` folder outside the production app package.
+- Wrapped the bare `frappe.throw()` at `www/reports.py:28` with standard `_()` translation macros.
+- Fixed the misleading `@description` header inside `cleanup_test_data.py` to match its exact role.
+
+---
+
+## 🆕 v1.2.6 — Deep Review & Architecture Hardening (2026-06-05)
+
+### 🔐 1. Security & Randomization (`security_api.py`)
+- Replaced hardcoded default passwords with random, cryptographically secure password generation (`secrets.token_urlsafe(16)`) per user.
+
+### 📈 2. N+1 Performance Optimization (`item_master_api.py`)
+- Implemented `_build_import_lookup_cache()` collapsing 600+ database queries down to 5 bulk queries per 100-row import.
+
+### 📊 3. Report Aggregation (`reports_api.py`)
+- Refactored in-memory Python invoice loops into standard SQL aggregations (`SUM()`, `COUNT()`, `GROUP BY`) for massive database query efficiency.
+
+### ⚖️ 4. Invariants and GST Jurisdiction Safeguards (`transaction_kernel.py`, `hooks_logic.py`)
+- Removed the silent `"Karnataka"` fallback in `hooks_logic.py`, raising an warning log to prevent incorrect CGST/SGST splits.
+- Eliminated generic ghost item creation (`_SMRITI_GENERIC_ITEM_`) in `transaction_kernel.py`, instead enforcing clean item master validation constraints.
+
+### 🐛 5. Setup Wizard "Company Link" fixes (`setup_wizard_api.py`, `company_api.py`)
+- Stripped payment accounts of non-existent companies before saving.
+- Injected `flags.ignore_links = True` on setup wizard payments and company settings insert hooks to resolve `Could not find Row #N: Company: <name>` crashes.
+
+---
+
 ## 🆕 v1.2.1 — Warehouse Hardening & Custom Warehouse Override (2026-06-04)
 
 ### 🏢 1. Company-matching Default Warehouse (`purchase_api.py`, `inventory_api.py`)
