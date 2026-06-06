@@ -1,9 +1,31 @@
 <div align="center">
   <img src="apps/smriti_retail_os/smriti_retail_os/public/images/logo.svg" alt="SMRITI Retail OS" width="120" />
   <h1>SMRITI Retail OS</h1>
-  <p>Official Docker Orchestration for the SMRITI Retail Experience Layer.</p>
-  <p><b>Stable Production Release: <code>v1.2.10</code></b> 🚀</p>
+  <p><b>Complete Retail Operations Platform</b></p>
+  <p>Modern Retail Operating System for Footwear, Apparel, Fashion, Grocery, and Multi-Store Retail Businesses. 🚀</p>
+  <p><b>Stable Production Release: <code>v1.2.10</code></b></p>
 </div>
+
+---
+
+## ⚡ What is SMRITI Retail OS?
+
+SMRITI Retail OS is a modern, high-performance retail platform designed specifically to handle complex inventory structures, rapid customer checkouts, and multi-store operations. It provides business operators and cashiers with a beautiful, distraction-free environment to manage sales billing, merchandising, and warehouse workflows.
+
+---
+
+## ✨ Features
+
+- **Smart Billing**: Cashier-focused POS terminal with barcode scanning, hold/recall queues, and security-gated manager overrides.
+- **Purchase Management**: Streamlined vendor procurement, pricing controls, and Goods Receipt Note (GRN) mappings.
+- **Inventory Control**: Real-time stock counts, sizing matrix conversions, and automated store-to-store material transfers.
+- **Barcode Center**: Unique EAN-13 namespace allocations, primary/secondary barcode registries, and duplicate protection.
+- **Label Studio v2.1**: In-browser barcode template designer with raw ZPL/TSPL stream printing over local USB or network LAN sockets.
+- **Sizewise Sales**: Sizewise matrix invoice entries with keyboard-wedge HID scanner support.
+- **GST Ready**: Automated HSN code lookup tax derivation and compliant tax splits for Indian states.
+- **Multi-Store Operations**: Centralized company controls with independent warehouse registers per retail outlet.
+- **Setup Wizard**: 5-step onboarding wizard for rapid site provisioning.
+- **Docker Deployment**: Fully containerized orchestration stack for local and cloud hosting.
 
 ---
 
@@ -30,25 +52,25 @@ bash install.sh
 ## 🔒 Security Configuration Note
 
 The master `Administrator` account is provisioned dynamically during the onboarding wizard. 
-- **DO NOT** use default passwords like `admin` in production.
+- **DO NOT** use default passwords in production.
 - Operators must configure a secure, unique password inside the Setup Wizard on first boot.
 
-Once setup is complete, access the billing terminal at:
-- **Billing Desk**: `http://localhost:9000/billing` (isolated cashier login)
-- **ERPNext Desk**: `http://localhost:8080/app` (manager / administrator login)
+Once setup is complete, access the platform endpoints:
+- **Cashier Billing Terminal**: `http://localhost:9000/billing` (isolated checkout login)
+- **Manager Desk**: `http://localhost:8080/app` (administration portal login)
 
 ---
 
 ## 🗺️ Documentation Index
 
-For deep technical setups, operations, and architectural reviews, consult SMRITI's specialized manuals:
+For detailed technical references, operational guides, and version histories, consult the specialized manuals:
 
-- 🧙‍♂️ **[INSTALL.md](./INSTALL.md)**: Full Fresh, Upgrade, and Development setup instructions, including the 5-step Setup Onboarding wizard guide.
-- 🏷️ **[LABEL_STUDIO.md](./LABEL_STUDIO.md)**: SMRITI Label Studio v2.1 guide (ZPL/TSPL templates, Live Autocomplete search, QZ Tray USB, LAN sockets, Print Analytics).
-- 🚀 **[DEPLOYMENT.md](./DEPLOYMENT.md)**: Container orchestration configuration (`pwd.yml`), volume mounts, ports, and Backup/Restore/Disaster Recovery runbooks.
-- 🛠️ **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)**: Consolidated troubleshoot manual (Docker mapping, Nginx 502, CSS MIME-types, Socket origins, QZ Tray).
-- 📋 **[CHANGELOG.md](./CHANGELOG.md)**: Version history log (Keep a Changelog format), test suite growth, and release versioning strategy.
-- 🏗️ **[ARCHITECTURE.md](./ARCHITECTURE.md)**: Master technical reference explaining SEL concept, API layers, and Docker container mappings.
+- 🧙‍♂️ **[INSTALL.md](./INSTALL.md)**: Onboarding instructions, including manual container setup and the 5-step onboarding wizard guide.
+- 🏷️ **[LABEL_STUDIO.md](./LABEL_STUDIO.md)**: Label Studio v2.1 operator manual (designing templates, USB printing, direct LAN connections, and print analytics).
+- 🚀 **[DEPLOYMENT.md](./DEPLOYMENT.md)**: Deployment parameters, environment files, and Backup/Restore/Disaster Recovery runbooks.
+- 🛠️ **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)**: Troubleshooting index for ports, asset pipelines, and local device connectivity.
+- 📋 **[CHANGELOG.md](./CHANGELOG.md)**: Releases history (Keep a Changelog format) and automated test suite metrics.
+- 🏗️ **[ARCHITECTURE.md](./ARCHITECTURE.md)**: Master architecture guide detailing container mapping, API layers, and data flows.
 
 ---
 
