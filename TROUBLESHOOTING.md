@@ -1,492 +1,248 @@
-# 🛠️ Smriti Retail OS — Docker Troubleshooting Guide
+# SMRITI Retail OS — Production Troubleshooting Manual
 
-> This guide documents real issues encountered during deployment and how to fix them.
+This guide documents common issues encountered during installation, container orchestration, and daily operations of **SMRITI Retail OS**, along with their root causes and verified solutions.
 
 ---
 
-## 📋 Quick Reference — Diagnostic Commands
+## 📋 Quick Diagnostic Toolkit
+
+Run these checks inside the repository folder to diagnose container and network health:
 
 ```powershell
-# 1. List ALL running containers and their status
+# 1. Verify container states and mapped host ports
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
-# 2. Check logs for a specific container (last 50 lines)
+# 2. Check recent logs of the backend container
 docker logs smriti_retail-backend-1 --tail 50
 
-# 3. List all containers (including stopped ones)
-docker ps -a --format "table {{.Names}}\t{{.Status}}"
+# 3. Check recent logs of the Nginx frontend proxy
+docker logs smriti_retail-frontend-1 --tail 50
 
-# 4. Check what's mounted inside the container
-docker exec smriti_retail-backend-1 ls -la /home/frappe/frappe-bench/apps/
-
-# 5. Check a specific app's files inside the container
+# 4. Check files inside the backend container mount
 docker exec smriti_retail-backend-1 ls -la /home/frappe/frappe-bench/apps/smriti_retail_os/
-
-# 6. Check container environment variables
-docker inspect smriti_retail-backend-1 | findstr -i "env"
 ```
 
 ---
 
-## 🔴 Issue 1: "No such container: demotest-backend-1"
+## 🔌 1. SMRITI Label Studio & QZ Tray Issues
 
-### Symptom
+### 🔴 QZ Tray Not Connected / Not Running
+- **Symptom**: SMRITI Label Studio (`/barcode`) shows `🔴 QZ Tray Not Running` and cannot detect USB/local printers.
+- **Root Cause**: The QZ Tray local daemon is not running on the client computer, or the browser is blocking WebSocket connections to `localhost:8182`.
+- **Fix**:
+  1. Download and install QZ Tray from the official website on the local computer.
+  2. Launch QZ Tray and verify its icon appears in the system tray.
+  3. Allow localhost certificate: Open `https://localhost:8182` in a browser tab. If a security warning is shown, select **Advanced → Proceed to localhost (unsafe)** to whitelist the connection.
+  4. Refresh the SMRITI Label Studio page to allow `initQZ()` to connect.
+
+### 🔴 local USB Printer Not Detected
+- **Symptom**: QZ Tray status shows green (`🟢 Connected`) but the local printer dropdown is empty.
+- **Root Cause**: The thermal printer driver is not installed on the system, or the device is turned off/disconnected.
+- **Fix**:
+  1. Ensure the label printer is powered on and connected to a USB port.
+  2. Install the manufacturer's printer driver (Zebra/TSC/etc.).
+  3. Verify the printer appears in the OS Settings (Printers & Scanners).
+  4. Click the **Refresh Printers** button in Label Studio.
+
+---
+
+## 🐳 2. Container & Docker Orchestration Issues
+
+### 🔴 "No such container: demotest-backend-1"
+- **Symptom**: Commands like `docker exec` fail with `No such container`.
+- **Root Cause**: Docker Compose names containers using the parent directory name as a prefix (`<directory_name>-<service_name>-1`). If you cloned the repository to a folder named `smriti_retail`, your backend is named `smriti_retail-backend-1`, not `demotest-backend-1`.
+- **Fix**:
+  Run `docker ps` to find the actual running container names, and ensure you use the correct name prefix in your commands:
+  ```powershell
+  # Check actual names
+  docker ps --format "{{.Names}}"
+  
+  # Execute with correct container name
+  docker exec -it smriti_retail-backend-1 bench migrate
+  ```
+
+### 🔴 Backend in Restart Loop: "neither 'setup.py' nor 'pyproject.toml' found"
+- **Symptom**: Backend container cycles through `Restarting` and logs show `does not appear to be a Python project`.
+- **Root Cause**: The host folder `apps/smriti_retail_os` is empty. Because the directory is bind-mounted, an empty directory inside the container blocks pip from installing the application metadata.
+- **Fix**:
+  Ensure you have run the clone commands in `INSTALL.md` or copied your workspace files into `apps/smriti_retail_os/` before launching the stack:
+  ```powershell
+  # Verify files exist on host
+  Get-ChildItem apps\smriti_retail_os\
+  ```
+
+### 🔴 "ERPNEXT_VERSION variable is not set"
+- **Symptom**: Docker compose prints warnings: `The "ERPNEXT_VERSION" variable is not set. Defaulting to blank string`.
+- **Root Cause**: The environment configuration file `.env` is missing or variables are empty.
+- **Fix**:
+  Copy the example configuration file and set target versions:
+  ```bash
+  cp example.env .env
+  ```
+
+### 🔴 Nginx "502 Bad Gateway"
+- **Symptom**: Opening `http://localhost:8080` in the browser returns a `502 Bad Gateway` error.
+- **Root Cause**: The Nginx container cached the backend container's old IP address after a restart.
+- **Fix**:
+  Restart the Nginx frontend proxy to force it to re-resolve backend DNS mappings:
+  ```bash
+  docker restart smriti_retail-frontend-1
+  ```
+
+### 🔴 Socket.IO "Invalid Origin" Error
+- **Symptom**: Browser console logs `Error connecting to socket.io: Invalid origin`.
+- **Root Cause**: The websocket container rejects incoming Socket.IO requests from origins not explicitly permitted in configuration settings.
+- **Fix**:
+  Configure allowed origins in `common_site_config.json`:
+  ```bash
+  docker exec smriti_retail-backend-1 bench config set-common-config -c allow_cors_origin "http://localhost:8080"
+  docker compose restart websocket
+  ```
+
+### 🔴 "wait-for-it: waiting 120 seconds for db:3306"
+- **Symptom**: Backend startup logs halt at database socket connection checks.
+- **Root Cause**: MariaDB takes 30-90 seconds to initialize database tables on first launch.
+- **Fix**:
+  Wait for the check to complete. If it times out, verify database health:
+  ```powershell
+  docker logs smriti_retail-db-1
+  ```
+
+---
+
+## 🎨 3. UI & Static Asset Sync Issues
+
+### 🔴 Blank or Unstyled UI (CSS/JS MIME-type blockages)
+- **Symptom**: The login or desk page loads as plain HTML with no CSS styling. Browser console shows:
+  `Refused to apply style because its MIME type ('text/html') is not a supported stylesheet MIME type`.
+- **Root Cause**: Nginx cannot resolve symbolic links or is requesting file hashes that mismatch those compiled by the backend server.
+- **Fix**:
+  Force a physical rebuild and copy compiled bundles straight to the Nginx shared volume using SMRITI's asset synchronization utility:
+  ```bash
+  docker exec smriti_retail-backend-1 bench build --app smriti_retail_os
+  docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets
+  docker restart smriti_retail-frontend-1
+  ```
+
+---
+
+## 🔑 4. Authentication & Site Database Issues
+
+### 🔴 "Invalid credentials" (Lost Admin Password)
+- **Symptom**: Correct password attempts reject logins.
+- **Root Cause**: The database user credentials have been modified, or password hashing caches are out of sync.
+- **Fix**:
+  Run a console reset command inside the backend container:
+  ```bash
+  docker exec smriti_retail-backend-1 bench --site smriti_retail set-admin-password "YourNewSecurePassword!"
+  ```
+
+### 🔴 "404 Not Found: smriti_retail does not exist"
+- **Symptom**: Bench commands fail claiming the site does not exist.
+- **Root Cause**: The `smriti_retail` site folder was deleted, or `common_site_config.json` was cleared.
+- **Fix**:
+  1. Verify the site directory is present:
+     ```bash
+     docker exec smriti_retail-backend-1 ls /home/frappe/frappe-bench/sites/
+     ```
+  2. If missing, restore the site database using SMRITI's restore procedures, or initialize a fresh database:
+     ```bash
+     docker exec smriti_retail-backend-1 bench new-site smriti_retail --admin-password=YourSecurePassword
+     ```
+
+### 🔴 ModuleNotFoundError: No module named 'erpnextindia_compliance'
+- **Symptom**: Background queues fail starting, claiming modules are missing.
+- **Root Cause**: The `apps.txt` file inside the sites folder is corrupted (e.g. `erpnext` and `india_compliance` lines merged together).
+- **Fix**:
+  Rewrite `apps.txt` with correct single-line entries:
+  ```bash
+  docker exec smriti_retail-backend-1 bash -c "printf 'frappe\nerpnext\nindia_compliance\nsmriti_retail_os\n' > /home/frappe/frappe-bench/sites/apps.txt"
+  docker compose restart scheduler queue-long queue-short
+  ```
+
+---
+
+## 🧪 5. Unit Tests Failing
+
+### 🔴 "LinkValidationError: Transit not found in Warehouse Type"
+- **Symptom**: Unit tests fail during setUp execution because of missing core database records.
+- **Root Cause**: The test site runs on an empty database sandbox and requires basic Warehouse Type schemas to exist.
+- **Fix**:
+  Create the missing record in the test class setUp:
+  ```python
+  frappe.get_doc({
+      "doctype": "Warehouse Type",
+      "name": "Transit"
+  }).insert(ignore_if_duplicate=True)
+  ```
+
+### 🔴 "MandatoryError: cost_center" on Invoice Saves
+- **Symptom**: Invoice generation tests crash complaining that Cost Center fields are empty.
+- **Root Cause**: In ERPNext v16, cost centers are mandatory for accounting ledger splits.
+- **Fix**:
+  Query the default company cost center and set it on child items:
+  ```python
+  company = frappe.defaults.get_defaults().get("company")
+  cc = frappe.get_value("Company", company, "cost_center")
+  for item in invoice.items:
+      item.cost_center = cc
+  ```
+
+---
+
+## ⌨️ 6. Bench Commands Reference
+
+All command entries must run within the context of the backend container:
+
+```bash
+docker exec -it smriti_retail-backend-1 bench --site smriti_retail <command>
 ```
-Error response from daemon: No such container: demotest-backend-1
-```
 
-### Root Cause
-Docker Compose names containers based on the **folder name** where `compose.yaml` lives, **not** what you expect.
-
-| Folder Name | Container Name Pattern |
+| Operational Goal | Bench Command |
 |---|---|
-| `smriti_retail` | `smriti_retail-backend-1` |
-| `demotest` | `demotest-backend-1` |
-| `my_project` | `my_project-backend-1` |
-
-### Fix
-Always first run `docker ps` to find the **actual** container names:
-
-```powershell
-docker ps --format "table {{.Names}}\t{{.Status}}"
-```
-
-Then use the correct name:
-```powershell
-# ✅ Correct
-docker exec -it smriti_retail-backend-1 bench --site smriti_retail migrate
-
-# ❌ Wrong (assumes folder name = "demotest")
-docker exec -it demotest-backend-1 bench --site smriti_retail migrate
-```
-
-> [!TIP]
-> The container name = `<folder_name>-<service_name>-1`. The folder name is the name of the directory containing `compose.yaml`.
+| Run Migrations | `bench --site smriti_retail migrate` |
+| Rebuild CSS/JS Assets | `bench build` |
+| Clear Server Caches | `bench --site smriti_retail clear-cache` |
+| Reset Administrator Password | `bench --site smriti_retail set-admin-password <new_password>` |
+| Execute Unit Tests | `bench --site smriti_retail run-tests --app smriti_retail_os` |
 
 ---
 
-## 🔴 Issue 2: Backend keeps Restarting — "neither 'setup.py' nor 'pyproject.toml' found"
+## ⚡ 7. Execution Policy Restrictions (Windows)
 
-### Symptom
-```
-docker ps  →  smriti_retail-backend-1  Restarting (1) 58 seconds ago
-```
-```
-docker logs smriti_retail-backend-1 --tail 20
-→ ERROR: file:///home/frappe/frappe-bench/apps/smriti_retail_os does not appear to be a Python project:
-   neither 'setup.py' nor 'pyproject.toml' found.
-```
-
-### Root Cause
-The `apps/smriti_retail_os/` folder on the Windows host is **empty**. The volume mount puts an empty folder into the container, so pip cannot install the app.
-
-### Verify
-```powershell
-# On Windows host — should show files like pyproject.toml, hooks.py, etc.
-Get-ChildItem D:\demotest\smriti_retail\apps\smriti_retail_os
-
-# Inside the container — should show same files
-docker exec smriti_retail-frontend-1 ls -la /home/frappe/frappe-bench/apps/smriti_retail_os/
-```
-
-If the folder is empty on the host → the app source was never copied there.
-
-### Fix
-Copy the app source from your main workspace:
-
-```powershell
-# Copy smriti_retail_os app source
-Copy-Item -Path "D:\Smriti_Retail_OS\apps\smriti_retail_os\*" `
-          -Destination "D:\demotest\smriti_retail\apps\smriti_retail_os\" `
-          -Recurse -Force
-
-# Copy india_compliance app source (if also empty)
-Copy-Item -Path "D:\Smriti_Retail_OS\apps\india_compliance\*" `
-          -Destination "D:\demotest\smriti_retail\apps\india_compliance\" `
-          -Recurse -Force
-
-# Restart the crashed containers
-cd D:\demotest\smriti_retail
-docker compose restart backend scheduler queue-long queue-short
-```
-
-Then wait ~30 seconds and verify:
-```powershell
-docker ps --format "table {{.Names}}\t{{.Status}}"
-# All containers should show "Up X seconds" — not "Restarting"
-```
+### 🔴 SecurityError: Running scripts is disabled on this system
+- **Symptom**: Running `.\install.ps1` or `.\check.ps1` returns a PowerShell `SecurityError`.
+- **Root Cause**: Windows client OS disables script execution by default.
+- **Fix**:
+  Run the scripts using a one-time execution policy bypass:
+  ```powershell
+  PowerShell -ExecutionPolicy Bypass -File .\install.ps1
+  ```
 
 ---
 
-## 🔴 Issue 3: "sites/common_site_config.json found" — Site Already Exists
+## ⚠️ 8. Full Stack Reset Procedure (Nuclear Option)
 
-### Symptom
-```
-Site smriti_retail already exists, use `--force` to proceed anyway
-```
-
-### Root Cause
-The site was already created in a previous run. Docker setup scripts detect this and skip re-creation, but the message can look alarming.
-
-### What to Do
-**This is usually fine.** It means the site was previously initialized. Just wait for containers to become healthy.
-
-If you need to **force re-create** the site (⚠️ destroys all data):
-```powershell
-cd D:\demotest\smriti_retail
-docker compose down -v   # removes volumes including DB data
-docker compose up -d     # starts fresh
-```
-
-If you just want to **run migrations** on the existing site:
-```powershell
-docker exec -it smriti_retail-backend-1 bench --site smriti_retail migrate
-```
-
----
-
-## 🔴 Issue 4: "ERPNEXT_VERSION variable is not set"
-
-### Symptom
-```
-level=warning msg="The "ERPNEXT_VERSION" variable is not set. Defaulting to a blank string."
-```
-
-### Root Cause
-The `.env` file is missing or the variable is not set.
-
-### Fix
-```powershell
-# Check if .env exists
-Get-Item D:\demotest\smriti_retail\.env
-
-# If missing, copy from example
-Copy-Item D:\demotest\smriti_retail\example.env D:\demotest\smriti_retail\.env
-
-# Edit .env and set ERPNEXT_VERSION
-notepad D:\demotest\smriti_retail\.env
-```
-
-Set the value:
-```env
-ERPNEXT_VERSION=version-15
-```
-
-> [!NOTE]
-> This warning doesn't crash anything — it's cosmetic. But fixing it avoids confusion.
-
----
-
-## 🔴 Issue 5: wait-for-it: waiting 120 seconds for db:3306
-
-### Symptom
-```
-wait-for-it: waiting 120 seconds for db:3306
-```
-
-### Root Cause
-The database container (`db`) is not ready yet. This is normal on first startup — MariaDB takes 30–90 seconds to initialize.
-
-### What to Do
-**Wait.** If after 2 minutes the backend still crashes, check:
-```powershell
-# Is the DB container healthy?
-docker ps --format "table {{.Names}}\t{{.Status}}" | Select-String "db"
-# Should show: smriti_retail-db-1   Up X minutes (healthy)
-
-# Check DB logs
-docker logs smriti_retail-db-1 --tail 30
-```
-
-If DB is failing, check disk space:
-```powershell
-Get-PSDrive C | Select-Object Used, Free
-```
-
----
-
-## 🟡 Issue 6: Running Migrations After Code Changes
-
-### When to Run
-Run `bench migrate` after:
-- Pulling new code from GitHub
-- Adding new DocTypes or fields
-- Updating app version
-
-### Command
-```powershell
-# First confirm the backend is UP (not Restarting)
-docker ps --format "table {{.Names}}\t{{.Status}}"
-
-# Then run migration
-docker exec -it smriti_retail-backend-1 bench --site smriti_retail migrate
-```
-
-### If Migration Fails
-```powershell
-# Check migration logs inside container
-docker exec smriti_retail-backend-1 cat /home/frappe/frappe-bench/logs/migrate.log
-
-# Check recent bench logs
-docker exec smriti_retail-backend-1 cat /home/frappe/frappe-bench/logs/bench.log | tail -50
-```
-
----
-
-## 🟡 Issue 7: Frontend Shows Old Code / Changes Not Reflected
-
-### Fix — Clear Cache and Rebuild Assets
-```powershell
-# Clear server cache
-docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
-
-# Rebuild JS/CSS assets
-docker exec smriti_retail-backend-1 bench build --app smriti_retail_os
-
-# Or rebuild all assets
-docker exec smriti_retail-backend-1 bench build
-```
-
----
-
-## 🔴 Issue 8: "ModuleNotFoundError: No module named 'erpnextindia_compliance'"
-
-### Symptom
-```
-ModuleNotFoundError: No module named 'erpnextindia_compliance'
-```
-Containers like `queue-long`, `queue-short`, `scheduler` keep restarting.
-
-### Root Cause
-The `apps.txt` file inside the container is **corrupted** — entries got merged together or duplicated.
-
-### Verify
-```powershell
-docker exec smriti_retail-backend-1 cat /home/frappe/frappe-bench/sites/apps.txt
-```
-
-**Bad output** (merged/duplicated):
-```
-smriti_retail_os
-erpnextindia_compliance   ← "erpnext" + "india_compliance" merged!
-erpnext
-frappe
-india_compliance
-erpnext                    ← duplicate
-frappe                     ← duplicate
-```
-
-**Good output**:
-```
-frappe
-erpnext
-india_compliance
-smriti_retail_os
-```
-
-### Fix
-```powershell
-docker exec smriti_retail-backend-1 bash -c "printf 'frappe\nerpnext\nindia_compliance\nsmriti_retail_os\n' > /home/frappe/frappe-bench/sites/apps.txt"
-
-# Restart affected containers
-docker compose restart scheduler queue-long queue-short
-```
-
-> [!WARNING]
-> The order matters: `frappe` must come first, then `erpnext`, then dependent apps. Each app name must be on its own line with no extra spaces.
-
----
-
-## 🔴 Issue 9: "404 Not Found: smriti_retail does not exist" — Site Never Created
-
-### Symptom
-```
-bench --site smriti_retail migrate
-→ Error: 404 Not Found: smriti_retail does not exist.
-```
-
-### Root Cause
-The `smriti_retail` site was never created. The `create-site` service in `pwd.yml` either failed or was never run. Also, `common_site_config.json` may be empty `{}`.
-
-### Verify
-```powershell
-# Check what sites exist
-docker exec smriti_retail-backend-1 ls /home/frappe/frappe-bench/sites/
-# If you only see: apps.json  apps.txt  assets  common_site_config.json
-# → No site directory = site was never created
-
-# Check config
-docker exec smriti_retail-backend-1 cat /home/frappe/frappe-bench/sites/common_site_config.json
-# If output is just {} → config is empty, needs to be set first
-```
-
-### Fix — Step 1: Set config (if empty)
-```powershell
-docker exec smriti_retail-backend-1 bash -c "
-  bench set-config -g db_host db &&
-  bench set-config -gp db_port 3306 &&
-  bench set-config -g redis_cache 'redis://redis-cache:6379' &&
-  bench set-config -g redis_queue 'redis://redis-queue:6379' &&
-  bench set-config -g redis_socketio 'redis://redis-queue:6379' &&
-  bench set-config -gp socketio_port 9000
-"
-```
-
-### Fix — Step 2: Create the site
-```powershell
-docker exec smriti_retail-backend-1 bench new-site ^
-  --mariadb-user-host-login-scope='%' ^
-  --admin-password=admin ^
-  --db-root-username=root ^
-  --db-root-password=admin ^
-  --install-app erpnext ^
-  --install-app india_compliance ^
-  --install-app smriti_retail_os ^
-  --set-default smriti_retail
-```
-
-This takes 2-5 minutes. After completion:
-```powershell
-# Build frontend assets
-docker exec smriti_retail-backend-1 bench --site smriti_retail build --app smriti_retail_os --app india_compliance
-
-# Open the site
-Start-Process "http://localhost:8080"
-# Login: Administrator / admin
-```
-
-> [!IMPORTANT]
-> If `common_site_config.json` is empty, you **must** set the config before creating the site, otherwise `bench new-site` will fail because it can't connect to the database.
-
----
-
-## 🔴 Issue 10: "running scripts is disabled" — Windows PowerShell Execution Policy Restriction
-
-### Symptom
-```powershell
-.\install.ps1 : File D:\smriti_retail\install.ps1 cannot be loaded because running scripts is disabled on this system.
-For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
-CategoryInfo          : SecurityError: (:) [], PSSecurityException
-FullyQualifiedErrorId : UnauthorizedAccess
-```
-
-### Root Cause
-Windows security blocks the execution of unsigned third-party scripts by default. The local PowerShell Execution Policy is set to `Restricted`.
-
-### Fix
-You do not need to change your global Windows security configuration. Run the installer script with a one-time execution policy bypass:
-
-```powershell
-PowerShell -ExecutionPolicy Bypass -File .\install.ps1
-```
-
-Alternatively, if you want to permanently allow local scripts for your current Windows user, run this command:
-
-```powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-Then run the installer as usual:
-```powershell
-.\install.ps1
-```
-
----
-
-## ✅ Full Health Check — Run This First
-
-Before debugging any issue, run this full health check:
-
-```powershell
-# Step 1: Are all containers running?
-docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
-
-# Step 2: Are app files present in the container?
-docker exec smriti_retail-frontend-1 ls /home/frappe/frappe-bench/apps/smriti_retail_os/
-
-# Step 3: Is the site accessible?
-Start-Process "http://localhost:8080"
-
-# Step 4: Check backend logs for errors
-docker logs smriti_retail-backend-1 --tail 30
-```
-
-### Expected Healthy Output for Step 1:
-| Container | Status |
-|---|---|
-| `smriti_retail-frontend-1` | Up X minutes |
-| `smriti_retail-backend-1` | Up X minutes |
-| `smriti_retail-scheduler-1` | Up X minutes |
-| `smriti_retail-queue-long-1` | Up X minutes |
-| `smriti_retail-queue-short-1` | Up X minutes |
-| `smriti_retail-websocket-1` | Up X minutes |
-| `smriti_retail-redis-queue-1` | Up X minutes |
-| `smriti_retail-redis-cache-1` | Up X minutes |
-| `smriti_retail-db-1` | Up X minutes (healthy) |
-
-> [!IMPORTANT]
-> If **any** container shows `Restarting` → run `docker logs <container-name> --tail 30` to find the error.
-
----
-
-## 📂 Understanding the Folder → Container Name Mapping
-
-```
-D:\demotest\smriti_retail\        ← compose.yaml lives here
-         ↓
-Folder name = "smriti_retail"
-         ↓
-Container names:
-  smriti_retail-backend-1
-  smriti_retail-frontend-1
-  smriti_retail-db-1
-  smriti_retail-scheduler-1
-  smriti_retail-queue-long-1
-  smriti_retail-queue-short-1
-  smriti_retail-websocket-1
-  smriti_retail-redis-queue-1
-  smriti_retail-redis-cache-1
-```
-
-## 📂 Volume Mount — Where App Source Goes
-
-```
-Windows Host                            →   Inside Container
-D:\demotest\smriti_retail\apps\
-  smriti_retail_os\    (must have files) →  /home/frappe/frappe-bench/apps/smriti_retail_os/
-  india_compliance\    (must have files) →  /home/frappe/frappe-bench/apps/india_compliance/
-```
-
+Use this only in local development to purge corrupted containers and start fresh:
 > [!CAUTION]
-> If either `apps/<app_name>/` folder is empty on the host, the backend will crash in a restart loop. Always verify files exist with `Get-ChildItem D:\demotest\smriti_retail\apps\smriti_retail_os`.
-
----
-
-## 🔄 Complete Reset (Nuclear Option)
-
-If everything is broken and you want a fresh start:
+> This command will permanently delete all local database ledgers and file attachments.
 
 ```powershell
-cd D:\demotest\smriti_retail
+# 1. Stop containers and destroy mapped volumes
+docker compose -f pwd.yml down -v
 
-# Stop and remove all containers + volumes (⚠️ DELETES ALL DATA)
-docker compose down -v
+# 2. Re-create the docker container environment
+docker compose -f pwd.yml up -d
 
-# Re-copy app source files
-Copy-Item -Path "D:\Smriti_Retail_OS\apps\smriti_retail_os\*" `
-          -Destination "D:\demotest\smriti_retail\apps\smriti_retail_os\" `
-          -Recurse -Force
+# 3. Create a fresh site and install packages (takes 2-5 minutes)
+docker exec smriti_retail-backend-1 bench new-site smriti_retail \
+  --mariadb-root-password=admin \
+  --admin-password=YourSecurePassword \
+  --install-app erpnext \
+  --install-app india_compliance \
+  --install-app smriti_retail_os
 
-Copy-Item -Path "D:\Smriti_Retail_OS\apps\india_compliance\*" `
-          -Destination "D:\demotest\smriti_retail\apps\india_compliance\" `
-          -Recurse -Force
-
-# Start fresh
-docker compose up -d
-
-# Watch logs
-docker compose logs -f backend
+# 4. Copy and build assets
+docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets
+docker restart smriti_retail-frontend-1
 ```
-
----
-
-*Last updated: June 2026 | Smriti Retail OS Docker Deployment*
