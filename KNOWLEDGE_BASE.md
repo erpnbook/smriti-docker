@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-06 · **Version:** v1.2.8
+> **Last Updated:** 2026-06-06 · **Version:** v1.2.10
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -67,7 +67,8 @@
 | **HSN-First GST Architecture** | `gst_hsn_code` is the primary source of truth for GST %. `custom_gst_percentage` is auto-derived via the lookup chain: `HSN Code → GST HSN Code.taxes → Item Tax Template → SUM(tax_rate)`. Falls back to manual entry when HSN has no configured taxes. | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) — `get_gst_rate_from_hsn()` |
 | **Dynamic State Fallback** | Address state resolution reads `Company.state` instead of hardcoded `"Karnataka"` — ensures correct CGST/SGST splits for any Indian state | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) — `_get_company_state_fallback()` |
 | **Physical Asset Sync** | Unlinks symlinks and hard-copies compiled bundles to Nginx shared volume — eliminates MIME-type 404 errors | [sync_assets.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sync_assets.py) |
-| **Code-driven Schema** | Custom fields and DocTypes created via `setup.py` Python migration, not JSON manifests | [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
+| **Code-driven Schema & File-based DocTypes** | Core settings and simple attributes are created dynamically via Python, whereas complex DocTypes (like SMRITI Print Template) use standard, file-based JSON manifests with strict controller validation. | [smriti_print_template.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.json) |
+| **File-Based Print Template Schema** | Standardized `SMRITI Print Template` into a standard filesystem DocType with size limit check (100KB), mapping JSON validator, and SHA-256 `template_checksum` calculation. | [smriti_print_template.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.json) |
 | **ERPNext-First Data** | Company/Address/Supplier data lives in standard ERPNext DocTypes; SMRITI reads/writes through standard APIs | [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) |
 | **Role-Based Routing** | Cashiers hit `/billing`; System Managers see unaltered ERPNext desk | [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py) |
 | **Vendor Code on Supplier** | `custom_vendor_code` unique field on Supplier DocType links external ERP/supplier codes | [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
@@ -230,6 +231,7 @@ smriti_retail_os/
 | 21 | **Domain Migration to erpnbook.com** | 2026-06-05 | [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [smriti_sidebar.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar.js), [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js) |
 | 22 | **SMRITI Label Studio v2.1 — QZ USB/Local Routing, Presets, Warnings & Aggregated Analytics** | 2026-06-05 | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
 | 23 | **Live Autocomplete & Debounce (300ms) for Style/Article Field** | 2026-06-06 | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
+| 24 | **File-Based DocType Migration for SMRITI Print Template** | 2026-06-06 | [smriti_print_template.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.json), [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py) |
 
 ---
 
@@ -469,7 +471,7 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 
 ### Automated Test Suite
 - **Location**: [tests/](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/)
-- **Test Count**: **94/94 passing** (verified as of 2026-06-05)
+- **Test Count**: **102 passing tests** (verified as of 2026-06-06, baseline: 94 tests, estimated total: 100+ tests)
 - **Run Command**:
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
@@ -479,6 +481,7 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 | File | What It Tests |
 |---|---|
 | [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py) | Item import, vendor code validation, barcode logic |
+| [test_barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_barcode_api.py) | Print template CRUD lifecycle, ZPL/TSPL rendering, size/JSON validations, Honeywell template seed, and compatibility checks |
 
 ### Verification Scripts
 | Script | Purpose |
@@ -528,7 +531,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.2.8** (current) |
+| SMRITI Retail OS | **v1.2.10** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
