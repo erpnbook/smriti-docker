@@ -307,6 +307,104 @@ This file tracks the officially completed, verified, and locked features of the 
   - Front-end Assets: [smriti_sidebar.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar.js), [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js)
   - Email Layouts: [smriti_email_footer.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/templates/emails/smriti_email_footer.html), [smriti_email_header.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/templates/emails/smriti_email_header.html)
   - Admin Portal: [security.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/security.html), [verify_security.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/scripts/verify_security.py)
+### 22. SMRITI Label Studio v2.1 — QZ USB/Local Routing, Presets, Warnings & Aggregated Analytics
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-05
+* **Description**: Upgraded Label Studio to v2.1 with QZ-Tray USB/local printer routing, named print presets, quantity warning dialogs, and aggregated print run analytics.
+* **Key Mechanisms**:
+  - **QZ-Tray integration**: Browser-side ZPL/ESC-POS sending via QZ-Tray WebSocket for USB and local printers.
+  - **Aggregated Analytics**: `get_print_analytics` endpoint compiles Print Run count, label count, and printer breakdown from Activity Logs.
+  - **Named Presets**: Save/load print quantity/DPI/printer combinations as named presets in localStorage.
+* **Modified Files**:
+  - Backend API: [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py)
+  - Frontend View: [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html)
 
+### 23. Live Autocomplete & Debounce for Style/Article Field
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-06
+* **Description**: Added real-time autocomplete to the Article/Style field in Label Studio with 300ms debounce and `search_barcode_items` backend API.
+* **Key Mechanisms**:
+  - `search_barcode_items` performs indexed LIKE query on `item_code`, `item_name`, `custom_style_code`, and `brand` with a 10-result cap.
+  - Debounce prevents API flooding on fast keystrokes.
+* **Modified Files**:
+  - Backend API: [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py)
+  - Frontend View: [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html)
 
+### 24. File-Based DocType Migration for SMRITI Print Template
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-06
+* **Description**: Migrated `SMRITI Print Template` from a runtime Python-created DocType to a standard Frappe file-based JSON manifest with a controller class, 100KB size limit check, and SHA-256 checksum calculation.
+* **Key Mechanisms**:
+  - Full JSON manifest at `smriti_retail_os/doctype/smriti_print_template/smriti_print_template.json`.
+  - Controller validates: JSON mapping structure, template size ≤ 100KB, variable declarations.
+  - `template_checksum` field auto-calculated on save for integrity tracking.
+* **Modified Files**:
+  - DocType JSON: [smriti_print_template.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.json)
+  - Backend API: [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py)
 
+### 25. SMRITI Reporting Framework — 20 Retail Reports + Analytics Engine
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-07
+* **Description**: Built a complete metadata-driven retail reporting framework with 20 standard reports across 5 categories (Sales, Inventory, Cash, GST, Accounting). Single `SMRITIReportEngine` with MD5 caching, dynamic SQL builder, role-access filtering, multi-format export (Excel/CSV/PDF), and Saved Views.
+* **Key Report Categories**:
+  - **Sales Analytics**: Item-wise Sales, Bill-wise Sales, Daily Sales Summary, Hour-wise Analysis, Salesperson Performance, Category-wise Sales
+  - **Inventory Analytics**: Style-wise Stock, Attribute & Size-wise Stock, Current Stock Position, Stock Movement, Slow Moving Items
+  - **Cash Analytics**: Z Report, Cash Reconciliation, Payment Mode Summary
+  - **GST Analytics**: GST Sales Register, HSN-wise Sales Summary
+  - **Accounting Analytics**: Payment Register, Receipt Register, Cash Book, Day Book, Customer Outstanding, Supplier Outstanding (retail-only — does NOT duplicate ERPNext GL/P&L/Balance Sheet)
+* **Architecture**:
+  - `SMRITI Report Template` DocType: `report_key` (stable ID), `columns_json`, `filters_json`, `cache_ttl_seconds`, `role_access` (child table)
+  - `SMRITI Saved View` DocType: user-specific saved filter combinations
+  - Dynamic SQL builder with 3-branch size/color filter logic (s_attr join / items alias / i alias)
+  - MD5 cache key = `report_key + sorted(filters)` — Redis TTL per template
+* **Test Results**: `Ran 9 tests in 7.242s — OK` (all 9 report tests passing)
+* **Modified Files**:
+  - Report Engine: [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py)
+  - Setup Seeding: [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py)
+  - Dashboard UI: [reports.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.html)
+  - Test Suite: [test_reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_reports.py)
+
+### 26. Accounting Analytics Extension — 6 Retail Accounting Reports
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-07
+* **Description**: Added 6 retail-focused accounting analytics reports to the SMRITI Reporting Framework. Uses existing ERPNext Payment Entry, GL Entry, Journal Entry, and Sales/Purchase Invoice data — does NOT duplicate ERPNext General Ledger, Trial Balance, or Balance Sheet.
+* **Reports Added**:
+  - `payment_register` — Outgoing payment entries register with party, bank, mode
+  - `receipt_register` — Incoming receipts with invoice reference and SI/PE link
+  - `cash_book` — GL-based daily cash open/close balance aggregator
+  - `day_book` — Multi-doctype business daily summary (SI + PI + JV + PE)
+  - `customer_outstanding` — Receivables ageing with 30/60/90/90+ day buckets
+  - `supplier_outstanding` — Payables ageing with bucket filter
+* **Modified Files**:
+  - Report Engine: [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py)
+  - Setup Seeding: [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py)
+
+### 27. P0/P1 Critical Bug Fix Session — 9 Bugs Across 6 Files (Deep System Audit)
+* **Status**: Completed, Verified & Locked
+* **Date**: 2026-06-07
+* **Description**: Deep system audit using 4 parallel specialist research agents identified 100+ findings. All 9 P0/P1 critical bugs were fixed in a single session.
+* **Key Bugs Fixed**:
+
+| Bug ID | File | Impact | Fix |
+|---|---|---|---|
+| C-01 | purchase_api.py | PO/PR GL/Stock entries never posted (`docstatus=1+save()` bypasses submit hooks) | `insert()+submit()` + rollback |
+| C-02 | billing_api.py | Zero-invoice data loss if SI creation fails (POS Invoice deleted first) | Delete moved after SI commit |
+| C-03 | billing_api.py | Duplicate Payment Entry on background worker retry | Idempotency check on Payment Entry Reference |
+| C-04 | reports_api.py | Python expression embedded as literal SQL in size/color filter → DB crash | 3-branch Python-conditional SQL |
+| C-05 | hooks_logic.py | `except Exception` silently caught `frappe.throw()` → loyalty over-redemption | Changed to `except ImportError` |
+| C-06 | setup.py | Hardcoded `"AdminPassword123!"` in source code | `secrets.token_urlsafe(32)` reset key |
+| C-07 | setup_wizard_api.py | `frappe.set_user("Administrator")` permanently hijacked session | `frappe.flags.ignore_permissions = True` |
+| C-08 | item_master_api.py | Unbounded recursive barcode generator → RecursionError crash | Iterative loop (100 attempts max) |
+| H-01/H-02 | hooks_logic.py | Debug `print()` in before_validate; auto-heal stock corrupted inventory valuation | Removed both |
+| H-03 | security_api.py | Duplicate `"name"` key in filters dict → Administrator in role counts | Two-step set-subtraction |
+| L-12 | purchase_api.py | `po.terms = remarks` sets legal T&C field, not remarks | `po.remarks = remarks` |
+
+* **Modified Files**:
+  - [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py)
+  - [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py)
+  - [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py)
+  - [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py)
+  - [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py)
+  - [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py)
+  - [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+  - [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py)

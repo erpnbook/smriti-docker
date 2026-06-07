@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-06 · **Version:** v1.2.10
+> **Last Updated:** 2026-06-07 · **Version:** v1.3.0
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -72,6 +72,8 @@
 | **ERPNext-First Data** | Company/Address/Supplier data lives in standard ERPNext DocTypes; SMRITI reads/writes through standard APIs | [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) |
 | **Role-Based Routing** | Cashiers hit `/billing`; System Managers see unaltered ERPNext desk | [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py) |
 | **Vendor Code on Supplier** | `custom_vendor_code` unique field on Supplier DocType links external ERP/supplier codes | [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
+| **Metadata-Driven Reporting Engine** | `SMRITIReportEngine` uses `SMRITI Report Template` DocType (report_key, columns_json, filters_json, role_access) + dynamic SQL builder with MD5 caching + Redis TTL. No raw SQL per-report — all reports go through the same engine. | [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py) |
+| **Report Template Authority** | `report_key` is the stable internal identifier. `report_name` is display-only. All APIs use `report_key`. | [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) — `seed_report_templates()` |
 
 Full architecture detail: [ARCHITECTURE_REPORT.md](file:///d:/Smriti_Retail_OS/ARCHITECTURE_REPORT.md)
 
@@ -93,9 +95,13 @@ smriti_retail_os/
 │   │       ├── security_api.py
 │   │       ├── shift_api.py
 │   │       ├── backup_api.py
+│   │       ├── purchase_api.py
+│   │       ├── inventory_api.py
+│   │       ├── loyalty_api.py
+│   │       ├── reports_api.py          ← NEW: SMRITIReportEngine + 20 reports
 │   │       ├── hooks.py
 │   │       ├── hooks_logic.py
-│   │       ├── setup.py
+│   │       ├── setup.py               ← seeds DocTypes + all 20 report templates
 │   │       ├── setup_wizard_api.py
 │   │       ├── sync_assets.py
 │   │       ├── website_context.py
@@ -106,14 +112,17 @@ smriti_retail_os/
 │   │       │   ├── item_master.html
 │   │       │   ├── suppliers.html
 │   │       │   ├── configure.html
-│   │       │   └── setup_wizard.html
+│   │       │   ├── setup_wizard.html
+│   │       │   └── reports.html       ← NEW: Reports dashboard
 │   │       ├── public/js/        ← ERPNext desk JS overrides
 │   │       │   ├── sales_invoice.js
 │   │       │   └── purchase_order.js
 │   │       ├── translations/
 │   │       │   └── en.csv
 │   │       └── tests/
-│   │           └── test_item_master_api.py
+│   │           ├── test_item_master_api.py
+│   │           ├── test_reports.py     ← NEW: 11 report engine tests
+│   │           └── test_barcode_api.py
 │   └── india_compliance/         ← GST compliance app
 ├── docs/                         ← VitePress documentation site
 ├── the docs/                     ← Developer & troubleshooting manuals
@@ -232,6 +241,9 @@ smriti_retail_os/
 | 22 | **SMRITI Label Studio v2.1 — QZ USB/Local Routing, Presets, Warnings & Aggregated Analytics** | 2026-06-05 | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
 | 23 | **Live Autocomplete & Debounce (300ms) for Style/Article Field** | 2026-06-06 | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
 | 24 | **File-Based DocType Migration for SMRITI Print Template** | 2026-06-06 | [smriti_print_template.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.json), [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py) |
+| 25 | **SMRITI Reporting Framework — 20 Retail Reports + Analytics Engine** | 2026-06-07 | [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py), [reports.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.html), [test_reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_reports.py) |
+| 26 | **Accounting Analytics Extension — 6 Retail Accounting Reports** | 2026-06-07 | [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
+| 27 | **P0/P1 Critical Bug Fix Session — 9 Bugs Across 6 Files** | 2026-06-07 | [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) |
 
 ---
 
@@ -245,8 +257,23 @@ smriti_retail_os/
 | **P1-01** | 🟠 High | Manager overrides use primary login password (shoulder-surfing risk) | **OPEN** | [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py) — Task: SEC-02 |
 | **P1-02** | 🟠 High | Same insecure PIN logic duplicated in shift close | **OPEN** | [shift_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/shift_api.py) — Task: SEC-02 |
 | **P1-03** | 🟠 High | Email backup fails silently when DB backup exceeds 25MB SMTP limit | **OPEN** | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) — Task: CLD-01 |
-| **P1-04** | 🟠 High | No idempotency in `submit_bill` — double submission risk | **OPEN** | [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py) — Task: REL-02 |
 | **P2-01** | 🟡 Medium | `sync_assets.py` uses `shutil.rmtree` — not atomic | **OPEN** | [sync_assets.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sync_assets.py) — Task: REL-01 |
+
+### Deep Audit Bug Fixes — v1.3.0 (2026-06-07) — ALL CLOSED
+
+| Bug ID | Severity | Title | Status | Fix |
+|---|---|---|---|---|
+| **C-01** | 🔴 Critical | PO/PR used `docstatus=1 + save()` → GL/Stock entries never posted | ✅ **FIXED** | `insert() + submit()` with rollback in [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py) |
+| **C-02** | 🔴 Critical | POS Invoice deleted before SI committed → zero-invoice data loss | ✅ **FIXED** | Delete moved after SI commit in [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py) |
+| **C-03** | 🔴 Critical | Background worker creates duplicate Payment Entry on retry | ✅ **FIXED** | Idempotency check on `Payment Entry Reference` in [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py) |
+| **C-04** | 🔴 Critical | Python expression embedded as literal SQL in size/color filter | ✅ **FIXED** | 3-branch Python-conditional SQL in [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py) |
+| **C-05** | 🔴 Critical | `except Exception` swallowed `frappe.throw()` → loyalty over-redemption | ✅ **FIXED** | Changed to `except ImportError` in [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) |
+| **C-06** | 🔴 Critical | Hardcoded password `"AdminPassword123!"` in source code | ✅ **FIXED** | `secrets.token_urlsafe(32)` reset key in [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
+| **C-07** | 🔴 Critical | `frappe.set_user("Administrator")` permanently hijacked session | ✅ **FIXED** | Replaced with `frappe.flags.ignore_permissions = True` in [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py) |
+| **C-08** | 🔴 Critical | Unbounded recursive `generate_ean13_barcode()` → RecursionError crash | ✅ **FIXED** | Iterative loop (100 attempts max) in [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py) |
+| **H-01/H-02** | 🟠 High | Debug `print()` in before_validate hot path; auto-heal stock block | ✅ **FIXED** | Removed both from [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) |
+| **H-03** | 🟠 High | Duplicate `"name"` key in filters dict → Administrator in role counts | ✅ **FIXED** | Two-step set-subtraction in [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) |
+| **L-12** | 🟡 Medium | `po.terms = remarks` sets legal T&C field, not Remarks | ✅ **FIXED** | `po.remarks = remarks` in [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py) |
 
 ### Agent Task Blueprint
 
@@ -464,6 +491,7 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 | `/configure` | [configure.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/configure.html) | Store configuration |
 | `/setup-wizard` | [setup_wizard.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/setup_wizard.html) | One-time setup wizard |
 | `/barcode` | [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) | SMRITI Label Studio (ZPL/ESC-POS printer management & label printing) |
+| `/reports` | [reports.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.html) | SMRITI Analytics Dashboard — 20 reports across 5 categories |
 
 ---
 
@@ -471,7 +499,7 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 
 ### Automated Test Suite
 - **Location**: [tests/](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/)
-- **Test Count**: **102 passing tests** (verified as of 2026-06-06, baseline: 94 tests, estimated total: 100+ tests)
+- **Test Count**: **113 passing tests** (11 report engine + accounting tests added in v1.3.0)
 - **Run Command**:
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
@@ -482,6 +510,7 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 |---|---|
 | [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py) | Item import, vendor code validation, barcode logic |
 | [test_barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_barcode_api.py) | Print template CRUD lifecycle, ZPL/TSPL rendering, size/JSON validations, Honeywell template seed, and compatibility checks |
+| [test_reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_reports.py) | Report engine seeding (11 report keys), Sales analytics, Inventory analytics, Cash/Z-Report, 6 Accounting analytics (Payment Register, Receipt Register, Cash Book, Day Book, Customer Outstanding, Supplier Outstanding) |
 
 ### Verification Scripts
 | Script | Purpose |
@@ -531,7 +560,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.2.10** (current) |
+| SMRITI Retail OS | **v1.3.0** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
