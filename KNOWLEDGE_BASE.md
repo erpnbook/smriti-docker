@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-07 · **Version:** v1.3.0
+> **Last Updated:** 2026-06-07 · **Version:** v1.4.0
 
 > [!TIP]
 > Ask Antigravity to "update knowledge base" after any session to keep this file current.
@@ -243,7 +243,9 @@ smriti_retail_os/
 | 24 | **File-Based DocType Migration for SMRITI Print Template** | 2026-06-06 | [smriti_print_template.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.json), [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py) |
 | 25 | **SMRITI Reporting Framework — 20 Retail Reports + Analytics Engine** | 2026-06-07 | [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py), [reports.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.html), [test_reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_reports.py) |
 | 26 | **Accounting Analytics Extension — 6 Retail Accounting Reports** | 2026-06-07 | [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
-| 27 | **P0/P1 Critical Bug Fix Session — 9 Bugs Across 6 Files** | 2026-06-07 | [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) |
+| 27 | **P0/P1 Critical Bug Fix Session — 9 Critical Bugs Fixed** | 2026-06-07 | [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) |
+| 28 | **POS Return Invoice & Purchase Return (M-15)** | 2026-06-07 | [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [test_billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_billing_api.py), [test_purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_purchase_api.py) |
+| 29 | **UI/UX Deep Audit & Naming / Filter Streamlining** | 2026-06-07 | [reports.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.html), [reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [AUDIT_CRITIQUE.md](file:///d:/Smriti_Retail_OS/AUDIT_CRITIQUE.md) |
 
 ---
 
@@ -560,7 +562,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.3.0** (current) |
+| SMRITI Retail OS | **v1.4.0** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |

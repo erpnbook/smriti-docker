@@ -15,6 +15,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.4.0] — 2026-06-07
+
+### Added
+- **POS Returns (M-15):** Added `@frappe.whitelist() def create_return_invoice` API to construct and submit POS Sales/POS Invoice returns.
+- **Purchase Returns:** Added `@frappe.whitelist() def create_purchase_return` API with role validation (`check_store_manager_role`) to submit Debit Notes/Purchase Receipt returns.
+- **UI/UX Streamlining:** Added `getCleanReportName()` to dynamically filter and remove redundant `"SMRITI "` prefixes and trailing `" Book"` suffixes in report names.
+- **Dynamic Warehouse Filter:** Added company-based filtering for the Warehouse dropdown to prevent duplicate options in multi-company environments.
+
+### Fixed
+- **XSS Vulnerabilities (C-09/C-10/H-13):** Replaced `innerHTML` with `textContent` across `barcode.html` print worksheet, toast error messages, and printer configurations.
+- **Inventory Submission (C-01):** Replaced `docstatus=1 + save()` with correct `insert() + submit()` lifecycle across `create_grn`, `create_stock_transfer`, `create_stock_adjustment`, and `create_stock_audit` to ensure Stock Ledger and GL entries are posted.
+- **Database Safety (C-11/C-12/H-09/H-15):** Added confirmation tokens to `reset_db()`, removed premature database commits from variant resolution, removed event hook commits, and wrapped opening/closing shifts in rollback transaction blocks.
+- **Report Database Errors:** Resolved `declared_amount` database column mismatch in Cash Reconciliation and SQL parameter Keynes error in Cash Z-Report.
+
+### Changed
+- **Test Suite Expansion:** Grown the automated test suite to **113 passing tests** (including return transactions and database integration assertions).
+
+---
+
+## [1.3.0] — 2026-06-07
+
+### Added
+- **SMRITI Reporting Engine:** Implemented `SMRITIReportEngine` in `reports_api.py` supporting metadata-driven SQL execution, caching, and role validation.
+- **Retail Reports Seeding:** Seeds 20 standard reports covering Sales, Inventory, Cash, and 6 newly added Accounting reports (Day Book, Cash Book, Payment Register, Receipt Register, Customer Outstanding, Supplier Outstanding).
+- **Reports Test Suite:** Added `test_reports.py` verifying template seeding and execution, expanding the test suite to **105 passing tests**.
+
+---
+
 ## [1.2.10] — 2026-06-06
 
 ### Added
@@ -120,6 +148,8 @@ Quality control gates monitor automated test volumes over major milestones:
 - **v1.0.0**: 81 Passing Tests (Initial release baseline)
 - **v1.2.1**: 87 Passing Tests (Added custom warehouse tests)
 - **v1.2.10**: 94 Passing Tests (Added search/autocomplete and clean setup assertions)
+- **v1.3.0**: 105 Passing Tests (Added reports templates and execution tests)
+- **v1.4.0**: 113 Passing Tests (Added POS returns and database integration assertions)
 
 ### Release Readiness Matrix
 The current platform status is represented by the following readiness metrics:

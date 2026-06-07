@@ -2,6 +2,37 @@
 
 ---
 
+## 🆕 v1.4.0 — Security Hardening, POS Returns & UI/UX Streamlining (2026-06-07)
+
+### 🛡️ 1. P0/P1 Critical Bug Fixes
+- **XSS Elimination:** Fixed 7 `innerHTML` injection sites in `barcode.html` (item names, barcodes, error messages, QZ printer OS names, session IPs) by adding an `esc(s)` HTML-escaping utility and using DOM node `textContent` construction.
+- **`reset_db()` Hardening:** Restricted reset access exclusively to `Administrator`, added `"SMRITI_CONFIRM_RESET"` confirmation token, and logged errors with partial statuses.
+- **Submit Lifecycle:** Corrected 4 inventory creation functions (`create_grn`, `create_stock_transfer`, `create_stock_adjustment`, `create_stock_audit`) to use `insert() + submit()` instead of `docstatus=1 + save()`, ensuring Stock Ledger and GL entries are correctly posted.
+- **Shift & Session Security:** Wrapped Shift open/close submit in rollback blocks to prevent stuck draft open entries. Removed administrative session SID exposure endpoint.
+
+### 🔄 2. POS Return Invoice & Purchase Return (M-15)
+- **POS Returns:** Added `@frappe.whitelist() def create_return_invoice` using standard ERPNext return builders with rollback protection.
+- **Purchase Returns:** Added `@frappe.whitelist() def create_purchase_return` with role protection and automatic stock reversal.
+- **Unit Tests:** Added automated integration tests for both sales and purchase return flows.
+
+### 🎨 3. UI/UX Deep Audit & Streamlining
+- **Reports Load Fix:** Fixed the indefinite loading spinner hang on `/reports` page caused by UnboundLocalError scoping imports and missing Jinja context variables (`csrf_token`, `cashier`).
+- **Sidebar Naming Cleanliness:** Stripped redundant `"SMRITI "` prefixes and trailing `" Book"` suffixes dynamically on the frontend via `getCleanReportName()`, simplifying the sidebar tree.
+- **Warehouse Filter Scoping:** Added dynamic warehouse dropdown filtering based on the selected company, eliminating duplicate options in multi-company environments.
+- **Query Fixes:** Fixed `declared_amount` column mismatch (renamed to `closing_amount` in DB) in Cash Reconciliation, and resolved SQL `%` formatting KeyError in Z-Report.
+
+---
+
+## 🆕 v1.3.0 — SMRITI Reporting Framework & Accounting Analytics (2026-06-07)
+
+### 📊 1. Reporting Engine & Seeding
+- **Metadata Reporting Engine:** Added `SMRITIReportEngine` with caching, dynamic SQL builders, role-based access checking, and TTL expiry.
+- **Reports Seeding:** Programmatically seeds 20 core report templates across Sales, Inventory, Cash, and Accounting categories.
+- **Accounting Extensions:** Added 6 retail accounting reports: Day Book, Cash Book, Payment Register, Receipt Register, Customer Outstanding, and Supplier Outstanding.
+- **Unit Tests:** Wrote `test_reports.py` verifying all 11 reports engine test paths.
+
+---
+
 ## 🆕 v1.2.8 — Domain Migration to erpnbook.com (2026-06-05)
 
 ### 🌐 1. Domain Migration
