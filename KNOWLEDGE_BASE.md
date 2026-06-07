@@ -34,7 +34,7 @@
 |---|---|
 | **POS Billing Terminal** | High-performance, role-locked cashier interface with barcode scanning, hold/recall, manager overrides |
 | **Sizewise Item Master** | Pivot-grid Excel import for style × size × color variant management |
-| **Shoper9 Pure Mode** | Hides ERPNext desk complexity from cashiers while preserving full ERPNext for admins |
+| **SMRITI Pure Retail Mode** | Hides ERPNext desk complexity from cashiers while preserving full ERPNext for admins |
 | **India GST Compliance** | Integrated with `india_compliance` for HSN auto-detection, GSTIN validation, and tax templates |
 | **Supplier Registry** | Complete vendor management with GST address syncing and Vendor Code validation |
 | **B2B Invoice (Sizewise)** | Pivot-grid B2B invoice creation with HID barcode scanner support |

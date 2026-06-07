@@ -130,7 +130,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - **Docker Orchestration**: Configured standard `pwd.yml` multi-container stack.
 - **Asset Guard**: Created `sync_assets.py` to hard-copy compiled bundles to Nginx, resolving CSS/JS MIME-type blockages.
-- **Shoper9 Pure Mode**: Simplified POS invoices view, filtering out complex ERP warehouse columns for standard cashiers.
+- **SMRITI Pure Retail Mode**: Simplified POS invoices view, filtering out complex ERP warehouse columns for standard cashiers.
 - **Automated Test Suite**: Launched initial test suite with **81 passing automated tests**.
 
 ---

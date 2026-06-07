@@ -202,7 +202,7 @@
 - Automatically creates and binds all missing retail custom fields (MRP, stock HTML summaries, birthday, anniversary, credit terms) inside MariaDB via `setup.py`.
 - Realigned reporting and shift APIs to target official ERPNext v16 tables (`Sales Invoice Payment` and `billing_address_gstin`).
 
-### 4. 🎨 Shoper9 Pure Mode (Sales Invoice Makeover)
+### 4. 🎨 SMRITI Pure Retail Mode (Sales Invoice Makeover)
 - Simplifies complex invoice grids for store cashiers to show only `Item Code`, `Item Name`, `Qty`, `Rate`, and `Amount`.
 - Dynamic glassmorphism dashboard overlay featuring backdrop-blur controls and elegant state slates (Draft, Submitted, Cancelled).
 - Bypasses System Managers automatically to maintain standard ERPNext desk workflows for administrators.
