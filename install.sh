@@ -18,7 +18,15 @@ SMRITI_REPO="https://github.com/erpnbook/smriti.git"
 SMRITI_BRANCH="main"
 IC_REPO="https://github.com/resilient-tech/india-compliance.git"
 IC_BRANCH="version-16"
-APP_URL="http://localhost:8080"
+HTTP_PUBLISH_PORT=8765
+if [ -f .env ]; then
+    ENV_PORT=$(grep -E '^\s*HTTP_PUBLISH_PORT\s*=' .env | cut -d= -f2 | tr -d '[:space:]')
+    if [ ! -z "$ENV_PORT" ]; then
+        HTTP_PUBLISH_PORT="$ENV_PORT"
+    fi
+fi
+HTTP_PORT="$HTTP_PUBLISH_PORT"
+APP_URL="http://localhost:$HTTP_PORT"
 SITE_NAME="smriti_retail"
 
 # ── Parse arguments ───────────────────────────────────────────────────────────
@@ -78,11 +86,11 @@ step "Checking Git..."
 if ! command -v git &>/dev/null; then fail "Git not installed. Install from https://git-scm.com/"; fi
 ok "Git: $(git --version)"
 
-step "Checking port 8080..."
-if lsof -Pi :8080 -sTCP:LISTEN -t &>/dev/null 2>&1; then
-    warn "Port 8080 is in use. Another service may conflict."
+step "Checking port $HTTP_PORT..."
+if lsof -Pi :$HTTP_PORT -sTCP:LISTEN -t &>/dev/null 2>&1; then
+    warn "Port $HTTP_PORT is in use. Another service may conflict."
 else
-    ok "Port 8080 is free."
+    ok "Port $HTTP_PORT is free."
 fi
 
 step "Checking $COMPOSE_FILE..."
@@ -151,6 +159,16 @@ EOF
 else
     ok ".env already exists."
 fi
+
+# Reload environment variables in case .env was just created
+if [ -f .env ]; then
+    ENV_PORT=$(grep -E '^\s*HTTP_PUBLISH_PORT\s*=' .env | cut -d= -f2 | tr -d '[:space:]')
+    if [ ! -z "$ENV_PORT" ]; then
+        HTTP_PUBLISH_PORT="$ENV_PORT"
+    fi
+fi
+HTTP_PORT="$HTTP_PUBLISH_PORT"
+APP_URL="http://localhost:$HTTP_PORT"
 
 if [[ $FORCE -eq 1 ]]; then
     warn "--force set — removing existing volumes (ALL DATA WILL BE DELETED)..."
@@ -242,16 +260,39 @@ fi
 # =============================================================================
 # SUCCESS BANNER
 # =============================================================================
+echo "Waiting for SMRITI to start..."
+MAX_RETRIES=12
+COUNT=0
+READY=false
+
+while [ $COUNT -lt $MAX_RETRIES ]; do
+    if curl -sf "http://localhost:$HTTP_PORT/api/method/ping" > /dev/null 2>&1; then
+        READY=true
+        break
+    fi
+    COUNT=$((COUNT + 1))
+    echo "Attempt $COUNT/$MAX_RETRIES — retrying in 10s..."
+    sleep 10
+done
+
+if [ "$READY" = false ]; then
+    echo "ERROR: SMRITI did not respond after 2 minutes."
+    echo "Logs: docker compose -f pwd.yml logs backend"
+    exit 1
+fi
+
+# Most reliable LAN IP on Linux — uses routing table, skips Docker bridge
+LAN_IP=$(ip route get 1.1.1.1 2>/dev/null | awk '{print $7; exit}')
+if [ -z "$LAN_IP" ]; then
+    LAN_IP=$(hostname -I | awk '{print $1}')
+fi
+
 echo ""
-echo -e "${GREEN}╔══════════════════════════════════════════════════════════╗"
-echo -e "║          🎉  SMRITI RETAIL OS IS READY!                  ║"
-echo -e "╠══════════════════════════════════════════════════════════╣"
-echo -e "║  URL      :  http://localhost:8080                       ║"
-echo -e "║  Username :  Administrator                               ║"
-echo -e "║  Password :  ${ADMIN_PASSWORD}                                      ║"
-echo -e "╠══════════════════════════════════════════════════════════╣"
-echo -e "║  Run  bash check.sh  anytime to verify system health     ║"
-echo -e "╚══════════════════════════════════════════════════════════╝${NC}"
+echo "SMRITI Retail OS is ready!"
+echo "Local Access : http://localhost:$HTTP_PORT"
+echo "LAN Access   : http://$LAN_IP:$HTTP_PORT"
+echo "Username     : Administrator"
+echo "Password     : ${ADMIN_PASSWORD}"
 echo ""
 
 # Open browser (Linux/macOS)
