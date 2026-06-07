@@ -133,7 +133,7 @@ services:
           bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app india_compliance --install-app smriti_retail_os --set-default smriti_retail &&
           bench --site smriti_retail build --app smriti_retail_os --app india_compliance &&
           bench --site smriti_retail execute smriti_retail_os.setup.setup_smriti_retail_os &&
-          bench --site smriti_retail execute smriti_retail_os.setup_tattly_threads.run;
+          bench --site smriti_retail execute smriti_retail_os.setup_demo_company.run;
         fi &&
         bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets;
 
@@ -193,8 +193,7 @@ services:
       - ./apps/india_compliance:/home/frappe/frappe-bench/apps/india_compliance
       - ./frappe.conf.template:/templates/nginx/frappe.conf.template
     ports:
-      - "8080:8080"
-      - "9000:9000"
+      - "${HTTP_PUBLISH_PORT:-8765}:8080"
 
   queue-long:
     image: frappe/erpnext:v16.19.1
