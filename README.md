@@ -56,8 +56,16 @@ The master `Administrator` account is provisioned dynamically during the onboard
 - Operators must configure a secure, unique password inside the Setup Wizard on first boot.
 
 Once setup is complete, access the platform endpoints:
-- **Cashier Billing Terminal**: `http://localhost:9000/billing` (isolated checkout login)
-- **Manager Desk**: `http://localhost:8080/app` (administration portal login)
+- **Cashier Billing Terminal**: `http://localhost:8765/billing` (isolated checkout login)
+- **Manager Desk**: `http://localhost:8765/app` (administration portal login)
+
+### Access
+Local machine : http://localhost:8765
+LAN access    : http://<server-ip>:8765
+Internet      : Not exposed by default (router port-forward required)
+
+Internal container port:
+8080 (Docker internal only)
 
 ---
 

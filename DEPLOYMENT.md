@@ -35,8 +35,7 @@ FRAPPE_VERSION=version-16
 ERPNEXT_VERSION=version-16
 
 # Port mappings on the host machine
-FRAPPE_PORT=8080
-SMRITI_POS_PORT=9000
+HTTP_PUBLISH_PORT=8765
 
 # Database credentials (use strong, unique values in production)
 DB_ROOT_PASSWORD=your_secure_root_db_pass

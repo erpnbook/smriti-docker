@@ -136,7 +136,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 
 Once the installation finishes, open your browser and navigate to:
 ```
-http://localhost:8080/setup-wizard
+http://localhost:8765/setup-wizard
 ```
 The wizard guides you through 5 key provisioning steps:
 
