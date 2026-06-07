@@ -35,8 +35,27 @@ $SMRITI_REPO    = "https://github.com/erpnbook/smriti.git"
 $SMRITI_BRANCH  = "main"
 $IC_REPO        = "https://github.com/resilient-tech/india-compliance.git"
 $IC_BRANCH      = "version-16"
-$APP_URL        = "http://localhost:8080"
 $SITE_NAME      = "smriti_retail"
+
+function Get-EnvMap {
+    $map = @{}
+    if (Test-Path ".env") {
+        Get-Content ".env" | ForEach-Object {
+            $line = $_.Trim()
+            if ($line -and -not $line.StartsWith("#") -and $line -match "^([^=]+)=(.*)$") {
+                $key = $Matches[1].Trim()
+                $val = $Matches[2].Trim()
+                $map[$key] = $val
+            }
+        }
+    }
+    return $map
+}
+
+$envMap = Get-EnvMap
+$HttpPort = $envMap["HTTP_PUBLISH_PORT"]
+if ([string]::IsNullOrWhiteSpace($HttpPort)) { $HttpPort = "8765" }
+$APP_URL        = "http://localhost:$HttpPort"
 
 Write-Banner
 
@@ -86,14 +105,14 @@ try {
     Write-Fail "Git is not installed. Install from https://git-scm.com/"
 }
 
-# 1e. Port 8080 free?
-Write-Step "Checking if port 8080 is free..."
-$portInUse = Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue
+# 1e. Port free?
+Write-Step "Checking if port $HttpPort is free..."
+$portInUse = Get-NetTCPConnection -LocalPort $HttpPort -ErrorAction SilentlyContinue
 if ($portInUse) {
-    Write-Warn "Port 8080 is already in use. Another service may conflict."
-    Write-Warn "Continuing anyway - you can change the port in pwd.yml if needed."
+    Write-Warn "Port $HttpPort is already in use. Another service may conflict."
+    Write-Warn "Continuing anyway - you can change the port in .env if needed."
 } else {
-    Write-OK "Port 8080 is free."
+    Write-OK "Port $HttpPort is free."
 }
 
 # 1f. Check compose file exists
@@ -175,6 +194,12 @@ REDIS_QUEUE=redis-queue:6379
 } else {
     Write-OK ".env already exists."
 }
+
+# Reload environment variables in case .env was just created
+$envMap = Get-EnvMap
+$HttpPort = $envMap["HTTP_PUBLISH_PORT"]
+if ([string]::IsNullOrWhiteSpace($HttpPort)) { $HttpPort = "8765" }
+$APP_URL = "http://localhost:$HttpPort"
 
 # Force-reset if requested
 if ($Force) {
@@ -289,24 +314,41 @@ Write-Step "Checking container health..."
 docker compose -f $COMPOSE_FILE ps --format "table {{.Name}}\t{{.Status}}"
 
 Write-Step "Testing HTTP connectivity..."
-Start-Sleep -Seconds 3
-try {
-    $resp = Invoke-WebRequest -Uri $APP_URL -TimeoutSec 10 -UseBasicParsing -ErrorAction Stop
-    Write-OK "HTTP $($resp.StatusCode) - Application is reachable at $APP_URL"
-} catch {
-    Write-Warn "Could not reach $APP_URL yet - the app may still be warming up. Try in 30 seconds."
+$maxRetries = 12
+$retryCount = 0
+$ready = $false
+
+while ($retryCount -lt $maxRetries -and -not $ready) {
+    try {
+        $response = Invoke-WebRequest "http://localhost:$HttpPort/api/method/ping" -UseBasicParsing -ErrorAction Stop
+        if ($response.StatusCode -eq 200) { $ready = $true }
+    } catch {
+        $retryCount++
+        Write-Host "Waiting for SMRITI to start... ($retryCount/$maxRetries)"
+        Start-Sleep -Seconds 10
+    }
 }
 
-# =============================================================================
-# SUCCESS BANNER
-# =============================================================================
+if (-not $ready) {
+    Write-Host "ERROR: SMRITI did not respond after 2 minutes." -ForegroundColor Red
+    Write-Host "Logs: docker compose -f pwd.yml logs backend" -ForegroundColor Yellow
+    exit 1
+}
+
+$LanIP = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {
+    $_.IPAddress -notlike '169.254*' -and
+    $_.IPAddress -ne '127.0.0.1' -and
+    $_.InterfaceAlias -notmatch 'vEthernet|Docker|WSL|Hyper-V'
+} | Select-Object -First 1).IPAddress
+
+if ([string]::IsNullOrWhiteSpace($LanIP)) { $LanIP = "localhost" }
+
 Write-Host ""
-Write-Host "==========================================================" -ForegroundColor Green
-Write-Host "           SMRITI RETAIL OS IS READY!                     " -ForegroundColor Green
-Write-Host "==========================================================" -ForegroundColor Green
-Write-Host "  URL      :  http://localhost:8080" -ForegroundColor Green
-Write-Host "  Username :  Administrator" -ForegroundColor Green
-Write-Host "  Password :  $AdminPassword" -ForegroundColor Green
+Write-Host "SMRITI Retail OS is ready!" -ForegroundColor Green
+Write-Host "Local Access : http://localhost:$HttpPort" -ForegroundColor Cyan
+Write-Host "LAN Access   : http://${LanIP}:$HttpPort" -ForegroundColor Cyan
+Write-Host "Username     : Administrator" -ForegroundColor Green
+Write-Host "Password     : $AdminPassword" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Green
 Write-Host "  Run  .\check.ps1  anytime to verify system health" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Green
