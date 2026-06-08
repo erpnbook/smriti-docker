@@ -1,7 +1,7 @@
 ---
 title: "Setup Wizard & Configure Portal Provisioning Pitfalls"
 description: "A comprehensive troubleshooting guide covering critical issues and errors encountered during Setup Wizard deployment and Configure Portal settings synchronization."
-author: "Antigravity AI"
+author: "SMRITI Development Team"
 date: "2026-06-02"
 ---
 

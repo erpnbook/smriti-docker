@@ -4,7 +4,7 @@
 > **Last Updated:** 2026-06-07 · **Version:** v1.4.0
 
 > [!TIP]
-> Ask Antigravity to "update knowledge base" after any session to keep this file current.
+> Keep this document updated after any development session to keep the knowledge base current.
 
 ---
 
@@ -596,5 +596,5 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 ---
 
-*This knowledge base is maintained by the SMRITI project team and Antigravity AI Code Assistant.*  
+*This knowledge base is maintained by the SMRITI project team.*  
 *For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*

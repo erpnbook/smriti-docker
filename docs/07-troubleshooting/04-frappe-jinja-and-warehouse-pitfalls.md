@@ -1,7 +1,7 @@
 ---
 title: "Frappe Jinja Unpacking, Warehouse Relational Integrity & Bank Account Autonaming Pitfalls"
 description: "A deep-dive technical troubleshooting guide covering critical issues in Frappe Jinja context flattening, warehouse type pre-requisites for fresh databases, and bank account autonaming."
-author: "Antigravity AI"
+author: "SMRITI Development Team"
 date: "2026-05-31"
 ---
 

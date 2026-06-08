@@ -1,7 +1,7 @@
 # Walkthrough: Sizewise Item Master — Pre-Import Verification & On-the-Fly Insert
 
 **Date:** 2026-05-31  
-**Author:** Jawahar R Mallah / Antigravity  
+**Author:** Jawahar R Mallah / SMRITI Development Team  
 **Commit:** `f9243f4`  
 **Branch:** `main` → `erpnbook/smriti.git`  
 **Files Changed:**

@@ -248,6 +248,5 @@ docker compose -f pwd.yml up -d
 ---
 
 ## 👥 Contributors & Base
-- **Verification Engine**: Antigravity AI Code Assistant (by Google DeepMind team)
 - **Frameworks**: Frappe Framework v16 & ERPNext v16
 - **Integrations**: India Compliance v16
