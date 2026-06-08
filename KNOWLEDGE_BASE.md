@@ -456,6 +456,31 @@ RESULT: ALL 5 CHECKS PASSED - BUG-001 FIXED
 > [!IMPORTANT]
 > If this error reappears on a fresh install or after deleting companies, run the two purge scripts above against the site. Always use `delete_company()` in [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) instead of raw `frappe.delete_doc("Company", ...)` — it cleans up SMRITI Settings but ERPNext's own MoP/GST rows still need the purge scripts if companies were deleted through the ERPNext desk.
 
+### BUG-002 — wkhtmltopdf PDF Generation Fails (HostNotFoundError / ContentNotFoundError / ConnectionRefusedError)
+
+**Status:** ✅ Verified Fixed — v1.2.11 (2026-06-08) · Automatic fallback tested successfully
+
+**Symptom:**  
+Cashiers are unable to print or submit POS Invoices because the transaction crashes during the PDF attachment/generation stage. The error logs report `HostNotFoundError`, `ConnectionRefusedError`, or `ValidationError: PDF generation failed because of broken image links` on `/files/logo.svg` or `/files/tattly_threads_signature.png`.
+
+**Root Causes:**
+1. **Network Resolution**: The docker containers could not resolve `smriti_retail` internally because the `frontend` container service did not have a network alias configured in [pwd.yml](file:///d:/Smriti_Retail_OS/pwd.yml) (which is the compose file actually used in production).
+2. **Broken Assets**: The seeded demo company `aaaa (Demo)` had its `company_logo` field set to `/files/logo.svg`, which did not exist on disk, causing `wkhtmltopdf` to exit with error code 1.
+3. **Missing DB Schema**: The DocTypes belonging to the `india_compliance` app (like `GST Settings`) were not migrated/initialized in the MariaDB container, causing invoice validation to fail.
+4. **pdfkit Stderr Parsing**: Even when `load-error-handling` is set to `ignore` in `wkhtmltopdf` options, the python-pdfkit wrapper parses `stderr` warnings and raises an `OSError` if it encounters the string `Exit with code 1 due to network error`.
+
+**Multi-Layer Resolution Applied:**
+
+* **Layer 1: Docker Compose Alias**:
+  Added the `smriti_retail` network alias to the `frontend` service under the `frappe_network` bridge inside [pwd.yml](file:///d:/Smriti_Retail_OS/pwd.yml#L164-L168) and recreated the containers.
+* **Layer 2: Database Schema Sync**:
+  Ran a manual `bench migrate` to properly sync all `india_compliance` DocTypes (such as `GST Settings`) into the database:
+  ```bash
+  docker exec smriti_retail_os-backend-1 bench --site smriti_retail migrate
+  ```
+* **Layer 3: Advanced PDF Resilience Fallback**:
+  We monkey-patched `frappe.utils.pdf.get_pdf` in [__init__.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/__init__.py#L14-L49). When `get_pdf` fails due to broken image links or `wkhtmltopdf` errors, the fallback catches the exception, uses `BeautifulSoup` to parse the HTML, replaces the `src` attribute of all `<img>` tags with a blank inline base64 GIF data URI (`data:image/gif;base64,...`), and retries. This ensures that invoices can always compile and print successfully regardless of missing assets.
+
 ---
 
 ## 9. Key API Reference
