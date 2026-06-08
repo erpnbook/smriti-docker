@@ -108,6 +108,28 @@ docker exec smriti_retail-backend-1 ls -la /home/frappe/frappe-bench/apps/smriti
   docker logs smriti_retail-db-1
   ```
 
+### 🔴 Container "create-site" Fails with Exit Code 1
+- **Symptom**: The initialization container `create-site-1` exits with an error status, and the installer script halts with `[XX] docker compose up failed`.
+- **Root Causes**:
+  1. **Incomplete App Source**: The `apps/smriti_retail_os/` or `apps/india_compliance/` directories are empty or missing (usually because the user ran `docker compose` directly instead of using the automated installation scripts).
+  2. **Corrupted Database/Volume State**: A previous half-initialized run left partial tables, causing migration errors on subsequent boots.
+  3. **WSL2 / Docker Memory Depletion (OOM)**: ERPNext provisions 1000+ tables. If the system RAM allocated to Docker is low, the database container crashes during `bench new-site`.
+- **Fixes**:
+  1. **Force Reset and Clean Re-run** (highly recommended):
+     Use the installer script's built-in reset command to destroy half-created volumes and database states, then start fresh:
+     ```powershell
+     PowerShell -ExecutionPolicy Bypass -File .\install.ps1 -Force
+     ```
+  2. **Check App Directory Files**:
+     Verify that `apps/smriti_retail_os/pyproject.toml` and `apps/india_compliance/pyproject.toml` exist.
+  3. **Allocate More Memory to WSL2**:
+     Add `memory=6GB` (or `8GB`) to `%USERPROFILE%\.wslconfig` and restart WSL using `wsl --shutdown` in PowerShell.
+  4. **Run Diagnostics Logs**:
+     Retrieve the container logs to find the exact line of failure:
+     ```powershell
+     docker logs smriti_retail-create-site-1
+     ```
+
 ---
 
 ## 🎨 3. UI & Static Asset Sync Issues
