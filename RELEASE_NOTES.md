@@ -2,6 +2,27 @@
 
 ---
 
+## 🆕 v1.5.0 — SMRITI Party Stock Visibility (PSV) Hardening & Operations (2026-06-08)
+
+### 📈 1. Scalability & Performance Hardening
+- **N+1 Query Elimination:** Optimized bulk balance checks in `get_bulk_party_balances` to aggregate all stock calculations in exactly **one DB query**, eliminating N+1 query regression patterns when scaling up to 100 locations, 500 SKUs, and 10,000+ ledger entries.
+- **In-Memory SQL Tracing:** Implemented a transparent, Python-level monkey-patch for query counting in unit tests, avoiding deprecated/environment-dependent database trace tools.
+
+### 🛡️ 2. Concurrency & Integrity Constraints
+- **Two-Layer Concurrency Protection:** Reinforced unique constraint safety at both the application level (`frappe.db.exists`) and database level (SHA-256 `UNIQUE(unique_hash)` index constraint) to prevent duplicate transactions.
+- **Cross-Driver Error Resilience:** Configured the test framework to catch database-specific unique validation exceptions across MySQLdb and PyMySQL connections natively.
+
+### 🩺 3. Daily Scheduled Operational Health Checks
+- **Priority-Ordered Evaluation:** Programmed `run_psv_daily_health_check` to run daily in a priority sequence: 1. Negative Balances, 2. Pending Reconciliations, 3. Late Uploads, 4. Never Audited, 5. Automatic Alert Resolution.
+- **Enterprise Alert Key Suppression:** Introduced a hashed, uppercase alert key format (`{location}|{alert_type}|{item_code}`) to prevent duplicate exceptions and log spamming, auto-updating `last_seen` timestamps on open alerts instead.
+- **Dynamic Location Status Resolution:** Automatically toggles location statuses between `"Active"` and `"Pending Reconciliation"` depending on outstanding stock exception records.
+
+### 🧪 4. Schema Integrity & Test Suite
+- **Single DocType Validation:** Configured the test suite to use `frappe.db.exists` to check schema existence for Single DocTypes (such as `SMRITI PSV Settings` stored in `tabSingles`) rather than trying to look up non-existent database tables.
+- **9 Integration Tests:** Added a robust test suite covering opening imports, cancellation exception records, date overlaps, physical stock audits, concurrency limits, and scheduled health checks.
+
+---
+
 ## 🆕 v1.4.0 — Security Hardening, POS Returns & UI/UX Streamlining (2026-06-07)
 
 ### 🛡️ 1. P0/P1 Critical Bug Fixes

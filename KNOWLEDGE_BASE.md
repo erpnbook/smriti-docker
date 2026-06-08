@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-07 · **Version:** v1.4.0
+> **Last Updated:** 2026-06-09 · **Version:** v1.5.0
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -72,6 +72,7 @@
 | **ERPNext-First Data** | Company/Address/Supplier data lives in standard ERPNext DocTypes; SMRITI reads/writes through standard APIs | [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) |
 | **Role-Based Routing** | Cashiers hit `/billing`; System Managers see unaltered ERPNext desk | [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py) |
 | **Vendor Code on Supplier** | `custom_vendor_code` unique field on Supplier DocType links external ERP/supplier codes | [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) |
+| **SMRITI Party Stock Visibility (PSV)** | Immutable shadow ledger operating entirely outside of ERPNext stock ledger tables. Uses SHA-256 unique constraints at DB layer for concurrency protection and structured alert key hashing for daily scheduled operational health checks. | [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py) |
 | **Metadata-Driven Reporting Engine** | `SMRITIReportEngine` uses `SMRITI Report Template` DocType (report_key, columns_json, filters_json, role_access) + dynamic SQL builder with MD5 caching + Redis TTL. No raw SQL per-report — all reports go through the same engine. | [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py) |
 | **Report Template Authority** | `report_key` is the stable internal identifier. `report_name` is display-only. All APIs use `report_key`. | [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) — `seed_report_templates()` |
 
@@ -246,6 +247,7 @@ smriti_retail_os/
 | 27 | **P0/P1 Critical Bug Fix Session — 9 Critical Bugs Fixed** | 2026-06-07 | [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py), [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py), [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py) |
 | 28 | **POS Return Invoice & Purchase Return (M-15)** | 2026-06-07 | [billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/billing_api.py), [purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/purchase_api.py), [test_billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_billing_api.py), [test_purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_purchase_api.py) |
 | 29 | **UI/UX Deep Audit & Naming / Filter Streamlining** | 2026-06-07 | [reports.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.html), [reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.py), [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py), [AUDIT_CRITIQUE.md](file:///d:/Smriti_Retail_OS/AUDIT_CRITIQUE.md) |
+| 30 | **SMRITI Party Stock Visibility (PSV) Hardening & Operations** | 2026-06-08 | [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py), [test_psv.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_psv.py), [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py) |
 
 ---
 
@@ -526,7 +528,7 @@ Cashiers are unable to print or submit POS Invoices because the transaction cras
 
 ### Automated Test Suite
 - **Location**: [tests/](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/)
-- **Test Count**: **113 passing tests** (11 report engine + accounting tests added in v1.3.0)
+- **Test Count**: **122 passing tests** (9 psv tests added in v1.5.0)
 - **Run Command**:
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
@@ -538,6 +540,7 @@ Cashiers are unable to print or submit POS Invoices because the transaction cras
 | [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py) | Item import, vendor code validation, barcode logic |
 | [test_barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_barcode_api.py) | Print template CRUD lifecycle, ZPL/TSPL rendering, size/JSON validations, Honeywell template seed, and compatibility checks |
 | [test_reports.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_reports.py) | Report engine seeding (11 report keys), Sales analytics, Inventory analytics, Cash/Z-Report, 6 Accounting analytics (Payment Register, Receipt Register, Cash Book, Day Book, Customer Outstanding, Supplier Outstanding) |
+| [test_psv.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_psv.py) | PSV shadow ledger opening imports, invoice submit hooks, cancel exceptions, date range overlap validations, physical snap audit adjustments, unique hash concurrency checks, schema integrity, scale query performance, and daily scheduled health check alerts |
 
 ### Verification Scripts
 | Script | Purpose |
@@ -587,7 +590,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail execute smriti_re
 
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.4.0** (current) |
+| SMRITI Retail OS | **v1.5.0** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |

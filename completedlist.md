@@ -408,3 +408,20 @@ This file tracks the officially completed, verified, and locked features of the 
   - [setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py)
   - [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
   - [security_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_api.py)
+
+### 30. SMRITI Party Stock Visibility (PSV) Hardening & Operations
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-08
+* **Description**: Implemented extended verification tests, database constraints, performance tracing, and daily operational health checks with alert suppression for the PSV module.
+* **Key Mechanisms**:
+  - **Shadow Ledger Integrity**: Operating completely outside ERPNext's standard Stock Ledger Entry/Bin/GL tables, preventing tax or inventory valuation pollution. Uses SHA-256 `UNIQUE(unique_hash)` constraints at the database layer as the ultimate concurrency guard.
+  - **N+1 Query Elimination**: Verified that `get_bulk_party_balances()` runs in exactly 1 aggregate query using a python-level monkey-patch for non-intrusive query count tracing in unit tests.
+  - **Daily scheduled Operational Health Checks**: Executes `run_psv_daily_health_check` daily in a prioritized sequence: 1. Negative Balances, 2. Pending Reconciliations, 3. Late Uploads, 4. Never Audited, 5. Automatic Alert Resolution.
+  - **Enterprise Alert Key Suppression**: Employs an uppercase alert key format (`{location}|{alert_type}|{item_code}`) to prevent duplicate entries and logs spamming, updating `last_seen` timestamps and notes on open alerts.
+  - **Schema Smoke Testing**: Configured tests to use `frappe.db.exists` to check schema integrity for Single DocTypes (like `SMRITI PSV Settings` in `tabSingles`) rather than attempting database table lookups.
+  - **Reconciliation Exception Flow**: Replaced strict invoice cancellation blocks with operational warnings (creating `SMRITI PSV Exception Record` entries and setting location status to `"Pending Reconciliation"`) to prevent distributor business deadlocks.
+* **Modified Files**:
+  - Backend API: [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py)
+  - Hooks Registration: [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
+  - DocType JSON: [smriti_psv_exception_record.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_exception_record/smriti_psv_exception_record.json)
+  - Unit Tests: [test_psv.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_psv.py)
