@@ -164,7 +164,9 @@ services:
   frontend:
     image: frappe/erpnext:v16.19.1
     networks:
-      - frappe_network
+      frappe_network:
+        aliases:
+          - smriti_retail
     # ── SMRITI FIX 2: Wait for backend to be HEALTHY before nginx starts
     #    This prevents 502 caused by nginx resolving a stale backend IP
     depends_on:
