@@ -335,7 +335,7 @@ git clone https://github.com/erpnbook/smriti-docker.git smriti_retail
 cd smriti_retail && bash install.sh
 ```
 
-After install → [http://localhost:8080/setup-wizard](http://localhost:8080/setup-wizard)
+After install → [http://localhost:8765/setup-wizard](http://localhost:8765/setup-wizard)
 
 ### Health Check
 ```powershell
@@ -555,7 +555,7 @@ Cashiers are unable to print or submit POS Invoices because the transaction cras
 ### Container Architecture
 ```
 smriti_retail-backend-1     → Frappe/ERPNext app server
-smriti_retail-frontend-1    → Nginx (port 8080 exposed)
+smriti_retail-frontend-1    → Nginx (port 8080 mapped to host port 8765 by default)
 smriti_retail-websocket-1   → Socket.io for real-time POS
 smriti_retail-queue-long-1  → Long-running background jobs
 smriti_retail-queue-short-1 → Short background jobs

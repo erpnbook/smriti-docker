@@ -11,7 +11,7 @@ The production environment is managed using Docker Compose and is defined in [pw
 ### 1.1 Container Stack
 The system provisions 9 separate containers:
 - **`backend`**: Frappe / ERPNext app server (Gunicorn).
-- **`frontend` (Nginx)**: Maps port `8080` (Desk) and port `9000` (SMRITI isolated billing terminal).
+- **`frontend` (Nginx)**: Serves static assets and proxy-routes traffic. Maps container port `8080` to host port `8765` (by default) for full Desk and billing access, and exposes an optional cashier-locked terminal on container port `9000` (can be optionally mapped to host port `9000` for strict cashier lockdown).
 - **`websocket`**: Handles long-polling and real-time Socket.IO events.
 - **`db`**: MariaDB database server.
 - **`redis-cache`** & **`redis-queue`**: Memory caching and job broker services.

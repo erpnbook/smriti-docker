@@ -81,7 +81,7 @@ docker exec smriti_retail-backend-1 ls -la /home/frappe/frappe-bench/apps/smriti
   ```
 
 ### 🔴 Nginx "502 Bad Gateway"
-- **Symptom**: Opening `http://localhost:8080` in the browser returns a `502 Bad Gateway` error.
+- **Symptom**: Opening `http://localhost:8765` (or your configured `HTTP_PUBLISH_PORT`) in the browser returns a `502 Bad Gateway` error.
 - **Root Cause**: The Nginx container cached the backend container's old IP address after a restart.
 - **Fix**:
   Restart the Nginx frontend proxy to force it to re-resolve backend DNS mappings:
@@ -93,9 +93,9 @@ docker exec smriti_retail-backend-1 ls -la /home/frappe/frappe-bench/apps/smriti
 - **Symptom**: Browser console logs `Error connecting to socket.io: Invalid origin`.
 - **Root Cause**: The websocket container rejects incoming Socket.IO requests from origins not explicitly permitted in configuration settings.
 - **Fix**:
-  Configure allowed origins in `common_site_config.json`:
+  Configure allowed origins in `common_site_config.json` (replacing `8765` with your host port if customized):
   ```bash
-  docker exec smriti_retail-backend-1 bench config set-common-config -c allow_cors_origin "http://localhost:8080"
+  docker exec smriti_retail-backend-1 bench config set-common-config -c allow_cors_origin "http://localhost:8765"
   docker compose restart websocket
   ```
 

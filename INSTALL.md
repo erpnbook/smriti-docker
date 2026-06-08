@@ -11,7 +11,7 @@ Before starting any installation, ensure your host environment meets the followi
 - **Docker Desktop**: Installed and running (includes Docker Compose v2.x).
 - **Git**: Installed and configured.
 - **Hardware Resources**: At least **4 GB of free RAM** and **10 GB of free disk space**.
-- **Network Ports**: Port `8080` (Desk) and port `9000` (SMRITI isolated POS terminal) must be free.
+- **Network Ports**: Port `8765` (Desk and Billing, configurable via `HTTP_PUBLISH_PORT` in `.env`) must be free on the host. If you optionally map the cashier-locked terminal (container port `9000`) to the host, port `9000` must be free as well.
 
 ---
 

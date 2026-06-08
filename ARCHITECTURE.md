@@ -13,7 +13,7 @@ Unlike traditional customizations that directly alter ERP core files, SMRITI act
 
 ## 2. Docker Architecture
 The deployment utilizes Docker Compose to orchestrate 9 separate containers:
-- **`frontend` (Nginx)**: Proxy gateway that handles routing for the ERP desk on port `8080` and exposes the isolated cashier billing terminal on port `9000`. Serves pre-compiled static assets.
+- **`frontend` (Nginx)**: Proxy gateway that handles routing for the ERP desk on container port `8080` (exposed on host port `8765` by default) and the cashier billing terminal on container port `9000` (can be optionally mapped to host port `9000` for strict cashier lockdown). Serves pre-compiled static assets.
 - **`backend` (Gunicorn)**: Main application server running the WSGI Frappe/ERPNext logic.
 - **`websocket` (Socket.IO)**: Manages real-time message relays and background queue sync alerts.
 - **`db` (MariaDB)**: Relational database engine.
@@ -44,7 +44,7 @@ The Platform Center (`/platform_center`) serves as the technical administrative 
 The Billing Engine (`billing_api.py`) is optimized for cash counters:
 - **Idempotency Guard**: Restricts duplicate invoice creations by validating a unique client-side `billing_session_id`.
 - **Background Dispatch**: Enqueues secondary computations (like loyalty ledger updates and payment entry creations) to short RQ workers to return instant checkout feedback to cashiers.
-- **Role Isolation**: Cashiers are automatically redirected to the standalone `/billing` layout on port `9000`, bypassing standard ERP Desk access.
+- **Role Isolation**: Cashiers are automatically redirected to the standalone `/billing` layout on port `9000` (if host port `9000` is mapped) or they can access `/billing` directly on the default port `8765` (e.g. `http://localhost:8765/billing`), bypassing standard ERP Desk access.
 
 ---
 
