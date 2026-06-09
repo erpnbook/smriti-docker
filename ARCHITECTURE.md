@@ -107,3 +107,56 @@ The long-term development roadmap targets:
 - **AI Stock Predictor**: Proactive inventory warnings using rolling sales logs.
 - **Smart POS Hardware Integration**: Standalone Android and iOS SmartPOS SDK support.
 - **Offline Sync Optimization**: Enhanced peer-to-peer ledger sync models.
+
+---
+
+## 14. Module Architecture & PSV Classification
+SMRITI Retail OS is structured into Core Retail modules and Business Extensions. 
+
+### Architecture Hierarchy
+```text
+SMRITI Retail OS
+
+Core Retail
+├── Masters
+├── Billing
+├── Inventory
+├── Purchase
+├── CRM
+
+Business Extensions
+├── Footwear Engine
+├── Apparel Engine
+├── PSV Engine
+├── FMCG Engine
+├── Distributor Engine
+
+PSV Engine
+├── Channel Accounts
+├── Channel Stock
+├── Sell Through
+├── Secondary Sales
+├── Reorder Planner
+├── Snapshot Audit
+├── Channel Analytics
+├── Broken Size Set Analysis
+├── Coverage Analysis
+└── Aging
+```
+
+### PSV (Party Stock Visibility) Classification
+PSV is **not** an optional add-on module. It is reclassified as a **Business-Type Activated Core Extension**. 
+
+It becomes a primary operational module whenever the business sells through external channels and loses visibility after invoicing.
+
+**Activation Matrix:**
+- **Standard Retail Stores**: Hidden
+- **Footwear Brands (supplying MBOs/Reliance)**: Core Module
+- **Apparel Brands (supplying chains)**: Core Module
+- **FMCG**: Core Module
+- **Distributor Networks**: Core Module
+
+### Nomenclature & User-Facing Labels
+- **Internal Architecture Name**: PSV (Party Stock Visibility) is retained as the internal architectural name to ensure technical flexibility without losing identity. It is not permanently renamed to "Channel Inventory".
+- **User-Facing Labels**: Dynamically adapted depending on the business type (e.g., *Channel Stock*, *Distributor Inventory*, *Channel Sell-Through*).
+

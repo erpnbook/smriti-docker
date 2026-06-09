@@ -466,3 +466,20 @@ This file tracks the officially completed, verified, and locked features of the 
   - Page Controller: [psa.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/psa.py)
   - Sidebar Script: [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js)
   - Routing Rules: [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
+
+### 33. SMRITI PSV Phase 3 Completion — Opening Balance & Analytics (V1.4)
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-09
+* **Description**: Finalized the Phase 3 roadmap by implementing missing reporting tools, a one-time migration wizard, and visual dashboard metrics. Hardened administrative functions against unauthorized data wipes.
+* **Key Mechanisms**:
+  - **Reporting Suite**: Created `PSV Party Stock Balance`, `PSV Reconciliation`, `PSV Sell-Through`, and `PSV Stock Ageing` script reports to provide full operational visibility into the distributor network.
+  - **Opening Balance Wizard**: Built a standalone Frappe Page (`psv-opening-balance`) with a high-performance backend parser (`opening_balance.py`) to handle bulk distributor onboarding.
+  - **Visual Dashboard**: Integrated live summary cards (Total Units, Active Locations, Negative Balances, Critical Alerts) into the `/psa` landing page using optimized aggregate APIs.
+  - **Security Hardening**: Patched `reset_db`, `reset_all_transactions`, and `reset_all_items` in `inventory_api.py` and `item_master_api.py` to strictly require `Administrator` or `System Manager` roles, preventing unauthorized store-level employees from wiping system data.
+  - **Reliability Fixes**: Corrected misleading file headers across the PSA/PSV module and added user-facing error indicators for missing Python dependencies (`openpyxl`).
+* **Modified / Created Files**:
+  - Reports: `psv_party_stock_balance.*`, `psv_reconciliation.*`, `psv_sell_through.*`, `psv_stock_ageing.*`
+  - Migration: [psv_opening_balance.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/psv_opening_balance/psv_opening_balance.js), [opening_balance.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/utils/opening_balance.py)
+  - Dashboard: [psa.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/psa.html)
+  - Security: [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+  - Service Layer: [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py)
