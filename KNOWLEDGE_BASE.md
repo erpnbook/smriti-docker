@@ -38,7 +38,7 @@
 | **India GST Compliance** | Integrated with `india_compliance` for HSN auto-detection, GSTIN validation, and tax templates |
 | **Supplier Registry** | Complete vendor management with GST address syncing and Vendor Code validation |
 | **B2B Invoice (Sizewise)** | Pivot-grid B2B invoice creation with HID barcode scanner support |
-| **Distributor Network (PSV)** | Dedicated Party Stock Visibility for FMCG/Distributor tracking outside core ledgers |
+| **PSV-Prime Engine** | **Flagship Module**: Business-Type Activated Core Extension for Party Stock Visibility (PSV). Reclassified from add-on to core industry extension. | [PSV_PRIME_MANUAL.md](C:/Users/netma/.gemini/tmp/smriti-retail-os/memory/PSV_PRIME_MANUAL.md) |
 
 ---
 
@@ -48,9 +48,9 @@
 ┌───────────────────────────────────────────────────────────────┐
 │  SMRITI Retail OS  (Custom Frappe App — smriti_retail_os)     │
 │  ┌────────────┐  ┌───────────────┐  ┌──────────────────────┐  │
-│  │ billing_api│  │item_master_api│  │ sizewise_invoice_api │  │
-│  │ shift_api  │  │barcode_api    │  │ master_api           │  │
-│  │ security_api│  │ company_api  │  │ backup_api           │  │
+│  │ billing_api│  │item_master_api│  │ psv_ledger_service   │  │
+│  │ shift_api  │  │barcode_api    │  │ psv_upload_service   │  │
+│  │ security_api│  │ company_api  │  │ psv_analysis_service │  │
 │  └────────────┘  └───────────────┘  └──────────────────────┘  │
 ├───────────────────────────────────────────────────────────────┤
 │  ERPNext v16 + Frappe v16 + India Compliance v16              │
@@ -67,7 +67,7 @@
 |---|---|---|
 | **Architecture Directive** | Locked `GEMINI.md` mandating ERPNext as the System of Record and SMRITI as the Experience Layer. Enforces Service-First design and forbids raw DB writes from UI. | [GEMINI.md](file:///d:/Smriti_Retail_OS/GEMINI.md) |
 | **Industry Configuration Layer** | Multi-industry support via `custom_business_type` setting. Dynamically toggles features (e.g., hides PSV for Footwear, enables for FMCG) to maintain a single core codebase. | [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py), [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js) |
-| **PSV 3-Layer Sub-Ledger** | Robust 3-layer architecture for Party Stock Visibility: Layer 1 (PSA Master with `tracking_mode`), Layer 2 (Universal `SMRITI PSV Transaction` Engine), Layer 3 (Immutable Shadow Ledger). | [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py) |
+| **PSV 3-Layer Sub-Ledger** | Robust 3-layer architecture: Layer 1 (Customer custom fields), Layer 2 (PSV Transaction Engine), Layer 3 (High-speed PSV Balance Table). | [psv_ledger_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_ledger_service.py) |
 | **HSN-First GST Architecture** | `gst_hsn_code` is the primary source of truth for GST %. `custom_gst_percentage` is auto-derived via the lookup chain. | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) — `get_gst_rate_from_hsn()` |
 | **Dynamic State Fallback** | Address state resolution reads `Company.state` instead of hardcoded strings — ensures correct CGST/SGST splits. | [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) — `_get_company_state_fallback()` |
 | **Physical Asset Sync** | Unlinks symlinks and hard-copies compiled bundles to Nginx shared volume. | [sync_assets.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sync_assets.py) |
