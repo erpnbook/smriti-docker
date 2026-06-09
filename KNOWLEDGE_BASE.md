@@ -522,6 +522,7 @@ Cashiers are unable to print or submit POS Invoices because the transaction cras
 | `/setup-wizard` | [setup_wizard.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/setup_wizard.html) | One-time setup wizard |
 | `/barcode` | [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) | SMRITI Label Studio (ZPL/ESC-POS printer management & label printing) |
 | `/reports` | [reports.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/reports.html) | SMRITI Analytics Dashboard — 20 reports across 5 categories |
+| `/psa` | [psa.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/psa.html) | SMRITI Party Stock Accounts Manager |
 
 ---
 

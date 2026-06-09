@@ -451,3 +451,18 @@ This file tracks the officially completed, verified, and locked features of the 
   - Reorder Report: [psv_reorder_report.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/report/psv_reorder_report/psv_reorder_report.json), [psv_reorder_report.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/report/psv_reorder_report/psv_reorder_report.py), [psv_reorder_report.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/report/psv_reorder_report/psv_reorder_report.js)
   - Unit Tests: [test_psv.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_psv.py)
   - Knowledge Base: [KNOWLEDGE_BASE.md](file:///D:/Smriti_Retail_OS/KNOWLEDGE_BASE.md)
+
+### 32. Standalone SMRITI Party Stock Accounts (PSA) Management UI (V1.3)
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-09
+* **Description**: Built a fully standalone, dedicated frontend registry for Party Stock Accounts (PSA) directly inside the custom SMRITI Retail OS interface under the Masters category.
+* **Key Mechanisms**:
+  - **Zero-Desk Aesthetic**: Dark cyberpunk theme matching standard SMRITI views, stripping out all default Frappe web chromes.
+  - **Dynamic Dropdowns**: Auto-fetches standard Companies, Customers, and Users (for Area Manager) via REST.
+  - **Modal Forms**: Support creation and update of PSA records with defensive renaming locks (guards Company, Customer, and Location Name on update).
+  - **Sidebar Integration**: Integrated `/psa` directly into the sidebar schema, with cache-busting logic.
+* **Modified / Created Files**:
+  - Frontend Template: [psa.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/psa.html)
+  - Page Controller: [psa.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/psa.py)
+  - Sidebar Script: [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js)
+  - Routing Rules: [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
