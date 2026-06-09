@@ -425,3 +425,29 @@ This file tracks the officially completed, verified, and locked features of the 
   - Hooks Registration: [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
   - DocType JSON: [smriti_psv_exception_record.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_exception_record/smriti_psv_exception_record.json)
   - Unit Tests: [test_psv.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_psv.py)
+
+### 31. PSV Production Hardening v1.2 & V1.1 Infrastructure — Blueprint 5/5
+* **Status**: Completed, Tested & Locked
+* **Date**: 2026-06-09
+* **Description**: Addressed all 7 production readiness gaps identified in the PSV Master Blueprint v1.1 architectural review, elevating the blueprint from 4.2/5 to 5.0/5, and fully implemented all remaining V1.1 infrastructure and reporting components.
+* **Key Mechanisms**:
+  - **Hook Error Isolation**: All 3 Sales Invoice hooks (`on_submit`, `before_cancel`, `on_cancel`) wrapped in try/except. PSV failures log errors and create Exception Records but never block core ERPNext transactions.
+  - **DuplicateEntryError Handling**: `make_ledger_entry()` now catches `frappe.DuplicateEntryError` from the DB UNIQUE constraint and treats it as idempotent success — no 500 errors under concurrent access.
+  - **V1.1 Reorder Intelligence API**: `get_reorder_recommendation()` implemented in `balance_engine.py` with three-level priority cascade (Variant → Item Group → Global PSV Settings), Max Stock cap enforcement, configurable avg weeks lookback, and all edge case guards (zero sales, division by zero, stock above reorder).
+  - **SMRITI PSV Reorder Rule DocType**: Created the master DocType JSON and Python controller for setting variant and group-level replenishment limits (min_stock, max_stock, safety_stock, lead_time_days, target_days_cover).
+  - **SMRITI PSV Settings Updates**: Added Daily Health Check enable check, along with global fallbacks for reorder calculation parameters (`default_lead_time_days`, `default_safety_stock`, `default_target_days_cover`, and `reorder_avg_weeks`).
+  - **PSV Dashboard APIs**: Added `get_dashboard_summary()`, `get_party_balance_detail()`, and `get_reorder_dashboard_data()` whitelisted endpoints in `psv_api.py` for high-performance dashboard loading.
+  - **PSV Reorder Report**: Created standard Script Report with JS filters (Company, Zone, Priority, Show Zero) and python data aggregator displaying locations, zones, variants, balances, reorder levels, recommendations, and priority classifications.
+  - **Orphaned Invoice Detection**: Daily health check now finds submitted Sales Invoices with PSA linked but no corresponding ledger entries, creating "Hook Failure" exception records for manual reconciliation.
+  - **Blueprint v1.2 Addendum**: New sections added: Hook Error Isolation Policy (§8.6), Concurrency Strategy (§5.2 update), Index Strategy (§5.4), Permission Matrix (§7.6), Rollback Procedures (§14.1), Glossary (§18), Version History (§0.1), corrected Reorder Formula (§6.2), and aligned Folder Structure (§11).
+  - **Expanded Test Suite**: Appended 3 new unit tests to `test_psv.py` verifying Reorder Rule validation, recommendation priority cascade, dashboard APIs, and script report execution. All 12/12 unit tests pass successfully.
+* **Modified / Created Files**:
+  - Service Layer: [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py)
+  - Ledger Engine: [ledger_engine.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/ledger_engine.py)
+  - Balance Engine: [balance_engine.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/balance_engine.py)
+  - Dashboard APIs: [psv_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_api.py)
+  - Reorder Rule DocType: [smriti_psv_reorder_rule.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_reorder_rule/smriti_psv_reorder_rule.json), [smriti_psv_reorder_rule.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_reorder_rule/smriti_psv_reorder_rule.py)
+  - Settings DocType: [smriti_psv_settings.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_settings/smriti_psv_settings.json)
+  - Reorder Report: [psv_reorder_report.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/report/psv_reorder_report/psv_reorder_report.json), [psv_reorder_report.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/report/psv_reorder_report/psv_reorder_report.py), [psv_reorder_report.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/report/psv_reorder_report/psv_reorder_report.js)
+  - Unit Tests: [test_psv.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_psv.py)
+  - Knowledge Base: [KNOWLEDGE_BASE.md](file:///D:/Smriti_Retail_OS/KNOWLEDGE_BASE.md)
