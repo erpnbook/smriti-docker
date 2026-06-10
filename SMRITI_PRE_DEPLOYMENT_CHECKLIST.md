@@ -119,4 +119,17 @@ If absent: Install via `apt-get install -y gnupg` in the Containerfile and rebui
 docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests \
     --app smriti_retail_os \
     --module smriti_retail_os.tests.test_backup_security_hotfix
+
+### SMRITI Label Studio V2.1 — Print Queue Verification Checklist
+
+- [ ] barcode worker running:
+      bench worker --queue barcode &
+- [ ] Verify queue via:
+      bench doctor
+- [ ] Direct Print enqueues successfully (status: Queued -> Success)
+- [ ] Print job details correctly logged to Activity Log and local print log
+- [ ] Temporary `.prn` payload file deleted from `private/print_jobs` on success
+- [ ] Failed print job retains the `.prn` payload file for debugging
+- [ ] Retry button works on Failed jobs (spawns new job with same payload)
+- [ ] Default printer configuration pre-fills successfully from SMRITI Company Settings
 ```
