@@ -83,6 +83,9 @@
 | **v1.8.2a Fail-Closed Design** | This module follows fail-closed design. Any condition that cannot guarantee security integrity aborts the operation rather than silently degrading. This applies to: Guest session detection, role enforcement, password re-authentication, denylist matching, and audit log writes. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
 | **Key Recovery (v1.8.3 scope)** | Dual-custodian key recovery is **UNBLOCKED for v1.8.3**. Architecture (post-review 2026-06-10): All Key Recovery UI lives inside the existing `/backup` page under a new **"Backup Security"** section — same Navy sidebar, SMRITI cards, SMRITI modals. **No separate page. No Frappe Form. No List View.** `SMRITI Key Custodian` DocType stores metadata only (email, verified, dates, status, hashed OTP, and 15-minute OTP expiry) — no key fragments. Key fragments (simple midpoint split) are generated in-memory by `key_recovery_service.py` and sent via email (after verifying SMTP configuration). Key rotation uses versioning in `frappe.conf` and filenames (e.g. `*-v[version].smriti.enc`) instead of re-encryption. `verify_custodian_emails()` and `send_recovery_key()` stubs in `backup_api.py` will delegate to `key_recovery_service.py`. Feature flag `enable_backup_encryption` controls rollout. | [implementation_plan.md](file:///C:/Users/netma/.gemini/antigravity-ide/brain/26cd6eeb-7016-4a5b-8bfc-ebd3e0c01e3d/implementation_plan.md) |
 | **v1.8.2a Audit Closure Artifacts** | Three governance-quality artifacts captured on 2026-06-10: (1) Exported JSON showing `db_password → *** REDACTED ***`; (2) `ls private/backups/ \| grep site_config` → exit 1, zero results, confirming no file is written to disk during export; (3) `setup_activity_log_options()` idempotency verified — calling twice produces exactly one entry each for `"Blocked Download Attempt"` and `"Config Exported"`. | [walkthrough.md](file:///C:/Users/netma/.gemini/antigravity-ide/brain/26cd6eeb-7016-4a5b-8bfc-ebd3e0c01e3d/walkthrough.md) |
+| **Label Studio Realtime Updates (V2.2)** | Switched printer queue dashboard updates from polling to namespaced Socket.io events (`smriti.barcode.print_status`). Restricts event delivery to `user=doc.requested_by` to prevent cross-user leakage in multi-cashier environments. Captures operator IP and user agent in `SMRITI Print Job` for auditing. | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
+| **Print Template Versioning & Lock (V2.3)** | Created separate parent DocType `SMRITI Print Template Version` to store history snapshots. Computes SHA-256 checksums on template contents + mappings + layouts on save, and enforces optimistic locking (`expected_checksum`) during version restore to prevent concurrent overwrite conflicts. | [smriti_print_template.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.py), [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py) |
+| **Visual Designer & DPI Portability (V2.4a)** | Added tab-navigation layout editor. Stores elements as JSON coordinates (mm-based, 1mm = 8px on screen). Converts mm coordinates to ZPL/TSPL dots at compile time (`dots = mm * dpi / 25.4`). Blocks canvas editing for legacy/raw templates. Supports client-side undo/redo (20 states). | [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
 
 ### v1.8.3 Security Audit Event Matrix
 
@@ -167,6 +170,7 @@ smriti_retail_os/
 | 41 | **P0 Security Hotfix — Protected Config Denylist, Export Redaction, Boot Guards (v1.8.2a)** | 2026-06-10 | `security_constants.py`, `backup_api.py`, `platform_api.py`, `boot.py`, `test_backup_security_hotfix.py` |
 | 42 | **v1.8.2a Governance Closure — Audit Artifacts Archived** | 2026-06-10 | `walkthrough.md` — exported JSON redaction sample, `private/backups` listing (zero `site_config` results), Activity Log migration idempotency PASS |
 | 43 | **v1.8.3 Backup Encryption — Implementation Plan Created** | 2026-06-10 | `implementation_plan.md` — AES-256-GCM encryption service, dual-custodian key recovery, SMTP verification, `/smriti-key-recovery` SMRITI page, tests 9–12 |
+| 44 | **SMRITI Label Studio V2.2/V2.3/V2.4a (Sockets, Version History & Designer)** | 2026-06-10 | `barcode_api.py`, `smriti_print_template.py`, `barcode.html`, `test_barcode_api.py` |
 
 ---
 
@@ -246,6 +250,9 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 | `smriti_retail_os.backup_api.export_site_config` | `backup_api.py` | System Manager + password re-auth required. Streams redacted config JSON in-memory. No disk write. |
 | `smriti_retail_os.backup_api.log_audit_event` | `backup_api.py` | Internal helper — writes to Frappe Activity Log. Never raises on failure. |
 | `smriti_retail_os.backup_api.get_encryption_status` *(v1.8.3)* | `backup_api.py` | Returns `{key_present, gpg_available, custodians_set, encryption_enabled}` for recovery dashboard |
+| `smriti_retail_os.barcode_api.get_print_template_versions` | `barcode_api.py` | Returns linked version history snapshots for a template |
+| `smriti_retail_os.barcode_api.restore_print_template_version` | `barcode_api.py` | Restores template version after validating expected_checksum optimistic lock |
+| `smriti_retail_os.barcode_api.enqueue_print_job` | `barcode_api.py` | Enqueues raw printer job, captures user audit details, and publishes Socket.io status updates |
 
 *(Note: API calls must comply with Service-First architecture defined in GEMINI.md)*
 
@@ -258,7 +265,8 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
   ```
-- **Test Coverage**: 157 passing tests (142 pre-v1.8.2a + 8 v1.8.2a security tests + 7 v1.8.3 encryption/recovery tests) covering core workflows, report engines, PSV Shadow Ledger, brand integrity, and backup security controls. Tests 9–14 (including split OTP expiry, GPG-missing, and sidecar mismatch checks) are v1.8.3 scope.
+- **Test Coverage**: 170 passing tests (142 pre-v1.8.2a + 8 v1.8.2a security tests + 7 v1.8.3 encryption/recovery tests + 13 barcode api & async queue tests) covering core workflows, report engines, PSV Shadow Ledger, brand integrity, and backup/printing security controls.
+- **Barcode & Studio Test Suite**: `smriti_retail_os.tests.test_barcode_api` — 21 tests covering async print job enqueuing/processing, Socket.io user-scoped targeting, version snapshotting, DPI portable coordinate translation, legacy guards, and optimistic restore locking constraints.
 - **Security Test Module**: `smriti_retail_os.tests.test_backup_security_hotfix` — 15 tests for config denylist, 403 enforcement, Activity Log, export redaction, restore cleanup, GPG encryption/decryption, OTP expiration, key splitting, GPG fail-closed behavior, and sidecar verification.
 
 ### Cryptographic Brand Enforcement
