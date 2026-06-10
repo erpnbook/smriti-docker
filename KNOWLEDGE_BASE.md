@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-10 · **Version:** v1.8.1
+> **Last Updated:** 2026-06-10 · **Version:** v1.8.2
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -77,6 +77,7 @@
 | **Hashed POS Manager PIN Override** | Store manager override PINs are stored securely in `custom_smriti_pin` using `update_password` hashing, rather than raw text or primary passwords, avoiding shoulder-surfing risks. | [test_billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_billing_api.py) |
 | **Stock Reconciliation Fields** | ERPNext maps the difference account to `expense_account` (labeled "Difference Account" in UI). Specifying `difference_account` is ignored, falling back to P&L defaults and causing opening entry balance sheet errors. | [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py) |
 | **Negative Balance Exception Logs** | Invoices/dispatches cancellation reversing shadow ledger entries must log a `SMRITI PSV Exception Record` and update status if it results in negative stock balances. | [smriti_psv_transaction.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_transaction/smriti_psv_transaction.py) |
+| **Backup Storage Security** | Backup files (`.gz`/`.tar`) are stored in `private/backups` where Nginx blocks direct public HTTP access. Downloads require a valid System Manager/Administrator session. Cloud sync utilizes encrypted TLS tunnels and S3 KMS-based encryption-at-rest. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
 
 Full architecture detail: [ARCHITECTURE_REPORT.md](file:///d:/Smriti_Retail_OS/ARCHITECTURE_REPORT.md)
 
@@ -145,6 +146,7 @@ smriti_retail_os/
 | 37 | **Setup Wizard Improvements & Compliant Routing (v1.7.0)** | 2026-06-10 | `setup_wizard_api.py`, `setup_wizard.html` |
 | 38 | **Global Branding Locks & Branded Error Overrides (v1.8.0)** | 2026-06-10 | `test_branding_integrity.py`, `hooks.py`, `404.html`, `403.html` |
 | 39 | **Secure Backup Download Routing Fix (v1.8.1)** | 2026-06-10 | `backup.html`, `platform_center.html`, `smriti_backup.js` |
+| 40 | **Backup Security Design documentation (v1.8.2)** | 2026-06-10 | `KNOWLEDGE_BASE.md` |
 
 ---
 
@@ -255,7 +257,7 @@ smriti_retail-redis-*       → Caching & Queues
 ### Versions
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.8.1** (current) |
+| SMRITI Retail OS | **v1.8.2** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
