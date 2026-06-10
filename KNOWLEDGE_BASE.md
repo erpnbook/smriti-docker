@@ -88,6 +88,10 @@
 | **Print Template Versioning & Lock (V2.3)** | Created separate parent DocType `SMRITI Print Template Version` to store history snapshots. Computes SHA-256 checksums on template contents + mappings + layouts on save, and enforces optimistic locking (`expected_checksum`) during version restore to prevent concurrent overwrite conflicts. | [smriti_print_template.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_print_template/smriti_print_template.py), [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py) |
 | **Visual Designer & DPI Portability (V2.4a/b)** | Added tab-navigation layout editor. Stores elements as JSON coordinates (mm-based, 1mm = 8px on screen). Converts mm coordinates to ZPL/TSPL dots at compile time (`dots = mm * dpi / 25.4`). Handles versioned metadata wrappers (`layout_version: 1`, `compiler_version: 1`) with backward compatibility for unwrapped layouts. Blocks canvas editing for legacy/raw templates. Supports client-side undo/redo (20 states). | [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
 | **Pre-Print Validation Engine & SVG Preview (V2.5)** | Replaced div preview with high-fidelity vector SVG preview. Simulates DPI grid and renders mock barcodes/QR codes/images. Added diagnostics validation (blocking errors for absolute boundary breaches, print-safe margin incursions on barcodes/QRs, and non-decorative element collisions; warnings for text overflow and text/image margin incursions). | [barcode_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/barcode_api.py), [barcode.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/barcode.html) |
+| **PSV Hook Resolution (F1)** | Migrated `psv_integration.py` to the top-level app package to resolve `hooks.py` imports, implemented full Delivery Note and Stock Entry event hooks, and deprecated the legacy nested stub module with warnings and dynamic re-exports. | [psv_integration.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_integration.py) |
+| **SMTP Credential Security (F3)** | Replaced plain-text SMTP password storage in the JSON default settings blob with Frappe's secure AES-encrypted store (`tabPassword` via `frappe.utils.password`). Integrated an idempotent migration helper. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
+| **PSV Distributed Lock (F4)** | Closed concurrent sales upload balance-check race windows using a per-PSA Redis context manager lock (`frappe.cache().set` with `SET NX EX`). | [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py) |
+| **Transaction Kernel Invariant (F5)** | Documented the `ignore_permissions=True` kernel persistence bypass, adding a `SECURITY INVARIANT` comment enforcing that user permission gates must precede payload enrichment and saving. | [transaction_kernel.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/transaction_kernel.py) |
 
 ### v1.8.3 Security Audit Event Matrix
 
@@ -174,6 +178,7 @@ smriti_retail_os/
 | 43 | **v1.8.3 Backup Encryption — Implementation Plan Created** | 2026-06-10 | `implementation_plan.md` — AES-256-GCM encryption service, dual-custodian key recovery, SMTP verification, `/smriti-key-recovery` SMRITI page, tests 9–12 |
 | 44 | **SMRITI Label Studio V2.2/V2.3/V2.4a/b (Sockets, Version History, Designer & Metadata Wrappers)** | 2026-06-10 | `barcode_api.py`, `smriti_print_template.py`, `barcode.html`, `test_barcode_api.py` |
 | 45 | **SMRITI Label Studio V2.5 (Preview & Pre-Print Validation Engine)** | 2026-06-11 | `barcode_api.py`, `test_barcode_api.py`, `barcode.html` |
+| 46 | **SMRITI Retail OS Audit Remediation (PSV Hooks, SMTP Encryption, Redis Locking, Permission Gate)** | 2026-06-11 | `psv_integration.py`, `backup_api.py`, `psv_service.py`, `transaction_kernel.py`, `test_audit_remediation.py` |
 
 ---
 
@@ -269,7 +274,8 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
   ```
-- **Test Coverage**: 174 passing tests (142 pre-v1.8.2a + 8 v1.8.2a security tests + 7 v1.8.3 encryption/recovery tests + 17 barcode api, async queue, and validation engine tests) covering core workflows, report engines, PSV Shadow Ledger, brand integrity, and backup/printing security controls.
+- **Test Coverage**: 208 passing tests covering core workflows, report engines, PSV Shadow Ledger dispatches and return flows, manager PIN security, e-way bill auditing, SMTP encryption, Redis distributed locking, and printing security controls.
+- **Audit Remediation Test Module**: `smriti_retail_os.tests.test_audit_remediation` — 34 tests covering hook paths, encryption roundtrips, Redis locking concurrency, permission gates, and PSV business logic (partial dispatches, amendments, returns, cancel-amend idempotency).
 - **Barcode & Studio Test Suite**: `smriti_retail_os.tests.test_barcode_api` — 25 tests covering async print job enqueuing/processing, Socket.io user-scoped targeting, version snapshotting, DPI portable coordinate translation, legacy guards, margin checking, text overflow, element collisions, and wrapped/unwrapped layout compatibility.
 - **Security Test Module**: `smriti_retail_os.tests.test_backup_security_hotfix` — 15 tests for config denylist, 403 enforcement, Activity Log, export redaction, restore cleanup, GPG encryption/decryption, OTP expiration, key splitting, GPG fail-closed behavior, and sidecar verification.
 
