@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-10 · **Version:** v1.8.0
+> **Last Updated:** 2026-06-10 · **Version:** v1.8.1
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -144,6 +144,7 @@ smriti_retail_os/
 | 36 | **Test Suite Hardening & Core Alignments (v1.6.1)** | 2026-06-09 | test_billing_api.py, inventory_api.py, smriti_psv_transaction.py |
 | 37 | **Setup Wizard Improvements & Compliant Routing (v1.7.0)** | 2026-06-10 | `setup_wizard_api.py`, `setup_wizard.html` |
 | 38 | **Global Branding Locks & Branded Error Overrides (v1.8.0)** | 2026-06-10 | `test_branding_integrity.py`, `hooks.py`, `404.html`, `403.html` |
+| 39 | **Secure Backup Download Routing Fix (v1.8.1)** | 2026-06-10 | `backup.html`, `platform_center.html`, `smriti_backup.js` |
 
 ---
 
@@ -254,7 +255,7 @@ smriti_retail-redis-*       → Caching & Queues
 ### Versions
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.8.0** (current) |
+| SMRITI Retail OS | **v1.8.1** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
