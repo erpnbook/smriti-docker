@@ -1,6 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
+> **Author:** Jawahar R Mallah (<jawahar.mallah@gmail.com>)  
 > **Last Updated:** 2026-06-10 · **Version:** v1.8.2a (CLOSED) → v1.8.3 (ACTIVE PLANNING)
 
 > [!TIP]
@@ -324,4 +325,4 @@ smriti_retail-redis-*       → Caching & Queues
 > - v1 key may only be retired after all v1 backups have been deleted and verified absent.
 
 ---
-*This knowledge base is maintained by the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
+*This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
