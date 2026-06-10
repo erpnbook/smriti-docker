@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-10 · **Version:** v1.7.0
+> **Last Updated:** 2026-06-10 · **Version:** v1.8.0
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -143,6 +143,7 @@ smriti_retail_os/
 | 35 | **Architecture & Production Audit (5-Phase)** | 2026-06-09 | `ARCHITECTURE_COMPLIANCE_REPORT.md` |
 | 36 | **Test Suite Hardening & Core Alignments (v1.6.1)** | 2026-06-09 | test_billing_api.py, inventory_api.py, smriti_psv_transaction.py |
 | 37 | **Setup Wizard Improvements & Compliant Routing (v1.7.0)** | 2026-06-10 | `setup_wizard_api.py`, `setup_wizard.html` |
+| 38 | **Global Branding Locks & Branded Error Overrides (v1.8.0)** | 2026-06-10 | `test_branding_integrity.py`, `hooks.py`, `404.html`, `403.html` |
 
 ---
 
@@ -227,7 +228,14 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
   ```
-- **Test Coverage**: 136 passing tests covering core workflows, report engines, and the PSV Shadow Ledger.
+- **Test Coverage**: 140 passing tests covering core workflows, report engines, the PSV Shadow Ledger, and brand integrity.
+
+### Cryptographic Brand Enforcement
+To prevent unauthorized modification or accidental deletion of corporate branding elements and routing compliance rules, a cryptographic validation suite is integrated into the automated tests (`test_branding_integrity.py`). This suite checks line-ending-normalized SHA-256 hashes of critical files:
+- **Global SVG Logos**: `public/images/smriti_logo.svg`, `public/images/logo.svg`, `public/logo.svg`
+- **Login Background Wallpaper**: `public/images/login_wallpaper.svg`
+- **Login and Error Pages**: `www/smriti-login.html`, `www/404.html`, `www/403.html`, `www/smriti-404.html`, `www/smriti-403.html`
+- **Route Integrity**: Verifies that custom routing rules for `/login` -> `smriti-login`, `/404` -> `smriti-404`, and `/403` -> `smriti-403` are registered in `hooks.py`.
 
 ---
 
@@ -246,7 +254,7 @@ smriti_retail-redis-*       → Caching & Queues
 ### Versions
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.7.0** (current) |
+| SMRITI Retail OS | **v1.8.0** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
