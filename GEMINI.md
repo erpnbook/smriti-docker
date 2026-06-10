@@ -230,3 +230,80 @@ To add a new planned feature to the registry:
   Edit: smriti_retail_os/api/coming_soon_api.py
   Add entry to COMING_SOON_REGISTRY dict.
   No bench restart needed — API reads live.
+
+---
+
+## Rule 8: Setup Wizard = SMRITI Page Required (LOCKED — 2026-06-10)
+
+### Trigger Condition
+
+If the browser shows ANY of the following after login or navigation:
+  - /desk/setup-wizard
+  - /desk/setup-wizard/0
+  - /desk#setup-wizard
+  - /desk/modules
+  - /app (any Frappe/ERPNext route)
+  - Any Frappe Desk URL
+
+**This is a POLICY VIOLATION. These pages must NEVER reach a user.**
+
+### Required Action
+
+When you see this trigger, the correct response is:
+
+  WRONG:
+    Let the setup wizard load.
+    Use the Frappe wizard to configure settings.
+    Navigate /desk to use ERPNext forms.
+    Use frappe.set_route() to open desk forms.
+
+  CORRECT:
+    Intercept at boot.py before_request hook.
+    Redirect to /smriti immediately.
+    Create a dedicated SMRITI page for whatever action was needed.
+    File a task to build the SMRITI equivalent if it doesn't exist yet.
+
+### What Setup Wizard Appearing Means
+
+The Frappe setup wizard appears in two scenarios:
+
+1. **First install** — setup_complete = 0 in System Settings.
+   Fix: boot.py already sets bootinfo.setup_complete = 1 to suppress it.
+
+2. **Missing SMRITI page** — user/agent tried to navigate somewhere and
+   Frappe fell back to its default route (/desk or setup-wizard).
+   Fix: identify what action was needed → create the SMRITI page for it.
+
+### boot.py Enforcement (Technical Implementation)
+
+SMRITI_BLOCKED_DESK_PATHS in boot.py enforces this at the HTTP layer:
+  - /desk/setup-wizard → redirect to /smriti (ALL users, including Administrator)
+  - /desk/modules      → redirect to /smriti
+  - /desk#Form         → redirect to /smriti
+  - /desk#List         → redirect to /smriti
+  - /desk#query-report → redirect to /smriti
+  - /desk#setup-wizard → redirect to /smriti
+
+To block additional Frappe paths, add to SMRITI_BLOCKED_DESK_PATHS
+in smriti_retail_os/boot.py. Never remove existing entries.
+
+### Permanent AI Agent Rule
+
+For AI agents (Antigravity, Gemini, or any future agent) working on SMRITI:
+
+  Before using any Frappe/ERPNext page, DocType form, list view, or URL:
+  STOP. Check if a SMRITI equivalent exists.
+  If it exists: use the SMRITI page.
+  If it does not exist: create the SMRITI page first, THEN implement the feature.
+  Never use /desk, /app, or /setup-wizard as a shortcut or workaround.
+
+This rule applies to ALL development work, testing, verification, and
+browser automation — including browser subagents used for UI testing.
+
+### This Rule Cannot Be Overridden
+
+No deadline, no shortcut, no "temporary" workaround justifies exposing
+Frappe/ERPNext native UI to users or using it as a verification target.
+If a SMRITI page doesn't exist for the needed verification:
+  → Build the SMRITI page first (see Rule 7 checklist)
+  → Then verify through that SMRITI page
