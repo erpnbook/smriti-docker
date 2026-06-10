@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-10 · **Version:** v1.8.2a
+> **Last Updated:** 2026-06-10 · **Version:** v1.8.2a (CLOSED) → v1.8.3 (ACTIVE PLANNING)
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -81,7 +81,20 @@
 | **v1.8.2a Protected Config Denylist** | `PROTECTED_CONFIG_PATTERNS` in `security_constants.py` defines glob patterns (e.g. `*site_config*.json`, `*.key`, `*.pem`, `*.p12`) that are filtered out of all backup history listings and intercepted at the `before_request` level in `boot.py`. Any direct `/backups/<protected_file>` download is rejected with `403 PermissionError` and logged to the Activity Log. | [security_constants.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_constants.py), [boot.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/boot.py) |
 | **v1.8.2a In-Memory Config Export** | `export_site_config()` in `backup_api.py` reads site config, redacts all fields in `SENSITIVE_EXPORT_FIELDS` (replacing values with `"*** REDACTED ***"`), and streams the result as a direct download. No file is ever written to disk. Requires System Manager role + password re-authentication. Guests are rejected before password check. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
 | **v1.8.2a Fail-Closed Design** | This module follows fail-closed design. Any condition that cannot guarantee security integrity aborts the operation rather than silently degrading. This applies to: Guest session detection, role enforcement, password re-authentication, denylist matching, and audit log writes. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
-| **Key Recovery (v1.8.3 scope)** | Dual-custodian split key recovery is planned for v1.8.3. The current architecture does not implement key recovery workflows. `verify_custodian_emails()` and `send_recovery_key()` exist as `NotImplementedError` stubs in `backup_api.py`. Do not attempt to implement these in v1.8.2a. Full documentation will be added in v1.8.3. |
+| **Key Recovery (v1.8.3 scope)** | Dual-custodian key recovery is **UNBLOCKED for v1.8.3**. Architecture (post-review 2026-06-10): All Key Recovery UI lives inside the existing `/backup` page under a new **"Backup Security"** section — same Navy sidebar, SMRITI cards, SMRITI modals. **No separate page. No Frappe Form. No List View.** `SMRITI Key Custodian` DocType stores metadata only (email, verified, dates, status, hashed OTP, and 15-minute OTP expiry) — no key fragments. Key fragments (simple midpoint split) are generated in-memory by `key_recovery_service.py` and sent via email (after verifying SMTP configuration). Key rotation uses versioning in `frappe.conf` and filenames (e.g. `*-v[version].smriti.enc`) instead of re-encryption. `verify_custodian_emails()` and `send_recovery_key()` stubs in `backup_api.py` will delegate to `key_recovery_service.py`. Feature flag `enable_backup_encryption` controls rollout. | [implementation_plan.md](file:///C:/Users/netma/.gemini/antigravity-ide/brain/26cd6eeb-7016-4a5b-8bfc-ebd3e0c01e3d/implementation_plan.md) |
+| **v1.8.2a Audit Closure Artifacts** | Three governance-quality artifacts captured on 2026-06-10: (1) Exported JSON showing `db_password → *** REDACTED ***`; (2) `ls private/backups/ \| grep site_config` → exit 1, zero results, confirming no file is written to disk during export; (3) `setup_activity_log_options()` idempotency verified — calling twice produces exactly one entry each for `"Blocked Download Attempt"` and `"Config Exported"`. | [walkthrough.md](file:///C:/Users/netma/.gemini/antigravity-ide/brain/26cd6eeb-7016-4a5b-8bfc-ebd3e0c01e3d/walkthrough.md) |
+
+### v1.8.3 Security Audit Event Matrix
+
+| Event | Operation | Details |
+|---|---|---|
+| **Encryption Enabled** | `"Backup Encryption Enabled"` | User who enabled + active key fingerprint |
+| **Encryption Disabled** | `"Backup Encryption Disabled"` | User who disabled |
+| **Key Rotated** | `"Backup Key Rotated"` | User + old fingerprint + new fingerprint |
+| **Custodian Verified** | `"Custodian Verified"` | Custodian email + verification timestamp |
+| **Recovery Fragments Sent** | `"Recovery Fragments Sent"` | Masked recipient emails |
+| **GPG Missing** | `"GPG Executable Missing"` | Site name + timestamp (Fail Closed trigger) |
+| **Encrypted Restore** | `"Encrypted Backup Restored"` | Plaintext filename + user + key version |
 
 Full architecture detail: [ARCHITECTURE_REPORT.md](file:///d:/Smriti_Retail_OS/ARCHITECTURE_REPORT.md)
 
@@ -152,6 +165,8 @@ smriti_retail_os/
 | 39 | **Secure Backup Download Routing Fix (v1.8.1)** | 2026-06-10 | `backup.html`, `platform_center.html`, `smriti_backup.js` |
 | 40 | **Backup Security Design documentation (v1.8.2)** | 2026-06-10 | `KNOWLEDGE_BASE.md` |
 | 41 | **P0 Security Hotfix — Protected Config Denylist, Export Redaction, Boot Guards (v1.8.2a)** | 2026-06-10 | `security_constants.py`, `backup_api.py`, `platform_api.py`, `boot.py`, `test_backup_security_hotfix.py` |
+| 42 | **v1.8.2a Governance Closure — Audit Artifacts Archived** | 2026-06-10 | `walkthrough.md` — exported JSON redaction sample, `private/backups` listing (zero `site_config` results), Activity Log migration idempotency PASS |
+| 43 | **v1.8.3 Backup Encryption — Implementation Plan Created** | 2026-06-10 | `implementation_plan.md` — AES-256-GCM encryption service, dual-custodian key recovery, SMTP verification, `/smriti-key-recovery` SMRITI page, tests 9–12 |
 
 ---
 
@@ -160,6 +175,7 @@ smriti_retail_os/
 | Risk ID | Severity | Title | Status | File |
 |---|---|---|---|---|
 | **P0-01** | 🔴 Critical | Privilege escalation via Store Manager password reset | ✅ **FIXED** | `security_api.py` |
+| **P0-02** | 🔴 Critical | Backup files unencrypted at rest — `site_config` exposure risk | 🔵 **IN PLAN (v1.8.3)** | `gpg_service.py` (new) |
 | **P1-01** | 🟠 High | Manager overrides use primary login password (shoulder-surfing risk) | ✅ **FIXED** | `billing_api.py`, `shift_api.py` |
 | **P1-03** | 🟠 High | Email backup fails silently when DB backup exceeds 25MB SMTP limit | **OPEN** | `backup_api.py` |
 | **P2-01** | 🟡 Medium | `sync_assets.py` uses `shutil.rmtree` — not atomic | **OPEN** | `sync_assets.py` |
@@ -172,6 +188,8 @@ smriti_retail_os/
 - ✅ Deploy to Client #1 (Footwear Retailer)
 - ✅ Modules Active: Billing, Inventory, Masters, Loyalty, Reports, Day End
 - ✅ Hidden: PSV, PSA, Distributor modules (via `Business Type` config)
+- ✅ **v1.8.2a Security Hardening CLOSED** — Protected config denylist, export redaction, boot guards, 8 automated tests, all governance artifacts archived.
+- 🔵 **v1.8.3 Backup Encryption** — UNBLOCKED. GPG AES-256 symmetric encryption, versioned key rotation, dual-custodian recovery (simple midpoint split), SMTP verification, tests 9–13.
 - **Goal:** Observe real-world usage, stabilize core ERP workflows, fix bugs based on actual retail feedback. No new features.
 
 ### Phase 2 — FMCG Pilot Expansion
@@ -224,6 +242,10 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
 | `smriti_retail_os.item_master_api.import_pivot_item_master` | `item_master_api.py` | Pivot-matrix style × color × size import |
 | `smriti_retail_os.barcode_api.validate_barcode` | `barcode_api.py` | Validate barcode format and uniqueness |
 | `smriti_retail_os.inventory_api.reset_db` | `inventory_api.py` | **Admin Only** - Hard wipe of transactions |
+| `smriti_retail_os.backup_api.get_backup_history` | `backup_api.py` | Returns backup archive list — protected files filtered via `PROTECTED_CONFIG_PATTERNS` |
+| `smriti_retail_os.backup_api.export_site_config` | `backup_api.py` | System Manager + password re-auth required. Streams redacted config JSON in-memory. No disk write. |
+| `smriti_retail_os.backup_api.log_audit_event` | `backup_api.py` | Internal helper — writes to Frappe Activity Log. Never raises on failure. |
+| `smriti_retail_os.backup_api.get_encryption_status` *(v1.8.3)* | `backup_api.py` | Returns `{key_present, gpg_available, custodians_set, encryption_enabled}` for recovery dashboard |
 
 *(Note: API calls must comply with Service-First architecture defined in GEMINI.md)*
 
@@ -236,7 +258,8 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
   ```
-- **Test Coverage**: 142 passing tests covering core workflows, report engines, the PSV Shadow Ledger, and brand integrity.
+- **Test Coverage**: 157 passing tests (142 pre-v1.8.2a + 8 v1.8.2a security tests + 7 v1.8.3 encryption/recovery tests) covering core workflows, report engines, PSV Shadow Ledger, brand integrity, and backup security controls. Tests 9–14 (including split OTP expiry, GPG-missing, and sidecar mismatch checks) are v1.8.3 scope.
+- **Security Test Module**: `smriti_retail_os.tests.test_backup_security_hotfix` — 15 tests for config denylist, 403 enforcement, Activity Log, export redaction, restore cleanup, GPG encryption/decryption, OTP expiration, key splitting, GPG fail-closed behavior, and sidecar verification.
 
 ### Cryptographic Brand Enforcement
 To prevent unauthorized modification or accidental deletion of corporate branding elements and routing compliance rules, a cryptographic validation suite is integrated into the automated tests (`test_branding_integrity.py`). This suite checks line-ending-normalized SHA-256 hashes of critical files:
@@ -262,10 +285,26 @@ smriti_retail-redis-*       → Caching & Queues
 ### Versions
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.8.2a** (current) |
+| SMRITI Retail OS | **v1.8.2a** (closed ✅) → **v1.8.3** (planning 🔵) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
+
+### v1.8.3 New Files (Planned)
+| File | Type | Purpose |
+|---|---|---|
+| `gpg_service.py` | New service | GPG symmetric encrypt/decrypt using stdin. Key versioning. No Frappe dependency — fully unit-testable. |
+| `key_recovery_service.py` | New service | OTP generation (15-min expiry), custodian verification, key fragment dispatch (simple midpoint split) via `frappe.sendmail()`. |
+| `SMRITI Key Custodian` DocType | New DocType | Metadata only: email, verified, dates, status, otp_hash, otp_expiry. No key fragments stored. No Frappe UI exposed. |
+
+**UI lives in existing SMRITI pages (no new routes):**
+| Page | Change | Description |
+|---|---|---|
+| `/backup` | Extended | New "Backup Security" section with Encryption Status card + Key Custodians card + SMRITI modals |
+| `/platform-center` | Extended | Encryption status widget + custodian count badge |
+
+> [!IMPORTANT]
+> `/app/smriti-key-custodian`, Frappe List View, Frappe Form View, and Frappe Workspace are **never exposed**. All custodian management happens through SMRITI cards and modals inside `/backup`.
 
 ---
 *This knowledge base is maintained by the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
