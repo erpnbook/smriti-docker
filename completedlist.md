@@ -483,3 +483,39 @@ This file tracks the officially completed, verified, and locked features of the 
   - Dashboard: [psa.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/psa.html)
   - Security: [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py), [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
   - Service Layer: [psv_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/psv_service.py)
+
+### 34. Industry Config Layer (Multi-Business Type)
+* **Status**: Completed, Deployed & Locked
+* **Date**: 2026-06-09
+* **Description**: Introduced the Industry Configuration Layer to dynamically toggle retail versus distributor modules based on the company's designated business type (e.g. Footwear vs FMCG).
+* **Key Mechanisms**:
+  - **Dynamic Sidebar and Modules**: Toggles PSV/PSA, Distributor, and specialized sales uploading portals dynamically using `custom_business_type` metadata returned from the company API.
+  - **Single Core Codebase**: Hides complex B2B and distributor features from single-store footwear operations while preserving the architecture for enterprise distributor accounts.
+* **Modified Files**:
+  - API: [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py)
+  - UI Script: [smriti_sidebar_standalone.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js)
+
+### 35. Architecture & Production Audit (5-Phase)
+* **Status**: Completed, Verified & Locked
+* **Date**: 2026-06-09
+* **Description**: Executed a multi-phase system-wide audit verifying ERPNext data isolation boundaries, service-first design, code compliance, security posture, and performance metrics.
+* **Key Mechanisms**:
+  - **System Inventory Map**: Produced a comprehensive asset inventory document.
+  - **Isolation Boundary Check**: Confirmed zero direct database writes from frontend layers to ERPNext tables.
+  - **Production Compliance**: Generated full verification report outlining compliance with all system-wide architectural rules.
+* **Modified Files**:
+  - Audit Report: [ARCHITECTURE_COMPLIANCE_REPORT.md](file:///d:/Smriti_Retail_OS/ARCHITECTURE_COMPLIANCE_REPORT.md)
+
+### 36. Test Suite Hardening & Core Alignments (v1.6.1)
+* **Status**: Completed, Verified & Locked
+* **Date**: 2026-06-09
+* **Description**: Resolved all outstanding test failures and errors across the test suite, hardening POS auth setups, correcting stock reconciliation difference account assignments, dynamically seeding item groups, and logging negative balance exception records.
+* **Key Mechanisms**:
+  - **Manager Override PIN Hashing**: Switched billing API tests to seed overrides using `fieldname="custom_smriti_pin"` and `update_password` hash matching.
+  - **Stock Reconciliation Correction**: Changed temporary opening entry reconciliation setup from `difference_account` (ignored by ERPNext) to `expense_account`, strictly limiting selections to Asset or Liability accounts to avoid `OpeningEntryAccountError`.
+  - **Dynamic Item Group Seeding**: Added fallback seeding for missing `"Products"` and `"SANDAL"` item groups on fresh test databases.
+  - **Cancellation Exception Alerts**: Added reverse ledger negative balance checking hooks in `SMRITIPSVTransaction` `on_cancel` to create exception logs and flag PSAs as `Pending Reconciliation`.
+* **Modified Files**:
+  - Tests: [test_billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_billing_api.py), [test_item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_item_master_api.py), [test_purchase_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_purchase_api.py)
+  - Backend: [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py), [smriti_psv_transaction.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_transaction/smriti_psv_transaction.py)
+

@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-09 · **Version:** v1.6.0
+> **Last Updated:** 2026-06-10 · **Version:** v1.7.0
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -74,6 +74,9 @@
 | **ERPNext-First Data** | Company/Address/Supplier data lives in standard ERPNext DocTypes; SMRITI reads/writes through standard APIs. | [company_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/company_api.py) |
 | **Role-Based Routing** | Cashiers hit `/billing`; System Managers see unaltered ERPNext desk. | [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py) |
 | **Metadata-Driven Reporting Engine** | `SMRITIReportEngine` uses `SMRITI Report Template` DocType + dynamic SQL builder with MD5 caching + Redis TTL. | [reports_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/reports_api.py) |
+| **Hashed POS Manager PIN Override** | Store manager override PINs are stored securely in `custom_smriti_pin` using `update_password` hashing, rather than raw text or primary passwords, avoiding shoulder-surfing risks. | [test_billing_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_billing_api.py) |
+| **Stock Reconciliation Fields** | ERPNext maps the difference account to `expense_account` (labeled "Difference Account" in UI). Specifying `difference_account` is ignored, falling back to P&L defaults and causing opening entry balance sheet errors. | [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py) |
+| **Negative Balance Exception Logs** | Invoices/dispatches cancellation reversing shadow ledger entries must log a `SMRITI PSV Exception Record` and update status if it results in negative stock balances. | [smriti_psv_transaction.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_transaction/smriti_psv_transaction.py) |
 
 Full architecture detail: [ARCHITECTURE_REPORT.md](file:///d:/Smriti_Retail_OS/ARCHITECTURE_REPORT.md)
 
@@ -138,6 +141,8 @@ smriti_retail_os/
 | 33 | **PSV 3-Layer Sub-Ledger Engine** | 2026-06-09 | `smriti_psv_transaction.py`, `psv_service.py` |
 | 34 | **Industry Config Layer (Multi-Business Type)** | 2026-06-09 | `company_api.py`, `smriti_sidebar_standalone.js` |
 | 35 | **Architecture & Production Audit (5-Phase)** | 2026-06-09 | `ARCHITECTURE_COMPLIANCE_REPORT.md` |
+| 36 | **Test Suite Hardening & Core Alignments (v1.6.1)** | 2026-06-09 | test_billing_api.py, inventory_api.py, smriti_psv_transaction.py |
+| 37 | **Setup Wizard Improvements & Compliant Routing (v1.7.0)** | 2026-06-10 | `setup_wizard_api.py`, `setup_wizard.html` |
 
 ---
 
@@ -222,7 +227,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
   ```
-- **Test Coverage**: 125+ passing tests covering core workflows, report engines, and the PSV Shadow Ledger.
+- **Test Coverage**: 136 passing tests covering core workflows, report engines, and the PSV Shadow Ledger.
 
 ---
 
@@ -241,7 +246,7 @@ smriti_retail-redis-*       → Caching & Queues
 ### Versions
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.6.0** (current) |
+| SMRITI Retail OS | **v1.7.0** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
