@@ -86,3 +86,37 @@ bench --site [SITENAME] execute smriti_retail_os.smriti_retail_os.backup_api.tak
 1. `git checkout main` (or previous stable tag).
 2. `bench restart`.
 3. Note: Custom fields will remain in DB but will be unused by code.
+
+---
+
+## 5. v1.8.2a Security Hotfix — Container Verification
+
+### GPG Readiness Check (Container Environment)
+Run these inside the backend container **before** any v1.8.3 GPG work begins:
+
+```bash
+docker exec smriti_retail-backend-1 gpg --version
+docker exec smriti_retail-backend-1 which gpg
+```
+
+Expected: GPG binary is present and version is 2.x or above.
+If absent: Install via `apt-get install -y gnupg` in the Containerfile and rebuild the image.
+
+### v1.8.2a Security Controls Verification Checklist
+
+- [ ] `gpg --version` returns a valid version inside the backend container
+- [ ] `which gpg` returns a path (e.g. `/usr/bin/gpg`)
+- [ ] `site_config_backup.json` is absent from Backup Center UI (protected by denylist)
+- [ ] Direct download of `/backups/<site_config_backup.json>` returns `403 Forbidden`
+- [ ] `export_site_config()` streams JSON correctly with no file written to backup directory
+- [ ] All fields in `SENSITIVE_EXPORT_FIELDS` show `*** REDACTED ***` in exported JSON
+- [ ] Activity Log shows blocked download attempts
+- [ ] All 8 tests in `test_backup_security_hotfix.py` pass in Docker container
+- [ ] Both `D:` and `F:` drives committed
+
+### Run v1.8.2a Test Suite
+```bash
+docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests \
+    --app smriti_retail_os \
+    --module smriti_retail_os.tests.test_backup_security_hotfix
+```

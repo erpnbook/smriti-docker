@@ -1,7 +1,7 @@
 # 📚 SMRITI Retail OS — Knowledge Base
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
-> **Last Updated:** 2026-06-10 · **Version:** v1.8.2
+> **Last Updated:** 2026-06-10 · **Version:** v1.8.2a
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -78,6 +78,10 @@
 | **Stock Reconciliation Fields** | ERPNext maps the difference account to `expense_account` (labeled "Difference Account" in UI). Specifying `difference_account` is ignored, falling back to P&L defaults and causing opening entry balance sheet errors. | [inventory_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/inventory_api.py) |
 | **Negative Balance Exception Logs** | Invoices/dispatches cancellation reversing shadow ledger entries must log a `SMRITI PSV Exception Record` and update status if it results in negative stock balances. | [smriti_psv_transaction.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_psv_transaction/smriti_psv_transaction.py) |
 | **Backup Storage Security** | Backup files (`.gz`/`.tar`) are stored in `private/backups` where Nginx blocks direct public HTTP access. Downloads require a valid System Manager/Administrator session. Cloud sync utilizes encrypted TLS tunnels and S3 KMS-based encryption-at-rest. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
+| **v1.8.2a Protected Config Denylist** | `PROTECTED_CONFIG_PATTERNS` in `security_constants.py` defines glob patterns (e.g. `*site_config*.json`, `*.key`, `*.pem`, `*.p12`) that are filtered out of all backup history listings and intercepted at the `before_request` level in `boot.py`. Any direct `/backups/<protected_file>` download is rejected with `403 PermissionError` and logged to the Activity Log. | [security_constants.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/security_constants.py), [boot.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/boot.py) |
+| **v1.8.2a In-Memory Config Export** | `export_site_config()` in `backup_api.py` reads site config, redacts all fields in `SENSITIVE_EXPORT_FIELDS` (replacing values with `"*** REDACTED ***"`), and streams the result as a direct download. No file is ever written to disk. Requires System Manager role + password re-authentication. Guests are rejected before password check. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
+| **v1.8.2a Fail-Closed Design** | This module follows fail-closed design. Any condition that cannot guarantee security integrity aborts the operation rather than silently degrading. This applies to: Guest session detection, role enforcement, password re-authentication, denylist matching, and audit log writes. | [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py) |
+| **Key Recovery (v1.8.3 scope)** | Dual-custodian split key recovery is planned for v1.8.3. The current architecture does not implement key recovery workflows. `verify_custodian_emails()` and `send_recovery_key()` exist as `NotImplementedError` stubs in `backup_api.py`. Do not attempt to implement these in v1.8.2a. Full documentation will be added in v1.8.3. |
 
 Full architecture detail: [ARCHITECTURE_REPORT.md](file:///d:/Smriti_Retail_OS/ARCHITECTURE_REPORT.md)
 
@@ -147,6 +151,7 @@ smriti_retail_os/
 | 38 | **Global Branding Locks & Branded Error Overrides (v1.8.0)** | 2026-06-10 | `test_branding_integrity.py`, `hooks.py`, `404.html`, `403.html` |
 | 39 | **Secure Backup Download Routing Fix (v1.8.1)** | 2026-06-10 | `backup.html`, `platform_center.html`, `smriti_backup.js` |
 | 40 | **Backup Security Design documentation (v1.8.2)** | 2026-06-10 | `KNOWLEDGE_BASE.md` |
+| 41 | **P0 Security Hotfix — Protected Config Denylist, Export Redaction, Boot Guards (v1.8.2a)** | 2026-06-10 | `security_constants.py`, `backup_api.py`, `platform_api.py`, `boot.py`, `test_backup_security_hotfix.py` |
 
 ---
 
@@ -257,7 +262,7 @@ smriti_retail-redis-*       → Caching & Queues
 ### Versions
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.8.2** (current) |
+| SMRITI Retail OS | **v1.8.2a** (current) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
