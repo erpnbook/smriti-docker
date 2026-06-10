@@ -82,6 +82,14 @@ Data safety requires automated off-site synchronization. SMRITI Retail OS uses a
   2. Input your S3 Bucket Name, Access Key, Secret Key, and endpoint URL.
   3. SMRITI will use the container's built-in `rclone` utility to stream compressed database dumps directly to secure cloud storage.
 
+### 4.3 Key Version Retention Policy
+> [!IMPORTANT]
+> Encryption key versions must not be removed until all backups encrypted using that version have expired according to the configured backup retention policy.
+>
+> **Example**:
+> - Retention Period = 90 days
+> - v1 key may only be retired after all v1 backups have been deleted and verified absent.
+
 ---
 
 ## 5. Restore Strategy

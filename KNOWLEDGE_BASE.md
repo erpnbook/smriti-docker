@@ -306,5 +306,14 @@ smriti_retail-redis-*       → Caching & Queues
 > [!IMPORTANT]
 > `/app/smriti-key-custodian`, Frappe List View, Frappe Form View, and Frappe Workspace are **never exposed**. All custodian management happens through SMRITI cards and modals inside `/backup`.
 
+### Key Version Retention Policy
+
+> [!IMPORTANT]
+> **Key Version Retention Policy**: Encryption key versions must not be removed until all backups encrypted using that version have expired according to the configured backup retention policy.
+>
+> **Example**:
+> - Retention Period = 90 days
+> - v1 key may only be retired after all v1 backups have been deleted and verified absent.
+
 ---
 *This knowledge base is maintained by the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
