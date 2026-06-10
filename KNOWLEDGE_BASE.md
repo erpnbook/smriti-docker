@@ -228,7 +228,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail clear-cache
   ```bash
   docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
   ```
-- **Test Coverage**: 140 passing tests covering core workflows, report engines, the PSV Shadow Ledger, and brand integrity.
+- **Test Coverage**: 142 passing tests covering core workflows, report engines, the PSV Shadow Ledger, and brand integrity.
 
 ### Cryptographic Brand Enforcement
 To prevent unauthorized modification or accidental deletion of corporate branding elements and routing compliance rules, a cryptographic validation suite is integrated into the automated tests (`test_branding_integrity.py`). This suite checks line-ending-normalized SHA-256 hashes of critical files:
