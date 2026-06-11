@@ -25,6 +25,94 @@ Forbidden:
 window.location routes pointing to /page/*
 duplicate aliases pointing to the same page
 
+## ROUTING RULE (Frappe v16+ Standard)
+
+When creating or linking to any SMRITI page:
+
+- Use route name only:
+    `stock-center`
+    `billing-center`
+    `inventory-dashboard`
+
+- Navigate using:
+    `frappe.set_route("<route>")`
+
+- Public URL must resolve to:
+    `/app/<route>`
+
+- Never generate:
+    `/page/<route>`
+    `/desk/page/<route>`
+    `#/page/<route>`
+
+- Before creating a page, search for existing routes and reuse them.
+- If duplicate routes exist, keep only the canonical `/app` route.
+
+### Practical Implementation Examples
+
+#### Creating a Page
+If your page name is `stock-center`, register/create it normally in Frappe and access it as:
+`/app/stock-center`
+
+#### Navigation
+Use:
+```javascript
+frappe.set_route("stock-center");
+// or
+frappe.set_route("/app/stock-center");
+```
+*Preferred:*
+```javascript
+frappe.set_route("stock-center");
+```
+(because Frappe builds the URL automatically).
+
+#### Sidebar Config
+Use:
+```javascript
+{
+  label: "Stock Center",
+  route: "stock-center"
+}
+```
+*NOT:*
+```javascript
+{
+  label: "Stock Center",
+  route: "/page/stock-center"
+}
+```
+*and NOT:*
+```javascript
+{
+  label: "Stock Center",
+  route: "/desk/page/stock-center"
+}
+```
+
+#### Buttons
+Use:
+```javascript
+frappe.set_route("stock-center");
+// or
+window.location.href = "/app/stock-center";
+```
+*Preferred:*
+```javascript
+frappe.set_route("stock-center");
+```
+
+#### Workspace Links
+Use:
+```json
+{
+  "link_to": "stock-center",
+  "type": "Page"
+}
+```
+which resolves to:
+`/app/stock-center`
+
 ## Route Consolidation Rule
 
 Before creating any page:
