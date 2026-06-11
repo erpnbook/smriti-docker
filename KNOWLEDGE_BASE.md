@@ -204,8 +204,18 @@ smriti_retail_os/
 - ✅ Deploy to Client #1 (Footwear Retailer)
 - ✅ Modules Active: Billing, Inventory, Masters, Loyalty, Reports, Day End, PSA, PSV, Sales Uploads, Physical Audits, Reorder Engine
 - ✅ **v1.9.0-GA General Availability Released (2026-06-11)** — Successfully completed UAT validation and Pilot Distributor Program (1 Distributor, 5 Dealers, 4 Weeks) with 91% user acceptance score and 85.87% alert precision.
-- ✅ **v1.8.2a Security Hardening CLOSED** — Protected config denylist, export redaction, boot guards, 8 automated tests, all governance artifacts archived.
-- 🔵 **v1.8.3 Backup Encryption** — UNBLOCKED. GPG AES-256 symmetric encryption, versioned key rotation, dual-custodian recovery (simple midpoint split), SMTP verification, tests 9–13.
+
+### Governance Status
+
+```text
+v1.8.2a       CLOSED ✅  8 tests
+v1.8.3        CLOSED ✅  18 tests
+Barcode V2.1  TAGGED ✅  25 tests
+PSV 1.1       FROZEN ✅  187 tests
+PSV 1.2       FROZEN ✅  6 tests
+PSV Pilot     ACTIVE 🟡
+PSV 1.3       CANDIDATE 🔵
+```
 
 ### Phase 2 — FMCG Pilot Expansion & PSV Phase 1.2
 - 🔲 Deploy to Client #2 (FMCG Distributor) post-Phase 1 stabilization
@@ -306,7 +316,7 @@ smriti_retail-redis-*       → Caching & Queues
 ### Versions
 | Component | Version |
 |---|---|
-| SMRITI Retail OS | **v1.8.2a** (closed ✅) → **v1.8.3** (planning 🔵) |
+| SMRITI Retail OS | **v1.8.2a** (closed ✅) → **v1.8.3** (closed ✅) |
 | Frappe Framework | **v16** |
 | ERPNext | **v16** |
 | India Compliance | **v16** |
@@ -413,6 +423,10 @@ SMRITI Retail OS v1.8.3 implements a highly secure, fail-closed backup encryptio
 * **GPG Service**: `gpg_service.py` provides independent symmetric file encryption, decryption, versioned key retrieval, and key fingerprint generation.
 * **Key Recovery Service**: `key_recovery_service.py` handles custodian email onboarding, 6-digit OTP verification (15-min expiry), email masking, key splitting, key rotation, and encryption status retrieval.
 * **Backup API**: `backup_api.py` orchestrates settings lifecycle, manual backup triggering, cloud sync, SMTP credentials encryption, and secure restoration with outer try-finally shredding.
+
+### Test Numbering and Validation
+> [!NOTE]
+> **Test numbering**: test_15 not present. Tests jump from test_14 to test_16. test_15 was superseded during development. Not a gap in coverage — all scenarios tested.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
