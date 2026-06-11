@@ -1,0 +1,207 @@
+HTTP/1.1 403 FORBIDDEN
+Server: nginx/1.22.1
+Date: Thu, 11 Jun 2026 10:57:01 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 11753
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Page-Name: error
+X-From-Cache: False
+Link: </assets/frappe/dist/css/website.bundle.IW4A4EB5.css>; rel=preload; as=style,</assets/erpnext/dist/css/erpnext-web.bundle.TBF3YYCB.css>; rel=preload; as=style,</assets/smriti_retail_os/css/smriti_branding.css>; rel=preload; as=style,</assets/smriti_retail_os/css/smriti_web.css>; rel=preload; as=style,</assets/frappe/dist/js/frappe-web.bundle.FUXRKP5O.js>; rel=preload; as=script,</website_script.js>; rel=preload; as=script,</assets/smriti_retail_os/js/main.js>; rel=preload; as=script,</assets/smriti_retail_os/js/smriti_payload_bridge.js>; rel=preload; as=script,</assets/smriti_retail_os/js/smriti_offline_store.js>; rel=preload; as=script,</assets/smriti_retail_os/js/smriti_pwa.js>; rel=preload; as=script,</assets/smriti_retail_os/js/smriti_web_boot.js>; rel=preload; as=script,</assets/frappe/icons/lucide/icons.svg?v=1781174106.1138031>; rel=preload; as=fetch; crossorigin,</assets/frappe/icons/timeless/icons.svg?v=1781174106.1138031>; rel=preload; as=fetch; crossorigin
+Cache-Control: no-store,no-cache,must-revalidate,max-age=0
+WWW-Authenticate: Bearer resource_metadata="http://localhost/.well-known/oauth-protected-resource"
+Set-Cookie: sid=cb3aaa6ac91d41546df7b650d4d88aff84c0dcc74627c3d0e76f01ec; Expires=Thu, 18 Jun 2026 12:57:01 GMT; Max-Age=612000; HttpOnly; Path=/; SameSite=Lax
+Set-Cookie: system_user=yes; Path=/; SameSite=Lax
+Set-Cookie: full_name=Administrator; Path=/; SameSite=Lax
+Set-Cookie: user_id=Administrator; Path=/; SameSite=Lax
+Set-Cookie: user_lang=en; Path=/; SameSite=Lax
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: same-origin, strict-origin-when-cross-origin
+
+<!DOCTYPE html>
+<!-- Built on Frappe. https://frappeframework.com/ -->
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="frappe">
+
+	
+		<meta name="title" content="Not Permitted"><meta name="language" content="en"><meta property="og:type"  content="article"><meta property="og:title"  content="Not Permitted"><meta name="twitter:title" content="Not Permitted"><meta name="twitter:card" content="summary">
+	
+
+	<title>Error</title>
+
+	
+	<link
+		rel="shortcut icon"
+		href="/assets/smriti_retail_os/images/logo.svg"
+		type="image/x-icon"
+	>
+	<link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/website.bundle.IW4A4EB5.css">
+<link type="text/css" rel="stylesheet" href="/assets/erpnext/dist/css/erpnext-web.bundle.TBF3YYCB.css">
+<link type="text/css" rel="stylesheet" href="/assets/smriti_retail_os/css/smriti_branding.css">
+<link type="text/css" rel="stylesheet" href="/assets/smriti_retail_os/css/smriti_web.css">
+<link rel="stylesheet" href="/assets/frappe/css/hljs-night-owl.css">
+
+		
+
+	<script>
+		window.frappe = {};
+		window._version_number = "1781174106.1138031";
+		frappe.ready_events = [];
+		frappe.ready = function(fn) {
+			frappe.ready_events.push(fn);
+		}
+		window.dev_server = 0;
+		window.socketio_port = 9000;
+		window.show_language_picker = false;
+	</script>
+</head>
+<body frappe-session-status="logged-in" data-path="error" class="">
+
+		
+
+
+
+
+
+
+
+
+
+
+<div id="page-error" data-path="None">
+	
+<div class="page-content-wrapper">
+	<!-- breadcrumbs -->
+	<div class="page-breadcrumbs">
+		
+			
+		
+	</div>
+
+	
+	<main class="container">
+		<div class="page-header-wrapper">
+			<div class="page-header">
+				
+			</div>
+
+			
+		</div>
+
+		<div class="page_content">
+<style>
+	body {
+		background-color: var(--subtle-accent);
+		font-size: var(--text-base);
+	}
+
+	.error-content {
+		text-align: left;
+		margin-top: var(--margin-md);
+		border-radius: 8px;
+		background-color: #f5f7fa;
+		max-height: 400px;
+		overflow: auto;
+	}
+
+	code::-webkit-scrollbar {
+		display: none;
+	}
+</style>
+
+<div class="error-page">
+	<div>
+		<h4>
+			Not Permitted
+		</h4>
+		<div class="details">
+			<p>403: You do not have enough permissions to complete the action</p>
+
+			<button class="btn btn-xs btn-secondary text-muted small view-error" >
+				Show Error
+			</button>
+
+			<div class="error-content hidden">
+				<pre><code>Traceback (most recent call last):
+  File "apps/frappe/frappe/app.py", line 102, in application
+    init_request(request)
+    ~~~~~~~~~~~~^^^^^^^^^
+  File "apps/frappe/frappe/app.py", line 209, in init_request
+    frappe.call(before_request_task)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "apps/frappe/frappe/__init__.py", line 1129, in call
+    return fn(*args, **newargs)
+  File "apps/smriti_retail_os/smriti_retail_os/boot.py", line 145, in check_desk_access
+    frappe.throw(_("Access denied: protected configuration files cannot be downloaded."), frappe.PermissionError)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "apps/frappe/frappe/utils/messages.py", line 159, in throw
+    msgprint(
+    ~~~~~~~~^
+    	msg,
+     ^^^^
+    ...&lt;7 lines&gt;...
+    	allow_dangerous_html=allow_dangerous_html,
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "apps/frappe/frappe/utils/messages.py", line 118, in msgprint
+    _raise_exception()
+    ~~~~~~~~~~~~~~~~^^
+  File "apps/frappe/frappe/utils/messages.py", line 59, in _raise_exception
+    raise exc
+frappe.exceptions.PermissionError: Access denied: protected configuration files cannot be downloaded.
+</code></pre>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<div id="all-symbols" style="display:none"></div><script type="text/javascript">fetch(`/assets/frappe/icons/lucide/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/timeless/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/frappe/icons/espresso/icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script><script type="text/javascript">fetch(`/assets/erpnext/icons/pos-icons.svg?v=${window._version_number}`, {credentials: "same-origin"}).then((r) => r.text()).then((svg) => {let c = document.getElementById("all-symbols"); c.insertAdjacentHTML("beforeend", svg);});</script>
+	<!-- js should be loaded in body! -->
+	<script>
+		frappe.boot = {"lang":"en","apps_data":{"apps":[{"name":"erpnext","logo":"/assets/erpnext/images/erpnext-logo.svg","title":"ERPNext","route":"/desk"},{"name":"india_compliance","logo":"/assets/india_compliance/images/india-compliance.svg","title":"India Compliance","route":"/desk/gst-india"}],"is_desk_apps":1,"default_path":"/desk"},"sysdefaults":{"float_precision":3,"date_format":"yyyy-mm-dd","time_format":"HH:mm:ss","first_day_of_the_week":"Sunday","number_format":"#,###.##","currency":null},"time_zone":{"system":"Asia/Kolkata","user":"Asia/Kolkata"},"assets_json":{"billing.bundle.js":"/assets/frappe/dist/js/billing.bundle.XJXMQXLI.js","bootstrap-4-web.bundle.js":"/assets/frappe/dist/js/bootstrap-4-web.bundle.OGQ7JEDG.js","calendar.bundle.js":"/assets/frappe/dist/js/calendar.bundle.4A4YITIU.js","controls.bundle.js":"/assets/frappe/dist/js/controls.bundle.AZPFFSJ5.js","data_import_tools.bundle.js":"/assets/frappe/dist/js/data_import_tools.bundle.KNVPGM6C.js","desk.bundle.js":"/assets/frappe/dist/js/desk.bundle.IFKKWSVC.js","dialog.bundle.js":"/assets/frappe/dist/js/dialog.bundle.G3F5FZXZ.js","form.bundle.js":"/assets/frappe/dist/js/form.bundle.ECI63CFI.js","frappe-web.bundle.js":"/assets/frappe/dist/js/frappe-web.bundle.FUXRKP5O.js","libs.bundle.js":"/assets/frappe/dist/js/libs.bundle.IGBCIYI5.js","list.bundle.js":"/assets/frappe/dist/js/list.bundle.ZB2PXANV.js","logtypes.bundle.js":"/assets/frappe/dist/js/logtypes.bundle.WKQH7KBM.js","onboarding_tours.bundle.js":"/assets/frappe/dist/js/onboarding_tours.bundle.RAUR6X4Z.js","photoswipe.bundle.js":"/assets/frappe/dist/js/photoswipe.bundle.YSXZQA64.js","report.bundle.js":"/assets/frappe/dist/js/report.bundle.G6IX464W.js","sentry.bundle.js":"/assets/frappe/dist/js/sentry.bundle.AX44GVWW.js","syntax_highlighting.bundle.js":"/assets/frappe/dist/js/syntax_highlighting.bundle.YHGNRCUE.js","telemetry.bundle.js":"/assets/frappe/dist/js/telemetry.bundle.3ICFTNWB.js","video_player.bundle.js":"/assets/frappe/dist/js/video_player.bundle.DUYYLSFO.js","web_form.bundle.js":"/assets/frappe/dist/js/web_form.bundle.U3HOSJS5.js","form_builder.bundle.js":"/assets/frappe/dist/js/form_builder.bundle.TJDI53IC.js","print_format_builder.bundle.js":"/assets/frappe/dist/js/print_format_builder.bundle.EY2DZ4XK.js","workflow_builder.bundle.js":"/assets/frappe/dist/js/workflow_builder.bundle.O2QPXUEI.js","build_events.bundle.js":"/assets/frappe/dist/js/build_events.bundle.BCX32TWL.js","file_uploader.bundle.js":"/assets/frappe/dist/js/file_uploader.bundle.N7O4VGGR.js","user_onboarding.bundle.js":"/assets/frappe/dist/js/user_onboarding.bundle.RGMWXG2C.js","kanban_board.bundle.js":"/assets/frappe/dist/js/kanban_board.bundle.WBHS2NSO.js","desk.bundle.css":"/assets/frappe/dist/css/desk.bundle.B6MACVOP.css","email.bundle.css":"/assets/frappe/dist/css/email.bundle.RLNRGEPN.css","login.bundle.css":"/assets/frappe/dist/css/login.bundle.2ZMDRYNU.css","print.bundle.css":"/assets/frappe/dist/css/print.bundle.77A2CNOP.css","print_format.bundle.css":"/assets/frappe/dist/css/print_format.bundle.X53P2G2V.css","report.bundle.css":"/assets/frappe/dist/css/report.bundle.2MQVNNLG.css","web_form.bundle.css":"/assets/frappe/dist/css/web_form.bundle.X7P2BS5N.css","website.bundle.css":"/assets/frappe/dist/css/website.bundle.IW4A4EB5.css","bank-reconciliation-tool.bundle.js":"/assets/erpnext/dist/js/bank-reconciliation-tool.bundle.3OD5XE4B.js","erpnext.bundle.js":"/assets/erpnext/dist/js/erpnext.bundle.4LXW4GEH.js","item-dashboard.bundle.js":"/assets/erpnext/dist/js/item-dashboard.bundle.7LUKZCYJ.js","point-of-sale.bundle.js":"/assets/erpnext/dist/js/point-of-sale.bundle.OX5FLGUM.js","bom_configurator.bundle.js":"/assets/erpnext/dist/js/bom_configurator.bundle.5GOR6CXI.js","erpnext-web.bundle.css":"/assets/erpnext/dist/css/erpnext-web.bundle.TBF3YYCB.css","erpnext.bundle.css":"/assets/erpnext/dist/css/erpnext.bundle.QXGXBYHX.css","erpnext_email.bundle.css":"/assets/erpnext/dist/css/erpnext_email.bundle.SFDPCB2Q.css","gstr1.bundle.js":"/assets/india_compliance/dist/js/gstr1.bundle.OYJ35OJ2.js","india_compliance.bundle.js":"/assets/india_compliance/dist/js/india_compliance.bundle.4V3ZRIWD.js","india_compliance_account.bundle.js":"/assets/india_compliance/dist/js/india_compliance_account.bundle.XTSJNC7Y.js","ims.bundle.js":"/assets/india_compliance/dist/js/ims.bundle.SHXFRGCT.js","purchase_reconciliation_tool.bundle.js":"/assets/india_compliance/dist/js/purchase_reconciliation_tool.bundle.TV23QYW4.js","india_compliance_account.bundle.css":"/assets/india_compliance/dist/css/india_compliance_account.bundle.KDT2L56D.css","rtl_desk.bundle.css":"/assets/frappe/dist/css-rtl/desk.bundle.AK4WPL5S.css","rtl_email.bundle.css":"/assets/frappe/dist/css-rtl/email.bundle.AIH2VV7C.css","rtl_login.bundle.css":"/assets/frappe/dist/css-rtl/login.bundle.4VWTDJGG.css","rtl_print.bundle.css":"/assets/frappe/dist/css-rtl/print.bundle.JPFEYIFM.css","rtl_print_format.bundle.css":"/assets/frappe/dist/css-rtl/print_format.bundle.KEGX66IC.css","rtl_report.bundle.css":"/assets/frappe/dist/css-rtl/report.bundle.HWYK4X5P.css","rtl_web_form.bundle.css":"/assets/frappe/dist/css-rtl/web_form.bundle.YT7NLZ5Z.css","rtl_website.bundle.css":"/assets/frappe/dist/css-rtl/website.bundle.I5SBJMPF.css","rtl_erpnext-web.bundle.css":"/assets/erpnext/dist/css-rtl/erpnext-web.bundle.RNGJ2SQR.css","rtl_erpnext.bundle.css":"/assets/erpnext/dist/css-rtl/erpnext.bundle.KH7XKA2X.css","rtl_erpnext_email.bundle.css":"/assets/erpnext/dist/css-rtl/erpnext_email.bundle.ZRQO6PVV.css"},"sitename":"smriti_retail","is_fc_site":0}
+		// for backward compatibility of some libs
+		frappe.sys_defaults = frappe.boot.sysdefaults;
+	</script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/frappe-web.bundle.FUXRKP5O.js"></script>
+	
+	<script type="text/javascript" src="/website_script.js"></script>
+	<script type="text/javascript" src="/assets/smriti_retail_os/js/main.js"></script>
+	<script type="text/javascript" src="/assets/smriti_retail_os/js/smriti_payload_bridge.js"></script>
+	<script type="text/javascript" src="/assets/smriti_retail_os/js/smriti_offline_store.js"></script>
+	<script type="text/javascript" src="/assets/smriti_retail_os/js/smriti_pwa.js"></script>
+	<script type="text/javascript" src="/assets/smriti_retail_os/js/smriti_web_boot.js"></script>
+<script>
+	let toggle_button = $(".view-error");
+	let error_log = $(".error-content");
+
+	toggle_button.on('click', () => {
+		if (error_log.hasClass("hidden")) {
+			toggle_button.html(`Hide Error`);
+			error_log.removeClass("hidden");
+		} else {
+			toggle_button.html(`Show Error`);
+			error_log.addClass("hidden");
+		}
+	})
+</script>
+
+	<script>frappe.csrf_token = "13b874715aa64cf1bdd7ef09bf2e21cf26fe21e4321c8bc7fc429919";</script></body>
+</html>
