@@ -5,6 +5,20 @@ Following UAT verification and pilot feedback, the PSV roadmap has been refined 
 ---
 
 ## 🗺️ Governance & Decision Gates
+
+### 📋 Phase 1.3 Activation Criteria
+Phase 1.3 development may begin only after all of the following are met:
+* [ ] **PSV Pilot** completed
+* [ ] **Pilot feedback** reviewed
+* [ ] **Usage analytics** collected
+* [ ] **Phase 1.2** stable in production
+* [ ] **Governance approval** recorded
+
+Until then:
+* **STATUS** = `CANDIDATE`
+
+---
+
 * **Pilot Loop Requirement**: No candidate feature in Phase 1.3 or 1.4 shall be promoted to active development without at least one completed Pilot Distributor review cycle.
 * **Vertical Isolation Principle**: Vertical-specific features (e.g. Footwear Vertical Module) must remain decoupled as optional modules.
   * **PSV Phase 1.3A-P1A Conditional Feature**: Activates only if `Footwear Vertical Mode` is explicitly enabled in SMRITI Company Settings or PSV System Settings. No-op on other configurations.
