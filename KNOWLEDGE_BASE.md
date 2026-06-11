@@ -371,5 +371,9 @@ smriti_retail-redis-*       → Caching & Queues
 - **Backward Compatibility Fallback**:
   All read APIs automatically fall back to legacy `SMRITI Party Stock Account` / `SMRITI Party Stock Ledger Entry` data if the new tables are not yet populated, preventing service disruption during v1.9.x transitions.
 
+### Dashboard Statistics Tuple Fix (v1.9.0-GA-hotfix)
+- **Problem**: In `psv_service.py:get_channel_stock_trend()`, the `dates` result returned by `frappe.db.sql` is a tuple. Calling `.reverse()` directly on it caused a runtime `AttributeError: 'tuple' object has no attribute 'reverse'`, blocking the PSV dashboard stats from loading.
+- **Resolution**: Cast `dates` to a `list` first (`dates = list(dates)`) before reversing. Verified clean with all 50 test suite runs.
+
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
