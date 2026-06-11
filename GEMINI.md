@@ -307,3 +307,253 @@ Frappe/ERPNext native UI to users or using it as a verification target.
 If a SMRITI page doesn't exist for the needed verification:
   → Build the SMRITI page first (see Rule 7 checklist)
   → Then verify through that SMRITI page
+
+---
+
+# SMRITI Retail OS — AI Agent Architecture Constitution v1.0
+
+Status: LOCKED
+Authority: AITDL / PrathamOne
+Applies To: All AI Agents, Developers, Contributors, Automation Systems
+
+---
+
+## RULE 1 — DO NOT REPLACE THE ARCHITECTURE
+
+AI agents are prohibited from redesigning SMRITI Retail OS.
+
+Agents may:
+* Extend
+* Improve
+* Refactor
+* Optimize
+
+Agents may NOT:
+* Replace architecture
+* Introduce competing architectures
+* Create parallel frameworks
+* Ignore approved service layers
+
+---
+
+## RULE 2 — SERVICE-FIRST DESIGN (MANDATORY)
+
+Frontend MUST NEVER directly manipulate database records.
+
+Required flow:
+UI → API → Service Layer → Business Logic → Database
+
+Forbidden:
+UI → Database
+UI → DocType Insert
+
+All business operations must pass through approved service controllers.
+
+---
+
+## RULE 3 — INVENTORY-FIRST OPERATIONS
+
+SMRITI is an operational retail platform.
+Inventory is the operational source of truth.
+All stock-related calculations must originate from:
+* Purchase
+* GRN
+* Landed Cost
+* Stock Ledger
+
+Never create separate stock valuation systems.
+Never create duplicate inventory ledgers.
+
+---
+
+## RULE 4 — TALLY-FIRST ACCOUNTING STRATEGY
+
+SMRITI is NOT a replacement for TallyPrime.
+SMRITI owns:
+* Inventory
+* Purchase
+* Sales
+* PSV
+* Pricing
+* Intelligence
+* AI
+
+Tally owns:
+* Books of Accounts
+* Trial Balance
+* Balance Sheet
+* P&L
+* Statutory Accounting
+
+Agents must NOT create:
+* General Ledger Engine
+* Trial Balance Engine
+* Balance Sheet Engine
+* Financial Closing Engine
+unless explicitly approved.
+
+---
+
+## RULE 5 — SINGLE SOURCE OF TRUTH
+
+Every business concept must have exactly one owner.
+
+Examples:
+* Inventory Valuation: Inventory
+* Coverage Days: Intelligence
+* Demand Forecast: AI Hub
+* Channel Stock: PSV
+
+No duplicate ownership allowed.
+
+---
+
+## RULE 6 — PSV OWNERSHIP BOUNDARY
+
+PSV = Party Stock Visibility
+PSV owns:
+* Distributor Stock
+* Channel Stock
+* Sell Through
+* Coverage Days
+* Inventory Aging
+* Capital Locked
+* Recovery Suggestions
+
+PSV does NOT own:
+* Warehouse Inventory
+* Purchase Processing
+* Accounting
+
+---
+
+## RULE 7 — INVENTORY VS PSV
+
+Inventory: Company-owned stock
+PSV: Channel/distributor stock
+
+Agents must never merge these domains.
+
+---
+
+## RULE 8 — NO SHADOW DATABASES
+
+Agents are prohibited from creating:
+* Duplicate stock tables
+* Duplicate customer masters
+* Duplicate supplier masters
+* Duplicate pricing masters
+
+Existing masters must be extended, not replaced.
+
+---
+
+## RULE 9 — PRICING IS A SEPARATE DOMAIN
+
+Pricing is NOT inventory.
+Pricing owns:
+* Price Lists
+* Customer Pricing
+* Promotions
+* Schemes
+* Price Revisions
+
+Inventory must never maintain selling prices.
+
+---
+
+## RULE 10 — APPROVAL BEFORE AUTOMATION
+
+Analytics may be automatic.
+Business actions may NOT be automatic.
+
+Allowed:
+* Recommendations
+* Suggestions
+* Alerts
+
+Forbidden without approval:
+* Auto Purchase Orders
+* Auto Transfers
+* Auto Discounts
+* Auto Price Changes
+
+Human approval required.
+
+---
+
+## RULE 11 — FEATURE FLAGS REQUIRED
+
+Future features must be hidden until activated.
+
+Examples:
+* Coverage Days
+* Capital Locked
+* AI Forecasting
+* Recovery Suggestions
+
+No unfinished features exposed to users.
+
+---
+
+## RULE 12 — BACKWARD COMPATIBILITY
+
+Agents must preserve:
+* Existing APIs
+* Existing DocTypes
+* Existing Workflows
+
+Breaking changes require explicit approval.
+
+---
+
+## RULE 13 — AUDITABILITY
+
+Every critical action must be traceable.
+
+Required:
+* User
+* Timestamp
+* Before Value
+* After Value
+* Reason
+
+Examples:
+* Price Revision
+* Stock Adjustment
+* Recovery Actions
+* Configuration Changes
+
+---
+
+## RULE 14 — NO NEW PROJECTS RULE
+
+Agents must prioritize:
+1. Existing approved modules
+2. Existing roadmap items
+3. Existing pilot requirements
+
+Agents may not introduce unrelated projects.
+
+---
+
+## RULE 15 — GOVERNANCE GATE
+
+Before implementation:
+Architecture Review → Gap Analysis → Approval → Implementation → Verification → Evidence Collection → Closure
+
+Agents must never skip governance stages.
+
+---
+
+## FINAL PRINCIPLE
+
+SMRITI Retail OS is:
+Retail Operations + Inventory Intelligence + Party Stock Visibility + AI-assisted Decision Support
+
+It is NOT:
+* A Tally replacement
+* A General ERP clone
+* A Financial Accounting Platform
+
+All future development must reinforce this identity.
