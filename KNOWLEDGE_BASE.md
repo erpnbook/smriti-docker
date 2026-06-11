@@ -22,6 +22,8 @@
 9. [Key API Reference](#9-key-api-reference)
 10. [Testing & QA](#10-testing--qa)
 11. [Deployment & Infrastructure](#11-deployment--infrastructure)
+12. [PSV Phase 1.1 — Channel Intelligence](#12-psv-phase-11--channel-intelligence)
+13. [Label Studio V2.1 — Async Print Queue](#13-label-studio-v21--async-print-queue)
 
 ---
 
@@ -374,6 +376,18 @@ smriti_retail-redis-*       → Caching & Queues
 ### Dashboard Statistics Tuple Fix (v1.9.0-GA-hotfix)
 - **Problem**: In `psv_service.py:get_channel_stock_trend()`, the `dates` result returned by `frappe.db.sql` is a tuple. Calling `.reverse()` directly on it caused a runtime `AttributeError: 'tuple' object has no attribute 'reverse'`, blocking the PSV dashboard stats from loading.
 - **Resolution**: Cast `dates` to a `list` first (`dates = list(dates)`) before reversing. Verified clean with all 50 test suite runs.
+
+---
+
+## 13. Label Studio V2.1 — Async Print Queue
+
+- **Problem solved**: Gunicorn worker block. Heavy or concurrent printing blocked Gunicorn web workers, causing interface lag. Async queue isolates printing workload.
+- **Payload as .prn file — not in DB**: The raw printer payload (ZPL/TSPL) is saved directly to `sites/smriti_retail/private/print_jobs/<job_id>.prn` with restricted `0o600` permissions. No large payload in DB.
+- **Job lifecycle**: `Queued` → `Sending` → `Success` / `Failed`.
+- **Dedicated barcode queue**: Background workers run on isolated `barcode` queue workload (`barcode: bench worker --queue barcode`).
+- **Retention**: Daily cleanup deletes `Success` jobs older than 30 days and `Failed` jobs + payloads older than 90 days.
+- **Printer profiles via Company Settings**: Default printer settings (IP, Port, Language, Size) managed centrally per-company in SMRITI Company Settings.
+- **Future**: Replace polling with `frappe.publish_realtime()` in V2.2.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
