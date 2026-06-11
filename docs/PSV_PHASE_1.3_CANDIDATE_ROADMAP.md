@@ -30,30 +30,40 @@ These extend existing PSV analytics without changing operational workflows or au
 
 ### 1. Capital Locked Analysis
 * **Goal**: Enable distributors to see where working capital is stagnating.
+* **Valuation Rules**:
+  * Avoid raw `Item.valuation_rate` directly.
+  * Prefer `Last Purchase Cost`, `ERPNext valuation rate`, or `Landed Cost Voucher adjusted rate` (based on availability) to ensure accurate capital estimate.
+* **Categorization Buckets** (for visual reconciliation):
+  * **Healthy Stock**: Active items with optimal coverage.
+  * **Slow Mover Capital**: Active items with low velocity.
+  * **Dead Stock Capital**: Zero sales velocity in last 90+ days.
+  * **Excess Inventory Capital**: Stock exceeding target coverage days.
 * **Deliverables**:
   * Locked Capital Dashboard Widget
-  * Dead Stock Capital valuation
-  * Slow Mover Capital valuation
-  * Excess Inventory Capital valuation
-  * Channel-wise capital allocation summary
-  * Working capital impact analysis
+  * Allocation and working capital impact charts.
 * **Priority**: Critical
 
 ### 2. Coverage Days Intelligence
-* **Goal**: Upgrade stock cover model from weekly velocity bins to high-precision daily coverage.
+* **Goal**: High-precision daily coverage forecasting.
+* **Formula**:
+  $$\text{Coverage Days} = \frac{\text{Current Stock Balance}}{\text{Daily Velocity}}$$
+* **Velocity Edge Cases**:
+  * If $\text{Daily Velocity} = 0$, return `∞ Coverage` or `No Sales History` (avoiding `ZeroDivisionError`).
 * **Deliverables**:
   * Daily velocity calculation
   * Coverage-day forecasting
-  * Stockout warning alerts
-  * Overstock warning alerts
+  * Stockout and overstock warning alerts (thresholds at <7 days and >45 days).
 * **Priority**: Critical
 
 ### 3. Inventory Aging Intelligence
-* **Goal**: Complete the inventory health picture.
-* **Deliverables**:
-  * FIFO age buckets (30 / 60 / 90 / 180 days)
-  * Age vs. Sell-Through ratio analysis
-  * Age vs. GMROI mapping (e.g., Old+Profitable, Old+Unprofitable)
+* **Goal**: Complete the inventory health picture using shadow ledger history.
+* **Aging Buckets**:
+  * `0-30 days`
+  * `31-60 days`
+  * `61-90 days`
+  * `91-180 days`
+  * `180+ days` (Older than 6 months is key for distributors)
+* **Intelligence mapping**: Age vs. Margin (e.g. Old+Profitable, Old+Unprofitable).
 * **Priority**: Critical
 
 ---
@@ -62,7 +72,9 @@ These extend existing PSV analytics without changing operational workflows or au
 Generates non-automated recommendations to help users resolve inventory bottlenecks.
 
 ### Dead Stock Recovery Intelligence
-* **Rule**: Recommendation Only. SMRITI will not perform auto-transfers or auto-discounts. Keep humans in control.
+* **Architecture Rules**:
+  * Implemented in a dedicated `psv_recovery_service.py` to keep analysis separate from the recommendation engine.
+  * **Recommendation Only**: Recommendation outputs only (`recommendation: true`), never auto-executed (`auto_execute: false`). Keep humans in control.
 * **Deliverables**:
   * Redistribution suggestions (e.g., Transfer to Branch B)
   * Bundling recommendations (e.g., Bundle slow item with fast item)
@@ -75,13 +87,13 @@ Generates non-automated recommendations to help users resolve inventory bottlene
 ## 📊 Phase 1.3C — Pilot Intelligence (Wave 2)
 Focuses on telemetry and feedback ingestion during the pilot phase to guide design choices.
 
-### 1. Usage Analytics
-* **Goal**: Track user interactions to identify dashboard utility.
+### 1. Usage Analytics (Performance Guarded)
+* **Goal**: Track user interactions to identify dashboard utility without performance degradation.
+* **Performance Rule**: Use a "fire-and-forget" pattern via `frappe.enqueue(...)` for all telemetry logging; never block with synchronous database `insert`/`commit`/`wait`.
 * **Deliverables**:
   * Widget interaction tracking (opens/collapses)
   * Modal view counts
   * Excel/CSV export usage metrics
-  * Most active PSV dashboard sections
 * **Priority**: Medium
 
 ### 2. Pilot Feedback Tracking
@@ -104,20 +116,44 @@ Operational automation features. Scheduled only after successful validation of P
 
 ### 2. Purchase Suggestions
 * **Rule**: Requires approval workflows and audit trails due to direct cash flow impact.
-* **Requirements**: Automated Purchase Order creation in ERPNext, approval layers, exception handling.
+* **Workflow**: Auto-create **Draft Purchase Orders** in ERPNext (never auto-submit).
 * **Priority**: Later (Deferred)
 
 ---
 
-## 🏷️ Final Priority Wave Order
+## 🔮 Phase 2 — Forecasting Layer (Future)
+Future enhancements scheduled after successful Phase 1.3/1.4 deployment.
+
+### Demand Forecasting
+* **Architecture Module**: `psv_forecasting_service.py`
+* **Goal**: Combine Coverage Days, Daily Velocity, and Seasonality indices to generate high-fidelity demand forecasting.
+* **Priority**: Future
+
+---
+
+## 🏷️ Final Governance & Priority Status
+
+```text
+PSV Core Engine          ✅ Frozen
+PSV Analytics Engine     ✅ Active
+PSV Pilot                🟡 Active
+
+Phase 1.3A Intelligence  🔵 Candidate
+Phase 1.3B Recovery      🔵 Candidate
+Phase 1.3C Telemetry     🔵 Candidate
+
+Phase 1.4 Automation     ⚪ Future
+Phase 2 Forecasting      ⚪ Future
+```
 
 | Wave | Phase | Feature / Deliverable | Priority |
 |---|---|---|---|
-| **Wave 1** | Phase 1.3A | Capital Locked Analysis | Critical |
-| **Wave 1** | Phase 1.3A | Coverage Days Intelligence | Critical |
-| **Wave 1** | Phase 1.3A | Inventory Aging Intelligence | Critical |
-| **Wave 2** | Phase 1.3B | Dead Stock Recovery (Recommendations) | High |
-| **Wave 2** | Phase 1.3C | Usage Analytics (Telemetry) | Medium |
+| **Wave 1** | Phase 1.3A | Capital Locked Analysis (with Healthy Stock) | Critical |
+| **Wave 1** | Phase 1.3A | Coverage Days Intelligence (with Velocity Edge Cases) | Critical |
+| **Wave 1** | Phase 1.3A | Inventory Aging Intelligence (up to 180+ days) | Critical |
+| **Wave 2** | Phase 1.3B | Dead Stock Recovery (Recommendations via psv_recovery_service.py) | High |
+| **Wave 2** | Phase 1.3C | Usage Analytics (Asynchronous via frappe.enqueue) | Medium |
 | **Wave 2** | Phase 1.3C | Pilot Feedback Tracking (Gate to 1.4) | Medium |
 | **Wave 3** | Phase 1.4 | Reorder Engine (MOQ, Safety Stock) | Later |
-| **Wave 3** | Phase 1.4 | Purchase Suggestions (Auto-PO in ERPNext) | Later |
+| **Wave 3** | Phase 1.4 | Purchase Suggestions (Draft POs in ERPNext) | Later |
+| **Future** | Phase 2 | Demand Forecasting (psv_forecasting_service.py) | Future |
