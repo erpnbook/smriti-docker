@@ -2,7 +2,7 @@
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
 > **Author:** Jawahar R Mallah (<jawahar.mallah@gmail.com>)  
-> **Last Updated:** 2026-06-11 · **Version:** v2.5 (CLOSED)
+> **Last Updated:** 2026-06-11 · **Version:** v1.8.3 (CLOSED)
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -388,6 +388,31 @@ smriti_retail-redis-*       → Caching & Queues
 - **Retention**: Daily cleanup deletes `Success` jobs older than 30 days and `Failed` jobs + payloads older than 90 days.
 - **Printer profiles via Company Settings**: Default printer settings (IP, Port, Language, Size) managed centrally per-company in SMRITI Company Settings.
 - **Future**: Replace polling with `frappe.publish_realtime()` in V2.2.
+
+---
+
+## 14. Backup Encryption & Dual Custody (v1.8.3)
+
+SMRITI Retail OS v1.8.3 implements a highly secure, fail-closed backup encryption and dual-custodian recovery system.
+
+### Key Capabilities
+
+* **AES-256 Symmetric Encryption**: Database backups are encrypted with GPG using a secure, dynamically generated symmetric key. Passphrases are piped to GPG via stdin to prevent process sniffing.
+* **Key Versioning & Rotation**: Old keys are preserved in `site_config.json` inside a dictionary (`backup_encryption_keys`). The active key version (e.g. `v1`, `v2`) is saved as `active_backup_encryption_key_version`. Filenames are postfixed with version (e.g., `-v1.smriti.enc`) and can be decrypted using historical keys, permitting safe key rotation.
+* **Fail-Closed GPG Enforcement**: If GPG is missing from the system path, enabling encryption raises a hard error (`RuntimeError`) and aborts configuration changes or backup generation immediately.
+* **3-State Security Status Banner**:
+  1. **UNENCRYPTED (RED)**: Encryption is disabled. UI displays a warning banner in red.
+  2. **ENCRYPTED (AMBER)**: Encryption is enabled, but fewer than two verified custodians are onboarded. UI displays an amber warning.
+  3. **ENCRYPTED & SECURED (GREEN)**: Encryption is enabled, and exactly two verified custodians are onboarded.
+* **Dual-Custodian Split Key**: Operational control is divided between two custodians. The active encryption key is split at the midpoint (`mid = len(key) // 2`) and fragments are dispatched via email to the verified custodians. This provides strict operational control (not Shamir Secret Sharing).
+* **Realtime Restore Progress**: Restore operations broadcast namespaced realtime Socket.io events (`smriti.backup.progress`), updating the cashiers in real-time (`Decrypting backup...`, `Verifying decrypted file...`, `Restoring database...`, `Cleaning temporary files...`, `Restore complete.`).
+* **Secure Shred Cleanup**: Temporary files containing decrypted database SQL dumps are securely wiped using `shutil.which("shred")` with parameters `-u -z -n 1`. If `shred` is missing on the system, a zero-overwrite fallback writes null bytes (`b"\x00" * size`) to the file before deletion.
+
+### API & Service Architecture
+
+* **GPG Service**: `gpg_service.py` provides independent symmetric file encryption, decryption, versioned key retrieval, and key fingerprint generation.
+* **Key Recovery Service**: `key_recovery_service.py` handles custodian email onboarding, 6-digit OTP verification (15-min expiry), email masking, key splitting, key rotation, and encryption status retrieval.
+* **Backup API**: `backup_api.py` orchestrates settings lifecycle, manual backup triggering, cloud sync, SMTP credentials encryption, and secure restoration with outer try-finally shredding.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
