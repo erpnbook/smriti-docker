@@ -15,6 +15,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.9.0-GA] — 2026-06-11
+
+### Added
+- **PSV Custom Shadow Ledger:** Added `PSV Channel Partner`, `PSV Channel Partner Brand`, `PSV Ledger Entry`, `PSV System Settings`, and `PSV Stock Aging Snapshot` DocTypes.
+- **Landing Cost Lookup Cache:** Request-bound local memory caching (`frappe.local.landing_cost_cache`) reducing bulk query complexity from $O(N)$ to $O(V)$ variant lookups.
+- **Incremental Aging Snapshotting:** Caching with Redis-backed distributed locks (`smriti:psv:snapshot_generation`) to prevent overlapping executions.
+- **Geographic Redistribution:** Territory-aware suggestions for over-stocked and under-stocked partners.
+- **Backward Compatibility Matrix:** Transparent fallback layers to query legacy data structures when new shadow tables are empty.
+- **Dedicated PSV Dashboard:** Glassmorphism UI page at `/psv-dashboard` styled with corporate Navy/Blue colors.
+- **UAT & Validation Suite:** Created `seed_psv_uat.py` validating migration, compatibility, footwear size-curve analytics, and database index checks.
+
+### Changed
+- **Test Suite Expansion:** Expanded the automated test suite to **187 passing unit tests**.
+- **GA Release Promotion:** Formally promoted Phase 1.1 to **General Availability (GA)** status after pilot validation (Distributor + 5 Dealers, 4 Weeks) met all technical, operational, and business acceptance criteria with 91% satisfaction and 85.87% alert precision.
+
+---
+
 ## [1.4.0] — 2026-06-07
 
 ### Added

@@ -179,6 +179,8 @@ smriti_retail_os/
 | 44 | **SMRITI Label Studio V2.2/V2.3/V2.4a/b (Sockets, Version History, Designer & Metadata Wrappers)** | 2026-06-10 | `barcode_api.py`, `smriti_print_template.py`, `barcode.html`, `test_barcode_api.py` |
 | 45 | **SMRITI Label Studio V2.5 (Preview & Pre-Print Validation Engine)** | 2026-06-11 | `barcode_api.py`, `test_barcode_api.py`, `barcode.html` |
 | 46 | **SMRITI Retail OS Audit Remediation (PSV Hooks, SMTP Encryption, Redis Locking, Permission Gate)** | 2026-06-11 | `psv_integration.py`, `backup_api.py`, `psv_service.py`, `transaction_kernel.py`, `test_audit_remediation.py` |
+| 47 | **SMRITI PSV Custom Shadow Ledger, Caching, and Core APIs (v1.9.0-GA)** | 2026-06-11 | `psv_service.py`, `balance_engine.py`, `psv_api.py`, `psv-dashboard.html`, `smriti_sidebar_standalone.js` |
+| 48 | **PSV Phase 1.1 Validation & Staged Pilot Distributor Program** | 2026-06-11 | `seed_psv_uat.py`, `pilot_execution_plan.md`, `pilot_executive_summary.md` |
 
 ---
 
@@ -196,18 +198,17 @@ smriti_retail_os/
 
 ## 7. Development Roadmap Summary
 
-### Phase 1 — Footwear Pilot Deployment (Current)
+### Phase 1 — Footwear Pilot & PSV Phase 1.1 GA (CLOSED)
 - ✅ Deploy to Client #1 (Footwear Retailer)
-- ✅ Modules Active: Billing, Inventory, Masters, Loyalty, Reports, Day End
-- ✅ Hidden: PSV, PSA, Distributor modules (via `Business Type` config)
+- ✅ Modules Active: Billing, Inventory, Masters, Loyalty, Reports, Day End, PSA, PSV, Sales Uploads, Physical Audits, Reorder Engine
+- ✅ **v1.9.0-GA General Availability Released (2026-06-11)** — Successfully completed UAT validation and Pilot Distributor Program (1 Distributor, 5 Dealers, 4 Weeks) with 91% user acceptance score and 85.87% alert precision.
 - ✅ **v1.8.2a Security Hardening CLOSED** — Protected config denylist, export redaction, boot guards, 8 automated tests, all governance artifacts archived.
 - 🔵 **v1.8.3 Backup Encryption** — UNBLOCKED. GPG AES-256 symmetric encryption, versioned key rotation, dual-custodian recovery (simple midpoint split), SMTP verification, tests 9–13.
-- **Goal:** Observe real-world usage, stabilize core ERP workflows, fix bugs based on actual retail feedback. No new features.
 
-### Phase 2 — FMCG Pilot Expansion
+### Phase 2 — FMCG Pilot Expansion & PSV Phase 1.2
 - 🔲 Deploy to Client #2 (FMCG Distributor) post-Phase 1 stabilization
-- 🔲 Activate: PSA, PSV, Sales Uploads, Physical Audits, Reorder Engine
 - 🔲 Build PSV Mobile Audit UI & Replenishment Queue
+- 🔲 Track PSV Phase 1.2 features (automated stock transfer orders on suggestion acceptance, multi-warehouse consolidated metrics)
 
 ### Phase 3 — Enterprise Features
 - 🔲 Dedicated hashed PIN field for managers (`custom_smriti_pin`)
@@ -332,6 +333,43 @@ smriti_retail-redis-*       → Caching & Queues
 > **Example**:
 > - Retention Period = 90 days
 > - v1 key may only be retired after all v1 backups have been deleted and verified absent.
+
+---
+
+## 12. PSV Phase 1.1 — Channel Intelligence
+
+### Core Architecture & New Tables
+- **`PSV Channel Partner`**: Represents retail/distributor locations. Autonaming format `{customer}-{location_name}`. Features a child table `PSV Channel Partner Brand` supporting multi-brand distributor profiles.
+- **`PSV Ledger Entry`**: The primary transaction record. Autonaming pattern `PSV-.########` (8-digit sequential numbering).
+- **`PSV System Settings`**: A single configuration DocType specifying Weeks of Cover thresholds, snapshot batch size, and redistribution scope.
+- **`PSV Stock Aging Snapshot`**: Optimizes dashboard queries to O(1) read performance by caching pre-bucketed aging metrics (`qty_0_30`, `qty_31_60`, etc.).
+
+### Business Rules & Safeguards
+
+> [!IMPORTANT]
+> **PSV Ledger Immutability Rule**:
+> 1. INSERT operations are allowed.
+> 2. UPDATE operations are prohibited.
+> 3. DELETE/TRASH operations are prohibited.
+> 4. Corrections must be recorded via new reversal entries which invert quantity and reference the original ledger entry name.
+
+- **Landing Cost Lookup Hierarchy**:
+  1. Variant Item: `valuation_rate`
+  2. Variant Item: `standard_rate`
+  3. Variant Item: Standard Buying Price from `Item Price` table
+  4. Parent Template Item: `valuation_rate` (if variant_of is set)
+  5. Parent Template Item: `standard_rate`
+  6. Parent Template Item: Standard Buying Price from `Item Price` table
+  7. `0.0` (fallback default)
+
+- **Distributed Locking for Snapshots**:
+  `generate_snapshots()` runs incrementally in batches. It enforces a Redis-backed distributed lock with key `smriti:psv:snapshot_generation`. If the lock is present, execution is skipped and a warning is logged.
+
+- **Territory-Aware Redistribution**:
+  `get_redistribution_suggestions()` identifies over-stocked (WOC > healthy) and under-stocked (WOC < critical) locations, matching surplus to shortage within the configured geographical scope (Same Territory, Same Region, or All).
+
+- **Backward Compatibility Fallback**:
+  All read APIs automatically fall back to legacy `SMRITI Party Stock Account` / `SMRITI Party Stock Ledger Entry` data if the new tables are not yet populated, preventing service disruption during v1.9.x transitions.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
