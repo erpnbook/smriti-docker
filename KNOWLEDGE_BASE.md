@@ -428,5 +428,23 @@ SMRITI Retail OS v1.8.3 implements a highly secure, fail-closed backup encryptio
 > [!NOTE]
 > **Test numbering**: test_15 not present. Tests jump from test_14 to test_16. test_15 was superseded during development. Not a gap in coverage — all scenarios tested.
 
+
+---
+
+## 15. Sidebar v1.9.1 — Data-Driven Nav & Routing Governance
+
+SMRITI Retail OS v1.9.1 implements a configuration-driven navigation model and locks down strict routing governance policies to align with enterprise-grade standards.
+
+### Key Capabilities
+
+* **Single Source of Truth (`smriti_nav_config.js`)**: Sidebar navigation has been migrated from hardcoded UI structures to a dynamically resolved JavaScript configuration mapping canonical routes, feature flags, progress values, and ETAs.
+* **4-State Navigation Status**: Sidebar items support active resolution, coming soon badges (routing to a parameters-driven Coming Soon page), hidden (fully omitted), and disabled (rendered at 40% opacity with `not-allowed` cursor).
+* **Category Auto-Hide Logic**: Section headers automatically hide if all of their children are hidden due to role access checks or feature flags.
+* **Dual-Route Resolving**: Sidebar items resolve to canonical `/app/<page-name>` Desk Page routes for Desk users (System Managers/Store Managers) and fall back to standalone website routes (`standalone_route`) for cashiers on standalone terminal interfaces.
+* **Routing Governance & Route Consolidation**:
+  - Exposing legacy `/page/*` or `/desk/page/*` routes is strictly forbidden.
+  - All duplicate/legacy route aliases mapping multiple paths to identical targets have been removed from `hooks.py` to enforce a clean single-canonical route policy.
+  - Master AI architecture constitution (`AITDL.md`) and bootstrap instructions (`CLAUDE.md`) are placed at the repository root.
+
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
