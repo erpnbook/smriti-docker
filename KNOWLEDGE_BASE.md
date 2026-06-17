@@ -2,7 +2,7 @@
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
 > **Author:** Jawahar R Mallah (<jawahar.mallah@gmail.com>)  
-> **Last Updated:** 2026-06-11 · **Version:** v1.8.3 (CLOSED)
+> **Last Updated:** 2026-06-17 · **Version:** v1.9.3 (CLOSED)
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -24,6 +24,10 @@
 11. [Deployment & Infrastructure](#11-deployment--infrastructure)
 12. [PSV Phase 1.1 — Channel Intelligence](#12-psv-phase-11--channel-intelligence)
 13. [Label Studio V2.1 — Async Print Queue](#13-label-studio-v21--async-print-queue)
+14. [Backup Encryption & Dual Custody (v1.8.3)](#14-backup-encryption--dual-custody-v183)
+15. [Sidebar v1.9.1 — Data-Driven Nav & Routing Governance](#15-sidebar-v191--data-driven-nav--routing-governance)
+16. [Audit Reports Module — Security and Audit Logs (v1.9.2)](#16-audit-reports-module--security-and-audit-logs-v192)
+17. [Drag-and-Drop reporting and dashboard customization suite (v1.9.3)](#17-drag-and-drop-reporting-and-dashboard-customization-suite-v193)
 
 ---
 
@@ -183,6 +187,8 @@ smriti_retail_os/
 | 46 | **SMRITI Retail OS Audit Remediation (PSV Hooks, SMTP Encryption, Redis Locking, Permission Gate)** | 2026-06-11 | `psv_integration.py`, `backup_api.py`, `psv_service.py`, `transaction_kernel.py`, `test_audit_remediation.py` |
 | 47 | **SMRITI PSV Custom Shadow Ledger, Caching, and Core APIs (v1.9.0-GA)** | 2026-06-11 | `psv_service.py`, `balance_engine.py`, `psv_api.py`, `psv-dashboard.html`, `smriti_sidebar_standalone.js` |
 | 48 | **PSV Phase 1.1 Validation & Staged Pilot Distributor Program** | 2026-06-11 | `seed_psv_uat.py`, `pilot_execution_plan.md`, `pilot_executive_summary.md` |
+| 49 | **SMRITI Audit Reports Module (v1.9.2)** | 2026-06-16 | `reports_api.py`, `setup.py`, `reports.html`, `smriti_nav_config.js`, `coming_soon_api.py` |
+| 50 | **Drag-and-Drop reporting and dashboard customization suite (v1.9.3)** | 2026-06-17 | `reports.html`, `psv-dashboard.html`, `smriti-home.html`, `test_reports.py` |
 
 ---
 
@@ -445,6 +451,46 @@ SMRITI Retail OS v1.9.1 implements a configuration-driven navigation model and l
   - Exposing legacy `/page/*` or `/desk/page/*` routes is strictly forbidden.
   - All duplicate/legacy route aliases mapping multiple paths to identical targets have been removed from `hooks.py` to enforce a clean single-canonical route policy.
   - Master AI architecture constitution (`AITDL.md`) and bootstrap instructions (`CLAUDE.md`) are placed at the repository root.
+
+---
+
+## 16. Audit Reports Module — Security and Audit Logs (v1.9.2)
+
+SMRITI Retail OS v1.9.2 introduces the Audit Reports module under a dedicated "SMRITI Audit Reports" category. This module provides a SMRITI-First reporting interface for critical system operations and security logs without exposing raw Frappe desk views.
+
+### Key Capabilities
+
+* **Security Audit Log**: Tracks security-critical events (e.g. login, visual template changes, print queue cleanup) by querying the `tabActivity Log` table.
+* **Address Change Log**: Audit trail for updates to company/party address configurations by querying the custom `tabSMRITI Address Audit Log` table.
+* **Custom Engine Integration**: Patched the backend SMRITI Reporting Engine (`reports_api.py`) to support:
+  - Custom date-range columns mapping: resolves `creation` for `tabActivity Log` and `changed_at` for `tabSMRITI Address Audit Log` instead of `posting_date` default.
+  - Custom user-filtering fields (`user` for Activity Log, `changed_by` for Address Change Log).
+* **Robust UI Formatting (`reports.html`)**:
+  - Resolved dynamic formatting issues where text fields containing `"value"` (like `old_value` and `new_value`) were incorrectly styled as currency (`₹NaN`), aligned right, and counted in totals sum metrics.
+  - Implemented field-specific exclusions for both formatting and summary bar calculations to preserve left-aligned clean text presentation.
+* **Role-Based Security**: Access restricted to `System Manager` and `SMRITI Store Manager` roles.
+
+---
+
+## 17. Drag-and-Drop reporting and dashboard customization suite (v1.9.3)
+
+SMRITI Retail OS v1.9.3 introduces the Drag-and-Drop suite to provide interactive reporting and custom layout personalizations on dashboards.
+
+### Key Capabilities
+
+*   **Column Reordering & Saved Views Integration**:
+    *   Adds standard HTML5 drag-and-drop support to report columns. Users can drag headers to swap or reorder report columns on the fly.
+    *   Column reordering is fully integrated with **SMRITI Saved Views**; custom column sequences are saved under the `visible_columns_json` field in the database.
+*   **SMRITI Pivot Matrix Builder**:
+    *   Enables dynamic pivot views next to the report filter bar.
+    *   Users drag available report fields into Rows, Columns, and Values target dropzones.
+    *   Features a client-side aggregation engine that computes Sum, Count, and Avg metrics.
+    *   Renders complex pivot grids dynamically with merged row/column headers and Grand Totals.
+*   **Dashboard Widget Customization**:
+    *   Added a "Customize Layout" button to both `smriti-home.html` and `psv-dashboard.html`.
+    *   Edit mode reveals Grab handles (`⠿`) and dashed blue borders around adjustable widget cards.
+    *   Cards can be dragged and dropped to reorder them in the dashboard grid.
+    *   Reordered dashboard layout sequences are serialized and persisted in browser `localStorage` to preserve customization across session reloads.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
