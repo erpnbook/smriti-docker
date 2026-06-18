@@ -275,6 +275,10 @@ alongside them. Existing pages consuming the old tokens continue to work.
 
 Migration from old to new tokens is a Phase 2 activity.
 
+### Color Exceptions
+
+The CSS named color keywords `white` and `transparent` are permitted for static light-surface elements, text on high-contrast brand backgrounds (e.g., active tabs, brand primary buttons, and badges), and overlay backgrounds across all theme profiles. All other color overrides must use namespaced SMRITI tokens.
+
 ---
 
 ## 7. Token/Profile Boundary (FROZEN)

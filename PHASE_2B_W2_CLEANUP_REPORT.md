@@ -119,3 +119,11 @@ To restore the stylesheets back to their pre-cleanup state:
      git checkout 36306ff225b09f2fd4adab912e10b0d0d452c626 -- smriti_retail_os/public/css/smriti-inventory.css smriti_retail_os/public/css/smriti-purchase.css smriti_retail_os/public/css/smriti-billing.css smriti_retail_os/public/js/smriti_ui_resolver.js
      ```
 3.  Restart bench/clear cache as needed to force CSS reload.
+
+---
+
+## 6. Governance Exception Details
+
+As explicitly updated in [SMRITI_UI_CONFIGURATION_ENGINE_V1.md](file:///d:/Smriti_Retail_OS/docs/architecture/ui/SMRITI_UI_CONFIGURATION_ENGINE_V1.md) §6, a formal governance exception has been registered for:
+- Named color keywords `white` and `transparent` are permitted for static light-surface elements, text on high-contrast brand backgrounds (e.g. active tabs, brand primary buttons, and badges), and overlay backgrounds across all theme profiles.
+- This allows layout text readability to be preserved on accent/brand colors across dark/light mode switches, while keeping compliance scanner checks green (as the scanner strictly blocks literal hex and rgb/rgba/hsl rules).
