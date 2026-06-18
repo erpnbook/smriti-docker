@@ -2,6 +2,12 @@
 
 This document describes the General Availability (GA) release of SMRITI Retail OS v1.0. This release establishes a secure, inventory-first retail operating system built on top of ERPNext.
 
+**Founder & Product Architect:**
+Jawahar R. Mallah
+
+**Organization:**
+AITDL (AI Technology & Development Lab)
+
 ---
 
 ## 🚀 Key Release Highlights

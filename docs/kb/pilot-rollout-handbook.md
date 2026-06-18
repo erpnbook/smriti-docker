@@ -13,6 +13,13 @@ Welcome to the SMRITI Retail OS Pilot Program! This handbook provides retail sto
 
 ## 1. Welcome to SMRITI OS
 
+Welcome to SMRITI Retail OS.
+
+Created and architected by:
+**Jawahar R. Mallah**
+
+Thank you for being part of the early rollout.
+
 SMRITI Retail OS is a premium operational retail layer built on top of ERPNext. While ERPNext manages the transaction ledger, accounting, and tax computations in the background, SMRITI provides the frontend UI, register billing layouts, reorder intelligence dashboards, and POS cashier workflows.
 
 ---
