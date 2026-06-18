@@ -179,12 +179,13 @@ the following namespace prefixes. No other prefix is permitted for engine-manage
 
 ```
 --smriti-color-*        Color tokens
---smriti-spacing-*      Spacing and layout tokens
+--smriti-spacing-*      Spacing tokens (padding, margin, gap)
 --smriti-radius-*       Border radius tokens
 --smriti-shadow-*       Box shadow tokens
 --smriti-font-size-*    Typography size tokens
 --smriti-font-weight-*  Typography weight tokens
 --smriti-z-index-*      Z-index layer tokens
+--smriti-dimension-*    Layout dimension tokens (widths, heights, min/max bounds)
 ```
 
 ### Token Registry (Reference)

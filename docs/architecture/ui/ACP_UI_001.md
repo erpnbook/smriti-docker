@@ -2,7 +2,7 @@
 
 **Title:** Dimension Namespace Extension for UI Configuration Engine  
 **Proposal ID:** ACP-UI-001  
-**Status:** PROPOSED ⏳  
+**Status:** APPROVED ✅  
 **Date:** 2026-06-18  
 **Author:** Antigravity AI  
 **Authority:** SMRITI Architecture Committee / PrathamOne  
@@ -33,6 +33,8 @@ We propose extending the token namespace by introducing a dedicated layout dimen
 ```css
 --smriti-dimension-*      Layout dimension tokens (widths, heights, min/max constraints)
 ```
+
+The dimension namespace is reserved for structural layout dimensions (width, height, min/max constraints) and must not be used for spacing, padding, margin, or gap values.
 
 ### 1. Update to SMRITI_UI_CONFIGURATION_ENGINE_V1.md
 
