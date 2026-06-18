@@ -262,6 +262,9 @@ docs/architecture/ui/ui_token_registry.md
 --smriti-z-index-sidebar           1041
 --smriti-z-index-toast             1100
 --smriti-z-index-tooltip           1200
+
+--smriti-dimension-sidebar-width             260px
+--smriti-dimension-sidebar-collapsed-width   68px
 ```
 
 ### Backward Compatibility — Existing `--smriti-*` Tokens
