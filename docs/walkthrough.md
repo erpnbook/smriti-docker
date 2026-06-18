@@ -99,7 +99,7 @@ We have completely overhauled the static login interface with a modern, state-of
    - Introduced dynamic, slow-floating radial color meshes that breathe behind the glass card container, giving the entire viewport a rich, premium, live responsive ambiance.
 
 ### 🖼️ Design Mockup Preview
-![SMRITI Premium Login Screen](C:\Users\netma\.gemini\antigravity\brain\6f758297-45a2-4332-8e57-7e7683c63275\smriti_retail_os_premium_login_1779977765571.png)
+![SMRITI Premium Login Screen](/C:/Users/netma/.gemini/antigravity-ide/brain/6f758297-45a2-4332-8e57-7e7683c63275/smriti_retail_os_premium_login_1779977765571.png)
 
 ---
 
