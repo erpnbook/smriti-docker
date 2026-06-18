@@ -5,6 +5,8 @@ author: "SMRITI Development Team"
 date: "2026-05-31"
 ---
 
+<div v-pre>
+
 # 🛡️ Frappe Jinja, Warehouse Relational Integrity & Bank Account Autonaming Pitfalls
 
 During complex whitelabel branding adaptations and database setup pipeline designs on **SMRITI Retail OS**, several critical architectural behaviors of the Frappe and ERPNext frameworks were identified and resolved. 
@@ -35,6 +37,8 @@ In Frappe's template rendering pipeline (`frappe.render_template`), the dictiona
 ### Resolution & Workaround
 Never prefix template variables with `context.` inside custom html files. Reference the variables directly:
 
+<div v-pre>
+
 ```html
 <!-- ❌ WRONG (Throws UndefinedError) -->
 <h1 class="brand-title">{{ context.company }}</h1>
@@ -44,6 +48,8 @@ Never prefix template variables with `context.` inside custom html files. Refere
 <h1 class="brand-title">{{ company }}</h1>
 <div class="user-badge">{{ user_name or 'Guest' }}</div>
 ```
+
+</div>
 
 ---
 
@@ -55,7 +61,7 @@ When running an automated startup pipeline on a completely fresh, blank database
 ### Root Cause
 When you save a new `Company` record, ERPNext automatically invokes internal backend triggers (`create_default_warehouses`) to generate default storage nodes (e.g. *"Stores"*, *"Work In Progress"*, *"Transit"*). 
 
-However, standard ERPNext installs expect certain core `Warehouse Type` parameters to exist in the database beforehand:
+Looking up warehouse types is a key requirement:
 * `All`
 * `Transit`
 * `Work In Progress`
@@ -143,3 +149,5 @@ Run the clear cache utility explicitly inside the backend container following an
 ```bash
 docker exec -it smriti_retail_os-backend-1 bench --site smriti_retail clear-cache
 ```
+
+</div>
