@@ -43,11 +43,16 @@ Welcome to the SMRITI Retail OS Knowledge Base. This central documentation cente
 - [Customer Changelog](/kb/changelog) — Customer-facing version history.
 - [Pilot Rollout Handbook](/kb/pilot-rollout-handbook) — Onboarding handbook for pilot partners.
 
-### 9. [Frequently Asked Questions (FAQs)](/kb/faq/licensing)
-- [Licensing FAQ](/kb/faq/licensing) | [POS FAQ](/kb/faq/pos) | [Inventory FAQ](/kb/faq/inventory)
-- [GST FAQ](/kb/faq/gst) | [Backup FAQ](/kb/faq/backup) | [Administration FAQ](/kb/faq/administration)
+### 9. [Customer Growth Engine (CGE)](/kb/cge/introduction)
+- [CGE Introduction](/kb/cge/introduction) — Overview of the marketing & loyalty layer.
+- [Loyalty Rules & Tiers](/kb/cge/loyalty-rules) — Tiers configuration, priority resolution, and stacking rule computations.
+- [Coupons & Cashback Wallet](/kb/cge/coupons-cashback) — Budget reservation pipeline, ledger immutability, and double-entry accounting entries.
 
-### 10. [Troubleshooting Runbooks](/kb/troubleshooting/pos-not-loading)
+### 10. [Frequently Asked Questions (FAQs)](/kb/faq/licensing)
+- [Licensing FAQ](/kb/faq/licensing) | [POS FAQ](/kb/faq/pos) | [Inventory FAQ](/kb/faq/inventory)
+- [GST FAQ](/kb/faq/gst) | [Backup FAQ](/kb/faq/backup) | [Administration FAQ](/kb/faq/administration) | [CGE FAQ](/kb/faq/cge)
+
+### 11. [Troubleshooting Runbooks](/kb/troubleshooting/pos-not-loading)
 - [POS Not Loading](/kb/troubleshooting/pos-not-loading) | [License Not Activating](/kb/troubleshooting/license-not-activating)
 - [GST Not Calculating](/kb/troubleshooting/gst-not-calculating) | [Backup & Restore Failures](/kb/troubleshooting/backup-restore-failed)
-- [Go-Live Check Failures](/kb/troubleshooting/go-live-check-failed)
+- [Go-Live Check Failures](/kb/troubleshooting/go-live-check-failed) | [CGE Issues](/kb/troubleshooting/cge-issues)

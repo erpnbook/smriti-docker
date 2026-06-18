@@ -11,6 +11,14 @@ This document logs customer-facing updates, bug fixes, and feature releases for 
 
 ---
 
+## [v1.1.0-beta] — 2026-06-18
+
+### 🚀 Major Features
+- **Customer Growth Engine (CGE) v1.0**: Dynamic priority-based stacking rules (Exclusion, Multipliers, Bonus Points, Caps), two-phase coupon campaign budget reservations, and immutable wallet ledgers with double-entry accounting.
+- **CGE Documentation**: Centralized knowledge base modules, FAQs, and troubleshooting runbooks for customer loyalty operations.
+
+---
+
 ## [v1.0.0-GA] — 2026-06-18
 
 ### 🚀 Major Features
