@@ -730,4 +730,73 @@ Implement redirect and remove references from:
 Canonical route must remain:
 
 /app/example
+
+---
+
+## Rule 9: No Desk Elements Policy (LOCKED — 2026-06-19)
+
+### Policy Statement
+Do NOT create, configure, expose, or link to any page, DocType, form, list view, report, or any other UI/UX element under `/desk/*`. All SMRITI user interface views and customer-facing features must reside on dedicated, standalone SMRITI www routes (e.g., `/smriti-*`, `/billing`, `/purchase`, etc.).
+
+### Enforcement
+1. **HTTP Routing**: Any incoming HTTP requests matching `/desk/*` must be blocked or redirected at the HTTP/boot-hook layer directly to the corresponding SMRITI standalone route or back to `/smriti`.
+2. **File Structure**: Front-end assets must be stored in `www/` as standalone HTML/JS files, never inside standard Frappe `page/` directories that load inside `/desk`.
+3. **No Desk Shortcuts**: PWA manifests, sidebar configs, workspaces, and user bookmarks must point to standalone routes and never to `/desk/*`.
+
+---
+
+## Rule 10: Explainable Metrics & Formula Transparency (Rule ID: DOC-01)
+
+### Principle
+Any field, report, dashboard metric, score, recommendation, prediction, KPI, alert, ranking, health score, forecast, or system-generated value displayed to a user must be accompanied by sufficient explanation for a non-technical business user to understand:
+1. What the value means
+2. How it was calculated
+3. Which data contributed to it
+4. What business action is recommended
+5. What limitations or assumptions exist
+
+### Mandatory Documentation Requirements
+For every calculated field or report:
+- **A. Business Meaning**: Why the metric exists and what it tracks.
+- **B. Formula**: The exact mathematical expression.
+- **C. Worked Example**: Arithmetic walk-through using real retail numbers.
+- **D. Data Sources**: Source transaction tables or parameters.
+- **E. Interpretation Guide**: Score bands (e.g., Critical, Monitor, Healthy).
+- **F. Recommended Action**: Clear guidelines on what the user should do next based on the value.
+
+### User Interface Transparency (ⓘ Explain Feature)
+Whenever a computed KPI or prediction (e.g., `Confidence Score = 87%`) is displayed on a SMRITI UI/dashboard, the interface MUST provide an accessible **ⓘ Explain** button or modal rendering this transparency documentation with the live inputs populated.
+
+### Enforcement
+No KPI, Score, Forecast, Recommendation, or Dashboard Widget may be released to production unless the above details are fully documented.
+
+---
+
+## Rule 11: Formula Registry Policy (Rule ID: DOC-02)
+
+### Policy Statement
+Every mathematical or forecasting formula used inside SMRITI Retail OS must be centrally registered. No calculated dashboard metric, health score, or alert indicator may be deployed to production unless its formula is actively documented in the central Formula Registry.
+
+### Registry Fields
+Each registered formula must specify:
+* Formula Name
+* Formula Version
+* Formula Expression
+* Variables & Inputs
+* Data Sources
+* Effective Date / Last Modified Date
+* Business Owner & Technical Owner
+
+### Core Registered Formulas
+The Formula Registry must include:
+* Sales Velocity
+* Weeks of Cover (WOC)
+* Outlet Health Score
+* Dead Stock Score
+* Transfer Benefit Score
+* Forecast Confidence
+* Sell Through %
+* Stock Accuracy %
+* Inventory Turnover
+* Variant Curve Health
 
