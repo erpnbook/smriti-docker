@@ -903,4 +903,37 @@ SMRITI development modules and features will be implemented in the following ord
 4. **Training Sandbox** — Medium Priority (4 Stars)
 5. **Seasonality Engine** — Medium Priority (4 Stars)
 6. **Advanced Forecast Models** — Low Priority (3 Stars)
+
+---
+
+## Rule 16: Documentation Before Deployment (Rule ID: DOC-05)
+
+### Policy Statement
+No feature, module, report, API, dashboard widget, KPI, prediction engine, recommendation engine, workflow, or integration may be marked as Production Ready or merged to the release branch unless the following ten documentation artifacts exist, are approved, and are checked into the repository:
+1. **Functional Specification** (SOP and business flow)
+2. **Technical Architecture** (Design layout, database mapping)
+3. **Formula Registry Entries** (Rule DOC-02)
+4. **User Manual Chapter** (Volume 1-3 alignment)
+5. **Administrator Guide** (Security and setup settings)
+6. **Training Exercise** (Workbook Scenario in Volume 5)
+7. **API Documentation** (Endpoints, parameters, JSON payload)
+8. **Test Cases** (Functional validation checks)
+9. **Walkthrough Document** (Step-by-step verification)
+10. **Release Notes** (Changelog description)
+
+### Release Gate Workflow
+$$\text{Development Complete} \rightarrow \text{Documentation Review} \rightarrow \text{Training Validation} \rightarrow \text{Audit Validation} \rightarrow \text{Production Approval}$$
+Any feature lacking complete documentation is considered Incomplete and blocked from production deployment, regardless of code completeness.
+
+### Core Principle
+> "If it is not documented, it is not deployable."
+
+---
+
+## SMRITI Knowledge Governance Framework (KGF)
+Rules 13, 14, 15, and 16 collectively constitute the **SMRITI Knowledge Governance Framework (KGF)**. The KGF is a core architectural pillar of SMRITI Retail OS, ensuring that:
+- **Every number** displayed is explainable in plain business terms.
+- **Every recommendation** generated is traceable with an immutable digital audit trail.
+- **Every metric** is defined clearly in a centralized Business Dictionary.
+- **Every release** is fully documented, verified, and accompanied by practical onboarding training materials.
 
