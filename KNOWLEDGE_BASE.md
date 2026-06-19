@@ -32,6 +32,8 @@
 19. [SMRITI CGE Explorer & Generic CRUD Console (v2.0.1)](#19-smriti-cge-explorer--generic-crud-console-v201)
 20. [SMRITI PWA Activation & Offline-First POS Integration (v2.1.0)](#20-smriti-pwa-activation--offline-first-pos-integration-v210)
 21. [SMRITI Knowledge Governance Framework (KGF) & registries (v2.2.0)](#21-smriti-knowledge-governance-framework-kgf--registries-v220)
+22. [SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)](#22-smriti-predictive-hub--cge-sidebar-integration-v221)
+
 
 ---
 
@@ -585,6 +587,23 @@ SMRITI Retail OS v2.2.0 introduces the **Knowledge Governance Framework (KGF)** 
 *   **SMRITI Business Dictionary (DOC-04)**: Dynamic lookup resource mapping 20 default retail operational terms (such as PSA, PSV, PDT, WOC, Dead Stock, Size Curves). Features custom child Doctypes (`SMRITI Related Formula` and `SMRITI Related Term`) for full relational lineage and audit logging (`DICTIONARY_ACCESSED` Activity Log entry).
 *   **Direct Integration**: The Explain Modal has a "📖 Dictionary Entry" button linking directly to the live Business Dictionary (`/smriti-dictionary?term=ID`), which automatically loads that term's details and related items.
 *   **Author Profile & Credibility (Rule 12)**: Author section detailing Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab) and AITDL core team.
+
+---
+
+## 22. SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)
+
+SMRITI Retail OS v2.2.1 exposes the Product Digital Twin (PDT) and Customer Growth Engine (CGE) subsystems directly in the user-facing navigation sidebar. It also adds their documentation, help registry entries, and coming-soon roadmap visibility.
+
+### Key Capabilities
+
+*   **Active Sidebar Integration**:
+    *   Set the **AI Hub** section status to active and registered **PDT Dashboard** (Product Digital Twin) and **Simulation Sandbox** as coming-soon roadmap items.
+    *   Reserved the **Knowledge Center** menu route (`/knowledge-center`) at the top of the **Help Desk** sidebar section as a coming-soon portal option.
+    *   Enabled CGE and AI Hub feature flags (`cge_enabled`, `ai_hub_enabled`, `intelligence_enabled`) by default across `boot.py`, `smriti_sidebar.js`, and `smriti_sidebar_standalone.js`.
+*   **Coming Soon Registry Integration**: Added `pdt_dashboard`, `simulation_sandbox`, and `knowledge_center` entries to `coming_soon_api.py` detailing completion progress and ETA (Q3 2026).
+*   **Unified Help Center Articles**:
+    *   Registered dynamic help articles for `pdt_dashboard`, `simulation_sandbox`, `cge_engine`, and `knowledge_center` inside `help_api.py`.
+    *   Detailed the predictive PDT state machine (Stockout, Dead Stock, Overstock, Critical, Replenish Soon, Monitor, Healthy) and sandbox/CGE audit mechanisms for cashier and store manager training.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
