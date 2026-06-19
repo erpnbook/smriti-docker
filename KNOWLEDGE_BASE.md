@@ -28,6 +28,7 @@
 15. [Sidebar v1.9.1 — Data-Driven Nav & Routing Governance](#15-sidebar-v191--data-driven-nav--routing-governance)
 16. [Audit Reports Module — Security and Audit Logs (v1.9.2)](#16-audit-reports-module--security-and-audit-logs-v192)
 17. [Drag-and-Drop reporting and dashboard customization suite (v1.9.3)](#17-drag-and-drop-reporting-and-dashboard-customization-suite-v193)
+18. [Customer Growth Engine V2 — Architecture & Pilot (v2.0.0)](#18-customer-growth-engine-v2--architecture--pilot-v200)
 
 ---
 
@@ -189,6 +190,7 @@ smriti_retail_os/
 | 48 | **PSV Phase 1.1 Validation & Staged Pilot Distributor Program** | 2026-06-11 | `seed_psv_uat.py`, `pilot_execution_plan.md`, `pilot_executive_summary.md` |
 | 49 | **SMRITI Audit Reports Module (v1.9.2)** | 2026-06-16 | `reports_api.py`, `setup.py`, `reports.html`, `smriti_nav_config.js`, `coming_soon_api.py` |
 | 50 | **Drag-and-Drop reporting and dashboard customization suite (v1.9.3)** | 2026-06-17 | `reports.html`, `psv-dashboard.html`, `smriti-home.html`, `test_reports.py` |
+| 51 | **SMRITI Customer Growth Engine (CGE) v2 (v2.0.0)** | 2026-06-19 | `migrate_cge_to_v2.py`, `cge_v2_constraints.sql`, `test_cge_v2_constraints.py`, `cge_v2_activation_runbook.md`, `cge_v2_pilot_execution_report.md` |
 
 ---
 
@@ -221,6 +223,7 @@ PSV 1.1       FROZEN ✅  187 tests
 PSV 1.2       FROZEN ✅  6 tests
 PSV Pilot     ACTIVE 🟡
 PSV 1.3       CANDIDATE 🔵
+CGE v2 (2.0)  PILOT ACTIVE 🟡  228 tests
 ```
 
 ### Phase 2 — FMCG Pilot Expansion & PSV Phase 1.2
@@ -491,6 +494,32 @@ SMRITI Retail OS v1.9.3 introduces the Drag-and-Drop suite to provide interactiv
     *   Edit mode reveals Grab handles (`⠿`) and dashed blue borders around adjustable widget cards.
     *   Cards can be dragged and dropped to reorder them in the dashboard grid.
     *   Reordered dashboard layout sequences are serialized and persisted in browser `localStorage` to preserve customization across session reloads.
+
+---
+
+## 18. Customer Growth Engine V2 — Architecture & Pilot (v2.0.0)
+
+SMRITI CGE v2 (Customer Growth Engine) introduces a decoupled, transaction-isolated, and high-performance loyalty/promotions ledger architecture, fully aligning SMRITI with its role as the experience and operational logic layer above the ERPNext transaction engine.
+
+### Key Architecture & New DocTypes
+*   **`SMRITI Benefit Instrument Type`**: Classifies instruments (`LOYALTY`, `CASHBACK`, `STORE_CREDIT`, `VOUCHER`, `MEMBERSHIP`).
+*   **`SMRITI Benefit Instrument`**: The defined benefit instrument (e.g. `Promo Cashback` or `Loyalty Points`) specifying validity days, reversal strategies, and negative balance validation limits.
+*   **`SMRITI Benefit Wallet`**: Holds the cached current-state outstanding balance per customer, company, and instrument. Employs a composite unique database index (`uq_wallet_cust_comp_inst`) to prevent double-allocation/duplicate wallet records.
+*   **`SMRITI Benefit Ledger`**: Immutable sub-ledger tracking all transaction events (`EARN`, `REDEEM`, `REVERSE`). Optimized with query indexes (`idx_ledger_cust_inst_date` and `idx_ledger_ref`).
+*   **`SMRITI Campaign`**: Replaces legacy coupon campaigns with budget caps, reserved funds, and stop-on-limit thresholds.
+
+### Decoupled Two-Step Pilot Activation (Phase 5C)
+The pilot rollout sequence for CGE v2 is decoupled into two separate operational phases to prevent runtime risks:
+1.  **Step 1 (Infrastructure & Migration)**: Logical database backup, schema migration (`bench migrate`), database DDL index additions, live data migration patch (with parameterized CLI kwargs `dry_run=False`), validation queries verification, and cache clearing.
+2.  **Step 2 (Business Activation)**: Verifying all constraint tests `PASS`, executing 8 core checkout UAT scenarios (Customer Registration, Loyalty Earn, Loyalty Redeem, Promotion Apply, Coupon Apply, Sales Return Reversal, Wallet Inquiry, Daily Closing), obtaining unanimous Go/No-Go committee approval, and updating the site config flag:
+    ```bash
+    bench --site smriti_retail set-config smriti_site_config '{"cge_enabled": true}'
+    ```
+
+### Performance & Scaling Benchmarks
+*   **Test Dataset**: 500 legacy ledger records and 10 campaigns.
+*   **Execution Duration**: **`0.0730 seconds`** (throughput of ~6,800 records/sec).
+*   **Projected Production Speed**: `~14.60 seconds` for 100,000 records.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
