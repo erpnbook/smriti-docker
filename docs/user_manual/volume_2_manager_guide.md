@@ -200,6 +200,69 @@ During festival season (e.g., Diwali), supplier delivery times increase from **7
 
 ---
 
+## Chapter 4: Knowledge Governance Framework (KGF) (ज्ञान प्रशासन ढांचा)
+
+### 1. Purpose (उद्देश्य)
+The **Knowledge Governance Framework (KGF)** is the transparency and compliance engine of SMRITI. It ensures that every mathematical formula, forecast model, performance metric, or business KPI displayed to managers or cashiers is fully explainable and registered, preventing any "black-box" decision-making.
+- **Business Problem Solved**: Eliminates confusion and builds trust by letting ground-level operators immediately understand *how* a value was calculated, *what* the value means for their daily operations, and *what actions* they must take next.
+
+### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
+A store manager at **Royal Pune Showroom** looks at their reorder report and sees a **Weeks of Cover (WOC)** metric of **1.5 weeks** for a popular running shoe variant. 
+Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **ⓘ Explain** icon next to the number. A clean modal pops up, showing:
+- WOC means the estimated weeks current stock will last.
+- The mathematical formula: `current_stock / weekly_velocity`.
+- A live worked example: `Current Stock = 30 pairs, Weekly Velocity = 20 pairs/week. WOC = 30 / 20 = 1.5`.
+- A recommendation band showing that 1.5 is "Critical", advising the manager to immediately place a reorder.
+
+### 3. Step-by-Step Process (प्रक्रिया)
+1. **Explain any KPI**: Click the **ⓘ Explain** button next to any calculated metric on any SMRITI dashboard or report.
+2. **Read the Explanation**: The Universal Explain Modal displays the business meaning, mathematical expression, data sources, worked example, and recommended action steps.
+3. **Lookup Glossaries**: Click the **📖 Dictionary Entry** button inside the modal to navigate directly to the central **Business Dictionary** (/smriti-dictionary) to explore related terms (like PDT or PSA), Hinglish explanations, FAQs, and common mistakes.
+4. **Manage Formulas (Admin/Managers)**: Go to **Help Desk → Formula Registry** (/smriti-formula-registry) to view, audit, or approve new mathematical formulas used across the platform.
+
+### 4. Field-by-Field Explanation (SMRITI Formula Definition)
+
+| Field Name | Type | Mandatory? | Simple Explanation | Example Value |
+| :--- | :--- | :--- | :--- | :--- |
+| **Formula ID** | Data | **Yes** | Unique identifier of the formula. | `INV-002` |
+| **Formula Name** | Data | **Yes** | Human-readable name of the metric. | `Weeks of Cover` |
+| **Formula Expression**| Data | **Yes** | Mathematical representation of the formula. | `current_stock / weekly_velocity` |
+| **Business Meaning** | Long Text | **Yes** | What the metric measures in simple terms. | `How many weeks your stock will last.` |
+| **Worked Example** | Long Text | **Yes** | Step-by-step arithmetic walk-through. | `30 / 20 = 1.5 weeks.` |
+| **Interpretation Guide**| Long Text | **Yes** | Explanation of metric bands (Critical/Healthy).| `WOC < 2: Critical; WOC > 4: Overstock` |
+| **Recommended Action**| Long Text | **Yes** | Concrete action for the operator. | `Place reorder immediately if Critical.` |
+
+### 5. Example Registry Entry (उदाहरण प्रविष्टि)
+- **Formula ID**: `INV-003`
+- **Name**: `Dead Stock Score`
+- **Expression**: `inactive_days * stock_value`
+- **Worked Example**: `Inactive Days = 90 days. Stock Value = ₹10,000. Dead Stock Score = 90 * 10,000 = 900,000.`
+- **Recommended Action**: If score > 500,000, mark for outlet rebalancing or discount clearance.
+
+### 6. Reports & Analysis (रिपोर्ट और विश्लेषण)
+- **Log Name**: **SMRITI PSV Activity Log**
+- **How to Read**: Tracks all user accesses to formulas and dictionary terms. 
+- **Action**: Look at the most frequently clicked explanations to identify which metrics require additional team training.
+
+### 7. Common Mistakes (सामान्य गलतियां)
+- **Deploying calculated metrics without registry entry**: Developers adding a new KPI to a custom report without creating a corresponding record in the central Formula Registry. The dashboard will block showing the metric or fail explainability audits.
+- *How to Fix*: Always register the formula and obtain manager approval before enabling it on live dashboards.
+
+### 8. Business Interpretation (व्यावसायिक व्याख्या)
+- **Standard**: Every number shown to a store partner must have a clear business translation. "Numbers without explanations cause confusion; clear definitions drive faster action."
+
+### 9. FAQs
+1. **How is the explain modal so fast?**
+   - The system utilizes Redis caching (key `smriti:explain:{formula_id}:{version}`) with a **1-hour TTL** to serve definitions in sub-milliseconds.
+2. **Who can update dictionary definitions or formulas?**
+   - Only AITDL Core Team members and chief administrators can approve changes, ensuring that business definitions remain standardized.
+
+### 10. Troubleshooting (समस्या निवारण)
+- **Error**: `Formula definition not found or is in Draft status`.
+- **Resolution**: Open the Formula Registry, find the Formula ID, ensure the status is changed from `Draft` to `Approved` and `Is Active` is checked.
+
+---
+
 ## Final Acknowledgement Page
 
 ### Author Section

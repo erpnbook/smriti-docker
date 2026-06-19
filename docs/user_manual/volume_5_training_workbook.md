@@ -10,7 +10,7 @@
 - **Documentation Version**: v1.0.0
 - **Release Date**: 2026-06-19
 - **Intended Audience**: Shop Owner, Distributor, Sales Manager, Stock Auditor, Store Operator, Non-Technical User, First-Time User
-- **Learning Objectives**: Apply SMRITI Retail OS knowledge through 50 practical exercises.
+- **Learning Objectives**: Apply SMRITI Retail OS knowledge through 52 practical exercises.
 - **Contact / Support**: support@aitdl.com
 
 ### Author Note
@@ -31,7 +31,7 @@ The author believes that software should not only process data but also explain 
 
 ---
 
-This workbook contains 50 practical exercises designed to train new team members on SMRITI Retail OS. Complete the exercises sequentially based on your role.
+This workbook contains 52 practical exercises designed to train new team members on SMRITI Retail OS. Complete the exercises sequentially based on your role.
 
 ---
 
@@ -376,6 +376,23 @@ This workbook contains 50 practical exercises designed to train new team members
 - **Actions**:
   1. Click 'Flush Redis Cache' inside Admin Utilities.
 - **Expected Result**: Dashboard reloads retrieve clean data from DB.
+
+### Exercise 51: Configure a New Formula in the Formula Registry
+- **Scenario**: Add a new operational KPI for "Promo Conversion Rate" to the Formula Registry.
+- **Actions**:
+  1. Open SMRITI Formula Registry (at route `/smriti-formula-registry`).
+  2. Click **New Formula Definition**.
+  3. Enter Formula ID = `INV-005`, Formula Name = `Promo Conversion Rate`, Category = `Sales`, Formula Expression = `promo_sales_qty / total_sales_qty`, Business Meaning = `Tracks promotional sales share of total sales`, Worked Example = `Promo Sales = 20, Total Sales = 100. Conversion = 20 / 100 = 0.20 or 20%`.
+  4. Fill in standard interpretation guides, set status to `Approved`, and save.
+- **Expected Result**: The new formula is successfully registered and cached in Redis.
+
+### Exercise 52: Verify a Term in the Business Dictionary via the Universal Explain Modal
+- **Scenario**: A cashier wants to understand what "Weeks of Cover (WOC)" means directly from the UI.
+- **Actions**:
+  1. Open any SMRITI dashboard and click the **ⓘ Explain** button next to the WOC metric.
+  2. In the Universal Explain Modal, read the Worked Example and Business Meaning.
+  3. Click the **📖 Dictionary Entry** button at the bottom of the modal.
+- **Expected Result**: The system redirects to `/smriti-dictionary` (pre-filtered for WOC) and opens the Business Dictionary drawer detailing Weeks of Cover, its Hinglish definition, FAQs, and related terms.
 
 ---
 

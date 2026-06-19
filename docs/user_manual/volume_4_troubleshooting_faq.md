@@ -515,6 +515,36 @@ This handbook provides quick resolution steps for common errors and answers 160 
 
 ---
 
+## 17. Knowledge Governance Framework (KGF) FAQs & Troubleshooting
+
+### FAQs
+1. **Q: Formula Registry kya hai aur standard KPIs kaise check karein?**
+   - A: Formula Registry central ledger hai jahan sabhi calculations registered hain. Route `/smriti-formula-registry` par standard KPIs check kar sakte hain.
+2. **Q: Universal Explain Modal (ⓘ Explain) kaise display hota hai?**
+   - A: SMRITI Dashboard par metric name ke paas click karne par Worked Example, Interpretation aur Business Meaning modal form mein load hoti hai.
+3. **Q: Formula Registry me new entries kaise add karein?**
+   - A: Menu → Formula Registry open karke 'New' select karein, unique Formula ID (e.g. `INV-005`) aur worked example parameters submit karein.
+4. **Q: Business Dictionary me Hinglish translation kyu important hai?**
+   - A: Ground-level operators ko numbers and definitions unki dynamic native terms me clear explain karne ke liye Hinglish translations available hain.
+5. **Q: Formula validation exceptions kyu aate hain?**
+   - A: Draft status ya invalid values pass karne par system exceptions throw karta hai. Only Approved status formulas active calculations me evaluate hote hain.
+6. **Q: Explain Modal data caches trigger range?**
+   - A: Performance latency decrease karne ke liye standard definitions and math expressions Redis cache structure me TTL 3600 seconds (1 hour) tak set rehte hain.
+7. **Q: SMRITI Business Term aliases kya role play karte hain?**
+   - A: User-friendly fuzzy search standard dictionary drawer me active aliases matchings ke base par exact result display karta hai.
+8. **Q: Related terms and related formulas child lists ka structure?**
+   - A: Relationship validation logic enforce karne ke liye child tables correct parent record ids reference database map use karte hain.
+9. **Q: Database validation errors on duplicate formula keys?**
+   - A: Controller logic identical formula id insertion prevent karta hai, version numbers change update submit rules match hone required hai.
+10. **Q: Activity log record metric verification parameters?**
+    - A: Explain metrics access log checks `FORMULA_EXPLAINED` or `DICTIONARY_ACCESSED` key events database console par logs record check confirm store status validation provide karte hain.
+
+### Troubleshooting
+- **Error**: `Formula definition not active or in Draft status`.
+  - **Resolution**: Formula Registry check parameter me find metric key state update Draft to Approved update select check save confirm reset.
+
+---
+
 ## Final Acknowledgement Page
 
 ### Author Section

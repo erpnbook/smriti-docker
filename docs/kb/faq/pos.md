@@ -2,10 +2,14 @@
 title: POS FAQ
 version: 1.0
 last_updated: 2026-06-18
+author: Jawahar R Mallah <jawahar.mallah@gmail.com>
 applies_to: SMRITI Retail OS v1.x
 ---
 
 # Frequently Asked Questions — POS Operations
+
+> **Author:** Jawahar R Mallah (<jawahar.mallah@gmail.com>)  
+> **Last Updated:** 2026-06-18  
 
 ### Q1: Why can't I see products in the POS search or category lists?
 **A**: Ensure the following product attributes are configured in the Item Master:
@@ -33,3 +37,10 @@ applies_to: SMRITI Retail OS v1.x
 
 ### Q5: Can I recall a held bill on a different POS terminal?
 **A**: By default, held bills (`custom_is_held = 1`) are locked to the cashier's active user ID and POS Profile to maintain register segregation. However, a Store Manager can override the user lock via the management console to load the draft cart onto another checkout terminal.
+
+### Q6: Can I process checkouts if the network is completely down?
+**A**: Yes. SMRITI POS includes an integrated Progressive Web App (PWA) offline checkout module. If the network goes offline, the billing interface displays a `🔴 Offline` status badge. When you submit a transaction, the terminal prompts you to queue it offline. The invoice payload is securely serialized and stored locally inside your browser's IndexedDB (`SmritiRetailOS` -> `pending_invoices`), and your cart resets so you can continue billing other customers immediately.
+
+### Q7: How do queued offline invoices synchronize back to the server?
+**A**: SMRITI's Service Worker automatically listens for network state changes. Once the browser detects that connection is restored, the status badge updates to `🟢 Online` and background sync processes the queued transactions in chronological order. A browser notification confirms when the sync completes, and the records are automatically deleted from your local IndexedDB queue.
+

@@ -8,10 +8,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-### Planned (v2.0.0 Roadmap)
+### Planned
 - Redesign the core desktop client utilizing Frappe v17.
 - Implement AI-driven stock-out prediction engines.
 - Add multi-currency cashier ledger balancing.
+
+---
+
+## [2.2.0] — 2026-06-19
+
+### Added
+- **Knowledge Governance Framework (KGF) (v2.2.0):** Implemented the Formula Registry (`SMRITI Formula Definition`), Universal Explain Modal (`/smriti-explain` API with Redis caching and access-auditing), and Business Dictionary (`SMRITI Business Term`) to enforce DOC-01/02/03/04 and Rule 12.
+- **2-Phase Glossary Seeding:** Seeding script `seed_default_terms.py` to register 20 core retail terms with fully resolved relationship links.
+- **Universal Explain Modal integration:** Allows users to view mathematical worked examples and recommended actions for all KPIs and navigate directly to the Business Dictionary drawer.
+- **Author Attribution Credits:** Incorporated chief architect profile attribution for Jawahar R. Mallah across all manuals, workbook training guides, and system templates (Rule 12).
+
+## [2.1.0] — 2026-06-18
+
+### Added
+- **PWA Service Worker Interception:** Serving `/sw.js` directly via boot hook intercepts with strict `application/javascript` content-type headers.
+- **IndexedDB POS Checkout Queue:** Enabled cashiers to queue transaction records offline inside IndexedDB when the network is down.
+- **Auto-Sync & Network Status Indicators:** Implemented `#network-status` visual badge and FIFO service worker background sync.
+
+## [2.0.1] — 2026-06-16
+
+### Added
+- **CGE Generic CRUD Console:** A dynamic web console providing generic explorers for all 12 CGE modules.
+
+## [2.0.0] — 2026-06-15
+
+### Added
+- **Customer Growth Engine V2:** Rolled out Campaign, Coupon Rules, Loyalty Rules, Membership Tiers, and Cashback Wallets with SQL constraints and soft-delete protections.
 
 ---
 

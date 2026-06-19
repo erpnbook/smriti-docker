@@ -29,6 +29,9 @@
 16. [Audit Reports Module — Security and Audit Logs (v1.9.2)](#16-audit-reports-module--security-and-audit-logs-v192)
 17. [Drag-and-Drop reporting and dashboard customization suite (v1.9.3)](#17-drag-and-drop-reporting-and-dashboard-customization-suite-v193)
 18. [Customer Growth Engine V2 — Architecture & Pilot (v2.0.0)](#18-customer-growth-engine-v2--architecture--pilot-v200)
+19. [SMRITI CGE Explorer & Generic CRUD Console (v2.0.1)](#19-smriti-cge-explorer--generic-crud-console-v201)
+20. [SMRITI PWA Activation & Offline-First POS Integration (v2.1.0)](#20-smriti-pwa-activation--offline-first-pos-integration-v210)
+21. [SMRITI Knowledge Governance Framework (KGF) & registries (v2.2.0)](#21-smriti-knowledge-governance-framework-kgf--registries-v220)
 
 ---
 
@@ -551,6 +554,37 @@ To support the 12 CGE (Customer Growth Engine) modules without creating 12 dupli
 *   **Role Enforcement**: Router-level validation ensures only `SMRITI Store Manager`, `System Manager`, and `Administrator` roles can view, create, or modify records. Cashiers are blocked at request intercept.
 *   **Delete Protection & Audit Logs**: High-impact deletions and additions are recorded using the system's `log_audit_event` mechanism. Soft-delete and validation logic prevent breaking referential integrity.
 *   **Automated Testing**: Complete test coverage is established in `test_cge_generic.py`, validating user role access, validation rules, child table nesting, whitelist restrictions, and audit logs.
+
+---
+
+## 20. SMRITI PWA Activation & Offline-First POS Integration (v2.1.0)
+
+SMRITI Retail OS v2.1.0 activates Progressive Web App (PWA) capabilities and implements an offline-first transaction queue for the POS Billing Terminal.
+
+### Key Capabilities
+
+*   **Service Worker Interception & MIME-type Fix**: Intercepts requests for `/sw.js` directly within the Frappe `before_request` hook (`boot.py`) and returns the service worker file using a custom Werkzeug `HTTPException`. This ensures the script is served with the correct header `Content-Type: application/javascript; charset=utf-8` and allowed at root scope (`Service-Worker-Allowed: /`).
+*   **PWA Auto-Registration**: Inline and external registration scripts map `/sw.js` with `{ scope: '/' }` on the login page and globally on all standalone SMRITI pages via base template script injection (`templates/blank.html`).
+*   **Stale-While-Revalidate Caching**: Caches core standalone CSS and JS assets required for offline boot (e.g. `smriti_tokens.css`, `smriti_sidebar_standalone.js`, `smriti_session_lock.js`) and stores dynamic pages matching canonical hyphenated routes.
+*   **IndexedDB POS Invoice Queue**: If the network is down or the checkout REST API throws a network exception:
+    1. Cashiers are prompted to queue the sale offline.
+    2. Invoices are serialized and saved inside IndexedDB (`SmritiRetailOS` -> `pending_invoices`).
+    3. The POS terminal clears the cart and resets normally, allowing continuous cashier checkouts.
+*   **Background Sync & Network Indicators**: A live network status indicator `#network-status` displays `🟢 Online` or `🔴 Offline` based on connection state. When the connection is restored, pending transactions are automatically synced to the server in the background and deleted from IndexedDB.
+
+---
+
+## 21. SMRITI Knowledge Governance Framework (KGF) & registries (v2.2.0)
+
+SMRITI Retail OS v2.2.0 introduces the **Knowledge Governance Framework (KGF)** consisting of the Formula Registry, Universal Explain Modal, and Business Dictionary. This enforces explainability, transparency, and traceability of computed KPIs and recommendations without exposing Frappe Desk views.
+
+### Key Capabilities
+
+*   **Central Formula Registry (DOC-02)**: Config-driven `SMRITI Formula Definition` DocType to centrally manage mathematical and forecasting formulas (e.g. Weeks of Cover, Sales Velocity, Outlet Health Score) with variable maps and owner traceability.
+*   **Universal Explain Modal (DOC-01/03)**: Access-controlled `/smriti-explain` API endpoint integrated with Redis caching (key `smriti:explain:{formula_id}:{version}`, TTL 3600s). Serves dynamically resolved worked examples and explanations to the UI **without using dangerous `eval()` runtime execution**.
+*   **SMRITI Business Dictionary (DOC-04)**: Dynamic lookup resource mapping 20 default retail operational terms (such as PSA, PSV, PDT, WOC, Dead Stock, Size Curves). Features custom child Doctypes (`SMRITI Related Formula` and `SMRITI Related Term`) for full relational lineage and audit logging (`DICTIONARY_ACCESSED` Activity Log entry).
+*   **Direct Integration**: The Explain Modal has a "📖 Dictionary Entry" button linking directly to the live Business Dictionary (`/smriti-dictionary?term=ID`), which automatically loads that term's details and related items.
+*   **Author Profile & Credibility (Rule 12)**: Author section detailing Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab) and AITDL core team.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*

@@ -2,10 +2,14 @@
 title: POS Not Loading Runbook
 version: 1.0
 last_updated: 2026-06-18
+author: Jawahar R Mallah <jawahar.mallah@gmail.com>
 applies_to: SMRITI Retail OS v1.x
 ---
 
 # Support Runbook — POS Terminal Not Loading
+
+> **Author:** Jawahar R Mallah (<jawahar.mallah@gmail.com>)  
+> **Last Updated:** 2026-06-18  
 
 This runbook guides support engineers in diagnosing and resolving POS register loading failures at store checkout lanes.
 
@@ -37,6 +41,17 @@ POS terminals require an active shift to initialize the register:
 - Open the POS Opening Entry list.
 - Verify if the cashier has an open shift for the selected POS profile.
 - *Resolution*: If a shift is stuck in draft or mapped to a different cashier, cancel the draft and open a new shift.
+
+### Step 4: Verify Progressive Web App (PWA) & Service Worker Registration
+If the billing terminal fails to load assets offline or throws security/MIME-type errors:
+1. Open Developer Tools (`F12`) and navigate to the **Application** (or **Service Workers**) panel.
+2. Verify that `sw.js` is registered with the correct root scope `/` (e.g. `http://localhost:8765/`).
+3. If a MIME-type error (`text/html`) is reported:
+   - Check if `/sw.js` is being intercepted at the `before_request` hook in `boot.py` and returned as `application/javascript`.
+   - Verify that Gunicorn has been restarted (`docker restart smriti_retail-backend-1`) to reload the python process.
+4. If styling or JS assets are missing offline:
+   - Check the `sw.js` precache cache list (`STATIC_ASSETS`) and ensure it contains `/assets/smriti_retail_os/css/smriti_tokens.css` and `/assets/smriti_retail_os/js/smriti_sidebar_standalone.js`.
+   - Clear browser site data (Application -> Clear site data) and reload the page to trigger a fresh service worker cache pull.
 
 ---
 
