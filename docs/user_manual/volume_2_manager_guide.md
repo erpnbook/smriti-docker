@@ -1,0 +1,168 @@
+# SMRITI Retail OS User Manual — Volume 2: Manager & Supervisor Guide
+
+Welcome to the **SMRITI Retail OS Manager & Supervisor Guide**. This volume is written for Sales Managers, Distributor Supervisors, Audit Leads, and Store Owners. It covers auditing, stock rebalancing recommendations, and key administrative settings.
+
+---
+
+## Chapter 1: Audit & Variance Management (ऑडिट और विसंगति प्रबंधन)
+
+### 1. Purpose (उद्देश्य)
+The **Audit & Variance Management** module automatically reconciles physical counts (from Physical Snapshots) with the SMRITI shadow ledger. 
+- **Business Problem Solved**: Identifying stock shrinkage (चोरी या खोया हुआ स्टॉक) and posting ledger correction entries to align system balances.
+
+### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
+At **Pune Plaza Footwear**, the SMRITI system records `Flyrunner-Blue-8` stock as **50 pairs**. 
+During the monthly audit, the physical count is verified as **45 pairs**. SMRITI registers a **negative variance of 5 pairs** (₹12,495 retail value).
+
+### 3. Step-by-Step Entry/Reconciliation Process (प्रक्रिया)
+1. **Menu Path**: SMRITI Home → Operations → Audit Console → **Reconciliation Sheet**
+2. **Select Parameters**: Select the target PSA and the audit date.
+3. **Analyze Variance**: The screen will highlight rows with differences in red.
+4. **Approve Adjustments**: The supervisor selects the reconciliation reason code (e.g. `THEFT`, `DAMAGE`, `DATA_ENTRY_ERROR`) and clicks **Approve & Adjust Ledger**.
+
+[Screenshot: Audit Variance Console]
+
+### 4. Field-by-Field Explanation (फील्ड स्पष्टीकरण)
+
+| Field Name | Type | Mandatory? | Simple Explanation | Example Value |
+| :--- | :--- | :--- | :--- | :--- |
+| **Audit Doc ID** | Link | **Yes** | Link to the submitted Physical Snapshot. | `AUD-2026-004` |
+| **System Qty** | Float | Read-only | Expected stock quantity in the shadow ledger. | `50.0` |
+| **Physical Qty** | Float | Read-only | Counted stock quantity. | `45.0` |
+| **Variance Qty** | Float | Read-only | Difference (Physical Qty - System Qty). | `-5.0` |
+| **Reconciliation Reason** | Select | **Yes** | Reason code for the difference. | `THEFT` |
+| **Supervisor Notes** | Long Text | No | Remarks explaining the audit outcome. | `CCTV footage requested.` |
+
+### 5. Example Transaction (उदाहरण प्रविष्टि)
+- **Store**: `Pune Plaza Footwear`
+- **Item**: `Flyrunner-Blue-8`
+- **Variance**: `-5`
+- **Approved Reason**: `DAMAGE`
+- **Expected Output**: SMRITI adjusts the shadow ledger balance to 45.0 and logs a "SMRITI Liability Snapshot" record.
+
+### 6. Reports & Analysis (रिपोर्ट और विश्लेषण)
+- **Report Name**: **Store Shrinkage & Variance Summary**
+- **How to Read**: Displays total stock variance percentage for each store.
+- **Action**: Any outlet showing variance greater than 3% requires a manager audit.
+
+### 7. Common Mistakes (सामान्य गलतियां)
+- **Adjusting ledger without checking pending invoices**: Adjusting a negative variance of 10 units when a delivery truck containing 10 units is still unloading at the dock.
+- *How to Fix*: Ensure all pending delivery notes and sales uploads are submitted before approving audits.
+
+### 8. Business Interpretation (व्यावसायिक व्याख्या)
+- **Warning Sign**: Recurrent small positive variances followed by negative variances. This suggests store operators are logging fake audits to hide sales.
+
+### 9. Frequently Asked Questions (FAQs)
+1. **Can I undo a variance adjustment?**
+   - No, once submitted. You must submit a fresh audit snapshot to correct it.
+2. [Remaining FAQs in Volume 4]
+
+### 10. Troubleshooting (समस्या निवारण)
+- **Error**: `Cannot submit. Pending transactions exist for this PSA`.
+- **Resolution**: Go to SMRITI Dashboard, check for unsubmitted Sales Uploads or Delivery Notes for this store, submit them, and retry the audit approval.
+
+---
+
+## Chapter 2: Transfer Recommendation (स्टॉक ट्रांसफर सुझाव)
+
+### 1. Purpose (उद्देश्य)
+The **Transfer Recommendation** module optimizes inventory distribution across outlets. It calculates when an overstocked store should transfer items to a stock-out store.
+- **Business Problem Solved**: Prevents lost sales at one store while another store holds dead stock. It computes the **Transfer Benefit Score** to ensure freight and delay costs do not exceed the transfer benefit.
+
+### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
+- **Mumbai Showroom** has **0 stock** of `Flyrunner-Blue-8` and sells 3 pairs a day. (Stockout Risk = High).
+- **Pune Showroom** has **50 pairs** of `Flyrunner-Blue-8` and sells only 0.2 pairs a day. (Overstock = High).
+- SMRITI calculates the transfer economics and recommends shifting 20 pairs from Pune to Mumbai.
+
+### 3. Step-by-Step Process (प्रक्रिया)
+1. **Menu Path**: SMRITI Home → Inventory → Transfer Recommendations
+2. **Review Recommendations**: The system displays suggested transfers.
+3. **Approve Transfer**: Click **Create Stock Transfer** (स्टॉक ट्रांसफर बनाएं) to auto-generate the transfer request.
+
+[Screenshot: Stock Transfer Recommendation list]
+
+### 4. Calculation Explanation (गणना स्पष्टीकरण)
+The economic model checks:
+$$\text{Transfer Benefit Score} = (\text{Item Retail Price} - \text{Freight Cost} - \text{Transit Delay Penalty}) \times \text{Transfer Qty}$$
+- **Same Zone (e.g. West to West)**: Freight = ₹6.0, Delay Penalty = ₹5.0 per unit.
+- **Different Zone (e.g. West to North)**: Freight = ₹18.0, Delay Penalty = ₹20.0 per unit.
+- **Example calculation**:
+  - Item Price = ₹2,499. Transfer Qty = 20 pairs.
+  - Same Zone: Benefit = $(2499 - 6.0 - 5.0) \times 20 = 2488 \times 20 = \text{₹49,760}$ (Highly recommended!).
+
+### 5. Example Recommendation (उदाहरण सुझाव)
+- **Source**: `Pune Plaza Footwear`
+- **Target**: `Mumbai Grand Mall`
+- **Item**: `SF-FLY-BLU-8`
+- **Quantity**: `20`
+- **Reason Code**: `EXCESS_WOC_AT_SOURCE,POSITIVE_TRANSFER_BENEFIT`
+
+### 6. Reports & Analysis (रिपोर्ट और विश्लेषण)
+- **Report Name**: **Rebalancing Opportunity Log**
+- **Action**: Check weekly recommendations and approve local transfers.
+
+### 7. Common Mistakes (सामान्य गलतियां)
+- **Ignoring transit delays**: Transferring seasonal items across distant zones (e.g., Mumbai to Delhi) during monsoon delays. SMRITI adjusts the score down to penalize cross-zone transit times.
+
+### 8. Business Interpretation (व्यावसायिक व्याख्या)
+- **Decision**: Approve transfer if the Benefit Score is positive. Reject if negative.
+
+### 9. FAQs
+1. **What is a Transit Delay Penalty?**
+   - The cost of having inventory locked in transport, which makes it unavailable for sale during transit.
+
+### 10. Troubleshooting (समस्या निवारण)
+- **Error**: `No transfer recommended despite stockout`.
+- **Resolution**: Check if neighboring stores have excess stock above their safety levels. If all stores are at or below safety stock, the system recommends a Purchase order instead.
+
+---
+
+## Chapter 3: Administration & Settings (प्रशासनिक सेटिंग्स)
+
+### 1. Purpose (उद्देश्य)
+This module allows administrators and supervisors to configure the global variables, reorder rules, and limits that govern SMRITI's predictive models.
+- **Business Problem Solved**: Customizes SMRITI to fit your business lead times, safety margins, and forecasting parameters.
+
+### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
+During festival season (e.g., Diwali), supplier delivery times increase from **7 days** to **14 days**. The administrator updates the global Lead Time settings to 14 days to prevent stockouts.
+
+### 3. Step-by-Step Configuration Process (प्रक्रिया)
+1. **Menu Path**: SMRITI Home → Administration → SMRITI PSV Settings
+2. **Define Rules**: Create a `SMRITI PSV Reorder Rule` for specific item groups.
+3. **Save**: Click Save. No server restarts are needed.
+
+[Screenshot: SMRITI PSV Settings Page]
+
+### 4. Field-by-Field Explanation (फील्ड स्पष्टीकरण)
+
+| Field Name | Type | Mandatory? | Explanation | Example Value |
+| :--- | :--- | :--- | :--- | :--- |
+| **Default Lead Time Days** | Int | **Yes** | Time taken by supplier to deliver stock (in days). | `7` |
+| **Default Safety Stock** | Float | **Yes** | Minimum stock buffer to keep at stores. | `15.0` |
+| **Reorder Avg Weeks** | Int | **Yes** | Lookback window for sales velocity math. | `4` |
+| **Forecast Model** | Select | **Yes** | Model used (Defaults to Exponential Moving Average). | `EMA` |
+
+### 5. Example Settings Configuration (उदाहरण प्रविष्टि)
+- **Rule Scope**: Item Group = `Sports Shoes`
+- **Lead Time**: `10`
+- **Safety Stock**: `20.0`
+- **Result**: All sports shoes will maintain a minimum safety buffer of 20 pairs.
+
+### 6. Reports & Analysis (रिपोर्ट और विश्लेषण)
+- **Report Name**: **Reorder Rule Registry**
+- **Action**: Audit store reorder rules monthly to ensure safety stock levels align with updated sales trends.
+
+### 7. Common Mistakes (सामान्य गलतियां)
+- **Setting excessive safety stock**: Setting a safety stock of 1000 pairs for a store that sells only 5 pairs a week. This locks up valuable capital.
+- *How to Fix*: Check the store's average weekly sales before updating safety stock limits.
+
+### 8. Business Interpretation (व्यावसायिक व्याख्या)
+- **Decision**: Update target days cover to higher values for fast-moving items, and lower values for slow-moving fashion items.
+
+### 9. FAQs
+1. **Can store operators edit these settings?**
+   - No. Only users with the "Administrator" or "System Manager" role have write access.
+
+### 10. Troubleshooting (समस्या निवारण)
+- **Error**: `Validation Error: Max Stock must be greater than Safety Stock`.
+- **Resolution**: Set `max_stock` to a value higher than `safety_stock` in the reorder rule and click save.
