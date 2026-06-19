@@ -23,6 +23,7 @@ The author believes that software should not only process data but also explain 
 | Version | Date | Author | Description |
 | :--- | :--- | :--- | :--- |
 | v1.0.0 | 2026-06-19 | Jawahar R. Mallah | Initial Release for SMRITI PDT v2.0 |
+| v1.0.1 | 2026-06-20 | Jawahar R. Mallah | Updated to document footer branding cleanups and POS manager PIN override controls. |
 
 > "Light begins with learning."
 > 
@@ -542,6 +543,26 @@ This handbook provides quick resolution steps for common errors and answers 160 
 ### Troubleshooting
 - **Error**: `Formula definition not active or in Draft status`.
   - **Resolution**: Formula Registry check parameter me find metric key state update Draft to Approved update select check save confirm reset.
+
+---
+
+## 18. Whitelabeling & Security FAQs & Troubleshooting
+
+### FAQs
+1. **Q: SMRITI footer aur header me platform branding changes kyu kiye gaye hain?**
+   - A: Whitelabeling directives and SMRITI UI-first styling policies ke according, user-facing pages (जैसे Formula Registry, Dictionary) se direct platform branding elements remove kiye gaye hain taaki corporate identity uniform rahe.
+2. **Q: Manager POS Override PIN login password se alag kyu hai?**
+   - A: Counter billing ke time shoulder-surfing (पासवर्ड चोरी) risk se bachne ke liye manager ka 4-6 digit custom PIN unke primary login password se completely separate aur isolated rakha gaya hai.
+3. **Q: Kya Store Manager kisi System Manager ya Administrator ka password reset kar sakta hai?**
+   - A: Nahi. Privilege escalation (अधिकारों का दुरुपयोग) prevent karne ke liye, Store Manager sirf standard cashiers ke login credentials reset kar sakta hai. System Managers ya admin ke credentials change karna block hai.
+4. **Q: Manager Override PIN change kaise karein?**
+   - A: Security & Workflow Center me Users list open karein, appropriate manager key selection par double-click karke modal se numeric PIN reset confirm karein.
+5. **Q: User Password Reset checks fail hotey hain to logs kahan query karein?**
+   - A: System audit logs check karne ke liye Security Audit Log (Administration tab ke under) query karein.
+
+### Troubleshooting
+- **Error**: `Access Denied: Store Managers cannot modify System Manager or Administrator accounts`.
+  - **Resolution**: Password reset parameters and role access criteria verify karein. Store Managers ko user list update permissions standard Cashiers tak hi limited hain.
 
 ---
 

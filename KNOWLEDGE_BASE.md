@@ -2,7 +2,7 @@
 
 > **Single-source overview.** This document is the entry point to all project documentation, completed features, open risks, architecture decisions, and operational runbooks.  
 > **Author:** Jawahar R Mallah (<jawahar.mallah@gmail.com>)  
-> **Last Updated:** 2026-06-17 · **Version:** v1.9.3 (CLOSED)
+> **Last Updated:** 2026-06-20 · **Version:** v2.2.2 (UAT APPROVED)
 
 > [!TIP]
 > Keep this document updated after any development session to keep the knowledge base current.
@@ -196,6 +196,10 @@ smriti_retail_os/
 | 49 | **SMRITI Audit Reports Module (v1.9.2)** | 2026-06-16 | `reports_api.py`, `setup.py`, `reports.html`, `smriti_nav_config.js`, `coming_soon_api.py` |
 | 50 | **Drag-and-Drop reporting and dashboard customization suite (v1.9.3)** | 2026-06-17 | `reports.html`, `psv-dashboard.html`, `smriti-home.html`, `test_reports.py` |
 | 51 | **SMRITI Customer Growth Engine (CGE) v2 (v2.0.0)** | 2026-06-19 | `migrate_cge_to_v2.py`, `cge_v2_constraints.sql`, `test_cge_v2_constraints.py`, `cge_v2_activation_runbook.md`, `cge_v2_pilot_execution_report.md` |
+| 52 | **SMRITI PWA Activation & Offline-First POS Integration (v2.1.0)** | 2026-06-19 | `sw.js`, `manifest.json`, `offline-pos.html` |
+| 53 | **SMRITI Knowledge Governance Framework (KGF) & registries (v2.2.0)** | 2026-06-19 | `smriti-help.html`, `smriti-dictionary.html`, `smriti-formula-registry.html` |
+| 54 | **SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)** | 2026-06-19 | `pdt_dashboard.py`, `smriti_nav_config.js` |
+| 55 | **Production Hardening, Python 3.14 Compatibility & Branding (v2.2.2)** | 2026-06-20 | `test_license.py`, `smriti-formula-registry.html`, `smriti-dictionary.html` |
 
 ---
 
@@ -204,10 +208,10 @@ smriti_retail_os/
 | Risk ID | Severity | Title | Status | File |
 |---|---|---|---|---|
 | **P0-01** | 🔴 Critical | Privilege escalation via Store Manager password reset | ✅ **FIXED** | `security_api.py` |
-| **P0-02** | 🔴 Critical | Backup files unencrypted at rest — `site_config` exposure risk | 🔵 **IN PLAN (v1.8.3)** | `gpg_service.py` (new) |
+| **P0-02** | 🔴 Critical | Backup files unencrypted at rest — `site_config` exposure risk | ✅ **FIXED** | `gpg_service.py` (new) |
 | **P1-01** | 🟠 High | Manager overrides use primary login password (shoulder-surfing risk) | ✅ **FIXED** | `billing_api.py`, `shift_api.py` |
 | **P1-03** | 🟠 High | Email backup fails silently when DB backup exceeds 25MB SMTP limit | **OPEN** | `backup_api.py` |
-| **P2-01** | 🟡 Medium | `sync_assets.py` uses `shutil.rmtree` — not atomic | **OPEN** | `sync_assets.py` |
+| **P2-01** | 🟡 Medium | `sync_assets.py` uses `shutil.rmtree` — not atomic | ✅ **FIXED** | `sync_assets.py` |
 
 ---
 
