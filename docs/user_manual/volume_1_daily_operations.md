@@ -1,5 +1,36 @@
 # SMRITI Retail OS User Manual — Volume 1: Daily Operations Guide
 
+## About This Manual & Author Profile
+
+### Metadata
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+- **Documentation Version**: v1.0.0
+- **Release Date**: 2026-06-19
+- **Intended Audience**: Shop Owner, Distributor, Sales Manager, Stock Auditor, Store Operator, Non-Technical User, First-Time User
+- **Learning Objectives**: Understand and operate SMRITI Retail OS Daily Operations independently without external training.
+- **Contact / Support**: support@aitdl.com
+
+### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+### Documentation Principle
+The author believes that software should not only process data but also explain decisions. Every report, score, KPI, alert, recommendation, and prediction within SMRITI must be understandable by business users without requiring technical expertise.
+
+### Revision History
+| Version | Date | Author | Description |
+| :--- | :--- | :--- | :--- |
+| v1.0.0 | 2026-06-19 | Jawahar R. Mallah | Initial Release for SMRITI PDT v2.0 |
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+---
+
 Welcome to the **SMRITI Retail OS Daily Operations Guide**. This manual is designed for store operators, salesmen, stock auditors, and distributor managers. You do not need any technical background, coding skills, or database knowledge to use SMRITI. We explain everything using simple business language, practical retail examples, and Hinglish (mixed English and Hindi) explanations where helpful.
 
 ---
@@ -32,7 +63,7 @@ Before you upload sales data or check inventory, you must register these three s
 | 1 | Create Draft | Save | Saves details as Draft; changes allowed. |
 | 2 | Finalize | Submit | Locks record; no changes allowed without amendment. |
 
-### 4. Field-by-Field Explanation (फील्ड स्पष्टीकरण)
+### 4. Field-by-Field Explanation (FED स्पष्टीकरण)
 
 | Field Name (फील्ड का नाम) | Type | Mandatory? | Simple English & Hinglish Explanation | Example Value |
 | :--- | :--- | :--- | :--- | :--- |
@@ -356,3 +387,21 @@ They submit a Physical Snapshot of 82 units.
 ### 10. Troubleshooting (समस्या निवारण)
 - **Error**: `Snapshot Date cannot be in the future`.
 - **Resolution**: Set the Audit Date to today's date or a past date.
+
+---
+
+## Final Acknowledgement Page
+
+### Author Section
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+### Closure Note
+Thank you for using SMRITI Retail OS. For support, please contact the AITDL Helpdesk at **support@aitdl.com**.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL

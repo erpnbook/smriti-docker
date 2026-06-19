@@ -1,5 +1,36 @@
 # SMRITI Retail OS User Manual — Volume 4: Troubleshooting & FAQ Handbook
 
+## About This Manual & Author Profile
+
+### Metadata
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+- **Documentation Version**: v1.0.0
+- **Release Date**: 2026-06-19
+- **Intended Audience**: Shop Owner, Distributor, Sales Manager, Stock Auditor, Store Operator, Non-Technical User, First-Time User
+- **Learning Objectives**: Troubleshoot and resolve errors in SMRITI Retail OS independently.
+- **Contact / Support**: support@aitdl.com
+
+### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+### Documentation Principle
+The author believes that software should not only process data but also explain decisions. Every report, score, KPI, alert, recommendation, and prediction within SMRITI must be understandable by business users without requiring technical expertise.
+
+### Revision History
+| Version | Date | Author | Description |
+| :--- | :--- | :--- | :--- |
+| v1.0.0 | 2026-06-19 | Jawahar R. Mallah | Initial Release for SMRITI PDT v2.0 |
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+---
+
 This handbook provides quick resolution steps for common errors and answers 160 Frequently Asked Questions (10 per module) across all SMRITI modules.
 
 ---
@@ -481,3 +512,21 @@ This handbook provides quick resolution steps for common errors and answers 160 
 ### Troubleshooting
 - **Error**: `Settings update failed due to validation rules`.
   - **Resolution**: Check if lead times or safety stocks are negative. Set positive values and retry.
+
+---
+
+## Final Acknowledgement Page
+
+### Author Section
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+### Closure Note
+Thank you for using SMRITI Retail OS. For support, please contact the AITDL Helpdesk at **support@aitdl.com**.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
