@@ -522,4 +522,35 @@ The pilot rollout sequence for CGE v2 is decoupled into two separate operational
 *   **Projected Production Speed**: `~14.60 seconds` for 100,000 records.
 
 ---
+
+## 19. SMRITI CGE Explorer & Generic CRUD Console (v2.0.1)
+
+To support the 12 CGE (Customer Growth Engine) modules without creating 12 duplicate boilerplate HTML templates, JS scripts, and backend APIs, SMRITI Retail OS v2.0.1 implements the **Generic Explorer & Config-Driven Console** pattern.
+
+### Key Capabilities
+
+*   **Generic Explorer Pattern**: A single unified UI template ([cge_generic.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/cge_generic.html)) and route controller ([cge_generic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/cge_generic.py)) dynamically map 12 distinct URL paths to their corresponding backend DocTypes.
+*   **Whitelisted Schema Security**: To prevent unauthorized database access or custom API exploitation, the backend controller (`cge_api.py`) strictly enforces a whitelist of CGE DocTypes:
+    *   `SMRITI Benefit Instrument`
+    *   `SMRITI Membership Tier`
+    *   `SMRITI Loyalty Program`
+    *   `SMRITI Campaign`
+    *   `SMRITI Promotion Rule`
+    *   `SMRITI Coupon Rule`
+    *   `SMRITI Loyalty Rule`
+    *   `SMRITI Benefit Wallet`
+    *   `SMRITI Customer Benefit Profile`
+    *   `SMRITI Benefit Resolution Policy`
+    *   `SMRITI Benefit Liability Snapshot`
+    *   `SMRITI Benefit Audit Log`
+    *   `SMRITI Benefit Resolution Sequence Detail` (Child table metadata support)
+    Any request containing a DocType outside this list throws a hard `frappe.PermissionError`.
+*   **Decoupled Service-First Layer**: Business operations route through whitelisted backend endpoints in `cge_api.py` (`get_cge_generic_fields`, `get_cge_generic_list`, `get_cge_generic_doc`, `save_cge_generic_doc`, and `delete_cge_generic_doc`) which delegate database operations to the backend service module (`cge_service.py`). Direct database insertions from the UI are strictly prohibited.
+*   **Config-Driven Form Rendering**: Field metadata is resolved dynamically by fetching the active fields list and building the layout on the fly, supporting standard datatypes (`Link`, `Select`, `Int`, `Float`, `Check`, `Text`, `Date`, `Datetime`) with corresponding UI controls.
+*   **Child Table Support**: Forms dynamically scan parent metadata for `Table` type fields, rendering interactive editable child tables. Rows can be appended, modified, and removed dynamically, and are correctly serialized and persisted during saves.
+*   **Role Enforcement**: Router-level validation ensures only `SMRITI Store Manager`, `System Manager`, and `Administrator` roles can view, create, or modify records. Cashiers are blocked at request intercept.
+*   **Delete Protection & Audit Logs**: High-impact deletions and additions are recorded using the system's `log_audit_event` mechanism. Soft-delete and validation logic prevent breaking referential integrity.
+*   **Automated Testing**: Complete test coverage is established in `test_cge_generic.py`, validating user role access, validation rules, child table nesting, whitelist restrictions, and audit logs.
+
+---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
