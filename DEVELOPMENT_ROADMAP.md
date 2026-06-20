@@ -53,5 +53,14 @@ Ranked by business value and ROI.
 2. **UX Fix**: Implement the 4-digit PIN override in `billing_api.py` (Effort: 1 day).
 3. **Architecture Fix**: Run `bench export-fixtures` or manually create the JSON files for current custom DocTypes (Effort: 1 day).
 
+## 4. Barcode Studio Quality Engineering Roadmap
+
+To maintain strict alignment with the SMRITI Governance Framework and the AITDL constitution, the Barcode Studio roadmap is structured as a sequential quality engineering capability:
+
+- **Phase 3A: Design Quality Intelligence (Completed)**: Configurable Quiet Zone expansions, Virtual HRT bounds validation, and Printability Score Engine (`SMRITI-PRN-SCORE-01`).
+- **Phase 4: Operational Telemetry Intelligence (ACP-BARCODE-002A)**: Standalone scan telemetry collection pipeline, Scan Reliability Score (`SMRITI-SCAN-REL-01`), governance event IDs (`SCAN-EVT-001/002/003`), and 90-day retention cleanup.
+- **Phase 5: Predictive Barcode Twin (ACP-BARCODE-002B)**: Downstream machine learning loops (PDT) correlating design-time layouts with real-world physical scan performance.
+
 ---
 *Roadmap generated based on architectural audit of D:\Smriti_Retail_OS.*
+
