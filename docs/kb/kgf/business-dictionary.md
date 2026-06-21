@@ -50,9 +50,5 @@ The Business Dictionary is backed by the `SMRITI Business Term` DocType. Each re
 
 ---
 
-## 👤 Author Note & Profile
-
-This dictionary is built on the philosophy that a system must not only run business logic but also explain its terminology.
-
-*   **Author**: Jawahar R. Mallah, Founder & Chief Architect, AITDL
-*   **Governance Standard**: AITDL KGF Constitutions (LOCKED)
+## Support & Helpdesk
+For questions or support, please contact the SMRITI Helpdesk at **support@aitdl.com**.

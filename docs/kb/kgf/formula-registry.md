@@ -25,7 +25,7 @@ The Formula Registry is backed by the `SMRITI Formula Definition` DocType. Each 
 *   **Interpretation Guide**: Reference bands (Critical, Monitor, Healthy).
 *   **Recommended Action**: Next steps for a store operator when the metric reaches certain bands.
 *   **Implementation Reference**: Code file and function where the formula is executed (e.g. `services/forecasting_service.py::calculate_weeks_of_cover`).
-*   **Business Owner**: The corporate owner accountable for the formula logic (defaults to `Jawahar R. Mallah`).
+*   **Business Owner**: The corporate owner accountable for the formula logic.
 
 ---
 
@@ -59,9 +59,5 @@ The registry seeds the following 10 core formulas by default:
 
 ---
 
-## 👤 Author Note & Profile
-
-This registry has been designed and implemented to prevent runtime execution of arbitrary code (avoiding Python's `eval()`) while ensuring complete auditability and explainability.
-
-*   **Author**: Jawahar R. Mallah, Founder & Chief Architect, AITDL
-*   **Governance Standard**: AITDL KGF Constitutions (LOCKED)
+## Support & Helpdesk
+For questions or support, please contact the SMRITI Helpdesk at **support@aitdl.com**.

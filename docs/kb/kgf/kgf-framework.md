@@ -49,19 +49,9 @@ The SMRITI Constitution enforces strict rules regarding mathematical computation
 *   **Rule DOC-02 (Formula Registry Policy)**: Every formula must be centrally registered. No calculated dashboard metric or indicator may be deployed unless its formula is registered.
 *   **Rule DOC-03 (Explainability-First Development Rule)**: No new feature or recommendation engine may go live without completing the ten required explainability artifacts.
 *   **Rule DOC-04 (Business Dictionary)**: The platform must maintain a central, searchable glossary of retail operational terms with Hinglish translations.
-*   **Rule 12 (Author Attribution & Credibility)**: Every guide, handbook, and governance document must credit the chief architect and explain the business rationale transparently.
+*   **Rule 12 (Author Attribution & Credibility)**: Every guide, handbook, and governance document must support transparency and explain the business rationale clearly.
 
 ---
 
-## 👤 Author Profile & Credibility
-
-### Founder & Chief Architect
-*   **Author**: Jawahar R. Mallah
-*   **Designation**: Founder & Chief Architect
-*   **Organization**: AITDL – AI Technology & Development Lab
-*   **Experience**: 20+ Years in Software Development, Retail Technology, POS Solutions, Distribution Systems, ERP Implementations, Business Process Automation, and Enterprise Application Design.
-
-> "Light begins with learning."
-> 
-> — Jawahar R. Mallah  
-> Founder & Chief Architect, AITDL
+## Support & Helpdesk
+For questions or support, please contact the SMRITI Helpdesk at **support@aitdl.com**.

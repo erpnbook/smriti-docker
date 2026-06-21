@@ -1,35 +1,5 @@
 # SMRITI Retail OS User Manual — Volume 5: Training Workbook
 
-## About This Manual & Author Profile
-
-### Metadata
-- **Author**: Jawahar R. Mallah
-- **Designation**: Founder & Chief Architect
-- **Organization**: AITDL – AI Technology & Development Lab
-- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
-- **Documentation Version**: v1.0.0
-- **Release Date**: 2026-06-19
-- **Intended Audience**: Shop Owner, Distributor, Sales Manager, Stock Auditor, Store Operator, Non-Technical User, First-Time User
-- **Learning Objectives**: Apply SMRITI Retail OS knowledge through 52 practical exercises.
-- **Contact / Support**: support@aitdl.com
-
-### Author Note
-This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
-
-### Documentation Principle
-The author believes that software should not only process data but also explain decisions. Every report, score, KPI, alert, recommendation, and prediction within SMRITI must be understandable by business users without requiring technical expertise.
-
-### Revision History
-| Version | Date | Author | Description |
-| :--- | :--- | :--- | :--- |
-| v1.0.0 | 2026-06-19 | Jawahar R. Mallah | Initial Release for SMRITI PDT v2.0 |
-
-> "Light begins with learning."
-> 
-> — Jawahar R. Mallah
-> Founder & Chief Architect, AITDL
-
----
 
 This workbook contains 52 practical exercises designed to train new team members on SMRITI Retail OS. Complete the exercises sequentially based on your role.
 
@@ -394,20 +364,5 @@ This workbook contains 52 practical exercises designed to train new team members
   3. Click the **📖 Dictionary Entry** button at the bottom of the modal.
 - **Expected Result**: The system redirects to `/smriti-dictionary` (pre-filtered for WOC) and opens the Business Dictionary drawer detailing Weeks of Cover, its Hinglish definition, FAQs, and related terms.
 
----
-
-## Final Acknowledgement Page
-
-### Author Section
-- **Author**: Jawahar R. Mallah
-- **Designation**: Founder & Chief Architect
-- **Organization**: AITDL – AI Technology & Development Lab
-- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
-
-### Closure Note
-Thank you for using SMRITI Retail OS. For support, please contact the AITDL Helpdesk at **support@aitdl.com**.
-
-> "Light begins with learning."
-> 
-> — Jawahar R. Mallah
-> Founder & Chief Architect, AITDL
+## Support & Helpdesk
+Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
