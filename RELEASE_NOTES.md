@@ -31,6 +31,14 @@
 - **Widescreen 3-Panel Layout**: Left sidebar for settings/preview, center worksheet grid, and right drawer for filters and templates.
 - **Always-Visible Sticky Toolbar**: Houses printing actions at the bottom of the screen with dynamic disabled-state indicators based on row selection.
 
+### 📊 9. Barcode Scan Telemetry Collection Framework (ACP-BARCODE-002A)
+- **Immutable Raw Scan Logs**: Created `SMRITI Barcode Scan Event` DocType to record cashier scan events, protected by a fail-closed immutability rule blocking updates/deletions.
+- **Seeded Governance Event Registry**: Formally registered event definitions `SCAN-EVT-001` (Success on first try), `SCAN-EVT-002` (Success after retry), and `SCAN-EVT-003` (Failure/bypassed) under `SMRITI Telemetry Event Definition`.
+- **Daily Aggregation Scheduler**: Background aggregation task scheduled for 03:00 AM daily (store local time) to compute `SMRITI Barcode Telemetry Snapshot` records.
+- **Pruning Retention Policy**: Configured daily cleanup job `delete_expired_scan_events` to delete raw scan logs older than 90 days.
+- **Scan Reliability Score (SRS)**: Registered `SMRITI-SCAN-REL-01` in the Formula Registry to calculate real-world scan usability percentage.
+- **Security & Role Verification**: Secured the `log_barcode_scan_event` endpoint to authenticated sessions matching POS User, Cashier, or System Manager roles.
+
 ---
 
 ## 🆕 v1.9.0-GA — SMRITI Party Stock Visibility (PSV) Phase 1.1 (2026-06-11)

@@ -589,12 +589,22 @@ This handbook provides quick resolution steps for common errors and answers 160 
    - A: 3-panel widescreen layout me sticky bottom toolbar always-visible placement holds, dynamic states selection dependent checks manage status disabled sets trigger prevent handle lock validation.
 10. **Q: Barcode scan failure warning alert and red/amber indicators rule?**
     - A: Scan reliability index threshold 85% below fall visual warning triggers recommend printer head clean template margin adjustments coordinate checks check verify details parameters.
+11. **Q: Barcode scan telemetry features disabled default behavior state kya features execute hone se rokta hai?**
+    - A: Agar settings template me `barcode_telemetry_capture_enabled` option false set hai, to cashier terminal barcode scans telemetry logs capture/insert execute nahi hone deta aur client request skip return properties handle warning sets.
+12. **Q: SMRITI Barcode Scan Event raw logs database me change/edit kyu block details trigger standard errors sets?**
+    - A: Security audits standards database locks security integrity checks raw events data logs immutable blocks constraints run. Agar save modification event entry change tries throw hard permission validate blocks.
+13. **Q: Scan Reliability Score (SMRITI-SCAN-REL-01) formula check inputs detail indicators ranges?**
+    - A: Formula reliability calculations: `((FirstPass + 0.5 * Retry) / TotalScans) * 100`. Range limits represent: Green (>95%), Yellow (85%-94.9%), Red (<85%). Red status triggers operator warning recommend system diagnostics clean.
 
 ### Troubleshooting
 - **Error**: `No active items found in the specified range`.
   - **Resolution**: Check style names in database. Range loader requires existing base items inside database constraints matching sequence format pattern range boundaries.
 - **Error**: `Cannot load transaction. No new SKUs found`.
   - **Resolution**: Ensure transaction has valid item lines. Filter "Only New SKUs" removes variants that already have printed barcodes/labels. Toggle to "Select All" to force reprints.
+- **Error**: `Not authorized to log telemetry events`.
+  - **Resolution**: Telemetry endpoint requires authenticated sessions containing POS Cashier, POS User, Store Manager, or System Manager roles. Check active cashier session permissions.
+- **Error**: `A valid Store (Warehouse) is required to log telemetry`.
+  - **Resolution**: SMRITI requires a default warehouse configuration to register scan origins. Set up warehouse structure or standard company defaults under SMRITI Company settings parameters.
 
 ---
 

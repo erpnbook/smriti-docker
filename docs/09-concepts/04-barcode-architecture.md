@@ -67,3 +67,26 @@ To identify catalog inconsistencies (active sellable items that do not have any 
 
 - **Criteria**: Returns active items (`disabled = 0`) that do not have any child barcode rows and are not templates (`has_variants = 0`).
 - **Role Requirement**: SMRITI Store Manager.
+
+---
+## 6. SMRITI Barcode Studio V2.4a Operations (ACP_BARCODE_003)
+
+SMRITI Barcode Studio V2.4a provides a widescreen, 3-panel operations center for high-volume warehouse printing:
+1. **Article Range Loader**: Sequentially generates style IDs between two alphabetic/numeric boundaries (e.g., `BBM-0001` to `BBM-0100`) and queries matching items in bulk.
+2. **Fashion-Retail Variant Expansion**: Styles automatically expand into size-color variants in the center worksheet grid.
+3. **Interactive 9-Column Grid**: Consolidates selected items and enables editing of quantities, label counts, and printing tags.
+4. **Price Fallback Logic**: Automatically checks variant-level pricing, Price Lists, and parent templates to prevent printing empty rates.
+5. **Box & Carton Mode**: Converts carton packing capacities to label counts automatically.
+6. **Reprint Queue**: Caches the history of recent print batches in browser local storage for quick one-click reprints.
+
+---
+
+## 7. Barcode Scan Telemetry Collection Framework (ACP-BARCODE-002A)
+
+To track physical scanning performance and print usability, SMRITI implements a telemetry pipeline:
+1. **Immutable Raw Log (`SMRITI Barcode Scan Event`)**: Captures cashier scans with attempt counts, scan success status, template ID, and unique UUIDs for idempotency.
+2. **Governance Event Registry**: Seeds and tracks `SCAN-EVT-001` (Success on first try), `SCAN-EVT-002` (Success on retry), and `SCAN-EVT-003` (Failure or manual override).
+3. **Scan Reliability Score (SRS)**: Calculates template and store scanning performance:
+   $$SRS = \left( \frac{FirstPassSuccesses + 0.5 \times RetrySuccesses}{TotalScans} \right) \times 100$$
+4. **90-Day Retention Policy**: Prunes raw event logs older than 90 days daily via the system scheduler job `delete_expired_scan_events`. Snapshots are stored permanently.
+5. **Role-based API Access**: Restricts submission to authenticated POS cashiers, managers, and system managers.

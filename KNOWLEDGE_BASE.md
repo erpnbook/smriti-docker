@@ -34,6 +34,7 @@
 21. [SMRITI Knowledge Governance Framework (KGF) & registries (v2.2.0)](#21-smriti-knowledge-governance-framework-kgf--registries-v220)
 22. [SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)](#22-smriti-predictive-hub--cge-sidebar-integration-v221)
 23. [SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (v2.4.0)](#23-smriti-barcode-studio-v24a-layout--operations-upgrade-v240)
+24. [SMRITI Barcode Scan Telemetry Collection Framework (v2.4.0)](#24-smriti-barcode-scan-telemetry-collection-framework-v240)
 
 
 ---
@@ -202,6 +203,7 @@ smriti_retail_os/
 | 54 | **SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)** | 2026-06-19 | `pdt_dashboard.py`, `smriti_nav_config.js` |
 | 55 | **Production Hardening, Python 3.14 Compatibility & Branding (v2.2.2)** | 2026-06-20 | `test_license.py`, `smriti-formula-registry.html`, `smriti-dictionary.html` |
 | 56 | **SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (v2.4.0)** | 2026-06-21 | `barcode.html`, `barcode_api.py`, `test_barcode_api.py` |
+| 57 | **SMRITI Barcode Scan Telemetry Collection Framework (v2.4.0)** | 2026-06-21 | `barcode_api.py`, `test_telemetry.py`, `seed_telemetry_meta.py` |
 
 ---
 
@@ -630,6 +632,23 @@ SMRITI Retail OS v2.4.0 delivers the **Barcode Studio V2.4a** layout and operati
 *   **Persistent Reprint Queue**: Browser local storage queue caching recent print runs for instant one-click re-firing.
 *   **Widescreen 3-Panel UX Ergonomics**: Layout grouping settings/previews in the left sidebar, the center worksheet grid, and ranges/filters in the right drawer with an always-visible bottom sticky action bar.
 *   **Author Profile & Credibility (Rule 12)**: Author section detailing Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab) and AITDL core team.
+
+---
+
+## 24. SMRITI Barcode Scan Telemetry Collection Framework (v2.4.0)
+
+SMRITI Retail OS v2.4.0 implements the **Barcode Scan Telemetry Collection Framework** (ACP-BARCODE-002A) to monitor physical scan performance and print usability across retail environments.
+
+### Key Capabilities
+
+*   **Immutable Raw Scan Log (`SMRITI Barcode Scan Event`)**: Logs cashier-level scan events with fields for attempts, success status, first pass flag, template ID, and unique UUID (ensuring idempotency). Update and delete operations are strictly blocked by the controller (`before_save`) to maintain audit integrity.
+*   **Seeded Governance Event Registry**: Formally registers event definitions `SCAN-EVT-001` (Success on 1st attempt), `SCAN-EVT-002` (Success after retry), and `SCAN-EVT-003` (Failure or keyboard override) to avoid magic constants in the database.
+*   **Daily Aggregation Scheduler**: Processes raw scans at 03:00 AM daily (store local time) and records metrics in `SMRITI Barcode Telemetry Snapshot` to avoid table locks during store hours.
+*   **Pruning Retention Policy**: Raw events are kept in the transactional database for 90 days (pruned via the daily system job `delete_expired_scan_events`). Aggregated snapshot data is stored permanently for predictive model training.
+*   **Scan Reliability Score (SMRITI-SCAN-REL-01)**: Formally registered under the KGF Formula Registry. Computes physical scanning efficiency:
+    $$SRS = \left( \frac{FirstPassSuccesses + 0.5 \times RetrySuccesses}{TotalScans} \right) \times 100$$
+*   **Security & Role Enforcement**: Telemetry submit API (`log_barcode_scan_event`) enforces authentication and restricts submission to `System Manager`, `SMRITI POS User`, `POS User`, `SMRITI Store Manager`, and `SMRITI Cashier` roles.
+*   **Author Profile & Credibility (Rule 12)**: Designed by Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab) and AITDL core team.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
