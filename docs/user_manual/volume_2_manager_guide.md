@@ -67,7 +67,7 @@ During the monthly audit, the physical count is verified as **45 pairs**. SMRITI
 
 ### 1. Purpose (उद्देश्य)
 The **Transfer Recommendation** module optimizes inventory distribution across outlets. It calculates when an overstocked store should transfer items to a stock-out store.
-- **Business Problem Solved**: Prevents lost sales at one store while another store holds dead stock. It computes the **Transfer Benefit Score** to ensure freight and delay costs do not exceed the transfer benefit.
+- **Business Problem Solved**: Prevents lost sales at one store while another store holds dead stock. It computes the [Transfer Benefit Score](formula:TRF-001) to ensure freight and delay costs do not exceed the transfer benefit.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
 - **Mumbai Showroom** has **0 stock** of `Flyrunner-Blue-8` and sells 3 pairs a day. (Stockout Risk = High).
@@ -139,7 +139,7 @@ During festival season (e.g., Diwali), supplier delivery times increase from **7
 | :--- | :--- | :--- | :--- | :--- |
 | **Default Lead Time Days** | Int | **Yes** | Time taken by supplier to deliver stock (in days). | `7` |
 | **Default Safety Stock** | Float | **Yes** | Minimum stock buffer to keep at stores. | `15.0` |
-| **Reorder Avg Weeks** | Int | **Yes** | Lookback window for sales velocity math. | `4` |
+| **Reorder Avg Weeks** | Int | **Yes** | Lookback window for [Sales Velocity](formula:INV-001) math. | `4` |
 | **Forecast Model** | Select | **Yes** | Model used (Defaults to Exponential Moving Average). | `EMA` |
 
 ### 5. Example Settings Configuration (उदाहरण प्रविष्टि)
@@ -150,7 +150,7 @@ During festival season (e.g., Diwali), supplier delivery times increase from **7
 
 ### 6. Reports & Analysis (रिपोर्ट और विश्लेषण)
 - **Report Name**: **Reorder Rule Registry**
-- **Action**: Audit store reorder rules monthly to ensure safety stock levels align with updated sales trends.
+- **Action**: Audit store reorder rules monthly to ensure safety stock levels align with updated sales trends and target [Inventory Turnover](formula:INV-004) ratios.
 
 ### 7. Common Mistakes (सामान्य गलतियां)
 - **Setting excessive safety stock**: Setting a safety stock of 1000 pairs for a store that sells only 5 pairs a week. This locks up valuable capital.
@@ -176,7 +176,7 @@ The **Knowledge Governance Framework (KGF)** is the transparency and compliance 
 - **Business Problem Solved**: Eliminates confusion and builds trust by letting ground-level operators immediately understand *how* a value was calculated, *what* the value means for their daily operations, and *what actions* they must take next.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
-A store manager at **Royal Pune Showroom** looks at their reorder report and sees a **Weeks of Cover (WOC)** metric of **1.5 weeks** for a popular running shoe variant. 
+A store manager at **Royal Pune Showroom** looks at their reorder report and sees a [Weeks of Cover (WOC)](formula:INV-002) metric of **1.5 weeks** for a popular running shoe variant. 
 Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **ⓘ Explain** icon next to the number. A clean modal pops up, showing:
 - WOC means the estimated weeks current stock will last.
 - The mathematical formula: `current_stock / weekly_velocity`.
@@ -193,7 +193,7 @@ Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **
 
 | Field Name | Type | Mandatory? | Simple Explanation | Example Value |
 | :--- | :--- | :--- | :--- | :--- |
-| **Formula ID** | Data | **Yes** | Unique identifier of the formula. | `INV-002` |
+| **Formula ID** | Data | **Yes** | Unique identifier of the formula. | [INV-002](formula:INV-002) |
 | **Formula Name** | Data | **Yes** | Human-readable name of the metric. | `Weeks of Cover` |
 | **Formula Expression**| Data | **Yes** | Mathematical representation of the formula. | `current_stock / weekly_velocity` |
 | **Business Meaning** | Long Text | **Yes** | What the metric measures in simple terms. | `How many weeks your stock will last.` |
@@ -202,7 +202,7 @@ Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **
 | **Recommended Action**| Long Text | **Yes** | Concrete action for the operator. | `Place reorder immediately if Critical.` |
 
 ### 5. Example Registry Entry (उदाहरण प्रविष्टि)
-- **Formula ID**: `INV-003`
+- **Formula ID**: [INV-003](formula:INV-003)
 - **Name**: `Dead Stock Score`
 - **Expression**: `inactive_days * stock_value`
 - **Worked Example**: `Inactive Days = 90 days. Stock Value = ₹10,000. Dead Stock Score = 90 * 10,000 = 900,000.`

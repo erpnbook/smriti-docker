@@ -352,7 +352,7 @@ This workbook contains 52 practical exercises designed to train new team members
 - **Actions**:
   1. Open SMRITI Formula Registry (at route `/smriti-formula-registry`).
   2. Click **New Formula Definition**.
-  3. Enter Formula ID = `INV-005`, Formula Name = `Promo Conversion Rate`, Category = `Sales`, Formula Expression = `promo_sales_qty / total_sales_qty`, Business Meaning = `Tracks promotional sales share of total sales`, Worked Example = `Promo Sales = 20, Total Sales = 100. Conversion = 20 / 100 = 0.20 or 20%`.
+  3. Enter Formula ID = [INV-005](formula:INV-005), Formula Name = `Promo Conversion Rate`, Category = `Sales`, Formula Expression = `promo_sales_qty / total_sales_qty`, Business Meaning = `Tracks promotional sales share of total sales`, Worked Example = `Promo Sales = 20, Total Sales = 100. Conversion = 20 / 100 = 0.20 or 20%`.
   4. Fill in standard interpretation guides, set status to `Approved`, and save.
 - **Expected Result**: The new formula is successfully registered and cached in Redis.
 

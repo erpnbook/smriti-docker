@@ -119,3 +119,21 @@ Every SMRITI custom web page template (`/smriti-*`, `/billing`, `/inventory`, et
 </div>
 ```
 The footer must not contain a hardcoded calendar year to ensure the system remains evergreen.
+
+---
+
+## 11. URI Scheme Standard (Universal Asset URIs)
+
+To ensure consistency and compatibility across the SMRITI Knowledge Governance Platform, all cross-referenced assets within manuals, dictionary cards, training workbooks, or dashboards must be linked using the SMRITI Asset URI standard. 
+
+### Standard Format:
+`[Asset Name](asset_type:ASSET_CODE)`
+
+### Registered Schemes:
+- **`formula:`**: Direct link to the SMRITI Formula Registry (e.g. `[Weeks of Cover](formula:INV-002)`).
+- **`dictionary:`**: Direct link to the SMRITI Business Dictionary (e.g. `[Party Stock Account](dictionary:TERM-001)`).
+- **`training:`**: Direct link to SMRITI Training workbook modules or exercises (e.g. `[Distributor Onboarding](training:MOD-001)`).
+- **`report:`**: Direct link to SMRITI-specific custom reports (e.g. `[Broken Size Report](report:RPT-001)`).
+
+Even if only specific schemes are active in the current release, all new manuals, tools, and documentation links must strictly conform to these URI schemes, avoiding fuzzy text matching or direct database routing.
+

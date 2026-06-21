@@ -281,7 +281,7 @@ This handbook provides quick resolution steps for common errors and answers 160 
 1. **Q: Sell through period defaults?**
    - A: Standard lookback is 30 days.
 2. **Q: Sell Through formula?**
-   - A: $\frac{\text{Sales Qty}}{\text{Starting Inventory + Receipts}} \times 100$.
+   - A: Refer to [Sell Through %](formula:SAL-001) ([SAL-001](formula:SAL-001)): $\frac{\text{Sales Qty}}{\text{Starting Inventory + Receipts}} \times 100$.
 3. **Q: Low sell through actions?**
    - A: Implement markdowns, or transfer stock out of the outlet.
 4. **Q: Does it include returns?**
@@ -371,7 +371,7 @@ This handbook provides quick resolution steps for common errors and answers 160 
 1. **Q: Rebalancing target rules?**
    - A: Targets overstocked stores first.
 2. **Q: Benefit score formula?**
-   - A: $\text{Economic Benefit} = \text{Item Price} - \text{Freight} - \text{Transit Delay Penalty}$.
+   - A: Refer to [Transfer Benefit Score](formula:TRF-001) ([TRF-001](formula:TRF-001)): $\text{Economic Benefit} = \text{Item Price} - \text{Freight} - \text{Transit Delay Penalty}$.
 3. **Q: Freight costs per unit?**
    - A: Same zone: ₹6, Different zone: ₹18.
 4. **Q: Transit Delay Penalties per unit?**
@@ -562,8 +562,8 @@ This handbook provides quick resolution steps for common errors and answers 160 
     - A: Agar settings template me `barcode_telemetry_capture_enabled` option false set hai, to cashier terminal barcode scans telemetry logs capture/insert execute nahi hone deta aur client request skip return properties handle warning sets.
 12. **Q: SMRITI Barcode Scan Event raw logs database me change/edit kyu block details trigger standard errors sets?**
     - A: Security audits standards database locks security integrity checks raw events data logs immutable blocks constraints run. Agar save modification event entry change tries throw hard permission validate blocks.
-13. **Q: Scan Reliability Score (SMRITI-SCAN-REL-01) formula check inputs detail indicators ranges?**
-    - A: Formula reliability calculations: `((FirstPass + 0.5 * Retry) / TotalScans) * 100`. Range limits represent: Green (>95%), Yellow (85%-94.9%), Red (<85%). Red status triggers operator warning recommend system diagnostics clean.
+13. **Q: Scan Reliability Score ([SMRITI-SCAN-REL-01](formula:SMRITI-SCAN-REL-01)) formula check inputs detail indicators ranges?**
+    - A: Refer to [SMRITI-SCAN-REL-01](formula:SMRITI-SCAN-REL-01): `((FirstPass + 0.5 * Retry) / TotalScans) * 100`. Range limits represent: Green (>95%), Yellow (85%-94.9%), Red (<85%). Red status triggers operator warning recommend system diagnostics clean.
 
 ### Troubleshooting
 - **Error**: `No active items found in the specified range`.
