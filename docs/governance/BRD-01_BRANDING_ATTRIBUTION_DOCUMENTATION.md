@@ -124,16 +124,44 @@ The footer must not contain a hardcoded calendar year to ensure the system remai
 
 ## 11. URI Scheme Standard (Universal Asset URIs)
 
-To ensure consistency and compatibility across the SMRITI Knowledge Governance Platform, all cross-referenced assets within manuals, dictionary cards, training workbooks, or dashboards must be linked using the SMRITI Asset URI standard. 
+To ensure consistency and compatibility across the SMRITI Knowledge Governance Platform, all cross-referenced assets within manuals, dictionary cards, training workbooks, or dashboards must be linked using the SMRITI Asset URI standard.
 
 ### Standard Format:
 `[Asset Name](asset_type:ASSET_CODE)`
 
 ### Registered Schemes:
 - **`formula:`**: Direct link to the SMRITI Formula Registry (e.g. `[Weeks of Cover](formula:INV-002)`).
-- **`dictionary:`**: Direct link to the SMRITI Business Dictionary (e.g. `[Party Stock Account](dictionary:TERM-001)`).
+- **`dictionary:`**: Direct link to the SMRITI Business Dictionary (e.g. `[Party Stock Account](dictionary:PSA)`).
 - **`training:`**: Direct link to SMRITI Training workbook modules or exercises (e.g. `[Distributor Onboarding](training:MOD-001)`).
 - **`report:`**: Direct link to SMRITI-specific custom reports (e.g. `[Broken Size Report](report:RPT-001)`).
 
+### Technical Implementation (Active Schemes)
+
+#### `formula:` Scheme
+- **Click handler**: Intercepts in `smriti-help.html` → dispatches `smriti:formula-open` CustomEvent.
+- **Event bus listener**: `window.addEventListener('smriti:formula-open', ...)` → calls `openFormulaInDrawer()`.
+- **Dynamic fetch**: On cache miss, calls `smriti_retail_os.api.formula_api.get_formula_detail`.
+- **Governance gateway**: `FORMULA_INDEX` set in `formula_service.py` — only registered formula IDs reachable.
+- **Role security**: System Manager sees Draft/Inactive; Cashier/Store Manager sees Approved+Active only.
+
+#### `dictionary:` Scheme (DOC-GOV-03 — Active from Sprint B)
+- **Hover tooltip**: On `mouseover` of `dictionary:` anchor, shows floating card with term name + 1-line definition. No network call — served from `allTerms` cache.
+- **Click handler**: Intercepts in `smriti-help.html` → dispatches `smriti:term-open` CustomEvent.
+- **Event bus listener**: `window.addEventListener('smriti:term-open', ...)` → calls `openTermInDrawer()`.
+- **Dynamic fetch**: On cache miss, calls `smriti_retail_os.api.dictionary_api.get_term_detail`.
+- **Governance gateway**: `TERM_INDEX` set in `dictionary_service.py` — only registered term IDs reachable.
+- **Normalization**: `openTermInDrawer()` normalizes FAQ keys `{q, a}` or `{question, answer}` and mistakes keys `{mistake, a}` or plain string.
+- **Deep link**: `?term=TERM_ID` URL param opens term drawer directly on page load.
+
+#### `training:` and `report:` Schemes
+- Registered but not yet active in the current release. Reserved for future sprint implementation.
+
+### Governance Rule
+
 Even if only specific schemes are active in the current release, all new manuals, tools, and documentation links must strictly conform to these URI schemes, avoiding fuzzy text matching or direct database routing.
+
+To add a new term to the dictionary: scheme:
+1. Insert the `term_id` into `TERM_INDEX` in `dictionary_service.py`.
+2. Create the `SMRITI Business Term` DocType record with `status=Approved, is_active=1`.
+3. Run `seed_default_terms.py` patch if the term is a standard KGF term.
 

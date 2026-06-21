@@ -7,7 +7,7 @@ Welcome to the **SMRITI Retail OS Manager & Supervisor Guide**. This volume is w
 ## Chapter 1: Audit & Variance Management (ऑडिट और विसंगति प्रबंधन)
 
 ### 1. Purpose (उद्देश्य)
-The **Audit & Variance Management** module automatically reconciles physical counts (from Physical Snapshots) with the SMRITI shadow ledger. 
+The **Audit & Variance Management** module automatically reconciles physical counts (from [Physical Snapshots](dictionary:Physical Snapshot)) with the SMRITI shadow ledger. 
 - **Business Problem Solved**: Identifying stock shrinkage (चोरी या खोया हुआ स्टॉक) and posting ledger correction entries to align system balances.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
@@ -16,7 +16,7 @@ During the monthly audit, the physical count is verified as **45 pairs**. SMRITI
 
 ### 3. Step-by-Step Entry/Reconciliation Process (प्रक्रिया)
 1. **Menu Path**: SMRITI Home → Operations → Audit Console → **Reconciliation Sheet**
-2. **Select Parameters**: Select the target PSA and the audit date.
+2. **Select Parameters**: Select the target [PSA](dictionary:PSA) and the audit date.
 3. **Analyze Variance**: The screen will highlight rows with differences in red.
 4. **Approve Adjustments**: The supervisor selects the reconciliation reason code (e.g. `THEFT`, `DAMAGE`, `DATA_ENTRY_ERROR`) and clicks **Approve & Adjust Ledger**.
 
@@ -59,7 +59,7 @@ During the monthly audit, the physical count is verified as **45 pairs**. SMRITI
 
 ### 10. Troubleshooting (समस्या निवारण)
 - **Error**: `Cannot submit. Pending transactions exist for this PSA`.
-- **Resolution**: Go to SMRITI Dashboard, check for unsubmitted Sales Uploads or Delivery Notes for this store, submit them, and retry the audit approval.
+- **Resolution**: Go to SMRITI Dashboard, check for unsubmitted Sales Uploads or Delivery Notes for this [PSA](dictionary:PSA), submit them, and retry the audit approval.
 
 ---
 
@@ -67,10 +67,10 @@ During the monthly audit, the physical count is verified as **45 pairs**. SMRITI
 
 ### 1. Purpose (उद्देश्य)
 The **Transfer Recommendation** module optimizes inventory distribution across outlets. It calculates when an overstocked store should transfer items to a stock-out store.
-- **Business Problem Solved**: Prevents lost sales at one store while another store holds dead stock. It computes the [Transfer Benefit Score](formula:TRF-001) to ensure freight and delay costs do not exceed the transfer benefit.
+- **Business Problem Solved**: Prevents lost sales at one store while another store holds [dead stock](dictionary:Dead Stock). It computes the [Transfer Benefit Score](formula:TRF-001) to ensure freight and delay costs do not exceed the transfer benefit.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
-- **Mumbai Showroom** has **0 stock** of `Flyrunner-Blue-8` and sells 3 pairs a day. (Stockout Risk = High).
+- **Mumbai Showroom** has **0 stock** of `Flyrunner-Blue-8` and sells 3 pairs a day. ([Stockout Risk](dictionary:Stockout Risk) = High).
 - **Pune Showroom** has **50 pairs** of `Flyrunner-Blue-8` and sells only 0.2 pairs a day. (Overstock = High).
 - SMRITI calculates the transfer economics and recommends shifting 20 pairs from Pune to Mumbai.
 
@@ -124,7 +124,7 @@ This module allows administrators and supervisors to configure the global variab
 - **Business Problem Solved**: Customizes SMRITI to fit your business lead times, safety margins, and forecasting parameters.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
-During festival season (e.g., Diwali), supplier delivery times increase from **7 days** to **14 days**. The administrator updates the global Lead Time settings to 14 days to prevent stockouts.
+During festival season (e.g., Diwali), supplier delivery times increase from **7 days** to **14 days**. The administrator updates the global [Lead Time](dictionary:Lead Time) settings to 14 days to prevent stockouts.
 
 ### 3. Step-by-Step Configuration Process (प्रक्रिया)
 1. **Menu Path**: SMRITI Home → Administration → SMRITI PSV Settings
@@ -140,7 +140,7 @@ During festival season (e.g., Diwali), supplier delivery times increase from **7
 | **Default Lead Time Days** | Int | **Yes** | Time taken by supplier to deliver stock (in days). | `7` |
 | **Default Safety Stock** | Float | **Yes** | Minimum stock buffer to keep at stores. | `15.0` |
 | **Reorder Avg Weeks** | Int | **Yes** | Lookback window for [Sales Velocity](formula:INV-001) math. | `4` |
-| **Forecast Model** | Select | **Yes** | Model used (Defaults to Exponential Moving Average). | `EMA` |
+| **Forecast Model** | Select | **Yes** | Model used (Defaults to Exponential Moving Average). | [EMA](dictionary:EMA) |
 
 ### 5. Example Settings Configuration (उदाहरण प्रविष्टि)
 - **Rule Scope**: Item Group = `Sports Shoes`
@@ -178,7 +178,7 @@ The **Knowledge Governance Framework (KGF)** is the transparency and compliance 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
 A store manager at **Royal Pune Showroom** looks at their reorder report and sees a [Weeks of Cover (WOC)](formula:INV-002) metric of **1.5 weeks** for a popular running shoe variant. 
 Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **ⓘ Explain** icon next to the number. A clean modal pops up, showing:
-- WOC means the estimated weeks current stock will last.
+- [WOC](dictionary:WOC) means the estimated weeks current stock will last.
 - The mathematical formula: `current_stock / weekly_velocity`.
 - A live worked example: `Current Stock = 30 pairs, Weekly Velocity = 20 pairs/week. WOC = 30 / 20 = 1.5`.
 - A recommendation band showing that 1.5 is "Critical", advising the manager to immediately place a reorder.
@@ -186,7 +186,7 @@ Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **
 ### 3. Step-by-Step Process (प्रक्रिया)
 1. **Explain any KPI**: Click the **ⓘ Explain** button next to any calculated metric on any SMRITI dashboard or report.
 2. **Read the Explanation**: The Universal Explain Modal displays the business meaning, mathematical expression, data sources, worked example, and recommended action steps.
-3. **Lookup Glossaries**: Click the **📖 Dictionary Entry** button inside the modal to navigate directly to the central **Business Dictionary** (/smriti-dictionary) to explore related terms (like PDT or PSA), Hinglish explanations, FAQs, and common mistakes.
+3. **Lookup Glossaries**: Click the **📖 Dictionary Entry** button inside the modal to navigate directly to the central **Business Dictionary** (/smriti-dictionary) to explore related terms (like [PDT](dictionary:PDT) or [PSA](dictionary:PSA)), Hinglish explanations, FAQs, and common mistakes.
 4. **Manage Formulas (Admin/Managers)**: Go to **Help Desk → Formula Registry** (/smriti-formula-registry) to view, audit, or approve new mathematical formulas used across the platform.
 
 ### 4. Field-by-Field Explanation (SMRITI Formula Definition)
@@ -203,7 +203,7 @@ Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **
 
 ### 5. Example Registry Entry (उदाहरण प्रविष्टि)
 - **Formula ID**: [INV-003](formula:INV-003)
-- **Name**: `Dead Stock Score`
+- **Name**: [Dead Stock Score](dictionary:Dead Stock)
 - **Expression**: `inactive_days * stock_value`
 - **Worked Example**: `Inactive Days = 90 days. Stock Value = ₹10,000. Dead Stock Score = 90 * 10,000 = 900,000.`
 - **Recommended Action**: If score > 500,000, mark for outlet rebalancing or discount clearance.

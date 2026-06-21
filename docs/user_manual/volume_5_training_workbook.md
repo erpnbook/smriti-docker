@@ -31,8 +31,8 @@ This workbook contains 52 practical exercises designed to train new team members
   3. Click **Create Variants**.
 - **Expected Result**: System creates `SF-AERO-SND-7`, `SF-AERO-SND-8`, and `SF-AERO-SND-9`.
 
-### Exercise 4: Setup Store Outlet Account (PSA)
-- **Scenario**: Create a PSA for the showroom of Royal Footwear Pune.
+### Exercise 4: Setup Store Outlet Account ([PSA](dictionary:PSA))
+- **Scenario**: Create a [PSA](dictionary:PSA) for the showroom of Royal Footwear Pune.
 - **Actions**:
   1. Open PSA, click **New**.
   2. Name = `Royal Pune Showroom`, Customer = `Royal Footwear Pune`, Zone = `West`.
@@ -55,7 +55,7 @@ This workbook contains 52 practical exercises designed to train new team members
   3. Click Parse, then Submit.
 - **Expected Result**: Showroom stock balance drops to 88 units.
 
-### Exercise 7: Check Party Stock Ledger
+### Exercise 7: Check [Party Stock Ledger](dictionary:Party Stock Ledger)
 - **Scenario**: Verify the transaction history of `SF-AERO-SND-8` at Royal Pune Showroom.
 - **Actions**:
   1. Open Party Stock Ledger report.
@@ -86,7 +86,7 @@ This workbook contains 52 practical exercises designed to train new team members
 ## Part 2: Stock Auditor Exercises (11 to 20)
 
 ### Exercise 11: Create a Monthly Stock Count Snapshot
-- **Scenario**: Audit Royal Pune Showroom. Counted stock of Size 8 is 70 pairs (Ledger shows 73).
+- **Scenario**: Audit Royal Pune Showroom using a [Physical Snapshot](dictionary:Physical Snapshot). Counted stock of Size 8 is 70 pairs (Ledger shows 73).
 - **Actions**:
   1. Open Physical Snapshot. Select PSA and Audit Date.
   2. Add item `SF-AERO-SND-8`, Qty = 70.
@@ -160,7 +160,7 @@ This workbook contains 52 practical exercises designed to train new team members
   1. Open Reorder Rule. Click New.
   2. Set PSA = `Royal Pune Showroom`, Variant = `SF-AERO-SND-8`, Safety Stock = 20.
   3. Submit.
-- **Expected Result**: PDT calculation uses 20 pairs safety buffer.
+- **Expected Result**: [PDT](dictionary:PDT) calculation uses 20 pairs safety buffer.
 
 ### Exercise 22: Configure Item Group Reorder Rule
 - **Scenario**: Set global safety stock of 10 for all sandals.
@@ -181,11 +181,11 @@ This workbook contains 52 practical exercises designed to train new team members
   1. Click **Create Stock Transfer** on recommendation row.
 - **Expected Result**: Auto-generates Delivery Note request.
 
-### Exercise 25: Adjust Lead Time Settings
+### Exercise 25: Adjust [Lead Time](dictionary:Lead Time) Settings
 - **Scenario**: Supplier delays increase delivery times to 12 days.
 - **Actions**:
   1. Open PSV Settings, set default lead time = 12. Save.
-- **Expected Result**: Stockout predictions adjust forward by 5 days.
+- **Expected Result**: [Stockout Risk](dictionary:Stockout Risk) predictions adjust forward by 5 days.
 
 ### Exercise 26: Exclude Seasonal Items from Rebalancing
 - **Scenario**: Stop transfer suggestions for winter boots in summer.

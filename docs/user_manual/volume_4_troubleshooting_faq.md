@@ -65,7 +65,7 @@ This handbook provides quick resolution steps for common errors and answers 160 
 
 ---
 
-## 3. Party Stock Account (PSA) FAQs & Troubleshooting
+## 3. [Party Stock Account (PSA)](dictionary:PSA) FAQs & Troubleshooting
 
 ### FAQs
 1. **Q: Zone field change karne se calculations par kya effect hoga?**
@@ -83,9 +83,9 @@ This handbook provides quick resolution steps for common errors and answers 160 
 7. **Q: Zone changes require system restart?**
    - A: No. Cache values update in real-time.
 8. **Q: Can PSA hold company stock?**
-   - A: No. PSA is only for distributor or channel stock.
+   - A: No. [PSA](dictionary:PSA) is only for distributor or channel stock.
 9. **Q: Outstanding balances on PSA?**
-   - A: Checked via PSV balance engine.
+   - A: Checked via [PSV](dictionary:PSV) balance engine.
 10. **Q: Active flag checked by hooks?**
     - A: Yes. Delivery Note submits fail if destination PSA is disabled.
 
@@ -185,7 +185,7 @@ This handbook provides quick resolution steps for common errors and answers 160 
 
 ---
 
-## 7. PSV Dashboard FAQs & Troubleshooting
+## 7. [PSV](dictionary:PSV) Dashboard FAQs & Troubleshooting
 
 ### FAQs
 1. **Q: Dashboard data delay?**
@@ -211,7 +211,7 @@ This handbook provides quick resolution steps for common errors and answers 160 
 
 ### Troubleshooting
 - **Error**: `No data returned for selected PSA`.
-  - **Resolution**: Check if active sales uploads exist. Run a manual twin cache rebuild.
+  - **Resolution**: Check if active sales uploads exist for this [PSA](dictionary:PSA). Run a manual twin cache rebuild.
 
 ---
 
@@ -281,7 +281,7 @@ This handbook provides quick resolution steps for common errors and answers 160 
 1. **Q: Sell through period defaults?**
    - A: Standard lookback is 30 days.
 2. **Q: Sell Through formula?**
-   - A: Refer to [Sell Through %](formula:SAL-001) ([SAL-001](formula:SAL-001)): $\frac{\text{Sales Qty}}{\text{Starting Inventory + Receipts}} \times 100$.
+   - A: Refer to [Sell Through %](formula:SAL-001) ([SAL-001](formula:SAL-001)): $\frac{\text{Sales Qty}}{\text{Starting Inventory + Receipts}} \times 100$. See also: [Sell Through](dictionary:Sell Through) glossary.
 3. **Q: Low sell through actions?**
    - A: Implement markdowns, or transfer stock out of the outlet.
 4. **Q: Does it include returns?**
@@ -305,11 +305,11 @@ This handbook provides quick resolution steps for common errors and answers 160 
 
 ---
 
-## 11. PDT Dashboard FAQs & Troubleshooting
+## 11. [PDT](dictionary:PDT) Dashboard FAQs & Troubleshooting
 
 ### FAQs
 1. **Q: Twin State meanings?**
-   - A: `Healthy`, `Monitor`, `Replenish Soon`, `Critical`, `Stockout`, `Overstock`, `Dead Stock`.
+   - A: `Healthy`, `Monitor`, `Replenish Soon`, `Critical`, `Stockout`, `Overstock`, [Dead Stock](dictionary:Dead Stock).
 2. **Q: PDT rebuild lock?**
    - A: Prevents queue storming by checking lock key `pdt_rebuild:{company}:{psa}:{item}`.
 3. **Q: Metadata JSON contents?**

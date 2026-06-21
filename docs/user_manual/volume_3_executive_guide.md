@@ -7,15 +7,15 @@ Welcome to the **SMRITI Retail OS Executive Dashboard & Analytics Guide**. This 
 ## Chapter 1: PSV Dashboard (पार्टी स्टॉक विजिबिलिटी डैशबोर्ड)
 
 ### 1. Purpose (उद्देश्य)
-The **PSV Dashboard** provides a real-time, consolidated view of all network inventory, sales velocities, and stock status across your entire distributor and retail network.
+The **[PSV](dictionary:PSV) Dashboard** provides a real-time, consolidated view of all network inventory, sales velocities, and stock status across your entire distributor and retail network.
 - **Business Problem Solved**: Eliminates blind spots (स्टॉक का पता न होना). Executives see exactly how much stock is in transit, at outlets, and selling daily.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
 The Brand Director of StepFit Shoes opens the dashboard on Monday morning to see:
 - Total Network Stock: **45,000 pairs**
 - Active Outlets: **38 stores**
-- Weekly Sales Velocity: **2,800 pairs**
-- Critical Stockout Warning: **4 stores** in Delhi Region.
+- Weekly [Sales Velocity](dictionary:Sales Velocity): **2,800 pairs**
+- Critical [Stockout Risk](dictionary:Stockout Risk): **4 stores** in Delhi Region.
 
 ### 3. Step-by-Step Dashboard Guide (डैशबोर्ड देखने की प्रक्रिया)
 1. **Menu Path**: SMRITI Home → Dashboards → **PSV Dashboard**
@@ -28,9 +28,9 @@ The Brand Director of StepFit Shoes opens the dashboard on Monday morning to see
 
 | Metric | Simple Explanation | Calculation Example |
 | :--- | :--- | :--- |
-| **Total Channel Stock** | Total stock currently sitting in all partner stores. | Sum of all PSA balances. |
-| **Weekly Sales Velocity** | Number of units sold in the last 7 days. | Sum of sales uploads for the last 7 days. |
-| **Stockout Risk Ratio** | Percentage of active products that are currently out of stock. | $\frac{\text{Out-of-Stock Variants}}{\text{Total Registered Variants}} \times 100$ |
+| **Total Channel Stock** | Total stock currently sitting in all partner stores. | Sum of all [PSA](dictionary:PSA) balances. |
+| **Weekly Sales Velocity** | Number of units sold in the last 7 days. | Sum of [Sales Velocity](dictionary:Sales Velocity) for the last 7 days. |
+| **Stockout Risk Ratio** | Percentage of active products currently out of stock. | $\frac{\text{Out-of-Stock Variants}}{\text{Total Registered Variants}} \times 100$ |
 
 ### 5. Example Dashboard View (उदाहरण दृश्य)
 - **Filters**: Region = `Maharashtra`
@@ -83,7 +83,7 @@ SMRITI flags this style curve as **"Broken"** and lists `7, 8` as missing sizes.
 ## Chapter 3: Outlet Health Score (आउटलेट स्वास्थ्य स्कोर)
 
 ### 1. Purpose (उद्देश्य)
-The **Outlet Health Score** measures the data compliance and operational quality of a store.
+The **[Outlet Health Score](dictionary:Outlet Health Score)** measures the data compliance and operational quality of a store.
 - **Business Problem Solved**: Prevents garbage-in-garbage-out. If a store manager doesn't upload sales daily or fails to submit snapshots, SMRITI's forecasts become unreliable. This score rates the store's data discipline.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
@@ -100,7 +100,7 @@ The score is calculated from:
 ## Chapter 4: Sell Through Analytics (बिक्री-दर विश्लेषण)
 
 ### 1. Purpose (उद्देश्य)
-**Sell Through Analytics** calculates the percentage of received inventory that has been sold to end customers over a lookback period.
+**[Sell Through Analytics](dictionary:Sell Through)** calculates the percentage of received inventory that has been sold to end customers over a lookback period.
 - **Business Problem Solved**: Tells you if stock is actually selling, or just sitting in distributor warehouses.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
@@ -120,14 +120,14 @@ StepFit ships **500 pairs** of Flyrunners to **Pune Plaza**. Pune Plaza sells **
 ## Chapter 5: PDT Dashboard (उत्पाद डिजिटल ट्विन डैशबोर्ड)
 
 ### 1. Purpose (उद्देश्य)
-The **PDT Dashboard** displays the digital twin metrics for every single SKU. 
+The **[PDT](dictionary:PDT) Dashboard** displays the digital twin metrics for every single SKU. 
 - **Business Problem Solved**: Moves operations from reactive ("How much stock do we have?") to predictive ("What will happen to this stock in the next 14 days?").
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
 For `Flyrunner-Blue-8` at Mumbai Grand Mall:
 - **PDT State**: `Critical`
-- **Weekly Velocity**: `21.5 units/week`
-- **Weeks of Cover**: `1.4 weeks`
+- **Weekly Velocity**: `21.5 units/week` ([Sales Velocity](dictionary:Sales Velocity))
+- **[Weeks of Cover](dictionary:WOC)**: `1.4 weeks`
 - **Predicted Stockout Date**: `2026-06-29`
 - **Recommended Action**: Transfer 20 units from Pune.
 
@@ -155,7 +155,7 @@ The **Simulation Sandbox** is a risk-free testing environment. Executives can mo
 - **Business Problem Solved**: Allows strategic planning and testing of business assumptions without corrupting the operational ledger data.
 
 ### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
-The Sales VP wants to run a "Monsoon Discount Campaign" that is expected to increase sales velocity by **1.8x** but will increase transit delays due to rain. They input these parameters in the sandbox and view the simulated weeks of cover and stock-out dates across the network.
+The Sales VP wants to run a "Monsoon Discount Campaign" that is expected to increase [Sales Velocity](dictionary:Sales Velocity) by **1.8x** but will increase transit delays due to rain. They input these parameters in the sandbox and view the simulated [Weeks of Cover](dictionary:WOC) and stockout dates across the network.
 
 ### 3. Step-by-Step Sandbox Guide (सिमुलेशन चलाने की प्रक्रिया)
 1. **Menu Path**: SMRITI Home → Operations → Simulation Sandbox
