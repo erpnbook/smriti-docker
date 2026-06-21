@@ -928,6 +928,9 @@ Any feature lacking complete documentation is considered Incomplete and blocked 
 ### Core Principle
 > "If it is not documented, it is not deployable."
 
+### Rule ID: KGF-DOC-05 — Documentation Registry Requirement
+All SMRITI documentation assets, user manuals, about pages, and governance files must be registered centrally through the `DOCUMENT_REGISTRY` in `help_api.py`. Hardcoding document routes or rendering files that bypass the registry's role-based metadata check is strictly prohibited.
+
 ---
 
 ## SMRITI Knowledge Governance Framework (KGF)
