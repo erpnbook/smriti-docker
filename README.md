@@ -1,113 +1,90 @@
+# SMRITI Retail OS™
+
 <div align="center">
   <img src="apps/smriti_retail_os/smriti_retail_os/public/images/logo.svg" alt="SMRITI Retail OS" width="120" />
-  <h1>SMRITI Retail OS™</h1>
-  <p><b>Developed by AITDL | Powered by ERPNext® & Frappe® Framework</b></p>
+  <h2>Developed by AITDL</h2>
+  <p><b>Powered by ERPNext® & Frappe® Framework</b></p>
   <p>SMRITI Retail OS is a Retail Intelligence Platform that extends ERPNext through advanced operational, analytical, and governance capabilities. 🚀</p>
   <p><b>Stable Production Release: <code>v1.2.10</code></b></p>
 </div>
 
 ---
 
-## ⚡ What is SMRITI Retail OS?
+## 1. Product Identity
 
-SMRITI Retail OS is a modern, high-performance retail platform designed specifically to handle complex inventory structures, rapid customer checkouts, and multi-store operations. It provides business operators and cashiers with a beautiful, distraction-free environment to manage sales billing, merchandising, and warehouse workflows.
-
----
-
-## ✨ Features
-
-- **Smart Billing**: Cashier-focused POS terminal with barcode scanning, hold/recall queues, and security-gated manager overrides.
-- **Purchase Management**: Streamlined vendor procurement, pricing controls, and Goods Receipt Note (GRN) mappings.
-- **Inventory Control**: Real-time stock counts, sizing matrix conversions, and automated store-to-store material transfers.
-- **Barcode Center**: Unique EAN-13 namespace allocations, primary/secondary barcode registries, and duplicate protection.
-- **Label Studio v2.1**: In-browser barcode template designer with raw ZPL/TSPL stream printing over local USB or network LAN sockets.
-- **Sizewise Sales**: Sizewise matrix invoice entries with keyboard-wedge HID scanner support.
-- **GST Ready**: Automated HSN code lookup tax derivation and compliant tax splits for Indian states.
-- **Multi-Store Operations**: Centralized company controls with independent warehouse registers per retail outlet.
-- **Setup Wizard**: 5-step onboarding wizard for rapid site provisioning.
-- **Docker Deployment**: Fully containerized orchestration stack for local and cloud hosting.
+* **Official Name**: SMRITI Retail OS™
+* **Developer Entity**: AITDL – AI Technology & Development Lab
+* **Attribution Requirement**: All primary public-facing interfaces and manuals must display the following attribution notice:
+  > **SMRITI Retail OS™**  
+  > Developed by AITDL  
+  > Powered by ERPNext® & Frappe® Framework
 
 ---
 
-## ⚡ Quick Install
+## 2. Architecture Overview
 
-Ensure Docker Desktop and Git are installed and running, then execute the command for your OS:
+SMRITI Retail OS follows an experience-first, API-driven architecture model designed to decouple the frontend user experience from backend schema structures:
 
-### Windows (PowerShell)
-```powershell
-git clone https://github.com/erpnbook/smriti-docker.git smriti_retail
-cd smriti_retail
-PowerShell -ExecutionPolicy Bypass -File .\install.ps1
+```text
+       SMRITI Retail OS (Custom Frontend & www pages)
+                           ↓
+                 Service APIs & Controllers
+                           ↓
+                  Frappe Framework Layer
+                           ↓
+                     ERPNext Core
+                           ↓
+                     Database Layer
 ```
 
-### Linux / macOS (Bash)
-```bash
-git clone https://github.com/erpnbook/smriti-docker.git smriti_retail
-cd smriti_retail
-bash install.sh
-```
+* **ERPNext Backend**: Retains role as the primary System of Record for accounting, general ledger, taxes (GST), sales/purchase invoices, inventory valuation, stock ledger, and warehouse/customer master data.
+* **SMRITI Frontend Layer**: Owns POS cashier checkout, operational store workflows, replenishment reorders, shadow ledgers for distributor inventory, and the explainable metrics reporting dashboard.
 
 ---
 
-## 🔒 Security Configuration Note
+## 3. Core Subsystems & Modules
 
-The master `Administrator` account is provisioned dynamically during the onboarding wizard. 
-- **DO NOT** use default passwords in production.
-- Operators must configure a secure, unique password inside the Setup Wizard on first boot.
+SMRITI extends ERPNext through five specialized business intelligence engines:
 
-Once setup is complete, access the platform endpoints:
-- **Cashier Billing Terminal**: `http://localhost:8765/billing` (isolated checkout login)
-- **Manager Desk**: `http://localhost:8765/app` (administration portal login)
-
-### Access
-Local machine : http://localhost:8765
-LAN access    : http://<server-ip>:8765
-Internet      : Not exposed by default (router port-forward required)
-
-Internal container port:
-8080 (Docker internal only)
+* **Predictive Distribution Twin (PDT)**: Real-time stock coverage analytics, sales velocity tracking, and safety stock reorder alerting.
+* **Channel Governance Engine (CGE)**: Enforces validation rules, price list resolutions, and exception-handling schemes across all channel connections.
+* **Party Stock Visibility (PSV) & PSA**: Shadow ledger architecture providing real-time tracking of distributor-held channel stock without altering ERPNext stock ledger entries.
+* **SMRITI Formula Registry**: Centralized registry for all computed retail KPIs (e.g., GMROI, WOC, dead stock scores, scan reliability scores) to enforce formula consistency.
+* **SMRITI Explain Engine**: Context-specific **ⓘ Explain** modals integrated across dashboards to break down math formulas and recommended actions for store staff.
 
 ---
 
-## 🗺️ Documentation Index
+## 4. Attribution & Branding Guidelines
 
-For detailed technical references, operational guides, and version histories, consult the specialized manuals:
-
-- 🧙‍♂️ **[INSTALL.md](./INSTALL.md)**: Onboarding instructions, including manual container setup and the 5-step onboarding wizard guide.
-- 🏷️ **[LABEL_STUDIO.md](./LABEL_STUDIO.md)**: Label Studio v2.1 operator manual (designing templates, USB printing, direct LAN connections, and print analytics).
-- 🚀 **[DEPLOYMENT.md](./DEPLOYMENT.md)**: Deployment parameters, environment files, and Backup/Restore/Disaster Recovery runbooks.
-- 🛠️ **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)**: Troubleshooting index for ports, asset pipelines, and local device connectivity.
-- 📋 **[CHANGELOG.md](./CHANGELOG.md)**: Releases history (Keep a Changelog format) and automated test suite metrics.
-- 🏗️ **[ARCHITECTURE.md](./ARCHITECTURE.md)**: Master architecture guide detailing container mapping, API layers, and data flows.
+* **Trademark Policy**: Compound branding that implies ERPNext is co-branded or owned by SMRITI is strictly prohibited. Use "SMRITI Retail OS™ powered by ERPNext®".
+* **Domain Policy**: Partner, reseller, or store domains must not contain "erpnext" or "frappe". Approved placeholders for development/testing: `erpnbook.com`, `smriti.aitdl.com`, `yourdomain.com`.
 
 ---
 
-## 📊 Module Release Readiness Matrix
+## 5. Licensing Notice
 
-The following matrix tracks the status of SMRITI's core subsystems:
-
-| Module              | Status                      |
-| ------------------- | --------------------------- |
-| Setup Wizard        | ✅ Stable                    |
-| Masters             | ✅ Stable                    |
-| Billing Engine      | ✅ Stable                    |
-| Purchase            | ✅ Stable                    |
-| Inventory           | ✅ Stable                    |
-| Sizewise Invoice    | ✅ Stable                    |
-| Barcode Center      | ✅ Stable                    |
-| Label Studio v2.1   | ✅ Stable                    |
-| Analytics Dashboard | ⚠️ Requires Production Data |
-| USB/QZ Printing     | ⚠️ Pilot Validation         |
-| LAN Printing        | ⚠️ Pilot Validation         |
-| SmartPOS Framework  | 🚧 Ongoing Expansion        |
+* **License**: SMRITI Retail OS is released under the **MIT License**.
+* **Copyright**: Copyright © 2026 AITDL NETWORK & ERPNbook.com. All Rights Reserved.
+* **Attributions**: All open-source licensing notices for ERPNext and Frappe must be preserved in source code files.
 
 ---
 
-## ✅ Continuous Integration & Quality Gates
+## 6. Documentation Links
 
-SMRITI enforces 100% test passing gates prior to production releases:
-- **Quality Gate**: **94/94 passing automated tests** in the test suite.
-- Run tests at any time in the backend container:
-  ```bash
-  docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
-  ```
+Refer to the primary developer and operator manuals below:
+
+* 🧙‍♂️ **[INSTALL.md](./INSTALL.md)**: Onboarding instructions, environment setup, and the 5-step onboarding wizard guide.
+* 🏷️ **[LABEL_STUDIO.md](./LABEL_STUDIO.md)**: Label Studio v2.1 operator manual (designing templates, USB printing, direct LAN connections, and print analytics).
+* 🚀 **[DEPLOYMENT.md](./DEPLOYMENT.md)**: Deployment parameters, environment files, and Backup/Restore/Disaster Recovery runbooks.
+* 🛠️ **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)**: Troubleshooting index for ports, asset pipelines, and local device connectivity.
+* 📋 **[CHANGELOG.md](./CHANGELOG.md)**: Release history (Keep a Changelog format) and automated test suite metrics.
+* 🏗️ **[ARCHITECTURE.md](./ARCHITECTURE.md)**: Master architecture guide detailing container mapping, API layers, and data flows.
+
+---
+
+## 7. Governance Links
+
+Centralized platform standards and AI policies:
+
+* ⚖️ **[BRD-01 Branding & Attribution Standard](./docs/governance/BRD-01_BRANDING_ATTRIBUTION_DOCUMENTATION.md)**: Official guidelines for product names, attributions, dynamic footers, and domain names.
+* 🤖 **[AI Content Policy (AI-GOV-01)](./docs/governance/AI_CONTENT_POLICY.md)**: Directives for AI coding agents generating code, manuals, explanations, and metadata.
