@@ -72,8 +72,8 @@ Every chapter in the SMRITI User Manuals must follow this structure:
 
 ## 6. Open Source Attribution Policy
 
-1. **Preserving Notices**: SMRITI Retail OS incorporates and extends open-source technologies (e.g., ERPNext® and Frappe® Framework). Attribution to these technologies must be preserved where legally required under their respective licenses.
-2. **No Unlicensed Modification**: No developer, partner, or reseller may remove, alter, or mask required open-source notices, licenses, or copyrights from source distributions or web-facing footers.
+1. **Attribution Preservation**: SMRITI Retail OS incorporates and extends open-source technologies. Attribution to ERPNext® and Frappe® shall be preserved where legally required.
+2. **No Alterations**: No developer, partner, or reseller may remove required open-source notices or licenses from source distributions or public website footers.
 
 ---
 
