@@ -35,6 +35,8 @@
 22. [SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)](#22-smriti-predictive-hub--cge-sidebar-integration-v221)
 23. [SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (v2.4.0)](#23-smriti-barcode-studio-v24a-layout--operations-upgrade-v240)
 24. [SMRITI Barcode Scan Telemetry Collection Framework (v2.4.0)](#24-smriti-barcode-scan-telemetry-collection-framework-v240)
+25. [SMRITI Landed Cost Allocation Module (v2.5.0)](#25-smriti-landed-cost-allocation-module-v250)
+26. [SMRITI Reporting Governance & Security Auditing Framework (v2.5.0)](#26-smriti-reporting-governance--security-auditing-framework-v250)
 
 
 ---
@@ -649,6 +651,40 @@ SMRITI Retail OS v2.4.0 implements the **Barcode Scan Telemetry Collection Frame
     $$SRS = \left( \frac{FirstPassSuccesses + 0.5 \times RetrySuccesses}{TotalScans} \right) \times 100$$
 *   **Security & Role Enforcement**: Telemetry submit API (`log_barcode_scan_event`) enforces authentication and restricts submission to `System Manager`, `SMRITI POS User`, `POS User`, `SMRITI Store Manager`, and `SMRITI Cashier` roles.
 *   **Author Profile & Credibility (Rule 12)**: Designed by Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab) and AITDL core team.
+
+---
+
+## 25. SMRITI Landed Cost Allocation Module (v2.5.0)
+
+SMRITI Retail OS v2.5.0 introduces the **Landed Cost Allocation** module (ACP-LANDEDCOST-01). It is designed as an analytical shadow-ledger costing layer that computes landed costs on top of ERPNext transaction records without mutating the core stock ledger valuation (`valuation_rate`) or general ledger, preserving SMRITI's SEL (Sophisticated Experience Layer) boundaries.
+
+### Key Capabilities
+
+*   **Shadow Ledger Costing**: Operates purely as an analytical layer. It reads standard ERPNext documents (Purchase Receipts, Purchase Invoices) and builds a secure, independent costing profile without database write side-effects on standard accounting balances.
+*   **Manual Cost Persistence (G1 Table)**: Integrates the `SMRITI Landed Cost Manual Allocation` child DocType (`manual_allocations` table) to persist row-level custom allocations. Map rows using stable Frappe child-row names (`cost_line_ref` and `purchase_receipt_row`), preventing positional index shift errors between saves.
+*   **Unit Landed Cost Update (G2 Rule)**: Updates the custom `estimated_landed_cost_last` field on the `Item` master. Runs a 2-tier chronological tiebreaker query on submit (`posting_date` as primary comparison, `creation` as tiebreaker) to guarantee that only the newest submitted allocation updates the master SKU cost.
+*   **Safe Reversion on Cancellation (G3 Rule)**: On cancellation, the engine scans the `SMRITI Allocation Audit Snapshot` table to find the chronologically newest remaining submitted allocation for each affected SKU. Reverts the item's `estimated_landed_cost_last` to that value, or resets it to the standard `valuation_rate` if no allocations remain.
+*   **Performance Optimization (G4 Rule)**: Prevents N+1 database queries during submission by caching receipts and pre-calculating total quantities in local variables prior to allocation loops.
+*   **Stock Item Scope (G5 Rule)**: Excludes service and non-stock lines (`is_stock_item = 0`) from all base purchase value, total quantity, and allocation loop calculations, ensuring landed costs only accrue to physical assets.
+*   **Penny Rounding Adjustment (G6 Rule)**: Detects decimal discrepancies (rounding difference between the Cost Line amount and sum of allocated amounts) and automatically applies the discrepancy to the last active stock item row per cost line.
+*   **Strict Currency Match (G7 Rule)**: Enforces that referenced invoices must exactly match receipt currencies (`inv.currency == doc.currency`) to prevent foreign exchange rate conversion risks in Phase 1.
+*   **Client Script Defaults (G8 Rule)**: Auto-populates `allocation_basis` with the parent document's `allocation_method` value upon row insertion for improved user experience.
+*   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
+
+---
+
+## 26. SMRITI Reporting Governance & Security Auditing Framework (v2.5.0)
+
+SMRITI Retail OS v2.5.0 implements the **Reporting Governance & Security Auditing Framework** (ACP-REPORTS-001) to control report execution, prevent cross-tenant cache leakage, and secure exported data.
+
+### Key Capabilities
+
+*   **Tenant Cache Partitioning (FRZ-REP-003)**: Isolates Redis caching per active tenant namespace. Ensures report caches remain secure and prevents unauthorized access to cached datasets in multi-tenant environments.
+*   **Export Logging & Auditing (FRZ-REP-004)**: Registers and logs all data export requests in the Activity Logs. User role permissions take precedence over report definitions during export operations.
+*   **Optimistic Concurrency Control (FRZ-REP-005)**: Prevents race conditions and template overwrites during concurrent report modifications by enforcing template checksum validation before saving.
+*   **Explainability & Dictionary Integration**: Report execution parses and verifies business terms against `SMRITI Business Dictionary` (`KAR-01`/`KGF-01`), rendering metrics transparency and live worked examples in the UI.
+*   **Report Projection Recovery**: Resolves SELECT projection aliases deterministically when business dictionary terms are missing, while blocking subqueries, guarding reserved keywords, and logging explainability audit events.
+*   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*

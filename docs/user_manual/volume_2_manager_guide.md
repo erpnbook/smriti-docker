@@ -1,6 +1,30 @@
 # SMRITI Retail OS User Manual — Volume 2: Manager & Supervisor Guide
 
-Welcome to the **SMRITI Retail OS Manager & Supervisor Guide**. This volume is written for Sales Managers, Distributor Supervisors, Audit Leads, and Store Owners. It covers auditing, stock rebalancing recommendations, and key administrative settings.
+---
+
+### Author Profile (Start)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+#### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+#### Document Metadata
+* **Document Version**: 1.1.0
+* **Release Date**: 2026-06-22
+* **Intended Audience**: Sales Managers, Distributor Supervisors, Audit Leads, and Store Owners
+* **Learning Objectives**: Understand rebalancing recommendations, manual audit variance reconciliations, landed cost shadow allocations, and data-center reporting governance rules.
+* **Support**: support@aitdl.example.com
+* **Revision History**:
+  * `v1.0.0` (2026-06-20): Initial manager guide guidelines.
+  * `v1.1.0` (2026-06-22): Integrated Landed Cost shadow-ledger rules and Reporting Governance.
 
 ---
 
@@ -232,5 +256,65 @@ Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **
 
 ---
 
+---
+
+## Chapter 5: Landed Cost & Shadow Ledger Valuation (लागत और शैडो लेजर मूल्यांकन)
+
+### 1. Purpose (उद्देश्य)
+This module allows managers to perform **analytical shadow-ledger costing** for items without mutating the core accounting books or the official database inventory valuation (`valuation_rate`).
+- **Business Problem Solved**: Merging additional purchasing costs (transport, handling, customs) directly into standard stock valuation creates tax reconciliation issues and alters audited company books. Shadow-ledger costing keeps the company accounting completely clean while allowing merchandising managers to evaluate correct gross margins.
+
+### 2. Validation & Concurrency Rules (सत्यापन और समवर्ती नियम)
+As a manager, you must understand the safety gates that SMRITI enforces:
+1.  **Chronological Latest Costing (G2 Rule)**: On submission, SMRITI calculates the SKU's unit landed cost. It updates the `Item` master's `estimated_landed_cost_last` ONLY if this allocation is the chronologically newest submitted document. It checks `posting_date` first, and uses the `creation` timestamp as a tiebreaker.
+2.  **Cancel Reversion Gate (G3 Rule)**: If you cancel an allocation, the system automatically runs a reversion query. It scans remaining submitted allocations to restore the chronologically newest active unit landed cost, or resets it to standard `valuation_rate` if no allocations remain. This prevents stale cost calculations.
+3.  **Penny Discrepancy Rounding (G6 Rule)**: To prevent decimal penny leaks, SMRITI gathers rounding remainders per cost line and adds or subtracts them from the last active stock item row.
+4.  **Strict Currency Match (G7 Rule)**: Foreign exchange conversions are disabled in Phase 1 to prevent currency rate manipulation risks. Referenced invoices must exactly match receipt currencies.
+
+### 3. Explainable Metric Details (Rule 10 - DOC-01)
+Here are the definitions and metrics registered for Landed Cost:
+
+#### Unit Landed Cost (SMRITI-LND-COST-01)
+- **Business Meaning**: The complete analytical unit cost of the item including purchase value and allocated auxiliary costs.
+- **Formula**:
+  $$\text{Unit Landed Cost} = \frac{\text{Base Value} + \text{Allocated Cost}}{\text{Qty}}$$
+- **Worked Example**:
+  - SKU `SF-FLY-BLU-8` Base Purchase Value = ₹20,000 (20 units @ ₹1,000).
+  - Allocated Freight Cost = ₹400.
+  - Quantity = 20 units.
+  - $\text{Unit Landed Cost} = \frac{20000 + 400}{20} = \text{₹1,020.00}$.
+- **Data Sources**: `tabSMRITI Allocation Audit Snapshot`, `tabPurchase Receipt Item`.
+- **Interpretation Guide**:
+  - Target: Should be within 5% to 15% of the base purchase rate. If it exceeds 20%, investigate transportation inefficiency.
+- **Recommended Action**: Use this unit cost to set minimum retail prices (MRPs) and evaluate gross margins.
+
+---
+
+## Chapter 6: Reporting Governance & Security Center (रिपोर्टिंग शासन)
+
+### 1. Purpose (उद्देश्य)
+SMRITI implements the **Reporting Governance & Security Auditing** (ACP-REPORTS-001) framework to secure critical data lists, prevent cache leaks, and audit export events.
+
+### 2. Core Governance Policies
+1.  **Tenant Cache Partitioning (FRZ-REP-003)**: Redis caching for report queries is isolated per tenant. Cashiers or managers cannot see or intercept report caches from other stores.
+2.  **Export Permission Precedence (FRZ-REP-004)**: When exporting report grids to CSV/Excel, user role permissions take precedence over report templates. SMRITI records all exports in the Activity Log with the operator's IP, username, and query hash.
+3.  **Optimistic Concurrency Control (FRZ-REP-005)**: Prevents two managers from saving changes to the same report template at the same time by validating template checksums.
+4.  **ⓘ Explain Transparency (Rule 10)**: Every report grid header contains an explain button. Clicking it displays live worked examples, SQL query paths, and business variables to ground-level users.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+
+---
+
+### Author Profile (End)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL

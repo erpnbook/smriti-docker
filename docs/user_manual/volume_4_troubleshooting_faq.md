@@ -592,6 +592,58 @@ This handbook provides quick resolution steps for common errors and answers Freq
 - **Error**: `A valid Store (Warehouse) is required to log telemetry`.
   - **Resolution**: SMRITI requires a default warehouse configuration to register scan origins. Set up warehouse structure or standard company defaults under SMRITI Company settings parameters.
 
+## 20. Landed Cost Allocation FAQs & Troubleshooting
+
+### FAQs
+1. **Q: Landed Cost shadows value mutate/change core stock ledger directly?**
+   - A: Nahi. Landed Cost shadow-ledger implementation purely analytical costing layer hai, jo standard stock ledger (`valuation_rate`) and general ledger balances ko zero-mutate rules ensure karta hai.
+2. **Q: Manual Allocation options sheet levels par changes save/persist kaise hote hain?**
+   - A: `SMRITI Landed Cost Manual Allocation` custom table G1 rule according row-level inputs key names (`cost_line_ref`, `purchase_receipt_row`) database permanent write check provide karte hain, jisse index shifts issues solve hote hain.
+3. **Q: Landed Cost latest unit cost values Item master par updates trigger check cascade criteria?**
+   - A: Submission logic G2 chronological checks rules evaluate karta hai: (1) `posting_date` (primary), (2) `creation` datetime (tiebreaker) latest records only updates standard target fields.
+4. **Q: Cancel allocation state items values reverse rules?**
+   - A: Cancel event G3 rule according automatically remaining submitted allocation logs check run values reverse/reset default valuation rate check resolve target outputs.
+5. **Q: Service item charges (warranty, loading fees) cost absorption limit?**
+   - A: SMRITI G5 checks automatically non-stock service lines (`is_stock_item = 0`) calculations parameters and loops loop bounds se remove rules strict check filters enforce karti hai.
+6. **Q: Proportional penny discrepancies round adjustment rule?**
+   - A: Proportional divisions fractions remainders adjustments decimal differences SMRITI auto-balance check last active stock item row add/subtract perform balance zero logic maintain karti hai.
+7. **Q: Multi-currency invoice entries rates matching limits?**
+   - A: Phase 1 rules strict currency check `inv.currency == doc.currency` constraint assert block check validation throws.
+8. **Q: Allocation Method Qty and Value selections base?**
+   - A: Value division weights item value base, Qty division weights base units count relative allocation ratio split checks perform map target values.
+
+### Troubleshooting
+- **Error**: `Value-basis allocation is prohibited when Total Base Purchase Value = 0`.
+  - **Resolution**: Grid rows check configuration. Agar stock items value 0 zero default setup checks pass, Allocation Method parameters to Qty or Manual edit update confirm.
+- **Error**: `Currency mismatch: Referenced Invoice ... is in USD, Receipts are in INR`.
+  - **Resolution**: Strict domestic currency boundaries active, invoice reference details matches receipts base transaction code update.
+- **Error**: `Supplier mismatch for Same Vendor Bill`.
+  - **Resolution**: Confirm if invoice supplier matches receipt supplier. Third Party Bill selection toggle update parameters.
+
+---
+
+## 21. Reporting Governance & Security Auditing FAQs & Troubleshooting
+
+### FAQs
+1. **Q: Report run execution and SELECT projection mapping dynamic recovery logic kyu use hoti hai?**
+   - A: Report parameters query dictionary check terms reference absence recovery mapping select query aliases automatically pull details trace event SMRITI Audit logs write checks perform maps.
+2. **Q: Tenant Cache Partitioning controls standard cached reports parameters isolates?**
+   - A: Multi-tenant database layers memory protection boundaries isolate Redis cache pointers, client session matching scopes restrict cross-tenant views access leak.
+3. **Q: Optimistic Concurrency check template blocks overwrite operations?**
+   - A: Saving report updates template checksum validation matches database values, conflicts detection blocks template updates if concurrent modifications found.
+4. **Q: Explainable metrics transparency modal details what inputs check parameters?**
+   - A: ⓘ Explain selection popup live worked examples formulas dictionary definitions interpretation bands indicators user view dashboard displays.
+5. **Q: Excel/CSV export logging permission limits?**
+   - A: User role permissions overrides report templates rules. Export event audits operator username target query hashes security activity logs write check.
+
+### Troubleshooting
+- **Error**: `Validation Error: Column ... alias resolved keyword is reserved`.
+  - **Resolution**: SELECT aliases list verify query. System metadata names matches (e.g. parent, docstatus, owner) change update aliases keys.
+- **Error**: `Tenant Cache validation signature mismatch`.
+  - **Resolution**: Clear cached assets terminal command database clear-cache execute restore matching state indices.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
 

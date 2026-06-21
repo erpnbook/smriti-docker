@@ -4,6 +4,34 @@ title: Getting Started
 
 # Getting Started
 
+---
+
+### Author Profile (Start)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+#### Author Note
+This developer guide is written to align technical engineers with the SMRITI platform guidelines, database structures, security protocols, and testing frameworks. Standardize code formats and conform to all locked constraints.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+#### Document Metadata
+* **Document Version**: 1.1.0
+* **Release Date**: 2026-06-22
+* **Intended Audience**: SMRITI Core Engineering & Platform Integrators
+* **Learning Objectives**: Setup local benches, connect containers, construct whitelisted controllers, run unit tests, and implement Landed Cost & Reporting Governance protocols.
+* **Support**: support@aitdl.example.com
+* **Revision History**:
+  * `v1.0.0` (2026-06-20): Initial dev setup guide.
+  * `v1.1.0` (2026-06-22): Integrated Landed Cost shadow-ledger architecture and Reporting Governance.
+
+---
+
 ## Prerequisites
 
 In order to start developing you need to satisfy the following prerequisites:
@@ -444,3 +472,37 @@ This script will install required deps, enable X11Forwarding and restart SSH dae
 
 To use Mailpit just uncomment the service in the docker-compose.yml file.
 The Interface is then available under port 8025 and the smtp service can be used as mailpit:1025.
+
+---
+
+## Landed Cost Allocation Architecture (ACP-LANDEDCOST-01)
+
+SMRITI Landed Cost Allocation is implemented as an analytical shadow-ledger layer. Core guidelines:
+1. **Immutable Audit Snapshot**: On submit, the calculated cost breakdown per receipt row is serialized and written to `tabSMRITI Allocation Audit Snapshot`.
+2. **Item cost updates**: Updates the `estimated_landed_cost_last` on `tabItem`. The update checks `check_if_latest_allocation(sku, posting_date, creation)` to ensure chronologically newer transactions take precedence.
+3. **Reversion on Cancel**: The `on_cancel` method performs a query against remaining submitted snapshot records to restore the chronologically newest active landed cost, falling back to `valuation_rate` if none exist.
+4. **Validation rules**:
+   - Filter out non-stock items (`is_stock_item = 0`).
+   - Validate strict currency equivalence (`inv.currency == doc.currency`).
+   - Validate supplier matching for `Same Vendor Bill` source types.
+
+---
+
+## Reporting Governance Implementation (ACP-REPORTS-001)
+
+1. **Tenant Cache Partitioning**: Prefix and isolate Redis keys per tenant (`smriti:explain:{tenant}:{formula_id}:{version}`).
+2. **Export Security Precedence**: Export endpoints must enforce role checks first (`check_export_permissions(user)`), which override template-specific settings.
+3. **Optimistic Concurrency**: Enforce SHA-256 validation of the template schema payload on save to block concurrent overwrites.
+
+---
+
+### Author Profile (End)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL

@@ -1,6 +1,30 @@
 # SMRITI Retail OS User Manual — Volume 1: Daily Operations Guide
 
-Welcome to the **SMRITI Retail OS Daily Operations Guide**. This manual is designed for store operators, salesmen, stock auditors, and distributor managers. You do not need any technical background, coding skills, or database knowledge to use SMRITI. We explain everything using simple business language, practical retail examples, and Hinglish (mixed English and Hindi) explanations where helpful.
+---
+
+### Author Profile (Start)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+#### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+#### Document Metadata
+* **Document Version**: 1.1.0
+* **Release Date**: 2026-06-22
+* **Intended Audience**: Store Operators, Salesmen, Stock Auditors, and Distributor Managers
+* **Learning Objectives**: Learn how to operate SMRITI customer masters, item masters, sales uploads, physical stock counts, and daily landed cost entries.
+* **Support**: support@aitdl.example.com
+* **Revision History**:
+  * `v1.0.0` (2026-06-20): Initial daily operations guidelines.
+  * `v1.1.0` (2026-06-22): Integrated Landed Cost Allocation daily workflows.
 
 ---
 
@@ -359,5 +383,67 @@ They submit a Physical Snapshot of 82 units.
 
 ---
 
+---
+
+## Chapter 7: Landed Cost Allocation (लागत आवंटन)
+
+### 1. Purpose (उद्देश्य)
+The **Landed Cost Allocation** module allows you to allocate additional purchase costs (like freight, custom duty, cartage, and insurance) to the base rate of stock items.
+- **Business Problem Solved**: Without landed cost allocation, you only see the raw purchase price of items. Additional expenses are lost in general expense accounts, making margin calculations incorrect. Landed Cost updates the unit landed cost of each SKU analytically in SMRITI.
+
+### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
+StepFit Shoes buys 100 pairs of `Flyrunner-Blue-8` from a manufacturer at ₹1,000 per pair.
+You also pay a transport company ₹2,000 for shipping.
+By allocating this ₹2,000 to the 100 shoes, each shoe gets a landed cost of ₹1,020. Your actual profit margin is calculated using ₹1,020, not ₹1,000.
+
+### 3. Step-by-Step Entry Process (प्रविष्टि प्रक्रिया)
+1. **Menu Path**: SMRITI Home → Inventory → Landed Cost Allocation → **New Landed Cost Allocation**
+2. **Link Purchase Receipts**: Under the **Purchase Receipts** table, select the submitted Purchase Receipts that you received from your supplier.
+3. **Add Cost Lines**: Under the **Cost Lines** table, add each expense line. Select the **Cost Component** (e.g. Transport Charges), enter the **Amount**, and choose the **Allocation Basis** (Value or Qty).
+4. **Choose Allocation Method**: Choose the main proportional basis (Value or Qty).
+5. **Save & Submit**: Save the document as a Draft, review the calculated landed costs, and click **Submit** to finalize the allocation.
+
+### 4. Field-by-Field Explanation (फील्ड स्पष्टीकरण)
+
+| Field Name | Type | Mandatory? | Explanation | Example Value |
+| :--- | :--- | :--- | :--- | :--- |
+| **Company** | Link | **Yes** | Company entity. | `StepFit Shoes` |
+| **Supplier** | Link | **Yes** | Supplier from whom receipts were obtained. | `Metro Footwear Ltd.` |
+| **Allocation Method** | Select | **Yes** | Distribution basis: `Value` (proportional to price) or `Qty` (proportional to units). | `Qty` |
+| **Cost Component** | Link | **Yes** | Type of expense. | `Freight Charges` |
+| **Amount** | Currency | **Yes** | Expense amount in local currency. | `2,000.00` |
+| **Source Type** | Select | No | Source of cost: `Same Vendor Bill` or `Third Party Bill`. | `Third Party Bill` |
+
+### 5. Common Mistakes (सामान्य गलतियां)
+- **Currency mismatch**: Linking a USD purchase invoice to an INR receipt row. SMRITI Phase 1 enforces strict currency match (`inv.currency == doc.currency`).
+- **Including service lines**: Attempting to allocate landed cost to non-stock service lines like warranty fees. SMRITI automatically filters out non-stock items (`is_stock_item = 0`).
+
+### 6. FAQs
+1. **Does this modify our ERPNext stock value directly?**
+   - No. It updates SMRITI's analytical shadow-ledger value (`Item.estimated_landed_cost_last`) used in SMRITI Margin Reports.
+2. **Can we allocate custom amounts per row?**
+   - Yes. Select `Manual` as the allocation basis, and fill in specific amounts for each receipt row in the manual allocation grid.
+
+### 7. Troubleshooting (समस्या निवारण)
+- **Error**: `Currency mismatch on Cost Line`.
+  - **Resolution**: Ensure the referenced Purchase Invoice currency matches the Purchase Receipt currency exactly.
+- **Error**: `Supplier mismatch for Same Vendor Bill`.
+  - **Resolution**: Change the Source Type to `Third Party Bill`, or verify that the invoice supplier matches the receipt supplier.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+
+---
+
+### Author Profile (End)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
