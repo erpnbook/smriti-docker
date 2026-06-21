@@ -242,15 +242,16 @@ PSV 1.3       CANDIDATE 🔵
 CGE v2 (2.0)  PILOT ACTIVE 🟡  228 tests
 ```
 
-### Phase 2 — FMCG Pilot Expansion & PSV Phase 1.2
-- 🔲 Deploy to Client #2 (FMCG Distributor) post-Phase 1 stabilization
-- 🔲 Build PSV Mobile Audit UI & Replenishment Queue
-- 🔲 Track PSV Phase 1.2 features (automated stock transfer orders on suggestion acceptance, multi-warehouse consolidated metrics)
+### Phase 2 — Customer Intelligence Layer & Clienteling (ACTIVE)
+- 🔲 **Walk-In Intelligence**: Visitor event tracking and conversion percentage KPIs.
+- 🔲 **Clienteling Engine**: Derived customer brand, category, size, and executive preferences at POS.
+- 🔲 **PDT POS Integration**: Realtime high-confidence purchase recommendations for cashiers.
 
-### Phase 3 — Enterprise Features
-- 🔲 Dedicated hashed PIN field for managers (`custom_smriti_pin`)
-- 🔲 PWA offline mode expansion for standalone billing
-- 🔲 AI Inventory Predictor / Smart Barcode Resolver
+### Phase 3 — AI Retail Copilot & Gamification
+- 🔲 **Performance Index**: Relationship Revenue Index, Retention Influence Score, and Growth Contribution.
+- 🔲 **Gamification**: Leaderboard badges, custom incentive campaigns integrated with CGE.
+- 🔲 **AI Copilot**: Full end-to-end retail assistant loop connecting PDT, Clienteling, POS checkout, and CGE.
+
 
 ---
 
