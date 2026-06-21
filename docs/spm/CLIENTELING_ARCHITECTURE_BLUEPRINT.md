@@ -9,7 +9,7 @@
 * **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
 
 #### Author Note
-This architecture blueprint defines the next logical milestone of SMRITI Retail OS: the Customer Intelligence Layer. By converting transactional, loyalty, and predictive data into a unified, read-only clienteling layer at the POS checkout, we empower sales associates to deliver personalized, high-conversion customer interactions.
+This architecture blueprint defines the Customer Intelligence Layer of SMRITI Retail OS. By consolidating transactional, loyalty, and predictive data into a unified, read-only Customer Graph, we provide a single source of truth for Clienteling, Product Digital Twin, and AI Copilot engines.
 
 > "Light begins with learning."
 > 
@@ -20,27 +20,49 @@ This architecture blueprint defines the next logical milestone of SMRITI Retail 
 
 ## 1. Domain Scope & Bounded Context
 
-As part of the **SMRITI Customer Intelligence Layer**, the **Clienteling Engine** translates multi-channel transactions, CGE marketing metrics, and PDT predictive insights into actionable ground-level store execution at the POS.
+The **Clienteling Engine** sits under the Customer Intelligence Layer of SMRITI Retail OS. It operates on top of the newly introduced **Unified SMRITI Customer Graph** layer.
 
 ```
-CGE (Campaigns / Loyalty)
-     ↓
-SFM (Sales Attribution)
-     ↓
-SFC (Ledger Payouts)
-     ↓
-CLIENTELING (POS Personalization)
+Customer Growth (CGE)  ──┐
+Sales Force (SFM/SFC) ──┼─→ SMRITI Customer Graph ──→ Clienteling ──→ POS Overlays
+Demand / AI (PDT)     ──┘
 ```
-
-- **Read-Only Bounded Context**: `SMRITI Customer Profile` is a strictly derived, read-only document. Store associates, cashiers, and managers cannot manually edit or overwrite clienteling profile metrics. All values are auto-computed from historical data.
-- **POS Checkout Integration**: When a customer is selected at the POS, the terminal automatically retrieves the clienteling profile in-memory and displays high-probability purchase predictions and preferences.
 
 ---
 
-## 2. Proposed Data Model
+## 2. Unified Customer Graph (Phase 5A)
+
+Before feeding individual customer interfaces or the POS, SMRITI compiles all customer interactions into a single derived layer: **`SMRITI Customer Graph`**. This ensures data consistency across the CGE, PDT, and Clienteling engines.
+
+- **Unified Attributes**:
+  - `purchases`: Total count and product details.
+  - `returns`: Track return rates to isolate product mismatch.
+  - `wallet_activity`: Loyalty balances and transaction history.
+  - `campaign_response`: Coupon redemptions and tier transitions.
+  - `preferred_brands`: Dynamic ranking of brands purchased.
+  - `favorite_executive`: Mapped from transaction attributions.
+  - `visit_frequency`: Calculated days between sales invoices.
+  - `predicted_next_visit`: Derived via predictive analytics.
+  - `lifetime_value`: Net sales value generated.
+
+---
+
+## 3. Governance Rule: Customer Profile Read-Only Invariant
+
+To prevent data drift and preserve the integrity of performance metrics, SMRITI enforces a strict governance invariant:
+
+> [!IMPORTANT]
+> **FRZ-CLI-001: Customer Profile Read-Only Invariant**
+> - **Derived & Read-Only**: `SMRITI Customer Profile` must be completely derived and read-only. Standard users, cashier terminals, and managers cannot manually edit or overwrite values.
+> - **Regeneratable**: The profile must support full regeneration from primary databases (`tabSales Invoice`, `tabSMRITI Loyalty Ledger`, `tabSMRITI Attribution Ledger`, `tabSMRITI Product Digital Twin`) on demand or periodically.
+> - **No Direct Database Mutates**: Direct writes to profile records from client interfaces are blocked.
+
+---
+
+## 4. Proposed Data Model
 
 ### `SMRITI Customer Profile` DocType
-This DocType holds the aggregated clienteling profile per customer.
+This DocType holds the clienteling parameters compiled from the Unified Customer Graph.
 
 - **Key Fields**:
   - `customer` (Link -> Customer, PK)
@@ -55,62 +77,22 @@ This DocType holds the aggregated clienteling profile per customer.
   - `likely_purchase_prediction` (Data)
   - `prediction_confidence` (Percent)
 
-```mermaid
-erDiagram
-    CUSTOMER ||--o| SMRITI_CUSTOMER_PROFILE : "has profile"
-    SMRITI_CUSTOMER_PROFILE }|--|| BRAND : "preferred brand"
-    SMRITI_CUSTOMER_PROFILE }|--|| CATEGORY : "preferred category"
-    SMRITI_CUSTOMER_PROFILE }|--|| EMPLOYEE : "favorite executive"
-```
-
----
-
-## 3. Data Sources & Extraction Pipeline
-
-The clienteling engine aggregates data periodically from six core SMRITI and ERPNext data sources:
-
-1.  **Sales History (`tabSales Invoice`)**: Determines buying frequency, average basket value, and color/size preferences.
-2.  **Returns (`tabSales Invoice` with `is_return = 1`)**: Filters out items with high return rates to refine preferences.
-3.  **CGE (`tabSMRITI Loyalty Ledger`)**: Reads active reward tiers, wallet balances, and preferred coupon types.
-4.  **Attribution (`tabSMRITI Attribution Ledger`)**: Identifies which sales executives successfully closed previous transactions.
-5.  **Loyalty (`tabSMRITI Member Tier`)**: Retrieves current customer tier and point balances.
-6.  **PDT (`tabSMRITI Product Digital Twin`)**: Generates predictive next-purchase recommendations.
-
----
-
-## 4. PDT ↔ Clienteling ↔ POS Integration
-
-To maximize basket conversion at checkout, SMRITI integrates the Product Digital Twin (PDT) and Clienteling profiles directly into the checkout lane:
-
-```
-POS Customer Selection
-       ↓
-Fetch SMRITI Customer Profile (Read-Only)
-       ↓
-Invoke PDT Recommendation Engine (API Call)
-       ↓
-Render POS Overlay:
-- Preferred Size/Color/Brand Profile
-- "Likely Purchase: Levi's 511 (82% Confidence)"
-- Suggestion: "Show matching leather boots"
-```
-
 ---
 
 ## 5. Executive Relationship Performance KPIs
 
-Move beyond basic volume targets to relationship-first sales performance metrics:
+SMRITI utilizes the Customer Graph to derive relationship-first salesperson performance metrics:
 
 ### Relationship Revenue Index (RRI)
-Measures the percentage of an executive's sales generated from customers they "own" (assigned customer base) vs walk-ins:
+Measures the percentage of an executive's sales generated from their assigned customer base:
 $$RRI = \left( \frac{\text{Owned Customer Revenue}}{\text{Total Attributed Revenue}} \right) \times 100$$
 
 ### Retention Influence Score (RIS)
-Counts the number of repeat customers successfully re-engaged and checked out by the specific sales executive within a 90-day window:
+Counts the unique repeat customers engaged and checked out by the salesperson within a 90-day window:
 $$RIS = \text{Count of unique repeat customers checked out by Executive}$$
 
 ### Growth Contribution (GC)
-Calculates year-over-year or month-over-month revenue growth from the executive's assigned customer portfolio:
+Calculates revenue growth generated from the salesperson's assigned customer portfolio:
 $$GC = \text{Current Month Assigned Revenue} - \text{Baseline Assigned Revenue}$$
 
 ---
