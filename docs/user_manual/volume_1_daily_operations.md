@@ -432,10 +432,30 @@ By allocating this ₹2,000 to the 100 shoes, each shoe gets a landed cost of �
 
 ---
 
+## Chapter 8: Sales Force Commission - SFC (बिक्री बल आयोग)
+
+### 1. Purpose (उद्देश्य)
+The **Sales Force Commission (SFC)** module calculates and manages payouts for sales representatives based on attributed customer sales.
+- **Business Problem Solved**: Manual tracking of sales representative targets and split percentages leads to payment errors and lack of transparency. SMRITI provides an audit-grade timeline of customer ownership and target splits.
+
+### 2. Step-by-Step Entry Process (प्रविष्टि प्रक्रिया)
+1. **Menu Path**: SMRITI Home → Sales Force → Payout Calculator
+2. **Select Filters**: Choose the active **Company**, **Fiscal Year**, and **Month** you wish to calculate.
+3. **Compile Settlements**: Click **Calculate & Payout Drafts**. SMRITI compiles all attribution ledger records and creates draft settlements.
+4. **Review Drafts**: Click on any employee draft row to review gross commission, manual adjustment lines, and net payouts.
+5. **Approve Payouts**: Click **Approve** on the settlement to lock the payout calculations.
+
+### 3. Common Mistakes (सामान्य गलतियां)
+- **Sum of Splits != 100**: Allocating split percentages that do not sum to 100% will fail validation.
+- **Editing Approved Settlements**: Trying to modify adjustments or values on an approved/paid settlement is blocked.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
 
 ---
+
 
 ### Author Profile (End)
 * **Author**: Jawahar R. Mallah

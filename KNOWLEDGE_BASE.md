@@ -37,9 +37,10 @@
 24. [SMRITI Barcode Scan Telemetry Collection Framework (v2.4.0)](#24-smriti-barcode-scan-telemetry-collection-framework-v240)
 25. [SMRITI Landed Cost Allocation Module (v2.5.0)](#25-smriti-landed-cost-allocation-module-v250)
 26. [SMRITI Reporting Governance & Security Auditing Framework (v2.5.0)](#26-smriti-reporting-governance--security-auditing-framework-v250)
-
+27. [SMRITI Sales Force Management & Commission Module (v2.6.0)](#27-smriti-sales-force-management--commission-module-v260)
 
 ---
+
 
 ## 1. What is SMRITI Retail OS?
 
@@ -687,4 +688,24 @@ SMRITI Retail OS v2.5.0 implements the **Reporting Governance & Security Auditin
 *   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
 
 ---
-*This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*
+
+## 27. SMRITI Sales Force Management & Commission Module (v2.6.0)
+
+SMRITI Retail OS v2.6.0 introduces the **Sales Force Commission (SFC) & Management (SFM)** module (ACP-SFC-001). This module implements a robust, audit-grade **ledger-first** design for customer ownership timelines, target allocation splits, and commission payouts sit on top of SMRITI Customer Growth Engine (CGE) structures.
+
+### Key Capabilities
+
+*   **Audit-Grade Ownership Timelines**: Governed by `SMRITI Customer Ownership`. Historical ownership records are immutable. When ownership changes, SMRITI automatically sets `end_date = yesterday` and `is_active = 0` on the old record, and inserts a new active record with `start_date = today` and `is_active = 1`.
+*   **Store Abstraction Target Mapping**: Maps sales targets at the `SMRITI Store` level rather than physical ERPNext warehouses, ensuring consolidated target boundaries.
+*   **Target Split Invariant**: Enforces that split percentages across reps for shared sales attribution must exactly sum to 100% (`primary_split_pct + secondary_split_pct = 100`) on save.
+*   **Ledger-First Commission Lifecycle**: Earned commission immediately books a `Commission Event` and `Commission Ledger` entry. Monthly payouts are compiled and managed through `SMRITI Commission Settlement` drafts (`Draft` → `Approved` → `Paid`).
+*   **Precedence Resolution Rule**: Evaluates active commission rates through four strict priority layers:
+    1. Employee-level override rule with active priority.
+    2. Employee-level active rule.
+    3. Company-wide active rule.
+    4. SMRITI Commission Settings defaults.
+*   **Immutability on Approval**: Locking a settlement draft as `Approved` or `Paid` sets a database edit lock, making the document and its manual adjustment child tables strictly immutable.
+*   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
+
+---
+*This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*

@@ -496,6 +496,31 @@ SMRITI Landed Cost Allocation is implemented as an analytical shadow-ledger laye
 
 ---
 
+## Sales Force Commission & Management Technical Specifications (ACP-SFC-001)
+
+### 1. Customer Ownership Timeline Model
+- All customer ownership assignments must be recorded through `SMRITI Customer Ownership` using `start_date`, `end_date`, and `is_active` fields.
+- Triggered by ownership modifications:
+  1. Set `end_date = yesterday` and `is_active = 0` on the old active record.
+  2. Create a new record with `start_date = today` and `is_active = 1`.
+
+### 2. Transaction Target Split Invariant
+- Every transaction targeting multi-rep splits must validate:
+  $$\text{primary\_split\_pct} + \text{secondary\_split\_pct} == 100$$
+- If the split percentages do not sum to exactly 100%, raise a `ValidationError` and block persistence.
+
+### 3. Precedence Resolving Rules
+- `resolve_commission_rule(employee, company, posting_date)`:
+  1. Specific employee override active rule with priority value.
+  2. Specific employee active rule.
+  3. Company-wide active rule.
+  4. Global SMRITI Commission Settings fallback defaults.
+
+### 4. Settlement Immutability
+- Approved or paid `SMRITI Commission Settlement` documents must be locked. Any attempt to update adjustment detail child rows or root values must raise a `ValidationError`.
+
+---
+
 ### Author Profile (End)
 * **Author**: Jawahar R. Mallah
 * **Designation**: Founder & Chief Architect

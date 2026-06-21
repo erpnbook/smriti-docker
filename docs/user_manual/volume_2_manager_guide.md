@@ -303,8 +303,21 @@ SMRITI implements the **Reporting Governance & Security Auditing** (ACP-REPORTS-
 
 ---
 
+## Chapter 7: Sales Force Commission (SFC) Rules & Settlements (बिक्री बल आयोग नियम और बस्तियाँ)
+
+### 1. Purpose (उद्देश्य)
+Managers configure commission rules, track targets, and authorize monthly payouts for the sales team.
+
+### 2. Core Policies
+- **Rule Precedence Resolution**: SMRITI prioritizes specific employee override rules over company-wide defaults. Priority values determine which active rule takes precedence during target periods.
+- **Adjustment Audit Trails**: All manual additions or deductions to a draft settlement must be recorded in the adjustments table, capturing the approving manager's name and timestamp.
+- **Immutability Lock**: Approving or paying a settlement freezes the document and its audit logs from future edits, securing the financial state.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+
 
 ---
 

@@ -45,7 +45,7 @@ Welcome to the SMRITI Retail OS Knowledge Base. This central documentation cente
 
 ### 9. [Customer Growth Engine (CGE)](/kb/cge/introduction)
 - [CGE Introduction](/kb/cge/introduction) — Overview of the marketing & loyalty layer.
-- [Loyalty Rules & Tiers](/kb/cge/loyalty-rules) — Tiers configuration, priority resolution, and stacking rule computations.
+- [Loyalty Rules & Tiers](/kb/loyalty-rules) — Tiers configuration, priority resolution, and stacking rule computations.
 - [Coupons & Cashback Wallet](/kb/cge/coupons-cashback) — Budget reservation pipeline, ledger immutability, and double-entry accounting entries.
 
 ### 10. [Knowledge Governance Framework (KGF)](/kb/kgf/kgf-framework)
@@ -53,11 +53,14 @@ Welcome to the SMRITI Retail OS Knowledge Base. This central documentation cente
 - [Formula Registry](/kb/kgf/formula-registry) — central mathematical and forecasting formulas registry.
 - [Business Dictionary](/kb/kgf/business-dictionary) — Glossaries mapping 20 default retail operational terms and relations.
 
-### 11. [Frequently Asked Questions (FAQs)](/kb/faq/licensing)
-- [Licensing FAQ](/kb/faq/licensing) | [POS FAQ](/kb/faq/pos) | [Inventory FAQ](/kb/faq/inventory)
-- [GST FAQ](/kb/faq/gst) | [Backup FAQ](/kb/faq/backup) | [Administration FAQ](/kb/faq/administration) | [CGE FAQ](/kb/faq/cge)
+### 11. Sales Force Management & Commission (SFM/SFC)
+- [SFM/SFC Overview](/docs/SFM_ARCHITECTURE_V1.md) — Unified sales team management, target allocation splits, and ledger-first commission payouts.
 
-### 12. [Troubleshooting Runbooks](/kb/troubleshooting/pos-not-loading)
+### 12. [Frequently Asked Questions (FAQs)](/kb/faq/licensing)
+- [Licensing FAQ](/kb/faq/licensing) | [POS FAQ](/kb/faq/pos) | [Inventory FAQ](/kb/faq/inventory)
+- [GST FAQ](/kb/faq/gst) | [Backup FAQ](/kb/faq/backup) | [Administration FAQ](/kb/faq/administration) | [CGE FAQ](/kb/faq/cge) | [SFM/SFC FAQ](/kb/faq/sfm)
+
+### 13. [Troubleshooting Runbooks](/kb/troubleshooting/pos-not-loading)
 - [POS Not Loading](/kb/troubleshooting/pos-not-loading) | [License Not Activating](/kb/troubleshooting/license-not-activating)
 - [GST Not Calculating](/kb/troubleshooting/gst-not-calculating) | [Backup & Restore Failures](/kb/troubleshooting/backup-restore-failed)
-- [Go-Live Check Failures](/kb/troubleshooting/go-live-check-failed) | [CGE Issues](/kb/troubleshooting/cge-issues)
+- [Go-Live Check Failures](/kb/troubleshooting/go-live-check-failed) | [CGE Issues](/kb/troubleshooting/cge-issues) | [SFM/SFC Issues](/kb/troubleshooting/sfm-issues)

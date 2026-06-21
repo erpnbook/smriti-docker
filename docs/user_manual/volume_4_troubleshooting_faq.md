@@ -644,8 +644,25 @@ This handbook provides quick resolution steps for common errors and answers Freq
 
 ---
 
+## 22. Sales Force Commission (SFC) FAQs & Troubleshooting
+
+### FAQs
+1. **Q: Customer ownership change hone par old records automatically delete ho jate hain?**
+   - A: Nahi. Old records standard timeline policy ke according close (`end_date = yesterday`, `is_active = 0`) hokar database records me dynamic history preserve resolution check ensure rules provide map details save.
+2. **Q: Sum of Splits check target allocations fail kyu resolve updates throw constraints?**
+   - A: Total percentage split value checks primary and secondary reps exactly matches 100 sum, otherwise validation fails.
+
+### Troubleshooting
+- **Error**: `Sum of target split percentages across representatives must be exactly 100%`.
+  - **Resolution**: Check the target split values in the `SMRITI Sales Target` or upload table. Update values so `primary_split_pct + secondary_split_pct = 100`.
+- **Error**: `Settlement is Approved/Paid and cannot be modified`.
+  - **Resolution**: Approved settlements are strictly locked and immutable. Reopen/adjust the status via a manager override or log adjustments in a subsequent period.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+
 
 ---
 
