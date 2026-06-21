@@ -37,7 +37,7 @@ This standard establishes the permanent rules governing the product identity, tr
    * *Allowed*: "SMRITI Retail OS™ powered by ERPNext®"
    * *Forbidden*: "SMRITI ERPNext", "ERPNext by SMRITI", "ERPNext Retail OS"
 2. **Domain Registration Policy**: No official, reseller, or partner website domains registered for SMRITI distribution shall contain the strings "erpnext" or "frappe".
-   * *Allowed*: `smritiretail.com`, `smritiretail.in`, `smritiretailos.com`
+   * *Allowed*: `erpnbook.com`, `smriti.aitdl.com`, `yourdomain.com`
    * *Forbidden*: `erpnext-retail.com`, `smriti-erpnext.com`, `erpnext-smriti.com`
 
 ---
