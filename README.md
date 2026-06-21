@@ -1,8 +1,8 @@
 <div align="center">
   <img src="apps/smriti_retail_os/smriti_retail_os/public/images/logo.svg" alt="SMRITI Retail OS" width="120" />
-  <h1>SMRITI Retail OS</h1>
-  <p><b>Complete Retail Operations Platform</b></p>
-  <p>Modern Retail Operating System for Footwear, Apparel, Fashion, Grocery, and Multi-Store Retail Businesses. 🚀</p>
+  <h1>SMRITI Retail OS™</h1>
+  <p><b>Developed by AITDL | Powered by ERPNext® & Frappe® Framework</b></p>
+  <p>SMRITI Retail OS is a Retail Intelligence Platform that extends ERPNext through advanced operational, analytical, and governance capabilities. 🚀</p>
   <p><b>Stable Production Release: <code>v1.2.10</code></b></p>
 </div>
 
