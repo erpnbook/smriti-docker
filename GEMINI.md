@@ -933,10 +933,25 @@ All SMRITI documentation assets, user manuals, about pages, and governance files
 
 ---
 
+## Rule 17: SMRITI Knowledge Operating System (Rule ID: SKOS-CORE-01 - LOCKED)
+
+### Policy Statement
+SMRITI Retail OS must maintain a centralized, schema-agnostic relational graph layer managed by the **SMRITI Knowledge Operating System (SKOS)** platform service. All explainability assets, formulas, business terms, reports, SOPs, processes, training materials, AI knowledge objects, and future metadata entities must be registered through `KAR-01` and linked through `KGR-01`.
+
+Direct hardcoded relationships between knowledge assets are prohibited.
+
+### Protected Standards
+1. **KAR-01 (Knowledge Asset Registry)**: A polymorphic reference index mapping asset URIs (e.g. `smriti:formula:INV-002`) to physical DocType records using auto-generated UUID primary keys.
+2. **KGR-01 (Knowledge Graph Relations)**: A generic relational matrix mapping asset-to-asset connection edges, governed by weight parameters, visibility permissions, and multi-tenant scopes.
+3. **UAF-01 (Universal Attribute Framework)**: An extensible Entity-Attribute-Value (EAV) mapping schema allowing store owners to define scoped and reportable attributes without code migrations.
+
+---
+
 ## SMRITI Knowledge Governance Framework (KGF)
-Rules 13, 14, 15, and 16 collectively constitute the **SMRITI Knowledge Governance Framework (KGF)**. The KGF is a core architectural pillar of SMRITI Retail OS, ensuring that:
+Rules 13, 14, 15, 16, and 17 collectively constitute the **SMRITI Knowledge Governance Framework (KGF)**. The KGF is a core architectural pillar of SMRITI Retail OS, ensuring that:
 - **Every number** displayed is explainable in plain business terms.
 - **Every recommendation** generated is traceable with an immutable digital audit trail.
 - **Every metric** is defined clearly in a centralized Business Dictionary.
 - **Every release** is fully documented, verified, and accompanied by practical onboarding training materials.
+- **Every operational asset** is dynamically linked and traversable through the centralized SMRITI Knowledge Operating System graph.
 
