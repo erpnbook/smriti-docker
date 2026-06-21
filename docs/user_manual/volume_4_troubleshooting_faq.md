@@ -1,7 +1,20 @@
 # SMRITI Retail OS User Manual — Volume 4: Troubleshooting & FAQ Handbook
 
+## About This Manual
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
 
-This handbook provides quick resolution steps for common errors and answers 160 Frequently Asked Questions (10 per module) across all SMRITI modules.
+### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+This handbook provides quick resolution steps for common errors and answers Frequently Asked Questions across all SMRITI modules.
 
 ---
 
@@ -58,10 +71,14 @@ This handbook provides quick resolution steps for common errors and answers 160 
    - A: Link brand name inside Item Group or custom Brand master field.
 10. **Q: Standard UOM (Unit of Measure) conversion?**
     - A: Footwear standard UOM is 'Box' or 'Pair'. Do not change after transactions.
+11. **Q: SMRITI custom classification attributes (like Merchandise Category, Sub Category, Heel Type, Upper Material, Outsole) ki spelling mistake ya name change kaise correct karein?**
+    - A: SMRITI masters are linked. Agr aap name change/rename karenge, to linked items par change automatically propagate ho jayega. POS and Store Managers Desk se raw tables accessible nahi hote (Rule 7, 8, 9 enforcement). System Administrator backend terminal par `bench execute` run karke rename perform kar sakte hain: `frappe.rename_doc("SMRITI Sub Category", "old_name", "new_name")`. Alternatively, corrected spelling ke sath item sheet re-import karein (missing value will auto-create).
 
 ### Troubleshooting
 - **Error**: `Cannot link Variant. Template 'X' is not submitted`.
   - **Resolution**: First submit the main template item, then create/save the variant items.
+- **Error**: `Misspelled or incorrect master value assigned to active items`.
+  - **Resolution**: System Administrator standard bench command use karke record name update karein: `bench --site [site-name] execute "frappe.rename_doc('[Master-DocType]', '[old-spelling]', '[new-spelling]')"`. Linked items automatically new spelling pointer reference inherit kar lenge.
 
 ---
 
@@ -577,3 +594,20 @@ This handbook provides quick resolution steps for common errors and answers 160 
 
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+
+---
+
+## Author Profile
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
