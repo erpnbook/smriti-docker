@@ -15,6 +15,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [2.4.0] — 2026-06-21
+
+### Added
+- **Barcode Studio V2.4a Layout & Operations Upgrade:** Implemented high-performance warehouse barcode printing features.
+- **Article Range Loader**: Input From/To range fields (e.g. `BBM-0001` to `BBM-0100`) to sequentially generate style IDs and load items into the print worksheet.
+- **Variant Expansion**: Automatic size/color variant expansion for fashion retail styles on submission/fetch.
+- **Interactive Worksheet Grid**: Standardized the print canvas into a 9-column grid (`Select | Article | Item Name | Brand | Color | Size | Barcode | MRP | Qty | Labels`).
+- **Dynamic Tag Mapping Preview**: Left sidebar panel resolving template tags (e.g. `{barcode}`, `{brand}`, `{mrp}`) to actual database values in real-time.
+- **Transaction Expansion Modal**: Selection modal panel when fetching PR/PO/GRN logs with selection filters ("Select All", "Only Missing Labels", "Only New SKUs").
+- **Box & Carton Mode**: Packing multipliers logic converting carton/box units to label counts automatically.
+- **Rate/MRP Fallback Rules**: Priority resolution hierarchy: Variant Price $\rightarrow$ Price List $\rightarrow$ Parent Template.
+- **Reprint Queue**: Local cache of recent print runs for instant re-execution.
+- **Ergonomic Widescreen 3-Panel Layout**: Separated settings (left), worksheet grid (center), and ranges (right) with a bottom sticky action bar.
+
+---
+
 ## [2.2.0] — 2026-06-19
 
 ### Added

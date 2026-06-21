@@ -566,6 +566,38 @@ This handbook provides quick resolution steps for common errors and answers 160 
 
 ---
 
+## 19. SMRITI Barcode Studio FAQs & Troubleshooting
+
+### FAQs
+1. **Q: Article Range Loader barcode printing worksheet me ranges kaise load karta hai?**
+   - A: Operators From Article (e.g. BBM-0001) aur To Article (e.g. BBM-0100) range inputs specify karke [Load Range] execute karte hain. SMRITI range boundaries parse karke alphanumeric series create karti hai aur matching variants pull karti hai.
+2. **Q: Fashion Retail me Variant Expansion function kaise help karta hai?**
+   - A: Agar input style 'BBM-001' select hoti hai, to SMRITI database system size-color configurations (e.g. Navy-S, Black-M) scan karke variants automatically (e.g. BBM-001-NAVY-S) worksheet me add kar deti hai.
+3. **Q: Visual Designer worksheet grid me kaunse 9 columns standard features display karte hain?**
+   - A: Worksheet Grid: `Select | Article | Item Name | Brand | Color | Size | Barcode | MRP | Qty | Labels` columns hold karta hai jo direct selection checks aur printer target inputs dynamic manage karte hain.
+4. **Q: Template Tag mappings (e.g. {barcode}, {brand}) print layout par kaise preview hote hain?**
+   - A: Print parameters select karne par dynamic preview sidebar maps (e.g. Barcode -> 8901234567890, MRP -> ₹1999) evaluate karta hai, jisse operators final label outputs ensure kar sakte hain.
+5. **Q: Fetch Transaction (PR/PO/GRN) modal popup after search options kya target karta hai?**
+   - A: Transaction search fetch karne par complete items range preview list create hoti hai jisme filters available hain: "Select All", "Only Missing Labels", "Only New SKUs" (unprinted items).
+6. **Q: Box / Carton Mode checkbox quantity math rule kaise run karta hai?**
+   - A: Carton Mode tick karne par labels quantity box calculations parameters adjust coordinate split (e.g. converting outer carton capacity items dynamically to separate labels sets).
+7. **Q: missing MRP or Standard Rate variables case me fallback price strategy order kya hai?**
+   - A: MRP/Rate data absence system template default price fetch checks run reference list: (1) Variant Price, (2) Price List standard, (3) Parent Template Price.
+8. **Q: Reprint Queue section layout design me kaise operate karta hai?**
+   - A: Recent print operations local memory cache check history store access provide karte hain taaki operator repeat jobs quick one-click trigger fire process complete kar sake.
+9. **Q: Sticky Action Toolbar screen structure placement properties and locks status?**
+   - A: 3-panel widescreen layout me sticky bottom toolbar always-visible placement holds, dynamic states selection dependent checks manage status disabled sets trigger prevent handle lock validation.
+10. **Q: Barcode scan failure warning alert and red/amber indicators rule?**
+    - A: Scan reliability index threshold 85% below fall visual warning triggers recommend printer head clean template margin adjustments coordinate checks check verify details parameters.
+
+### Troubleshooting
+- **Error**: `No active items found in the specified range`.
+  - **Resolution**: Check style names in database. Range loader requires existing base items inside database constraints matching sequence format pattern range boundaries.
+- **Error**: `Cannot load transaction. No new SKUs found`.
+  - **Resolution**: Ensure transaction has valid item lines. Filter "Only New SKUs" removes variants that already have printed barcodes/labels. Toggle to "Select All" to force reprints.
+
+---
+
 ## Final Acknowledgement Page
 
 ### Author Section
@@ -581,3 +613,4 @@ Thank you for using SMRITI Retail OS. For support, please contact the AITDL Help
 > 
 > — Jawahar R. Mallah
 > Founder & Chief Architect, AITDL
+

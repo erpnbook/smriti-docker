@@ -58,7 +58,8 @@ Ranked by business value and ROI.
 To maintain strict alignment with the SMRITI Governance Framework and the AITDL constitution, the Barcode Studio roadmap is structured as a sequential quality engineering capability:
 
 - **Phase 3A: Design Quality Intelligence (Completed)**: Configurable Quiet Zone expansions, Virtual HRT bounds validation, and Printability Score Engine (`SMRITI-PRN-SCORE-01`).
-- **Phase 4: Operational Telemetry Intelligence (ACP-BARCODE-002A)**: Standalone scan telemetry collection pipeline, Scan Reliability Score (`SMRITI-SCAN-REL-01`), governance event IDs (`SCAN-EVT-001/002/003`), and 90-day retention cleanup.
+- **Phase 4: Operational Telemetry Intelligence (ACP-BARCODE-002A) (Completed)**: Standalone scan telemetry collection pipeline, Scan Reliability Score (`SMRITI-SCAN-REL-01`), governance event IDs (`SCAN-EVT-001/002/003`), and 90-day retention cleanup.
+- **Phase 4.1: Barcode Studio Ergonomics & Warehouse Workflow Suite (Completed)**: Widescreen 3-panel UI, Article Range Loader, variant expansion, transaction expansion modal, live mapping preview, box/carton quantity rules, price fallback rules, and reprint queue.
 - **Phase 5: Predictive Barcode Twin (ACP-BARCODE-002B)**: Downstream machine learning loops (PDT) correlating design-time layouts with real-world physical scan performance.
 
 ---

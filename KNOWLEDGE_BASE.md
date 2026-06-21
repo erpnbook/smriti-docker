@@ -33,6 +33,7 @@
 20. [SMRITI PWA Activation & Offline-First POS Integration (v2.1.0)](#20-smriti-pwa-activation--offline-first-pos-integration-v210)
 21. [SMRITI Knowledge Governance Framework (KGF) & registries (v2.2.0)](#21-smriti-knowledge-governance-framework-kgf--registries-v220)
 22. [SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)](#22-smriti-predictive-hub--cge-sidebar-integration-v221)
+23. [SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (v2.4.0)](#23-smriti-barcode-studio-v24a-layout--operations-upgrade-v240)
 
 
 ---
@@ -200,6 +201,7 @@ smriti_retail_os/
 | 53 | **SMRITI Knowledge Governance Framework (KGF) & registries (v2.2.0)** | 2026-06-19 | `smriti-help.html`, `smriti-dictionary.html`, `smriti-formula-registry.html` |
 | 54 | **SMRITI Predictive Hub & CGE Sidebar Integration (v2.2.1)** | 2026-06-19 | `pdt_dashboard.py`, `smriti_nav_config.js` |
 | 55 | **Production Hardening, Python 3.14 Compatibility & Branding (v2.2.2)** | 2026-06-20 | `test_license.py`, `smriti-formula-registry.html`, `smriti-dictionary.html` |
+| 56 | **SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (v2.4.0)** | 2026-06-21 | `barcode.html`, `barcode_api.py`, `test_barcode_api.py` |
 
 ---
 
@@ -608,6 +610,26 @@ SMRITI Retail OS v2.2.1 exposes the Product Digital Twin (PDT) and Customer Grow
 *   **Unified Help Center Articles**:
     *   Registered dynamic help articles for `pdt_dashboard`, `simulation_sandbox`, `cge_engine`, and `knowledge_center` inside `help_api.py`.
     *   Detailed the predictive PDT state machine (Stockout, Dead Stock, Overstock, Critical, Replenish Soon, Monitor, Healthy) and sandbox/CGE audit mechanisms for cashier and store manager training.
+
+---
+---
+
+## 23. SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (v2.4.0)
+
+SMRITI Retail OS v2.4.0 delivers the **Barcode Studio V2.4a** layout and operations upgrade, designed to streamline high-volume warehouse scanning and print queue operations.
+
+### Key Capabilities
+
+*   **Article Range Loader**: Allows warehouse operators to retrieve and load a sequential list of items by defining prefix boundaries (e.g. `BBM-0001` to `BBM-0100`).
+*   **Fashion-Retail Variant Expansion**: Styles automatically expand into all active color-size variant SKU rows (e.g., style `BBM-001` expands to size-wise rows) in a single database lookup.
+*   **Interactive Worksheet Grid**: A comprehensive 9-column grid replacing the blank print canvas, showing `Select | Article | Item Name | Brand | Color | Size | Barcode | MRP | Qty | Labels` for direct batch print settings.
+*   **Dynamic Mapping Preview**: Sidebar preview rendering live tag values (e.g. `{barcode}`, `{brand}`, `{mrp}`) resolved from the database prior to ZPL compilation.
+*   **Transaction Expansion Modal**: A modal panel showing the count of items in imported PR/PO/GRN logs with selection filters ("Select All", "Only Missing Labels", "Only New SKUs").
+*   **Box & Carton Packing Rules**: Quantity conversions based on outer box/carton capacities (labels count = carton units * multiplier).
+*   **Price Fallback Chain**: Robust resolution of missing Rates and MRPs using a 3-layer priority: Variant Price $\rightarrow$ Price List $\rightarrow$ Parent Template.
+*   **Persistent Reprint Queue**: Browser local storage queue caching recent print runs for instant one-click re-firing.
+*   **Widescreen 3-Panel UX Ergonomics**: Layout grouping settings/previews in the left sidebar, the center worksheet grid, and ranges/filters in the right drawer with an always-visible bottom sticky action bar.
+*   **Author Profile & Credibility (Rule 12)**: Author section detailing Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab) and AITDL core team.
 
 ---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*

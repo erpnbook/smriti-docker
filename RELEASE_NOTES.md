@@ -2,6 +2,37 @@
 
 ---
 
+## 🆕 v2.4.0 — SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (2026-06-21)
+
+### 🔖 1. Warehouse Article Range Loader
+- **Sequential Range Inputs**: Added dynamic From/To Article fields (e.g. `BBM-0001` to `BBM-0100`) allowing operators to fetch and load lists of sequential styles directly into the worksheet grid in a single click.
+
+### 🧬 2. Automatic Variant Expansion
+- **Fashion-Retail Variant Generator**: Input styles (e.g. `BBM-001`) automatically expand to their full set of size/color SKU variations (e.g. `BBM-001-NAVY-S`, `BBM-001-NAVY-M`, `BBM-001-NAVY-L`) by scanning existing item variants in the database.
+
+### 📋 3. Interactive Worksheet Grid
+- **Comprehensive 9-Column Workspace**: Standardized the empty barcode editor canvas into a rich grid featuring: `Select | Article | Item Name | Brand | Color | Size | Barcode | MRP | Qty | Labels` for print job management.
+- **Zebra-Striping & Keyboard Accessibility**: Styled worksheet rows with subtle hover transitions and full input control.
+
+### 👁️ 4. Dynamic Mapping Preview
+- **Tag Token Mappings**: Shows real-time mappings of layout tags (such as `{barcode}`, `{item_code}`, `{item_name}`, `{brand}`, and `{mrp}`) to actual database values in an interactive sidebar panel before sending print jobs.
+
+### 📦 5. Transaction Expansion Modal
+- **Bulk Receipt Imports**: Fetching transaction IDs (e.g. Purchase Receipts, Purchase Orders, Goods Receipt Notes) opens a grid showing the count of items found, with quick selection filters: "Select All", "Only Missing Labels", "Only New SKUs".
+
+### ⚖️ 6. Box & Carton Packing Quantity Rules
+- **Carton Mode Computations**: Quantities can be computed based on outer box/carton capacities (e.g. converting carton units to label counts).
+- **Price Fallback Logic**: Added robust fallback hierarchy for missing Rate or MRP fields.
+
+### 🔄 7. Reprint Queue
+- **Recent Job History**: A persistent local queue displaying recent print operations, allowing warehouse operators to re-trigger print runs with a single click.
+
+### 🎨 8. Ergonomic Redesign
+- **Widescreen 3-Panel Layout**: Left sidebar for settings/preview, center worksheet grid, and right drawer for filters and templates.
+- **Always-Visible Sticky Toolbar**: Houses printing actions at the bottom of the screen with dynamic disabled-state indicators based on row selection.
+
+---
+
 ## 🆕 v1.9.0-GA — SMRITI Party Stock Visibility (PSV) Phase 1.1 (2026-06-11)
 
 ### 📈 1. Custom Shadow Ledger & Snapshot Schema
