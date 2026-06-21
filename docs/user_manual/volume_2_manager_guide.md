@@ -17,14 +17,15 @@ This manual is based on practical field experience gathered across retail operat
 > Founder & Chief Architect, AITDL
 
 #### Document Metadata
-* **Document Version**: 1.1.0
+* **Document Version**: 1.2.0
 * **Release Date**: 2026-06-22
 * **Intended Audience**: Sales Managers, Distributor Supervisors, Audit Leads, and Store Owners
-* **Learning Objectives**: Understand rebalancing recommendations, manual audit variance reconciliations, landed cost shadow allocations, and data-center reporting governance rules.
+* **Learning Objectives**: Understand rebalancing recommendations, manual audit variance reconciliations, landed cost shadow allocations, customer intelligence graph settings, and data-center reporting governance rules.
 * **Support**: support@aitdl.example.com
 * **Revision History**:
   * `v1.0.0` (2026-06-20): Initial manager guide guidelines.
   * `v1.1.0` (2026-06-22): Integrated Landed Cost shadow-ledger rules and Reporting Governance.
+  * `v1.2.0` (2026-06-22): Integrated Customer Intelligence Graph (CIG) governance and Clienteling settings.
 
 ---
 
@@ -312,6 +313,35 @@ Managers configure commission rules, track targets, and authorize monthly payout
 - **Rule Precedence Resolution**: SMRITI prioritizes specific employee override rules over company-wide defaults. Priority values determine which active rule takes precedence during target periods.
 - **Adjustment Audit Trails**: All manual additions or deductions to a draft settlement must be recorded in the adjustments table, capturing the approving manager's name and timestamp.
 - **Immutability Lock**: Approving or paying a settlement freezes the document and its audit logs from future edits, securing the financial state.
+
+---
+
+## Chapter 8: SMRITI Clienteling & Customer Intelligence Graph (CIG) (ग्राहक बुद्धिमत्ता आरेख)
+
+### 1. Purpose (उद्देश्य)
+The **SMRITI Customer Intelligence Graph (CIG)** framework integrates customer profiling, behavioral statistics, and predictive modeling into a unified experience layer. 
+- **Business Problem Solved**: Eliminates rigid customer segmentation. CIG dynamically updates customer engagement, loyalty, and risk profiles in real-time, helping stores target customers with precision.
+
+### 2. SMRITI Clienteling Settings
+Managers govern CIG behavior and thresholds centrally via the **SMRITI Clienteling Settings** single DocType (/app/smriti-clienteling-settings) to prevent code modifications:
+1.  **VIP Threshold (default `80.0`)**: The minimum candidate score required to mark a customer as VIP (`is_vip = 1`) on their profile.
+2.  **Dormancy Days (default `90`)**: The number of days elapsed since the last checkout visit after which a customer is flagged as dormant.
+3.  **Enable Predictions (default `1`)**: Turns on/off background predictive calculations for next-visit dates and purchase categories, protecting database performance when needed.
+
+### 3. Dynamic Formula Registry Integration
+Rather than hardcoding calculation logic in Python controllers, CIG retrieves mathematical expressions dynamically from the central Formula Registry. The intelligence engine evaluates three registered formulas:
+- **Churn Risk Score (TST-CHURN)**: Measures the customer's likelihood of churning based on visit cycle deviation.
+- **VIP Candidate Score (TST-VIP)**: Evaluates customer value based on spending (LTV), average basket value (ABV), and checkout count.
+- **Campaign Affinity Score (TST-AFFINITY)**: Evaluates response touchpoints.
+
+> [!NOTE]
+> All customer profile calculations dynamically reference these Formula IDs (TST-CHURN, TST-VIP, TST-AFFINITY) from the Formula Registry. Refer to the Formula Registry (/app/smriti-formula-registry) to check the active version and expression.
+
+### 4. Explainability-First (ⓘ Explain Workflow)
+To comply with SMRITI explainability standards, the Clienteling Studio provides a clear transparency flow for counter operators:
+1. Open the Customer Profile card.
+2. Click the **ⓘ Explain** icon next to any computed metric.
+3. The Universal Explain Modal retrieves the registered formula definition, resolves the customer's live transaction variables, and displays a step-by-step worked example.
 
 ---
 

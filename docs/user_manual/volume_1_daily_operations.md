@@ -17,14 +17,15 @@ This manual is based on practical field experience gathered across retail operat
 > Founder & Chief Architect, AITDL
 
 #### Document Metadata
-* **Document Version**: 1.1.0
+* **Document Version**: 1.2.0
 * **Release Date**: 2026-06-22
 * **Intended Audience**: Store Operators, Salesmen, Stock Auditors, and Distributor Managers
-* **Learning Objectives**: Learn how to operate SMRITI customer masters, item masters, sales uploads, physical stock counts, and daily landed cost entries.
+* **Learning Objectives**: Learn how to operate SMRITI customer masters, Clienteling Studio, item masters, sales uploads, physical stock counts, and daily landed cost entries.
 * **Support**: support@aitdl.example.com
 * **Revision History**:
   * `v1.0.0` (2026-06-20): Initial daily operations guidelines.
   * `v1.1.0` (2026-06-22): Integrated Landed Cost Allocation daily workflows.
+  * `v1.2.0` (2026-06-22): Added Customer Clienteling Studio operational guidelines.
 
 ---
 
@@ -98,9 +99,14 @@ Let's register **Nagpur Shoe Palace**:
    - Click on the "Address" link inside the Customer Master and add a new address.
 4. [Remaining 7 FAQs detailed in Volume 4 Troubleshooting Handbook]
 
-### 10. Troubleshooting (समस्या निवारण)
-- **Error**: `Credit Limit Exceeded for Customer Nagpur Shoe Palace`.
-- **Resolution**: Request payment from the customer, or have a Sales Manager temporarily increase the Credit Limit in settings.
+### 11. Customer Clienteling & Clienteling Studio (ग्राहक सेवा और प्रबंधन)
+To enable counter salesmen to offer personalized service and check predictions, SMRITI provides the **Clienteling Studio** (/app/smriti-clienteling).
+- **Key Features**:
+  1. **Customer Search**: Search by name or phone number to load insights.
+  2. **Profile Stats**: View preferred brand, size, color, last visit date, and favorite executive.
+  3. **Intelligence Badges**: Highlights active status badges like **VIP** (Gold badge for high-value customers) or **Dormant** (Amber badge indicating inactivity).
+  4. **Explainability**: Salesmen can click the **ⓘ Explain** icon next to any score (like Churn Risk or VIP Candidate Score) to see a live worked example of how the score was calculated under the hood.
+- **Workflow**: Open Clienteling Studio → Search for customer → Review sizing preferences and predictions (such as next-visit likelihood and product affinity) before checkout.
 
 ---
 

@@ -660,6 +660,42 @@ This handbook provides quick resolution steps for common errors and answers Freq
 
 ---
 
+## 23. SMRITI Clienteling & Customer Intelligence Graph (CIG) FAQs & Troubleshooting
+
+### FAQs
+1. **Q: Customer is active in database but marked Dormant in SMRITI?**
+   - A: Check the customer's last purchase date. If the number of days since their last visit exceeds the `dormancy_days` threshold configured in **SMRITI Clienteling Settings** (default 90 days), CIG automatically marks them as dormant.
+2. **Q: VIP Candidate Score changed overnight?**
+   - A: Yes. SMRITI runs daily scheduled background tasks to rebuild the Customer Intelligence Graph. If a customer's spending (LTV), average basket value (ABV), or transaction volume has changed, their score will adjust.
+3. **Q: Prediction confidence dropped?**
+   - A: The prediction confidence is a probability score. If the customer's checkout patterns become erratic (irregular intervals or fluctuating category choices), the volatility increases, causing the confidence score to drop.
+4. **Q: VIP score standard mathematical variables list?**
+   - A: VIP Candidate Score (`TST-VIP`) evaluates three variables: LTV (`net_revenue`), ABV (`abv`), and visit count (`purchases_count`).
+5. **Q: Customer has high LTV but is not marked VIP?**
+   - A: CIG calculates the VIP Candidate Score based on the registry formula. The customer is only flagged as VIP (`is_vip = 1`) if their calculated VIP score meets or exceeds the settings-based `vip_threshold` limit (default 80). If their score is 78, they will remain as standard even with high LTV.
+6. **Q: Can we customize Churn Risk limits?**
+   - A: Churn Risk Level bands are system-standard (Healthy < 40%, Warning 40-70%, Critical >= 70%). However, the mathematical weights of the churn expression can be adjusted by editing `TST-CHURN` in the Formula Registry.
+7. **Q: SMRITI Clienteling Settings options are locked?**
+   - A: Yes, only users with SMRITI Store Manager or System Manager roles can save settings changes. Cashiers are blocked from write access.
+8. **Q: Does recalculation run instantly on counter billing checkout?**
+   - A: Yes. Recalculation is enqueued instantly when a sales/POS invoice is submitted, updating the customer profile in the background.
+9. **Q: Where are CIG audit trails stored?**
+   - A: Every recalculation and score update is logged in the custom CIG DocType under the customer's profile history.
+10. **Q: Why does next-visit prediction show None?**
+    - A: If predictions are disabled in SMRITI Clienteling Settings (`enable_predictions = 0`), or if the customer has less than 2 historical visits (insufficient pattern data), the system returns `None`.
+
+### Troubleshooting
+- **Error**: `Formula definition TST-CHURN not active or is in Draft status`.
+  - **Resolution**: SMRITI requires all active CIG calculations to resolve from approved registry definitions. Open the Formula Registry, find the Formula ID `TST-CHURN`, set Status to **Approved**, tick **Is Active**, and save.
+- **Error**: `CIG recalculation failing due to Division by Zero`.
+  - **Resolution**: Occurs if a customer has 0 visits (`visit_frequency_days = 0`). The CIG service handles this fallback by setting Churn Risk to 0.0%. Check if the customer graph record was correctly initialized.
+- **Error**: `VIP Candidate Score changes do not propagate to Customer Profile`.
+  - **Resolution**: Verify if a background worker is stuck. Re-run cache sync or trigger a manual profile recalculation via the Administrator panel.
+- **Error**: `Prediction confidence is clamped to 100% despite zero recent sales`.
+  - **Resolution**: Expected behavior. The system determines with 100% certainty that a customer with zero recent visits has a static purchase rate of zero. Confidence will adjust once fresh sales are uploaded.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
 

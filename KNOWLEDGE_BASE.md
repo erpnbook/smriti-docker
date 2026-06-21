@@ -38,6 +38,7 @@
 25. [SMRITI Landed Cost Allocation Module (v2.5.0)](#25-smriti-landed-cost-allocation-module-v250)
 26. [SMRITI Reporting Governance & Security Auditing Framework (v2.5.0)](#26-smriti-reporting-governance--security-auditing-framework-v250)
 27. [SMRITI Sales Force Management & Commission Module (v2.6.0)](#27-smriti-sales-force-management--commission-module-v260)
+28. [SMRITI Customer Intelligence Graph (CIG) (v2.7.0)](#28-smriti-customer-intelligence-graph-cig-v270)
 
 ---
 
@@ -706,6 +707,25 @@ SMRITI Retail OS v2.6.0 introduces the **Sales Force Commission (SFC) & Manageme
     3. Company-wide active rule.
     4. SMRITI Commission Settings defaults.
 *   **Immutability on Approval**: Locking a settlement draft as `Approved` or `Paid` sets a database edit lock, making the document and its manual adjustment child tables strictly immutable.
+*   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
+
+---
+
+## 28. SMRITI Customer Intelligence Graph (CIG) (v2.7.0)
+
+SMRITI Retail OS v2.7.0 introduces the **SMRITI Customer Intelligence Graph (CIG)** framework (ACP-CIG-001) for advanced customer clienteling, predictive analytics, and explainable scoring models.
+
+### Key Capabilities
+
+*   **Purpose**: The CIG represents a first-class experience layer module mapping customer demographics, checkout timelines, purchase categories, and sizes with dynamic predictive modeling.
+*   **Architecture & Flow**: Adhering to Service-First architecture (Rule 2), all calculations flow through the service controllers:
+    Customer Checkout Event → SMRITI Customer Graph → CIG Calculation → SMRITI Customer Profile Update.
+*   **Formula Registry Integration**: CIG resolves mathematical expressions dynamically from the Formula Registry (using approved and active formulas `TST-CHURN`, `TST-VIP`, and `TST-AFFINITY`) instead of hardcoding formula logic in python controllers, ensuring full transparency.
+*   **Clienteling Settings**: Central settings parameters (`vip_threshold`, `dormancy_days`, `enable_predictions`) are managed in a single custom settings record to allow configuration tuning without code changes.
+*   **VIP Threshold**: Customers whose VIP Candidate Score exceeds the configured `vip_threshold` setting are automatically flagged as VIPs (`is_vip = 1`) on their Customer Profiles.
+*   **Dormancy Detection**: Tracks and flags inactive customer profiles (`is_dormant = 1`) when `days_since_last_visit` exceeds the configured `dormancy_days` threshold.
+*   **Prediction Confidence**: Models customer checkout recurrence and next-purchase likelihood, scaling confidence scores between 0% and 100% relative to historical purchase consistency and demand volatility.
+*   **Explainability (ⓘ Explain)**: Renders a worked example and explanation modal for each intelligence metric dynamically based on registry expressions, showing cashiers the exact variables, data sources, and calculations that contributed to the score.
 *   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
 
 ---

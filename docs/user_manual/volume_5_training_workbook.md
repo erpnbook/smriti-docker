@@ -1,7 +1,35 @@
 # SMRITI Retail OS User Manual — Volume 5: Training Workbook
 
+---
 
-This workbook contains 52 practical exercises designed to train new team members on SMRITI Retail OS. Complete the exercises sequentially based on your role.
+### Author Profile (Start)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+#### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+#### Document Metadata
+* **Document Version**: 1.2.0
+* **Release Date**: 2026-06-22
+* **Intended Audience**: Store Operators, Stock Auditors, Sales Managers, Executives, and Administrators
+* **Learning Objectives**: Hands-on workflow training via structured retail exercises.
+* **Support**: support@aitdl.com
+* **Revision History**:
+  * `v1.0.0` (2026-06-20): Initial release of workbook.
+  * `v1.1.0` (2026-06-22): Added Formula Registry & Dictionary exercises.
+  * `v1.2.0` (2026-06-22): Added Clienteling & Customer Intelligence Graph (CIG) exercises (Exercises 53 to 56).
+
+---
+
+This workbook contains 56 practical exercises designed to train new team members on SMRITI Retail OS. Complete the exercises sequentially based on your role.
 
 ---
 
@@ -364,5 +392,52 @@ This workbook contains 52 practical exercises designed to train new team members
   3. Click the **📖 Dictionary Entry** button at the bottom of the modal.
 - **Expected Result**: The system redirects to `/smriti-dictionary` (pre-filtered for WOC) and opens the Business Dictionary drawer detailing Weeks of Cover, its Hinglish definition, FAQs, and related terms.
 
+### Exercise 53: Adjust VIP Threshold Settings
+- **Scenario**: A Store Manager wants to lower the VIP candidate criteria during a festive season to increase loyalty membership conversions.
+- **Actions**:
+  1. Open the SMRITI Clienteling Settings page (route `clienteling-settings` or `/app/clienteling-settings`).
+  2. Locate the VIP Threshold field (currently set to default `80`).
+  3. Change the value to `75` and click **Save**.
+- **Expected Result**: Settings are updated. The Customer Intelligence Graph will now classify customers with a VIP score of 75 or above as VIP Candidates.
+
+### Exercise 54: Recalculate CIG and Verify Customer Profile Update
+- **Scenario**: A manager wants to force recalculation of a customer's intelligence scores after a major checkout purchase.
+- **Actions**:
+  1. Open the Customer Profile page (route `/app/customer-profile` or find the customer in SMRITI UI).
+  2. Click the **Recalculate CIG** button.
+  3. Verify the updated scores under the customer profile fields.
+- **Expected Result**: System recalculates scores based on Formula Registry. The profile fields reflect the updated `churn_risk_score`, `vip_candidate_score`, and `campaign_affinity_score`.
+
+### Exercise 55: Verify CIG Predictions and Explainability UI
+- **Scenario**: A cashier wants to explain to a customer why they have a certain VIP Candidate Score.
+- **Actions**:
+  1. Open the customer's profile.
+  2. Locate the VIP Candidate Score section and click the **ⓘ Explain** button next to it.
+  3. Review the Universal Explain Modal displaying the active Formula ID (`TST-VIP`), version, and actual inputs.
+- **Expected Result**: The Universal Explain Modal displays the business meaning, the active Formula ID, and the live calculation steps, providing full transparency.
+
+### Exercise 56: View Active Formula Definitions
+- **Scenario**: A Store Manager wants to audit active formulas to verify registry status and versions.
+- **Actions**:
+  1. Open the SMRITI Formula Registry (route `smriti-formula-registry` or `/app/smriti-formula-registry`).
+  2. Locate Formula IDs `TST-CHURN`, `TST-VIP`, and `TST-AFFINITY` in the list.
+  3. Verify the formula version and that the status is set to **Approved** and **Is Active**.
+- **Expected Result**: Displays the active registry version and active formula metadata, proving that all calculations are resolved dynamically from the central registry instead of being hardcoded.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+
+---
+
+### Author Profile (End)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL

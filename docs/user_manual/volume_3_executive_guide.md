@@ -1,5 +1,34 @@
 # SMRITI Retail OS User Manual — Volume 3: Executive Dashboard & Analytics Guide
 
+---
+
+### Author Profile (Start)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+#### Author Note
+This manual is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
+
+#### Document Metadata
+* **Document Version**: 1.2.0
+* **Release Date**: 2026-06-22
+* **Intended Audience**: Shop Owners, Brand Managers, Directors, and Executive Decision Makers
+* **Learning Objectives**: Understand analytical metrics, forecasting models, sandbox simulation tools, and customer base health analytics.
+* **Support**: support@aitdl.example.com
+* **Revision History**:
+  * `v1.0.0` (2026-06-20): Initial executive guide guidelines.
+  * `v1.1.0` (2026-06-22): Updated for sandbox simulations.
+  * `v1.2.0` (2026-06-22): Added Customer Base Health Analytics (CIG).
+
+---
+
 Welcome to the **SMRITI Retail OS Executive Dashboard & Analytics Guide**. This guide is written for Shop Owners, Brand Managers, Directors, and Executive Decision Makers. It explains analytical metrics, forecasting models, and sandbox simulation tools.
 
 ---
@@ -174,5 +203,42 @@ The Sales VP wants to run a "Monsoon Discount Campaign" that is expected to incr
 
 ---
 
+## Chapter 8: Customer Base Health Analytics (CIG) (ग्राहक स्वास्थ्य विश्लेषण)
+
+### 1. Purpose (उद्देश्य)
+Customer Base Health Analytics leverages the **Customer Intelligence Graph (CIG)** to evaluate the overall quality, loyalty, and risk profiles of your retail and distributor network.
+- **Business Problem Solved**: Prevents customer attrition. Executives can monitor macro customer health trends (like Churn Risk warnings and VIP propagation levels) across different store regions.
+
+### 2. Executive Metrics & Interpretations
+Executives review the following CIG metrics to evaluate network health:
+1.  **Churn Risk Score (TST-CHURN)**: Predicts the likelihood of customer churn.
+    - *Healthy (< 40%)*: High customer loyalty and retention.
+    - *Warning (40-70%)*: Moderate risk; indicates customers showing delayed checkout patterns. Recommend marketing campaigns.
+    - *Critical (>= 70%)*: High risk of churn. Immediate action required.
+2.  **VIP Candidate Score (TST-VIP)**: Analyzes overall spending and transaction frequency to determine high-value customer ratios. Used to monitor customer tier transitions.
+3.  **Campaign Affinity Score (TST-AFFINITY)**: Measures customer response rate to marketing touchpoints and loyalty conversions, helping executives optimize promotional budgets.
+
+> [!NOTE]
+> All metrics are resolved dynamically from active Formula Registry definitions (Formula IDs: TST-CHURN, TST-VIP, TST-AFFINITY) to prevent documentation drift. Refer to the Formula Registry (/app/smriti-formula-registry) to check the active version and expression.
+
+### 3. Executive Action Guidelines
+- If Churn Risk levels in a specific region (e.g. Nagpur) increase by more than 15% month-over-month, initiate regional customer win-back promotions.
+- Monitor VIP Candidate Score distribution to verify if promotional campaigns are successfully converting Silver/Gold tier customers to VIP status.
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+
+---
+
+### Author Profile (End)
+* **Author**: Jawahar R. Mallah
+* **Designation**: Founder & Chief Architect
+* **Organization**: AITDL – AI Technology & Development Lab
+* **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Light begins with learning."
+> 
+> — Jawahar R. Mallah
+> Founder & Chief Architect, AITDL
