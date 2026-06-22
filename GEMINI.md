@@ -947,6 +947,40 @@ Direct hardcoded relationships between knowledge assets are prohibited.
 
 ---
 
+## Rule 18: Presentation & Template Metadata Safety Rule (Rule ID: TEMPLATE-01 - LOCKED — 2026-06-23)
+
+### Purpose
+Prevent developer metadata, debugging artifacts, implementation notes, and source comments from appearing in customer-facing experiences.
+
+### Requirements
+1. HTML templates must use only HTML comment syntax (`<!-- comment -->`).
+2. JavaScript block comments (`/* comment */`) are prohibited outside script tags.
+3. Customer-facing templates and rendered pages must not expose:
+   * `@file:`
+   * `@author:`
+   * `@license:`
+   * `Copyright`
+   * `TODO`
+   * `FIXME`
+   * `DEBUG`
+   * `console.log`
+   * `alert`
+4. All releases must pass:
+   * `validate_html_templates.py`
+   * `test_raw_templates_no_js_comments`
+   * `test_rendered_pages_no_leaked_comments`
+5. Any exposure of metadata, source annotations, or debugging artifacts in rendered output is a release-blocking defect.
+
+### Classification
+Presentation Integrity
+Brand Governance
+Experience Center Protection
+
+### Severity
+Critical
+
+---
+
 ## SMRITI Knowledge Governance Framework (KGF)
 Rules 13, 14, 15, 16, and 17 collectively constitute the **SMRITI Knowledge Governance Framework (KGF)**. The KGF is a core architectural pillar of SMRITI Retail OS, ensuring that:
 - **Every number** displayed is explainable in plain business terms.
