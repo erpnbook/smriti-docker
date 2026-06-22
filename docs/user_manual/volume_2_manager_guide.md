@@ -328,20 +328,55 @@ Managers govern CIG behavior and thresholds centrally via the **SMRITI Clienteli
 2.  **Dormancy Days (default `90`)**: The number of days elapsed since the last checkout visit after which a customer is flagged as dormant.
 3.  **Enable Predictions (default `1`)**: Turns on/off background predictive calculations for next-visit dates and purchase categories, protecting database performance when needed.
 
-### 3. Dynamic Formula Registry Integration
-Rather than hardcoding calculation logic in Python controllers, CIG retrieves mathematical expressions dynamically from the central Formula Registry. The intelligence engine evaluates three registered formulas:
+### 3. Dynamic Formula Registry Integration & Health Score Calculation
+
+Rather than hardcoding calculation logic in Python controllers, CIG retrieves mathematical expressions dynamically from the central Formula Registry. The intelligence engine evaluates three registered base formulas:
 - **Churn Risk Score (TST-CHURN)**: Measures the customer's likelihood of churning based on visit cycle deviation.
 - **VIP Candidate Score (TST-VIP)**: Evaluates customer value based on spending (LTV), average basket value (ABV), and checkout count.
 - **Campaign Affinity Score (TST-AFFINITY)**: Evaluates response touchpoints.
 
-> [!NOTE]
-> All customer profile calculations dynamically reference these Formula IDs (TST-CHURN, TST-VIP, TST-AFFINITY) from the Formula Registry. Refer to the Formula Registry (/app/smriti-formula-registry) to check the active version and expression.
+#### Customer Health Score (`TST-HEALTH`) Composite Calculation
+To provide a single unified diagnostic for customer relationship quality, SMRITI calculates a composite **Customer Health Score** using the formula:
+$$\text{Customer Health Score} = \max\left(0.0, \min\left(100.0, (100 - \text{churn\_risk\_score}) \times 0.4 + \text{vip\_candidate\_score} \times 0.4 + \text{campaign\_affinity\_score} \times 0.2\right)\right)$$
 
-### 4. Explainability-First (ⓘ Explain Workflow)
+*   **Weightings**:
+    - **Retention factor** (Weight: **40%**): Represented by `(100 - Churn Risk Score)`.
+    - **Value factor** (Weight: **40%**): Represented by the `VIP Candidate Score`.
+    - **Engagement factor** (Weight: **20%**): Represented by the `Campaign Affinity Score`.
+*   **Clamping Guarantee**: The composite score is strictly clamped between `0.0` and `100.0` to prevent extreme telemetry variance from leaking values outside the mathematical boundary.
+
+> [!NOTE]
+> All customer profile calculations dynamically reference these Formula IDs (TST-CHURN, TST-VIP, TST-AFFINITY, TST-HEALTH) from the Formula Registry. Refer to the Formula Registry (/app/smriti-formula-registry) to check the active version and expression.
+
+### 4. Explainability-First (ⓘ Explain Workflow) & Audit Tracking
+
 To comply with SMRITI explainability standards, the Clienteling Studio provides a clear transparency flow for counter operators:
 1. Open the Customer Profile card.
 2. Click the **ⓘ Explain** icon next to any computed metric.
 3. The Universal Explain Modal retrieves the registered formula definition, resolves the customer's live transaction variables, and displays a step-by-step worked example.
+
+#### Explain Audit Event Ledger (`SMRITI Explain Audit Event`)
+To enforce accountability and monitor training needs, every click on the **ⓘ Explain** button is audited in real-time. The system automatically creates a read-only log record in the `SMRITI Explain Audit Event` ledger containing:
+*   **User**: The session user performing the look-up.
+*   **Customer**: The customer profile being audited.
+*   **Metric**: The specific metric being explained.
+*   **Formula ID**: Direct link to the registered formula in the Formula Registry.
+*   **Timestamp**: The exact time of the explanation request.
+*   **Source Screen & Session ID**: Observability parameters tracking user navigation context.
+
+This audit ledger is strictly read-only for all store-level users and is used by corporate supervisors to identify which metrics are most frequently queried, guiding future team training sessions.
+
+### 5. CIG Operational Observability & Freshness Indicators
+
+Compiling a large-scale Customer Intelligence Graph can be database-intensive. SMRITI provides built-in operational telemetry directly in the `SMRITI Customer Graph` master to monitor background calculations:
+*   **Graph Status (`graph_status`)**: Tracks the execution phase of graph generation: `Pending`, `Processing`, `Completed`, or `Failed`.
+*   **Last Generated At (`graph_last_generated_at`)**: The exact timestamp when compilation was completed.
+*   **Generation Duration (`graph_generation_duration_ms`)**: The processing time of the compilation job in milliseconds, assisting database administrators in spotting performance bottlenecks.
+*   **Graph Version (`graph_source_version`)**: Standard version tag (e.g. `CIG-1.1`) of the active compilation structure.
+*   **Failure Observability (`graph_generation_error`)**: If a background computation fails, the system captures the full execution stack trace and logs it to this read-only field, eliminating the need to search through raw system logs during troubleshooting.
+
+Managers can review these freshness indicators to ensure that clienteling suggestions and customer profiles are always based on the most up-to-date transaction history.
+
 
 ---
 
