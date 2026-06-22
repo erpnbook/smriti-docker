@@ -74,7 +74,7 @@ graph TD
 ### 2. Multi-Location Inventory Tracking
 SMRITI PSV monitors stock levels across:
 1. **Primary Warehouses**: Brand-owned depots (tracked in ERPNext Stock Ledger).
-2. **Distributor Locations**: Tracked via SMRITI shadow ledgers (Party Stock Accounts - PSA).
+2. **Distributor Locations**: Tracked via SMRITI Inventory Visibility Layers (Party Stock Accounts - PSA).
 3. **Retail Outlets**: Sales and returns tracked through distributor uploads.
 
 This ensures stock is visible at every point in the supply chain without mixing distributor stock with brand assets in the primary general ledger.
@@ -330,7 +330,7 @@ Centralized formulas used within PSV:
 * **Expression**:
   $$\text{WOC} = \frac{\text{Current Stock}}{\text{Weekly Sales Velocity}}$$
 * **Inputs**: `PSA Balance`, `7-Day Average Sales`
-* **Data Source**: `SMRITI PSV Transaction` shadow ledger
+* **Data Source**: `SMRITI PSV Transaction` Inventory Visibility Layer
 
 #### 2. Sell-Through % (Formula ID: PSV-ST-001)
 * **Expression**:
@@ -354,7 +354,7 @@ Centralized formulas used within PSV:
 
 ### Appendix B — PSV Business Dictionary
 
-* **PSA (Party Stock Account)**: The shadow ledger entity that records inventory movements for a specific distributor.
+* **PSA (Party Stock Account)**: The Inventory Visibility Layer entity that records inventory movements for a specific distributor.
 * **PSV (Party Stock Visibility)**: The frontend experience and intelligence layer tracking network inventory.
 * **Primary Sales**: Inventory sold directly from the brand to the distributor.
 * **Secondary Sales**: Inventory sold by the distributor to retailers or end-consumers.
@@ -371,7 +371,7 @@ Centralized formulas used within PSV:
 
 #### Executive & Owner FAQs:
 1. **Does PSV change standard ERPNext GL ledger entries?**
-   No. PSV uses an isolated shadow ledger database to prevent updates to corporate financial records.
+   No. PSV uses an isolated Inventory Visibility Layer database to prevent updates to corporate financial records.
 2. **How does PSV improve cash flow?**
    By identifying slow-moving items and suggesting transfers, freeing capital locked in stagnant stock.
 3. **Can we use PSV for international distributors?**
@@ -433,7 +433,7 @@ Centralized formulas used within PSV:
 28. **Can I set different lead times for different suppliers?**
     Yes. Lead time defaults can be overridden at the supplier-item mapping level.
 29. **How do I reconcile physical count variances?**
-    Create a SMRITI Physical Snapshot Adjustment. It records the variance and adjusts the shadow ledger.
+    Create a SMRITI Physical Snapshot Adjustment. It records the variance and adjusts the Inventory Visibility Layer.
 30. **Does the system track serial numbers at distributor warehouses?**
     Yes, if serial number tracking is activated for the target item group.
 31. **Can I export the exception logs for external audit?**
@@ -489,7 +489,7 @@ Centralized formulas used within PSV:
 * **Resolution**: Set the default lead time in PSV Settings or map it at the supplier level.
 
 #### 10. Customer Return Rejected
-* **Problem**: Cannot save return: "Item Not Found in Shadow Ledger".
+* **Problem**: Cannot save return: "Item Not Found in Inventory Visibility Layer".
 * **Cause**: Item was never dispatched to this party stock account.
 * **Resolution**: Verify dispatch history. If manual correction is needed, run a stock adjustment.
 

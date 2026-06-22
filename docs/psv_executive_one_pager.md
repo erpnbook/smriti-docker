@@ -30,7 +30,7 @@
 ## 1. What is PSV? (Party Stock Visibility)
 SMRITI Party Stock Visibility (PSV) is a premium, real-time retail operational layer built on top of ERPNext. While ERPNext serves as the transaction and general ledger engine of record, SMRITI PSV acts as the intelligence frontend and experience layer that tracks distributor inventory, sales velocity, and coverage.
 
-PSV maintains an independent **shadow ledger architecture** that reads ERPNext master data but operates on its own isolated stock movement log. This guarantees that company ledger entries are never modified by distributor uploads, while offering the brand full visibility into stock status across all external channel partners (footwear brands, FMCG networks, franchise outlets, etc.).
+PSV maintains an independent **Inventory Visibility Layer** that reads ERPNext master data but operates on its own isolated stock movement log. This guarantees that company ledger entries are never modified by distributor uploads, while offering the brand full visibility into stock status across all external channel partners (footwear brands, FMCG networks, franchise outlets, etc.).
 
 ---
 
@@ -117,7 +117,7 @@ Implementing SMRITI PSV directly impacts the distributor's Return on Investment 
 ## 7. Frequently Asked Questions (FAQs)
 
 #### Q1: Does SMRITI PSV touch our core financial accounting?
-**A**: No. SMRITI PSV operates as a frontend shadow ledger. It reads ERPNext data but never inserts or modifies stock ledger entries or general ledger entries in ERPNext. Accounting remains 100% owned by ERPNext/Tally.
+**A**: No. SMRITI PSV operates as a frontend **Inventory Visibility Layer**. It reads ERPNext data but never inserts or modifies stock ledger entries or general ledger entries in ERPNext. Accounting remains 100% owned by ERPNext/Tally.
 
 #### Q2: How does the system handle concurrent sales uploads?
 **A**: SMRITI PSV contains a Redis-backed distributed lock scoped per Party Stock Account. This prevents double-writes and race conditions during concurrent loads, ensuring data and audit trail integrity.
