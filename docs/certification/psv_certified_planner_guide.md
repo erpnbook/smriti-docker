@@ -9,12 +9,6 @@
 - **Organization**: AITDL – AI Technology & Development Lab
 - **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
 - **Author Note**: This guide is based on practical field experience gathered across retail operations, distribution management, inventory control, software architecture, business automation, and enterprise solution development. The objective is to make SMRITI Retail OS understandable and usable by both technical and non-technical users.
-
-> "Light begins with learning."
-> 
-> — Jawahar R. Mallah
-> Founder & Chief Architect, AITDL
-
 #### Document Metadata
 - **Certification Version**: 1.0.0
 - **Release Date**: 2026-06-23
@@ -269,11 +263,5 @@ To obtain the **SMRITI PSV Certified Planner (Level 1)** credential, candidates 
 - **Designation**: Founder & Chief Architect
 - **Organization**: AITDL – AI Technology & Development Lab
 - **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
-
-> "Light begins with learning."
-> 
-> — Jawahar R. Mallah
-> Founder & Chief Architect, AITDL
-
 ---
 *SMRITI Certified Planner Program — Level 1 Credential | AITDL Network*
