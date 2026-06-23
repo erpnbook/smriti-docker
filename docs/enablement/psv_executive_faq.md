@@ -66,7 +66,7 @@ On average, brands see a full return on their software investment within **3 to 
 
 ## ⚙️ Section 3: Technical Architecture & System Boundaries
 
-### Q10: Does SMRITI PSV create a shadow ledger or modify our core ERPNext Stock Ledgers?
+### Q10: Does SMRITI PSV duplicate inventory records or modify our core ERPNext Stock Ledgers?
 **Response**: SMRITI does **not** modify your core ERPNext Stock Ledger or General Ledger. It runs as an independent, upgrade-safe frontend Inventory Visibility Layer. ERPNext remains the system of record for brand-owned transactions, while SMRITI aggregates secondary data separately to avoid audit complications.
 
 ### Q11: How does SMRITI handle connection dropouts or offline periods at distributor locations?

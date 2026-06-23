@@ -68,6 +68,12 @@ Based on the worked calculations above, implementing SMRITI PSV yields:
 2.  **Freed Capital Reinvested**: **₹12,00,000** back into fast-moving styles.
 3.  **Distributor ROI Shift**: Improves average distributor ROI from **20% to 26%** by turning inventory faster and reducing dead stock holdings.
 
+    > [!NOTE]
+    > **Distributor ROI Shift Derivation (CFO Note)**:
+    > *   **Formula**: $\text{Distributor ROI \%} = \left(\frac{\text{Net Profit}}{\text{Invested Capital (Inventory Value)}}\right) \times 100$
+    > *   **Before SMRITI**: A distributor holding ₹1,00,00,000 in average inventory generates ₹20,00,000 in annual net profit $\rightarrow \text{ROI} = 20\%$.
+    > *   **After SMRITI**: Reinvesting freed capital into high-velocity variant curves reduces dead stock holdings and captures lost sales, boosting annual net profit by ₹6,00,000 to ₹26,00,000 on the same capital base $\rightarrow \text{ROI} = \left(\frac{26,00,000}{1,00,00,000}\right) \times 100 = 26\%$.
+
 ---
 
 ### Author Profile (End)

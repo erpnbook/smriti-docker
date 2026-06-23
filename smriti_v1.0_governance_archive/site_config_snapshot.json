@@ -1,0 +1,13 @@
+{
+ "active_backup_encryption_key_version": "v1",
+ "allow_tests": true,
+ "backup_encryption_keys": {
+  "v1": "ad76da83be65ca08d3283b33cc640db7"
+ },
+ "db_name": "_627132d433fb72c2",
+ "db_password": "XeFi5uemdg5bQQyn",
+ "db_type": "mariadb",
+ "db_user": "_627132d433fb72c2",
+ "encryption_key": "TBoSoE8HucbMSM_lKT-do-92-patWZgYJw5_jpE9BN4=",
+ "smriti_license_secret": "SMRITI-PROD-SECRET-KEY-2026"
+}

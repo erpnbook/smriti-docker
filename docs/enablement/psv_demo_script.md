@@ -110,7 +110,7 @@ gantt
     >
     > Look at this matrix: Our Mumbai depot has 250 excess units of Size 6 blue sneakers, representing a WOC of 30 weeks. Meanwhile, Pune is completely stocked out of Size 6, losing sales daily.
     >
-    > Instead of shipping new boxes from the factory—which takes 10 days and incurs manufacturing costs—SMRITI recommends a **Network Stock Transfer (NST)**. It suggests moving 120 units from Mumbai to Pune. Pune gets stock in 2 days to capture sales, Mumbai clears excess capital lockup, and overall brand margins are preserved."
+    > Instead of shipping new boxes from the factory—which takes 10 days and incurs manufacturing costs—SMRITI recommends a **Network Stock Transfer (NST)**. It suggests moving 100 units from Mumbai to Pune. Pune gets stock in 2 days to capture sales, Mumbai clears excess capital lockup, and overall brand margins are preserved."
 
 ---
 

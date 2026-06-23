@@ -59,6 +59,17 @@ The following metrics are derived dynamically from the dataset using central for
 *   *Aging*: Stock received 61–90 days.
 *   *Dead Stock*: Stock received over 90 days.
 
+### D. Surplus Quantity (अधिशेष मात्रा)
+*   **Formula ID**: `PSV-SUR-001`
+*   **Worked Math**: `max(0, Closing Balance - (Target WOC Upper Limit * Weekly Sales Velocity))`
+*   *Example (Denim Size 32)*:
+    - Target WOC Upper Limit = 14 weeks.
+    - Weekly Sales Velocity = 2.5 units/day × 7 days = 17.5 units/week.
+    - Target Stock Upper Limit = 14 × 17.5 = 245 units.
+    - Closing Balance = 620 units.
+    - $\text{Surplus Quantity} = 620 - 245 = 375 \text{ units}$.
+    *(Note: In the demo transfer scenario, a conservative 100 units is transferred, leaving a healthy buffer of 275 surplus units in Mumbai).*
+
 ---
 
 ### Author Profile (End)

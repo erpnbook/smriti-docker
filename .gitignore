@@ -13,5 +13,7 @@ assets/
 BRANDING_POLICY.md
 /the docs/
 scratch/
+.github_config.json
+.github_todos.json
 
 

@@ -1,4 +1,4 @@
-# SMRITI PSV Success Story Pack — Case Studies
+# SMRITI PSV Success Story Pack — Case Study
 
 ---
 
@@ -48,6 +48,12 @@ Within 90 days of rollout, StepFit achieved significant operational improvements
 *   **Incremental Sales**: Recovered lost size sales, boosting annual revenue to **₹6,50,00,000 (₹6.5 Cr)**—a **30% sales growth** without expanding manufacturing capacity.
 *   **Capital Freed**: Cleared stagnant stock using inter-store transfers, releasing **₹6,00,000** in distributor working capital.
 *   **Distributor ROI**: Reinvesting the freed capital into high-velocity variants boosted average distributor ROI from **20% to 26%**.
+
+    > [!NOTE]
+    > **Distributor ROI Shift Derivation (CFO Note)**:
+    > *   **Formula**: $\text{Distributor ROI \%} = \left(\frac{\text{Net Profit}}{\text{Invested Capital (Inventory Value)}}\right) \times 100$
+    > *   **Before SMRITI**: A distributor holding ₹1,00,00,000 in average inventory generates ₹20,00,000 in annual net profit $\rightarrow \text{ROI} = 20\%$.
+    > *   **After SMRITI**: Reinvesting freed capital into high-velocity variant curves reduces dead stock holdings and captures lost sales, boosting annual net profit by ₹6,00,000 to ₹26,00,000 on the same capital base $\rightarrow \text{ROI} = \left(\frac{26,00,000}{1,00,00,000}\right) \times 100 = 26\%$.
 
 ---
 

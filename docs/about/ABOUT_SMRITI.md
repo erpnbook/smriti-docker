@@ -10,5 +10,5 @@ While ERPNext serves as the transaction ledger and accounting engine in the back
 ## Core Differentiators
 1. **Predictive Distribution Twin (PDT)**: Real-time stock coverage analytics and replenishment reorder alerts.
 2. **Channel Governance Engine (CGE)**: Enforces business rules and exceptions across all sales channels.
-3. **Party Stock Visibility (PSV)**: Shadow ledger architecture providing real-time tracking of distributor-held and channel stock.
+3. **Party Stock Visibility (PSV)**: Inventory Visibility Layer providing real-time tracking of distributor-held and channel stock.
 4. **Knowledge Governance Framework (KGF)**: Ensures complete transparency by linking every KPI, health score, and metric to a centralized Business Dictionary and Formula Registry.

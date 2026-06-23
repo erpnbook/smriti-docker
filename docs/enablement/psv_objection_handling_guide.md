@@ -32,7 +32,7 @@ During presentations, sales teams will encounter operational objections. This gu
 | **"We have data privacy concerns."** | Distributor | **Controlled Access** | "SMRITI restricts data access through role-based permissions. Distributors only see their own sales and depot quantities. Brand owners see aggregate regional stock without exposing distributor margins to other partners." |
 | **"It requires too much effort to maintain."** | Planners | **Automation** | "Imports are automated via standardized Excel/CSV templates with built-in MD5 fingerprint checks to prevent duplicate entries. Reconciliation is simplified with variance alerts." |
 | **"We are too small."** | Regional Brand | **Growth Readiness** | "SMRITI provides small, growing brands with the same supply chain discipline used by major enterprise footwear and apparel networks, preventing capital lockup from day one." |
-| **"We are too large."** | Enterprise Brand | **Multi-Location Visibility** | "SMRITI's shadow ledger architecture scale-checks bulk transactions smoothly. It aggregates thousands of variant items across hundreds of distributors without slowing down your core ERPNext database." |
+| **"We are too large."** | Enterprise Brand | **Multi-Location Visibility** | "SMRITI's Inventory Visibility Layer scale-checks bulk transactions smoothly. It aggregates thousands of variant items across hundreds of distributors without slowing down your core ERPNext database." |
 | **"What ROI can I expect?"** | CEO / CFO | **ROI Calculator** | "Brand owners typically see bestseller stockouts drop by 60% and a 30% increase in network sales volume by reallocating freed capital into high-velocity variant curves." |
 
 ---

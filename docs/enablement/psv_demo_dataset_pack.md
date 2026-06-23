@@ -30,9 +30,9 @@ The dataset is engineered to show:
 ### Scenario A: Mumbai Depot (Surplus & Capital Lockup)
 *   **Context**: Mumbai is the largest regional distributor, but suffers from poor reorder governance.
 *   **Data Highlights**:
-    *   Surplus units of Denim size 32 (surplus of 120 units).
-    *   WOC stands at a bloated **35 weeks** (Green zone target is 7–14 weeks).
-    *   Working Capital locked: **₹4,50,000** on Denim variants alone.
+    *   Surplus units of Denim size 32: **375 units** (calculated as `Closing Balance (620) - Target Stock Upper Limit (14 weeks × 17.5 units/week = 245 units)`).
+    *   WOC stands at a bloated **35.4 weeks** (Green zone target is 7–14 weeks).
+    *   Working Capital locked: **₹6,06,000** on Denim variants alone (DNM-BLU-32: 620 units × ₹600 = ₹3,72,000; DNM-BLK-34: 390 units × ₹600 = ₹2,34,000).
 *   **Demo Action**: Planners view this excess on the dashboard and verify that Mumbai does not need replenishment from the factory.
 
 ### Scenario B: Pune Depot (High Velocity & Stockout Risk)
@@ -66,18 +66,18 @@ Planners can execute this demo sequence step-by-step:
 *   *Screenshot Marker*: `[Screenshot: Reorder Recommendation List]`
 
 ### Step 3: Run the Stock Transfer Simulator
-*   *Expected View*: Suggests moving 100 units from Mumbai (120 surplus) to Pune (0 stock).
+*   *Expected View*: Suggests moving 100 units of Denim size 32 from Mumbai (out of 375 surplus units) to Pune (0 stock).
 *   *Screenshot Marker*: `[Screenshot: Inter-Store Transfer Approval Matrix]`
 
 ### Step 4: Verify ROI Recovery
-*   *Expected View*: The calculator computes ₹60,000 in protected margins for Pune, and frees ₹1,50,000 in locked capital for Mumbai.
+*   *Expected View*: The calculator computes ₹60,000 in protected margins for Pune, and frees ₹60,000 in locked capital for Mumbai (100 units transferred × ₹600 landed cost).
 *   *Screenshot Marker*: `[Screenshot: Margin Recovery Analytics Page]`
 
 ---
 
 ## 4. Dataset Reference Files
-*   **CSV File**: [psv_demo_dataset.csv](file:///d:/Smriti_Retail_OS/docs/enablement/psv_demo_dataset.csv)
-*   **Layout Guide**: [psv_demo_dataset_layout.md](file:///d:/Smriti_Retail_OS/docs/enablement/psv_demo_dataset_layout.md)
+*   **CSV File**: [psv_demo_dataset.csv](psv_demo_dataset.csv)
+*   **Layout Guide**: [psv_demo_dataset_layout.md](psv_demo_dataset_layout.md)
 
 ---
 
