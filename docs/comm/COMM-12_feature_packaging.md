@@ -64,7 +64,18 @@ Pilot Status  : Phase 1.2 frozen — Pilot Ready
 
 ## Pilot Tier
 
-**Definition**: First engagement — prove the model before commitment.
+**Definition**: First engagement — validate value before pricing conversation.
+
+> [!IMPORTANT]
+> **Pricing Governance Decision — 2026-06-24**
+> Authority: Jawahar R. Mallah, Founder & Chief Architect, AITDL
+>
+> **Pilot pricing does NOT block the first pilot.**
+> Objective at pilot stage: Validate Value → Not Maximize Revenue.
+> Production pricing is locked post-pilot based on field evidence.
+>
+> Pilot Package = Founder Approved to proceed.
+> Production Pricing = Post-pilot decision.
 
 | Parameter | Value |
 |-----------|-------|
@@ -72,19 +83,21 @@ Pilot Status  : Phase 1.2 frozen — Pilot Ready
 | Duration | 30 days |
 | Data method | Excel upload |
 | Features | Full PSV v1.1 core feature set |
-| Price | **[PENDING — Founder Approval Required]** |
+| Price | **Founder-approved pilot terms (case-by-case)** |
 | Commitment | None — exit after pilot with no penalty |
 | Deliverables | 5 pilot reports (see COMM-04) |
+| Success Criteria | COMM-08 (6 criteria, agreed Day 1) |
+| Weekly Review | Brand Planner + AITDL — 30 min |
 
 ---
 
-## Production Tiers (Framework — Pricing Pending)
+## Production Tiers (Post-Pilot — Pricing TBD After Field Evidence)
 
 | Tier | Distributors | Target Brand | Pricing |
 |------|-------------|-------------|---------|
-| **Starter** | 1–5 | Small brand, regional distribution | [TBD] |
-| **Growth** | 6–20 | Mid-market brand, multi-state | [TBD] |
-| **Enterprise** | 20+ | Large brand, national network | [TBD] |
+| **Starter** | 1–5 | Small brand, regional distribution | [Post-pilot] |
+| **Growth** | 6–20 | Mid-market brand, multi-state | [Post-pilot] |
+| **Enterprise** | 20+ | Large brand, national network | [Post-pilot] |
 
 ### Pricing Principles (Approved)
 
