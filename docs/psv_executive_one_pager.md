@@ -43,15 +43,23 @@ PSV does not replace distributor systems. It creates a parallel shadow ledger �
 
 ## ROI Proof
 
-```
-Annual network: 50,000 items dispatched
-Typical stockout rate: 6%
-Stockouts prevented by PSV: 3,000 items
-Margin protected: ₹15,00,000 / year
-```
+| Step | Calculation | Result |
+|------|------------|--------|
+| Annual cohort size | Network dispatched | 50,000 items |
+| Stockout rate | Industry typical | 6% |
+| Stockouts prevented | 50,000 × 6% | **3,000 items** |
+| Avg. contribution margin | MRP ₹1,200 × 40% brand margin | **₹500 / item** |
+| Annual margin recovery | 3,000 × ₹500 | **₹15,00,000** |
 
-> 3,000 stockouts prevented = 3,000 bestsellers that reached the consumer instead of being missed.
-> At an average margin of ₹500/unit — that is ₹15 Lakhs in annual margin recovery per distributor network.
+> **Assumption visible**: ₹500/item contribution margin assumes avg. MRP of ₹1,200
+> with 40% brand contribution margin — typical for mid-market footwear and apparel.
+> Adjust the margin per item for your product category to get your specific recovery figure.
+
+```
+Lower margin product  (₹300/item): 3,000 × ₹300 = ₹9,00,000 / year
+Mid-market footwear   (₹500/item): 3,000 × ₹500 = ₹15,00,000 / year  ← baseline
+Premium product       (₹800/item): 3,000 × ₹800 = ₹24,00,000 / year
+```
 
 ---
 
