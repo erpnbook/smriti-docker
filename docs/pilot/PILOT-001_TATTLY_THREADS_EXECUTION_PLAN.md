@@ -91,6 +91,28 @@ Full criteria detail: [COMM-08 Pilot Success Criteria](../comm/COMM-08_pilot_suc
 | C5 | WOC-Driven Decision | ≥1 business action triggered by WOC data | Self-reported |
 | C6 | Dashboard Engagement | ≥12 total sessions in 30 days | Activity Log |
 
+### PILOT_METRIC_007 — Decision Adoption Rate
+
+```
+Formula:  PSV-driven decisions taken
+          ─────────────────────────────
+          PSV recommendations shown
+
+Target:   > 25%
+
+Why:      This metric is not a pilot pass/fail criterion.
+          It is a PDT architecture input.
+
+          If decision adoption > 25%: users trust PSV signals.
+          Forecasting value in PDT is HIGH.
+
+          If decision adoption < 10%: signal-to-action gap.
+          PDT needs explainability layer before forecasting.
+
+          Capture this number at Week 4 review.
+          It will directly shape PDT-ARCH-001 design.
+```
+
 > **Step 0**: Present this table to Tattly Threads in Week 0 kickoff.
 > Get written confirmation of agreed targets before Week 1 begins.
 > No pilot should start without signed criteria.
@@ -402,6 +424,33 @@ If C6 failed (low engagement):
 2. Share findings with Tattly Threads transparently
 3. Decide: product gap (fix) vs wrong fit (move to next prospect)
 4. Do NOT offer re-pilot until root cause is resolved
+```
+
+---
+
+---
+
+## PDT Architecture Block
+
+```
+PDT_ARCHITECTURE_BLOCKED_BY:  PILOT-001 Findings
+
+Unlock Condition:             Week-4 Review Complete
+
+Reason:
+  Pilot will surface: upload frequency, data quality,
+  distributor participation, WOC behavior, exception
+  response rates, and Decision Adoption Rate (M-007).
+
+  These inputs directly determine PDT forecasting
+  architecture. Building PDT before pilot findings
+  means rebuilding after them.
+
+  DO NOT start PDT-ARCH-001 until PILOT-001 Week-4
+  review is complete and findings are documented.
+
+Authority: Jawahar R. Mallah, Founder & Chief Architect, AITDL
+Date:      2026-06-24
 ```
 
 ---
