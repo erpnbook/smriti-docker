@@ -252,5 +252,36 @@ SMRITI.getDefaultTheme();   // → "sleek-compact"
 
 ---
 
+## SMRITI_DOCUMENT_GOVERNANCE_RULE_001
+
+> [!WARNING]
+> **Platform-Wide Document Governance Rule**
+> `Rule ID: SMRITI_DOCUMENT_GOVERNANCE_RULE_001`
+> `Effective: 2026-06-24`
+> `Authority: Jawahar R. Mallah, Founder & Chief Architect, AITDL`
+>
+> **0-byte documentation files are treated as missing artifacts.**
+>
+> Placeholder files may exist during active development.
+> Before any readiness review gate — commercialization, pilot, architecture, or release:
+>
+> ```
+> File exists + 0 bytes  = FAIL (same as file not existing)
+> File exists + content  = eligible for review
+> ```
+>
+> Applies to all SMRITI modules without exception:
+> PSV, CGE, PDT, SFM, Inventory, Billing, Themes, and all future modules.
+>
+> Rationale: A 0-byte file appears as existing in audit inventory scans,
+> creating false confidence that documentation is complete when it is not.
+> This rule prevents silent gaps from passing governance gates.
+>
+> Enforcement: Any audit script or readiness checklist must verify
+> file size greater than 0, not just file existence.
+
+---
+
 *Governance Approved: Jawahar R. Mallah — Founder & Chief Architect, AITDL*
 *"Light begins with learning."*
+
