@@ -6669,8 +6669,8 @@
                 "Hardcoded margin-bottom: 6px",
                 "Hardcoded margin: 10px 0",
                 "Hardcoded padding: 10px",
-                "Hardcoded hex colors: #000000, #444, #ffffff, #333, #e5e7eb, #ddd",
-                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.08)",
+                "Hardcoded hex colors: #ddd, #e5e7eb, #444, #333, #ffffff, #000000",
+                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(0, 0, 0, 0.45), rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.05)",
                 "Hardcoded border-radius: var(--radius-lg)",
                 "Hardcoded border-radius: var(--radius-md)",
                 "Hardcoded border-radius: calc(var(--radius-md) - 2px)",
@@ -6872,8 +6872,8 @@
                 "Hardcoded width: 600px) {\n    .kpi-grid { grid-template-columns: 1fr 1fr",
                 "Hardcoded padding: 16px 12px 40px",
                 "Hardcoded padding: 12px 16px",
-                "Hardcoded hex colors: #fff, #027a48, #b42318",
-                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(105, 65, 198, 0.05), rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.5), rgba(0,0,0,0.4), rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35), rgba(255,255,255,0.3), rgba(0, 0, 0, 0.2), rgba(127,86,217,0.1), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.08)",
+                "Hardcoded hex colors: #027a48, #fff, #b42318",
+                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(0, 0, 0, 0.45), rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.5), rgba(105, 65, 198, 0.05), rgba(0, 0, 0, 0.35), rgba(127,86,217,0.1), rgba(255,255,255,0.3), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.25), rgba(0,0,0,0.4), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.05)",
                 "Hardcoded z-index: 100",
                 "Hardcoded z-index: 9999",
                 "Hardcoded border-radius: var(--radius-sm)",
@@ -7247,7 +7247,7 @@
                 "Hardcoded width: 32px",
                 "Hardcoded height: 32px",
                 "Hardcoded height: 1",
-                "Hardcoded hex colors: #0e7490, #e4e7ec, #6941c6, #475467, #f9fafb, #ffffff, #101828",
+                "Hardcoded hex colors: #475467, #e4e7ec, #f9fafb, #0e7490, #6941c6, #ffffff, #101828",
                 "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(105, 65, 198, 0.08)",
                 "Hardcoded z-index: 10",
                 "Hardcoded border-radius: 2px",
@@ -7257,7 +7257,7 @@
         "public/css/smriti_desk_override.css": {
             "errors": [],
             "warnings": [
-                "Hardcoded hex colors: #1D4ED8, #1A2B5C, #2563EB, #FFFFFF"
+                "Hardcoded hex colors: #FFFFFF, #1A2B5C, #1D4ED8, #2563EB"
             ]
         },
         "public/css/smriti_explain.css": {
@@ -7292,8 +7292,8 @@
                 "Hardcoded gap: 12px",
                 "Hardcoded padding: 14px",
                 "Hardcoded margin-bottom: 2px",
-                "Hardcoded hex colors: #BFDBFE, #475569, #8B5CF6, #94A3B8, #1A2B5C, #2563EB, #F8FAFC, #0F172A, #1E3A8A, #FAF5FF, #EFF6FF, #F1F5F9, #3B82F6, #E2E8F0",
-                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(255,255,255,0.15), rgba(255,255,255,0.12), rgba(26,43,92,0.15), rgba(15, 23, 42, 0.45), rgba(255,255,255,0.25), rgba(255,255,255,0.22)",
+                "Hardcoded hex colors: #0F172A, #1A2B5C, #FAF5FF, #BFDBFE, #2563EB, #E2E8F0, #3B82F6, #94A3B8, #475569, #EFF6FF, #F1F5F9, #8B5CF6, #1E3A8A, #F8FAFC",
+                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(26,43,92,0.15), rgba(255,255,255,0.22), rgba(255,255,255,0.15), rgba(255,255,255,0.25), rgba(15, 23, 42, 0.45), rgba(255,255,255,0.12)",
                 "Hardcoded z-index: 10000",
                 "Hardcoded z-index: 10001",
                 "Hardcoded border-radius: 20px",
@@ -7317,8 +7317,8 @@
                 "Hardcoded margin-bottom: 20px",
                 "Hardcoded padding: 6px 12px",
                 "Hardcoded gap: 6px",
-                "Hardcoded hex colors: #f9f5ff, #fecdca, #b42318, #ffffff, #b54708, #fffaeb, #fedf89, #027a48, #101828, #53389e, #eaecf0, #475467, #fef3f2, #a6f4c5, #f2f4f7, #344054, #6941c6, #f9fafb, #ecfdf3",
-                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(105, 65, 198, 0.08), rgba(16, 24, 40, 0.05), rgba(208, 213, 221, 0.4), rgba(16, 24, 40, 0.04), rgba(105, 65, 198, 0.2), rgba(255, 255, 255, 0.8), rgba(16, 24, 40, 0.02), rgba(105, 65, 198, 0.1), rgba(16, 24, 40, 0.01)",
+                "Hardcoded hex colors: #fffaeb, #f2f4f7, #475467, #f9fafb, #6941c6, #fedf89, #344054, #a6f4c5, #027a48, #101828, #eaecf0, #ffffff, #ecfdf3, #b54708, #fef3f2, #fecdca, #b42318, #f9f5ff, #53389e",
+                "Hardcoded rgb/rgba/hsl/hsla color declarations: rgba(105, 65, 198, 0.2), rgba(16, 24, 40, 0.02), rgba(255, 255, 255, 0.8), rgba(105, 65, 198, 0.08), rgba(16, 24, 40, 0.01), rgba(16, 24, 40, 0.05), rgba(105, 65, 198, 0.1), rgba(208, 213, 221, 0.4), rgba(16, 24, 40, 0.04)",
                 "Hardcoded border-radius: 16px",
                 "Hardcoded box-shadow: 0 8px 32px rgba(16, 24, 40, 0.04)",
                 "Hardcoded box-shadow: 0 12px 40px rgba(105, 65, 198, 0.08)",
