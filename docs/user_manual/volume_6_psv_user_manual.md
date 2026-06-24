@@ -16,7 +16,7 @@
 **Experience**: 20+ Years in Software Development, Retail Technology, Distribution Systems,
 POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
 
-> *"Light begins with learning."*
+> *"Always decision-ready."*
 > — Jawahar R. Mallah
 
 ---
@@ -393,4 +393,4 @@ Full criteria detail: [COMM-08 Pilot Success Criteria](../comm/COMM-08_pilot_suc
 ---
 
 *Author: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
-*"Light begins with learning."*
+*"Always decision-ready."*

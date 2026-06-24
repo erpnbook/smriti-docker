@@ -331,6 +331,6 @@ after `PILOT_EXECUTION_MODE = ON` for any module.
 ---
 
 *Governance Approved: Jawahar R. Mallah — Founder & Chief Architect, AITDL*
-*"Light begins with learning."*
+*"Always decision-ready."*
 
 

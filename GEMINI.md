@@ -820,7 +820,7 @@ This manual is based on practical field experience gathered across retail operat
 The author believes that software should not only process data but also explain decisions. Every report, score, KPI, alert, recommendation, and prediction within SMRITI must be understandable by business users without requiring technical expertise.
 
 ### Quote
-> "Light begins with learning."
+> "Always decision-ready."
 > 
 > — Jawahar R. Mallah
 > Founder & Chief Architect, AITDL

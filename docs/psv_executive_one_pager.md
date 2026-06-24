@@ -102,5 +102,5 @@ Contact: AITDL — Jawahar R. Mallah | jawahar.mallah@gmail.com
 
 ---
 
-*"Light begins with learning."*
+*"Always decision-ready."*
 *— Jawahar R. Mallah, Founder & Chief Architect, AITDL*
