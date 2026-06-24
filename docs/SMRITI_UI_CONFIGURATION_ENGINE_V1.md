@@ -282,6 +282,55 @@ SMRITI.getDefaultTheme();   // → "sleek-compact"
 
 ---
 
+## SMRITI_DOCUMENT_GOVERNANCE_RULE_002
+
+> [!WARNING]
+> **Platform-Wide Module Lifecycle Rule**
+> `Rule ID: SMRITI_GOVERNANCE_RULE_002`
+> `Effective: 2026-06-24`
+> `Authority: Jawahar R. Mallah, Founder & Chief Architect, AITDL`
+
+**No module may enter unlimited documentation expansion.**
+
+Every SMRITI module follows one lifecycle — in order, without skipping:
+
+```
+BUILD
+  → AUDIT
+    → COMMERCIALIZATION
+      → PILOT
+        → REALITY
+```
+
+**After `PILOT_EXECUTION_MODE = ON`:**
+
+New documentation for that module requires evidence of pilot need.
+
+```
+ALLOWED after pilot starts:
+  Fix: documentation gap discovered during pilot execution
+  Add: content specifically requested by pilot customer
+  Update: content contradicted by real pilot data
+
+NOT ALLOWED after pilot starts:
+  New documents not connected to active pilot needs
+  Speculative improvements to existing documentation
+  Features not yet tested by a real user
+```
+
+**Rationale**: This session demonstrated the risk.
+A theme audit evolved into 12 commercialization documents — correctly.
+Without this rule, 12 documents could evolve into 30 — incorrectly.
+The rule prevents the "build more" instinct from overriding the "observe reality" imperative.
+
+**Applies to**: PSV (active), CGE, PDT, SFM, and all future SMRITI modules.
+
+**Exception process**: Founder approval required to add documentation
+after `PILOT_EXECUTION_MODE = ON` for any module.
+
+---
+
 *Governance Approved: Jawahar R. Mallah — Founder & Chief Architect, AITDL*
 *"Light begins with learning."*
+
 
