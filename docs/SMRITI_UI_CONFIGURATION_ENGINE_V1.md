@@ -20,17 +20,31 @@
 > - THEME-004 Theme Switching Framework — COMPLETE
 > - THEME-005 Global Default Theme Migration — COMPLETE
 >
-> **Phase 2 Roadmap:**
-> - THEME-006 Theme Analytics
-> - THEME-007 Accessibility Audit
-> - THEME-008 Minimalist Theme Completion
-> - THEME-009 Store-Level Theme Defaults
+> **Phase 2 Roadmap (Founder Decision — 2026-06-24):**
+> - THEME-006 Theme Analytics — ⏸️ DEFERRED
+> - THEME-007 Accessibility Audit — ✅ KEEP
+> - THEME-008 Minimalist Completion — ❌ CANCELLED (no validated business use case)
+> - THEME-009 Store-Level Theme Defaults — 🟡 POST-PILOT
 >
 > **Modification Policy:**
 > Any changes to theme architecture, resolver hierarchy, token governance, or default theme behavior require:
 > 1. Architecture Impact Assessment
 > 2. Theme Compliance Scan
 > 3. Founder Approval
+
+---
+
+> [!NOTE]
+> **SMRITI Architecture Principle #01 — Business Value Before Visual Variety**
+>
+> *Retail customer does not buy themes.*
+> *Retail customer buys speed, accuracy, inventory visibility,*
+> *billing efficiency, profitability, and business intelligence.*
+>
+> UI investments must demonstrate measurable business value
+> before introducing new visual customization.
+>
+> — Jawahar R. Mallah, Founder & Chief Architect, AITDL
 
 ---
 
@@ -117,35 +131,57 @@ All 4 profiles are **permanent**. No profile may be removed without Founder appr
 
 | Profile Key | Row Height | Padding-Y | Toolbar | Bg Page | Status |
 |-------------|-----------|-----------|---------|---------|--------|
-| `hybrid-light` | 44px | 10px | 56px | `#e8ecf2` | Active — preserved |
-| `hybrid-dark` | 44px | 10px | 56px | `#0f0f13` | Active — preserved |
-| `sleek-compact` | **32px** | **6px** | **40px** | `#f1f4f8` | **Default** — Active |
-| `minimalist` | 36px | 8px | 44px | `#ffffff` | Foundation — THEME-008 |
+| `hybrid-light` | 44px | 10px | 56px | `#e8ecf2` | 🟡 Legacy / Fallback — preserved |
+| `hybrid-dark` | 44px | 10px | 56px | `#0f0f13` | ✅ Active — preserved |
+| `sleek-compact` | **32px** | **6px** | **40px** | `#f1f4f8` | ✅ **Default** — Active |
+| `minimalist` | 36px | 8px | 44px | `#ffffff` | ❌ Retained in code — THEME-008 CANCELLED |
 
 ---
 
 ## Theme Roadmap
 
-| ID | Name | Status | Date |
-|----|------|--------|------|
-| THEME-001 | Governance Foundation | ✅ CLOSED | Prior |
-| THEME-002 | Theme Switching API (`SMRITI.switchTheme`) | ✅ CLOSED | 2026-06-24 |
-| THEME-003 | Density Token Adoption (all component CSS) | ✅ CLOSED | 2026-06-24 |
-| THEME-004 | 4-Profile Explicit Token Sets | ✅ CLOSED | 2026-06-24 |
-| THEME-005 | Global Default → `sleek-compact` | ✅ CLOSED | 2026-06-24 |
-| THEME-006 | Theme Analytics (usage tracking) | 📋 PLANNED | — |
-| THEME-007 | Accessibility Audit (WCAG, contrast) | 📋 PLANNED | — |
-| THEME-008 | Minimalist Profile Completion | 📋 PLANNED | — |
-| THEME-009 | Store-Level Theme Defaults | 📋 PLANNED | — |
+| ID | Name | Status | Founder Decision |
+|----|------|--------|------------------|
+| THEME-001 | Governance Foundation | ✅ COMPLETE | — |
+| THEME-002 | Theme Preview Framework | ✅ COMPLETE | — |
+| THEME-003 | Density Token Adoption | ✅ COMPLETE | — |
+| THEME-004 | Theme Switching Framework | ✅ COMPLETE | — |
+| THEME-005 | Global Default → `sleek-compact` | ✅ COMPLETE | 2026-06-24 |
+| THEME-006 | Theme Analytics | ⏸️ DEFERRED | No immediate business value |
+| THEME-007 | Accessibility Audit (WCAG) | ✅ KEEP | Compliance requirement |
+| THEME-008 | Minimalist Profile Completion | ❌ CANCELLED | No validated business use case |
+| THEME-009 | Store-Level Theme Defaults | 🟡 POST-PILOT | Activate after field validation |
+
+---
+
+## Product Priority Direction (Founder — 2026-06-24)
+
+```
+NEW_THEME_DEVELOPMENT       = OFF
+BUSINESS_CAPABILITY_DEVELOPMENT = ON
+
+Priority 1 → PSV Commercialization
+Priority 2 → PDT
+Priority 3 → CGE
+Priority 4 → Sales Force Management
+
+Themes     → Maintenance Only
+```
+
+> Theme system is stable, governed, documented, and default-selected.
+> All future engineering bandwidth goes to revenue-generating capabilities.
 
 ---
 
 ## Architecture Principles (Frozen)
 
+**Principle #01 — Business Value Before Visual Variety**
+> Retail customer does not buy themes. Retail customer buys speed, accuracy, inventory visibility, billing efficiency, profitability, and business intelligence. UI investments must demonstrate measurable business value before introducing new visual customization.
+
 1. **Theme selection layer controls defaults** — never `SYSTEM_DEFAULT_TOKENS`
 2. **`DEFAULT_THEME_PROFILE` is the single source of truth** — read via `SMRITI.getDefaultTheme()`
 3. **User preferences are always honoured** — `localStorage` wins over every default
-4. **All 4 profiles are permanent** — availability is non-negotiable
+4. **All retained profiles are permanent** — `hybrid-light`, `hybrid-dark`, `sleek-compact` preserved; `minimalist` retained in code but not developed further
 5. **Resolver is decoupled from `frappe.boot`** — works on all standalone www pages
 6. **CSS injection only via `#smriti-ui-engine-tokens`** — no direct style mutations
 7. **Public API is the contract** — components use `SMRITI.*` methods, not resolver internals
