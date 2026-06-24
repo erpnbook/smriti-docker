@@ -1,7 +1,7 @@
 ---
 title: Formula Registry
 version: 1.0
-last_updated: 2026-06-19
+last_updated: 2026-06-24
 applies_to: SMRITI Retail OS v2.2.0
 ---
 
@@ -52,7 +52,7 @@ The registry seeds the following 10 core formulas by default:
 | **INV-004** | Inventory Turnover | Inventory | `cogs / average_inventory_value` | `dictionary_service.py` |
 | **FRC-001** | Forecast Confidence | Forecasting | `1.0 - (std_dev / mean)` | `dictionary_service.py` |
 | **TRF-001** | Transfer Benefit Score | Distribution | `margin_gain - freight_cost` | `dictionary_service.py` |
-| **SAL-001** | Sell Through % | Sales | `sold_qty / opening_stock_qty` | `dictionary_service.py` |
+| **SAL-001** | Sell Through % | Sales | `sold_qty / dispatched_qty` | `dictionary_service.py` |
 | **AUD-001** | Stock Accuracy % | Audit | `1.0 - (abs_variance / ledger_stock)` | `dictionary_service.py` |
 | **OHS-001** | Outlet Health Score | Outlet | `0.6 * sync_score + 0.4 * audit_score` | `dictionary_service.py` |
 | **VAR-001** | Size Curve Health | Inventory | `overlap_coefficient(stock, sales)` | `dictionary_service.py` |
@@ -60,6 +60,24 @@ The registry seeds the following 10 core formulas by default:
 | **TST-EPI** | Executive Performance Index | Sales | `(attributed_sales_qty / total_outlet_sales_qty) * 100` | `clienteling_service.py` |
 | **TST-SRI** | Store Retention Index | Outlet | `(repeat_customers / total_customers) * 100` | `clienteling_service.py` |
 | **TST-HEALTH** | Customer Health Score | Clienteling | `(100 - churn) * 0.4 + vip * 0.4 + affinity * 0.2` | `clienteling_service.py` |
+
+---
+
+### SAL-001 Variable Definitions
+
+| Variable | PSV Definition |
+|----------|---------------|
+| `sold_qty` | Secondary sales quantity — units sold by distributor to retail outlets in the measurement period |
+| `dispatched_qty` | Primary sales quantity — stock dispatched from brand/warehouse to distributor in the measurement period. **Not** opening stock balance (which may include carry-forward from prior periods) |
+
+> **Why `dispatched_qty` not `opening_stock_qty`?**
+> In PSV context, the denominator is always "what the brand sent to the distributor" for a specific period.
+> `opening_stock_qty` is general inventory terminology and includes carry-forward stock from prior periods,
+> which would understate the Sell-Through % for new deliveries.
+> `dispatched_qty` = `opening_stock_qty` only when the distributor had zero carry-forward inventory.
+>
+> **Code reference**: `psv_sell_through.py` — `round((r.sold / r.dispatched) * 100, 2) if r.dispatched else 0`
+> **Founder approved**: Jawahar R. Mallah, AITDL — 2026-06-24
 
 ---
 
