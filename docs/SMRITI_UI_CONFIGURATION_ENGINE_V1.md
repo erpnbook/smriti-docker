@@ -48,6 +48,24 @@
 
 ---
 
+> [!NOTE]
+> **SMRITI Architecture Principle #02 — Revenue Before Refinement**
+>
+> When choosing between a business capability and a visual enhancement,
+> priority shall be given to the business capability unless the visual
+> enhancement demonstrates measurable impact on:
+> - Revenue
+> - Conversion
+> - Productivity
+> - Compliance
+> - User Error Reduction
+>
+> Visual polish is valuable. Business outcomes take precedence.
+>
+> — Jawahar R. Mallah, Founder & Chief Architect, AITDL
+
+---
+
 ## Engine Overview
 
 The SMRITI UI Configuration Engine is a **deterministic 7-level token resolver** built as a self-contained JavaScript IIFE. It resolves all UI configuration tokens (colors, spacing, density, typography) at runtime through a priority hierarchy and injects them into `:root` CSS variables.
