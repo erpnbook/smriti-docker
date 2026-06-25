@@ -1,17 +1,17 @@
 # Documentation Health Report
 
 **Date**: 2026-06-25  
-**Overall Compliance**: 92.7%
+**Overall Compliance**: 92.8%
 
 ## Summary Metrics
 
 | Metric | Value | Status |
 | --- | --- | --- |
-| Total Documents Scanned | 209 | - |
+| Total Documents Scanned | 214 | - |
 | Duplicate IDs | 0 | ✅ PASS |
 | Broken Links | 0 | ✅ PASS |
 | Missing Metadata | 0 | ✅ PASS |
-| Missing Examples | 88 | ⚠️ Warning |
+| Missing Examples | 90 | ⚠️ Warning |
 | Missing Revision History | 1 | ⚠️ Warning |
 
 ---
@@ -35,12 +35,14 @@ These items should be addressed to improve quality but will not block merges.
 | `01-product/about_smriti_dup.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `01-product/development_roadmap.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `01-product/enterprise_readiness.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
+| `01-product/pos_profile_overview.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `01-product/volume_3_executive_guide.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/barcode_management.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/customer_management.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/eway_bill.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/manager_pos_override.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/pos.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
+| `02-user-guide/pos_profile_usage.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/psv_backlog.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/psv_competitive_positioning.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/psv_demo_script.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |

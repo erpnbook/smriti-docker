@@ -1,7 +1,8 @@
-# API & Integration Specifications
+# API Reference Specifications
 
-Welcome to the **API & Integration Specifications** documentation set. Below is the list of available documents in this section:
+Welcome to the **API Reference Specifications** documentation set. Below is the list of available documents in this section:
 
-| Document ID | Title | File |
-| --- | --- | --- |
-| `API-001` | SMRITI Customer Growth Engine (CGE) — API Reference Manual v1.0 | [cge_api_reference.md](file:///d:/Smriti_Retail_OS/docs/06-api/cge_api_reference.md) |
+| Document ID | Title | Audience | Module | Owner | Status | Last Updated |
+| --- | --- | --- | --- | --- | --- | --- |
+| [API-001](./cge_api_reference.md) | SMRITI Customer Growth Engine (CGE) — API Reference Manual v1.0 | API Integrator | CGE | Integration Team | Active | 2026-06-25 |
+| [API-002](./pos_profile_api.md) | SMRITI POS Profile API Reference Manual | Developer | Core | Integration Team | Active | 2026-06-25 |

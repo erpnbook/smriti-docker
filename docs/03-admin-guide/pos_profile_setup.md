@@ -17,106 +17,105 @@ Reviewed By: "Jawahar R. Mallah"
 
 # SMRITI OS POS Profile Setup Guide
 
-This guide details creating and configuring SMRITI POS Profiles, linking payment modes, and setting up cashier-to-store mapping rules.
-
-## 🛠️ Creating a POS Profile
-
-A POS Profile governs billing terminal rules for a specific checkout lane or store. To create a profile:
-1. Open the POS configuration interface.
-2. Select your Company and click **New POS Profile**.
-3. Name the profile descriptively (e.g. `Store 01 - Express lane`).
-4. Set core operational settings:
-   - **Warehouse**: The default stock source (e.g. `Store 01 - Main`).
-   - **Selling Price List**: The default price source (e.g. `Standard Selling`).
-   - **Customer**: Fallback walk-in customer (e.g. `Walk-in Customer`).
+This guide details configuring and maintaining SMRITI POS Profiles, mapping payment modes, assigning cashiers, and enforcing shift lock safety checks inside SMRITI Retail OS.
 
 ---
 
-## 💳 Payment Modes Configuration
+## 🖥️ SMRITI POS Profile Interface
 
-SMRITI POS terminals support split-payment checkouts. Map active payment methods under the **Payments** table in the POS Profile:
-
-| Payment Method | Account | Mode Type |
-| :--- | :--- | :--- |
-| **Cash** | Cash Account | Cash |
-| **Credit Card** | Bank Account | Card |
-| **UPI / Wallet** | Wallet Clearing Account | Phone / Online |
-| **Store Credit** | Customer Outstanding | Credit |
-
-*Note: Ensure each payment method is linked to an active Chart of Accounts ledger to avoid journal submission failures during cashier shift closures.*
+In accordance with SMRITI UI Governance (Rule 7), managers and administrators must configure all POS settings inside the custom SMRITI interface located at `/smriti-pos-profiles`. Exposing the native Frappe Desk (`/desk`) or ERPNext standard lists is strictly prohibited.
 
 ---
 
-## 👥 Cashier & User Mapping
+## 🛠️ Configuring a POS Profile
 
-To prevent cashiers from opening unauthorized terminals, POS profiles enforce explicit user mapping:
-- **Cashier Table**: Add cashier user accounts to the profile's authorized users list.
-- **Single-Open Constraint**: A cashier can only have one active shift open on a single POS profile at any time.
-- **Store-level Restrictions**: Restrict POS warehouse choices to ensure cashiers cannot select stock bins belonging to other geographic regions.
+To add or modify a profile, click on it in the SMRITI list to open the right-side configuration drawer. The setup is divided into four main sections:
 
-## 📝 Worked Example Configuration
+### 1. General Tab
+Configure default operational parameters:
+*   **Profile Name**: Unique name (e.g. `Register-01`).
+*   **Warehouse**: Stock source warehouse (e.g. `Store 01 - Main - TSC`).
+*   **Selling Price List**: Catalog price list (e.g. `Standard Selling`).
+*   **Currency**: Trading currency (e.g. `INR`).
+*   **Walk-in Customer**: Default customer for checkout if none is selected (e.g. `Walk-in Customer`).
+*   **Disabled**: Toggle to `1` (ON) to archive the profile.
 
-Below is a complete configuration payload example for an Express Checkout lane, representing how the POS Profile document is structured and saved:
+### 2. Payments Tab
+Map active modes of payment to default accounting ledger accounts:
+*   **Mode of Payment**: The transaction type (e.g., `Cash`, `Credit Card`, `UPI`).
+*   **Default Account**: The Chart of Accounts ledger name for clearing (e.g. `Cash - TSC`).
+*   **Default**: Mark exactly one mode of payment as the default checkout method.
+
+### 3. Cashiers Tab
+Roster cashier users permitted to open the terminal:
+*   Add user emails (e.g., `cashier01@smriti.local`) to the authorized users list.
+*   A cashier can only be assigned to a terminal if they do not have active shifts open on another profile.
+
+### 4. Advanced Tab
+Contains audit information (created by, modified by, creation date) and the Profile Cloning utility.
+
+---
+
+## 🔒 Shift Lock Policy
+
+To preserve financial audit integrity, SMRITI enforces a zero-exception **Shift Lock** policy.
+
+### Active Shift Detection
+SMRITI checks for any `POS Opening Entry` matching the profile name with `status = "Open"` and `docstatus = 1`. If an active shift is detected:
+*   **Locked Actions**: Adding or removing payment modes, changing the default warehouse, updating cashier assignments, and disabling/deleting the profile are blocked.
+*   **Programmatic Exceptions**: Any attempt to save these changes programmatically raises a `ValidationError`:
+    ```text
+    ValidationError: Cannot modify Warehouse, Payments, or Cashier assignments while an active shift (SH-2026-00124) is open.
+    ```
+
+---
+
+## 📋 Worked Configuration Example
+
+Below is a serialized configuration payload:
 
 ```json
 {
   "doctype": "POS Profile",
   "name": "Store 01 - Express Lane 01",
-  "company": "SMRITI Retail India Private Limited",
-  "warehouse": "Store 01 - Main - SRIPL",
+  "company": "Test SMRITI Company",
+  "warehouse": "Store 01 - Main - TSC",
   "selling_price_list": "Standard Selling",
   "currency": "INR",
-  "write_off_account": "Temporary Write Off Account - SRIPL",
-  "write_off_cost_center": "Main Cost Center - SRIPL",
+  "write_off_account": "Temporary Write Off Account - TSC",
+  "write_off_cost_center": "Main Cost Center - TSC",
   "payments": [
     {
       "mode_of_payment": "Cash",
-      "default_account": "Cash - SRIPL",
+      "default_account": "Cash - TSC",
       "default": 1
-    },
-    {
-      "mode_of_payment": "UPI / GPay",
-      "default_account": "UPI Clearing - SRIPL",
-      "default": 0
-    },
-    {
-      "mode_of_payment": "Credit Card",
-      "default_account": "HDFC Card Clearing - SRIPL",
-      "default": 0
     }
   ],
   "applicable_for_users": [
     {
       "user": "cashier01@smriti.local"
-    },
-    {
-      "user": "cashier02@smriti.local"
     }
   ]
 }
 ```
 
-### Configuration Parameters Explained:
-1. **`warehouse`**: Dictates that all sales transactions on this terminal default to deducting inventory from `Store 01 - Main - SRIPL`.
-2. **`selling_price_list`**: Validates prices directly against the Standard Selling catalog.
-3. **`payments`**: Maps specific payment modes to clearing accounts. UPI transactions clear through the `UPI Clearing` account rather than standard bank or cash ledgers.
-4. **`applicable_for_users`**: Ensures only `cashier01@smriti.local` and `cashier02@smriti.local` are authenticated to boot this profile.
+---
+
+## Related Documents
+*   [SMRITI OS POS Profile Overview](../01-product/pos_profile_overview.md)
+*   [SMRITI OS POS Profile User Guide](../02-user-guide/pos_profile_usage.md)
+*   [SMRITI POS Profile Developer Guide](../05-developer/pos_profile_developer.md)
 
 ## Revision History
 
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
-| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized for SMRITI custom console interface |
 
-
----
-
-## Author Profile
-
-- **Author**: Jawahar R. Mallah
-- **Designation**: Founder & Chief Architect
-- **Organization**: AITDL – AI Technology & Development Lab
-- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+**Author**: Jawahar R. Mallah  
+**Designation**: Founder & Chief Architect  
+**Organization**: AITDL – AI Technology & Development Lab  
+**Experience**: 20+ Years of Experience in Software Development, Retail Technology, POS Solutions, and Enterprise Application Design.  
 
 > "Always decision-ready."  
 > — Jawahar R. Mallah  
