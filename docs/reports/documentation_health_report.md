@@ -11,7 +11,7 @@
 | Duplicate IDs | 0 | ✅ PASS |
 | Broken Links | 0 | ✅ PASS |
 | Missing Metadata | 0 | ✅ PASS |
-| Missing Examples | 89 | ⚠️ Warning |
+| Missing Examples | 88 | ⚠️ Warning |
 | Missing Revision History | 1 | ⚠️ Warning |
 
 ---
@@ -56,7 +56,6 @@ These items should be addressed to improve quality but will not block merges.
 | `02-user-guide/volume_5_training_workbook.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `03-admin-guide/administration.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `03-admin-guide/cge_permission_matrix.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
-| `03-admin-guide/pos_profile_setup.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `04-installation/benchmark_sources.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `04-installation/cge_migration_report.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `04-installation/docker_immutability.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
