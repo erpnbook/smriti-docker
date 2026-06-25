@@ -1,8 +1,18 @@
 ---
-title: Formula Registry
-version: 1.0
-last_updated: 2026-06-24
-applies_to: SMRITI Retail OS v2.2.0
+Document ID: "ARCH-015"
+Title: "SMRITI Formula Registry (DOC-02)"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI Formula Registry (DOC-02)
@@ -151,3 +161,8 @@ Below are the audited mathematical, execution, and action details for the newly 
 ## Support & Helpdesk
 For questions or support, please contact the SMRITI Helpdesk at **support@aitdl.com**.
 
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

@@ -1,3 +1,20 @@
+---
+Document ID: "INSTALL-003"
+Title: "SMRITI Customer Growth Engine (CGE) — Benchmark Report v1.0"
+Owner: "Installation Team"
+Audience: "Installer"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Customer Growth Engine (CGE) — Benchmark Report v1.0
 
 This report summarizes the performance scaling curve and resource utilization profile of the SMRITI Customer Growth Engine (CGE) v1.0 under bulk rule loads.
@@ -8,7 +25,7 @@ This report summarizes the performance scaling curve and resource utilization pr
 
 POS checkout response times must remain low to ensure a smooth cashier experience. CGE implements in-memory list evaluations to keep checkout rules calculation times low.
 
-To verify scalability, [benchmark_cge.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/benchmark_cge.py) inserts rules in bulk (up to 5,000 active rules) and calculates checkout operations over multiple iterations.
+To verify scalability, [benchmark_cge.py](../../apps/smriti_retail_os/smriti_retail_os/tests/benchmark_cge.py) inserts rules in bulk (up to 5,000 active rules) and calculates checkout operations over multiple iterations.
 
 ---
 
@@ -49,7 +66,7 @@ Memory usage is monitored during iterations using the standard system process ut
 
 ## 4. Run Parameters & Environment
 
-*   **Test Script**: [benchmark_cge.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/benchmark_cge.py)
+*   **Test Script**: [benchmark_cge.py](../../apps/smriti_retail_os/smriti_retail_os/tests/benchmark_cge.py)
 *   **Database Engine**: MariaDB 10.6
 *   **Execution Command**:
     ```bash
@@ -59,3 +76,24 @@ Memory usage is monitored during iterations using the standard system process ut
     *   For rules $\le 1000$: Run **50 loops** per scale tier.
     *   For rules $> 1000$: Run **15 loops** to keep overall runtimes brief.
     *   Includes a warmup round to load the Python document cache before capturing execution times.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

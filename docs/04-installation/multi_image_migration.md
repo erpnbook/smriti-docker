@@ -1,5 +1,18 @@
 ---
-title: Migrate from Multi Image Setup
+Document ID: "INSTALL-010"
+Title: "... removed for brevity"
+Owner: "Installation Team"
+Audience: "Installer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 ## Migrate from multi-image setup
@@ -10,7 +23,7 @@ Now you need to specify command and environment variables for following containe
 
 ### Frontend
 
-For `frontend` service to act as static assets frontend and reverse proxy, you need to pass `nginx-entrypoint.sh` as container `command` and `BACKEND` and `SOCKETIO` environment variables pointing `{host}:{port}` for gunicorn and websocket services. Check [environment variables](../02-setup/04-env-variables.md)
+For `frontend` service to act as static assets frontend and reverse proxy, you need to pass `nginx-entrypoint.sh` as container `command` and `BACKEND` and `SOCKETIO` environment variables pointing `{host}:{port}` for gunicorn and websocket services. Check [environment variables](../05-developer/setup_env_variables.md)
 
 Now you only need to mount the `sites` volume at location `/home/frappe/frappe-bench/sites`. No need for `assets` volume and asset population script or steps.
 
@@ -125,3 +138,23 @@ That declaration has been removed. `sites` is now the single shared mount, consi
 - Recreate all containers (`docker compose up --force-recreate`). Without this, Docker may keep the old anonymous `sites/assets` volume
   attached from before the change.
 - No `bench build` is needed — this only fixes mount consistency, not the asset workflow.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

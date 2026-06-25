@@ -1,5 +1,18 @@
 ---
-title: Multi Tenancy
+Document ID: "DEV-030"
+Title: "... removed for brevity"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 WARNING: Do not use this in production if the site is going to be served over plain http.
@@ -71,3 +84,23 @@ Notes:
 - Change `site1.local` to site name to serve from bench.
 - Change the `BACKEND` and `SOCKETIO` environment variables as per your service names.
 - Make sure `sites:` volume is available as part of yaml.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

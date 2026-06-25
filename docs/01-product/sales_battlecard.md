@@ -1,3 +1,20 @@
+---
+Document ID: "PROD-010"
+Title: "COMM-05 — PSV Sales Battlecard"
+Owner: "Product Team"
+Audience: "Product / Executive"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-05 — PSV Sales Battlecard
 **Sprint**: PSV-COMM-001 Wave 3
 **Audience**: Salesperson (internal tool — not shared with prospect directly)
@@ -165,3 +182,10 @@ PSV does NOT require API integration to start
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *Internal tool — not for direct distribution to prospects.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

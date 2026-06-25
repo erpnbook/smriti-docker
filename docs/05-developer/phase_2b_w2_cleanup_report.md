@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-034"
+Title: "Phase 2B-W2 — Low-Risk CSS Governance Cleanup Report"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Phase 2B-W2 — Low-Risk CSS Governance Cleanup Report
 **SMRITI UI Configuration Engine — Legacies Token Refactoring Wave 2**
 **Status:** COMPLETE & VERIFIED 🟢
@@ -124,6 +141,27 @@ To restore the stylesheets back to their pre-cleanup state:
 
 ## 6. Governance Exception Details
 
-As explicitly updated in [SMRITI_UI_CONFIGURATION_ENGINE_V1.md](file:///d:/Smriti_Retail_OS/docs/architecture/ui/SMRITI_UI_CONFIGURATION_ENGINE_V1.md) §6, a formal governance exception has been registered for:
+As explicitly updated in [SMRITI_UI_CONFIGURATION_ENGINE_V1.md](../08-architecture/smriti_ui_configuration_engine_v1.md) §6, a formal governance exception has been registered for:
 - Named color keywords `white` and `transparent` are permitted for static light-surface elements, text on high-contrast brand backgrounds (e.g. active tabs, brand primary buttons, and badges), and overlay backgrounds across all theme profiles.
 - This allows layout text readability to be preserved on accent/brand colors across dark/light mode switches, while keeping compliance scanner checks green (as the scanner strictly blocks literal hex and rgb/rgba/hsl rules).
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

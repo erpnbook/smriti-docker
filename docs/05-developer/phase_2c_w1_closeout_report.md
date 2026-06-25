@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-036"
+Title: "Phase 2C-W1 — SMRITI Purchase Module Token Bridge Closeout Report"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Phase 2C-W1 — SMRITI Purchase Module Token Bridge Closeout Report
 **SMRITI UI Configuration Engine — Legacy Token Bridge Wave 1**
 **Status:** COMPLETE & VERIFIED 🟢
@@ -12,7 +29,7 @@
 Under the authorized scope of **Phase 2C-W1**, the SMRITI Purchase Module (`purchase.html`) was successfully connected to the UI Configuration Engine via a clean token bridge. 
 
 The implementation copies the exact context loading and script bootstrapping pattern proven in the Billing Terminal reference implementation:
-1.  **Context Injection:** Updated [purchase.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/purchase.py) to import and inject the `smriti_license` and `smriti_site_config` variables into page context (mirroring `billing.py` exactly).
+1.  **Context Injection:** Updated [purchase.py](../../apps/smriti_retail_os/smriti_retail_os/www/purchase.py) to import and inject the `smriti_license` and `smriti_site_config` variables into page context (mirroring `billing.py` exactly).
 2.  **Tokens Stylesheet:** Added the namespaced `smriti_tokens.css` link inside `<head>`.
 3.  **Bridge Layer:** Mapped all 19 legacy `:root` variables inside the page stylesheet directly to the namespaced `--smriti-*` variables.
 4.  **Resolver Scripts:** Loaded `smriti_ui_resolver.js` and `smriti_theme_manager.js` at the bottom of the body.
@@ -81,3 +98,24 @@ To restore the Purchase Module back to its pre-bridge baseline state:
     git checkout PHASE_2C_W1_PRE_BRIDGE -- smriti_retail_os/www/purchase.html smriti_retail_os/www/purchase.py
     ```
 3.  Restart bench/clear cache as needed to force CSS reload.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

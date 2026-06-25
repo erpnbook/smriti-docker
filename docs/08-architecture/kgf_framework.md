@@ -1,8 +1,18 @@
 ---
-title: Knowledge Governance Framework (KGF)
-version: 1.0
-last_updated: 2026-06-19
-applies_to: SMRITI Retail OS v2.2.0
+Document ID: "ARCH-016"
+Title: "SMRITI Knowledge Governance Framework (KGF)"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "KGF"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI Knowledge Governance Framework (KGF)
@@ -55,3 +65,23 @@ The SMRITI Constitution enforces strict rules regarding mathematical computation
 
 ## Support & Helpdesk
 For questions or support, please contact the SMRITI Helpdesk at **support@aitdl.com**.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

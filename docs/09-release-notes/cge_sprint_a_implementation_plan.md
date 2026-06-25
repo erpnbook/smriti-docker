@@ -1,3 +1,20 @@
+---
+Document ID: "REL-003"
+Title: "SMRITI CGE Sprint A — Implementation Plan"
+Owner: "Release Team"
+Audience: "Executive / Team"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI CGE Sprint A — Implementation Plan
 **Focus**: Critical Security & Accounting Fixes (AUD-01 to AUD-07)  
 **Version**: 1.1.0  
@@ -11,7 +28,7 @@
 When a customer redeems cashback (wallet Debit), the double-entry journal credits the `Promotion Expense` account rather than the customer's standard `Accounts Receivable` (Debtors) account. This causes an under-statement of promotion costs on redemptions and leaves the customer's Sales Invoice receivable balance open and unreconciled.
 
 ### Affected Files
-*   [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `create_double_entry_journal`
+*   [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `create_double_entry_journal`
 
 ### Proposed Code Changes
 In `create_double_entry_journal`, modify the `Debit` entry logic:
@@ -44,7 +61,7 @@ Revert the modifications to `create_double_entry_journal` to credit `Promotion E
 Coupon limits (customer, mobile, daily) only count submitted `"Sales Invoice"` records. POS terminals write to `"POS Invoice"` first (consolidated nightly), enabling customers to bypass limits by checking out at multiple terminals before nightly consolidation.
 
 ### Affected Files
-*   [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `validate_checkout_rules`
+*   [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `validate_checkout_rules`
 
 ### Proposed Code Changes
 Update all `frappe.db.count` counts for `"Sales Invoice"` to sum matching records from both `"Sales Invoice"` and `"POS Invoice"`, checking that `docstatus != 2` (excluding cancelled):
@@ -73,7 +90,7 @@ Revert queries to count only `"Sales Invoice"`.
 `CGEWalletLedger.post_transaction` writes `Debit` transactions without checking if the customer has sufficient active cashback balance, allowing wallet balances to go negative.
 
 ### Affected Files
-*   [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `CGEWalletLedger.post_transaction` & new shared service helper.
+*   [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `CGEWalletLedger.post_transaction` & new shared service helper.
 
 ### Proposed Code Changes
 1.  Create a shared service function `get_active_wallet_balance(customer)` inside `cge_service.py`:
@@ -114,7 +131,7 @@ Remove the validation check from `post_transaction` and inline balance logic.
 Wallet deductions and coupon limits are only validated in the UI-facing `validate_checkout_rules` API. Directly submitted invoices (via APIs or bulk uploads) bypass all validation controls.
 
 ### Affected Files
-*   [hooks_logic.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) $\rightarrow$ `validate_and_reconcile_retail_invoice`
+*   [hooks_logic.py](../../apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) $\rightarrow$ `validate_and_reconcile_retail_invoice`
 
 ### Proposed Code Changes
 In `validate_and_reconcile_retail_invoice`:
@@ -139,7 +156,7 @@ Remove coupon/wallet validations from `validate_and_reconcile_retail_invoice`.
 Exceptions during ERPNext `Journal Entry` submission inside wallet posting are caught, logged, and ignored. The SMRITI shadow wallet ledger transaction still commits, creating a permanent discrepancy between the two databases.
 
 ### Affected Files
-*   [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `CGEWalletLedger.post_transaction` and `CGEWalletLedger.reverse_transaction`
+*   [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `CGEWalletLedger.post_transaction` and `CGEWalletLedger.reverse_transaction`
 
 ### Proposed Code Changes
 Remove the try-except wrapper or re-raise the exception inside the `except` block. If the ERPNext `Journal Entry` fails, the exception must propagate up, aborting the CGE database insert and rolling back the transaction.
@@ -162,7 +179,7 @@ Wrap the `create_double_entry_journal` call back in the try-except logging block
 The hooks `process_invoice_submit` and `process_invoice_cancel` execute manual `frappe.db.commit()` calls. This prevents the framework from rolling back CGE rewards/deductions if a subsequent hook or framework validation fails during invoice submission.
 
 ### Affected Files
-*   [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `process_invoice_submit` and `process_invoice_cancel`
+*   [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `process_invoice_submit` and `process_invoice_cancel`
 
 ### Proposed Code Changes
 Remove all manual `frappe.db.commit()` statements inside hook handlers. Allow the framework to commit the database transaction atomically at the end of the HTTP/API request cycle.
@@ -184,7 +201,7 @@ Restore `frappe.db.commit()` calls inside hooks.
 Sequence IDs are generated using `frappe.db.count(...) + 1`. Under high concurrent checkout traffic, multiple terminals generate duplicate IDs, causing unique key crashes on insertion.
 
 ### Affected Files
-*   [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `CGEWalletLedger.post_transaction` and `reverse_transaction`
+*   [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) $\rightarrow$ `CGEWalletLedger.post_transaction` and `reverse_transaction`
 
 ### Proposed Code Changes
 Replace manual counting with Frappe's database-backed atomic sequence generator:
@@ -201,3 +218,24 @@ Revert to using `frappe.db.count` for sequence ID generation.
 
 ### Acceptance Criteria
 1.  Concurrent requests to post wallet ledger transactions generate unique sequence IDs without collisions or database crashes.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

@@ -1,8 +1,18 @@
 ---
-title: License Activation Guide
-version: 1.0
-last_updated: 2026-06-18
-applies_to: SMRITI Retail OS v1.x
+Document ID: "KB-001"
+Title: "SMRITI License Activation Guide"
+Owner: "Support Team"
+Audience: "Support Engineer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI License Activation Guide
@@ -67,3 +77,23 @@ If a license expires or signature verification fails:
 - The system enters a **7-day Grace Period**, showing an Amber warning banner on all terminals.
 - After 7 days, the status shifts to `Expired`. The billing terminal locks, preventing cashier invoices until a new key is activated.
 - If signature check fails with `Invalid Signature`, ensure the `smriti_license_secret` key in `site_config.json` matches the value used during key issuance.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

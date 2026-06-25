@@ -1,3 +1,20 @@
+---
+Document ID: "USER-029"
+Title: "Volume 6 — PSV User Manual"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Volume 6 — PSV User Manual
 ## SMRITI Party Stock Visibility
 
@@ -337,7 +354,7 @@ During the 30-day pilot, success is measured against six criteria agreed on Day 
 **Partial**: 2–3 of 6 → Targeted re-pilot
 **Fail**: ≤ 1 of 6 → Root cause review
 
-Full criteria detail: [COMM-08 Pilot Success Criteria](../comm/COMM-08_pilot_success_criteria.md)
+Full criteria detail: [COMM-08 Pilot Success Criteria](../05-developer/comm_08_pilot_success_criteria.md)
 
 ---
 

@@ -1,3 +1,20 @@
+---
+Document ID: "ARCH-005"
+Title: "SMRITI AI Content Policy (AI-GOV-01)"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI AI Content Policy (AI-GOV-01)
 
 **Status:** LOCKED (Frozen for SMRITI v1.0)  
@@ -34,3 +51,10 @@ AI agents are strictly prohibited from:
 * **Removing Required Attribution**: Do not remove open-source copyright statements, developer credits (`AITDL`), or trademark references.
 * **Generating Unauthorized Branding**: Do not introduce alternative branding, compound logos, or unofficial style definitions.
 * **Leaking Internal Architectures**: Do not expose database schemas, internal table indexes, raw code variables, or system designs inside operator-facing user guides.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

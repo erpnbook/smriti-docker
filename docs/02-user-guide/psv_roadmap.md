@@ -1,3 +1,20 @@
+---
+Document ID: "USER-018"
+Title: "SMRITI Retail OS — PSV Phase 1.3 Candidate Roadmap"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Retail OS — PSV Phase 1.3 Candidate Roadmap
 
 Following UAT verification and pilot feedback, the PSV roadmap has been refined to enforce a strict boundary between the **Intelligence Layer** (Wave 1/2) and the **Automation Layer** (Wave 3). This prevents operational disruption and cash flow risks before the analytical models are fully trusted.
@@ -157,3 +174,24 @@ Phase 2 Forecasting      ⚪ Future
 | **Wave 3** | Phase 1.4 | Reorder Engine (MOQ, Safety Stock) | Later |
 | **Wave 3** | Phase 1.4 | Purchase Suggestions (Draft POs in ERPNext) | Later |
 | **Future** | Phase 2 | Demand Forecasting (psv_forecasting_service.py) | Future |
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

@@ -1,6 +1,18 @@
 ---
-title: SMRITI Setup & Configuration Wizard
-description: Standalone setup wizard for bootstrapping SMRITI Retail OS storefronts
+Document ID: "DEV-057"
+Title: "🚀 SMRITI Setup & Configuration Wizard"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # 🚀 SMRITI Setup & Configuration Wizard
@@ -55,7 +67,7 @@ website_route_rules = [
 ]
 ```
 
-### 2. Page Controller ([setup_wizard.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/setup_wizard.py))
+### 2. Page Controller ([setup_wizard.py](../../apps/smriti_retail_os/smriti_retail_os/www/setup_wizard.py))
 Verifies user permissions (only `Administrator` or `System Manager` is allowed to run the setup), injects `csrf_token`, and handles redirection:
 ```python
 def get_context(context):
@@ -73,7 +85,7 @@ def get_context(context):
     context.csrf_token = frappe.sessions.get_csrf_token()
 ```
 
-### 3. Backend Execution Engine ([setup_wizard_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py))
+### 3. Backend Execution Engine ([setup_wizard_api.py](../../apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py))
 Whitelisted remote functions responsible for performing validation, checking existences, and committing records to the DB:
 * `get_setup_wizard_initial_data()`: Seeds default choices and loads lists of states.
 * `run_setup_wizard(args)`: The transactional deploy kernel. It performs the following sequence:
@@ -99,3 +111,23 @@ Inspect logs inside the docker container during execution to monitor progress:
 ```bash
 docker logs -f smriti_retail_os-backend-1
 ```
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

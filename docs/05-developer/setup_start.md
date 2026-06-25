@@ -1,5 +1,18 @@
 ---
-title: Start Container
+Document ID: "DEV-056"
+Title: "start Container"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # start Container
@@ -49,7 +62,7 @@ docker compose -p frappe exec backend bench new-site <sitename> \
 
 > **Note:** Wait for the `db` service to start and `configurator` to exit before trying to create a new site. Usually this takes up to 10 seconds.
 
-For more site operations, refer to [site operations](../04-operations/01-site-operations.md).
+For more site operations, refer to [site operations](../02-user-guide/site_operations.md).
 
 > ## Understanding the MariaDB User Scope
 >
@@ -61,6 +74,26 @@ For more site operations, refer to [site operations](../04-operations/01-site-op
 
 ---
 
-**Back:** [Build Setup →](02-build-setup.md)
+**Back:** [Build Setup →](setup_build.md)
 
-**Next:** [Setup Examples →](06-setup-examples.md)
+**Next:** [Setup Examples →](setup_examples.md)
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-069"
+Title: "Walkthrough: SMRITI Whitelabel Branding & Frappe Default Theme Integration"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Walkthrough: SMRITI Whitelabel Branding & Frappe Default Theme Integration
 
 We have successfully restored the premium **Frappe Default Theme compatibility** across the entire ERPNext and Frappe Desk interface—including the **POS Retail Billing, Day Open/Close, Inventory, and Barcode Printing pages**—while strictly maintaining all **SMRITI Whitelabel Branding** elements (logos, titles, custom fonts, copyright hides, and login screens).
@@ -6,7 +23,7 @@ We have successfully restored the premium **Frappe Default Theme compatibility**
 
 ## 🎨 Implemented Theme & Branding Details
 
-By refining the stylesheets ([smriti_theme.css](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/css/smriti_theme.css), [smriti_sidebar.css](file:///d:/Smriti_Sidebar.css), [smriti_branding.css](file:///d:/Smriti_Branding.css), [smriti_billing.css](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_billing/smriti_billing.css), [smriti_shift.css](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_shift/smriti_shift.css), [smriti_inventory.css](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_inventory/smriti_inventory.css), and [smriti_barcode.css](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_barcode/smriti_barcode.css)), the software integrates SMRITI's whitelabeling seamlessly with Frappe's native light and dark modes:
+By refining the stylesheets ([smriti_theme.css](../../apps/smriti_retail_os/smriti_retail_os/public/css/smriti_theme.css), [smriti_sidebar.css](../../apps/smriti_retail_os/smriti_retail_os/public/css/smriti_sidebar_standalone.css), [smriti_branding.css](../../apps/smriti_retail_os/smriti_retail_os/public/css/smriti_branding.css), [smriti_billing.css](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_billing/smriti_billing.css), [smriti_shift.css](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_shift/smriti_shift.css), [smriti_inventory.css](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_inventory/smriti_inventory.css), and [smriti_barcode.css](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_barcode/smriti_barcode.css)), the software integrates SMRITI's whitelabeling seamlessly with Frappe's native light and dark modes:
 
 1. **Restored Frappe Default Theme Compatibility**:
    * Removed all forced `!important` color, background, card, border, and button overrides from the standard Desk pages and the **POS Billing, Shift, Inventory, and Barcode Printing pages**.
@@ -25,10 +42,10 @@ By refining the stylesheets ([smriti_theme.css](file:///d:/Smriti_Retail_OS/apps
    * **Logo Replacements:** All standard system logos are programmatically redirected to SMRITI's proprietary logo assets.
 
 4. **Premium Custom Login Box**:
-   * Preserved SMRITI's gorgeous static Cyberpunk Dark login template served from [login.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/login.html) (featuring glassmorphism, glowing coral actions, custom autofill overrides, and spring-animated brand elements).
+   * Preserved SMRITI's gorgeous static Cyberpunk Dark login template served from [login.html](../../apps/smriti_retail_os/smriti_retail_os/www/login.html) (featuring glassmorphism, glowing coral actions, custom autofill overrides, and spring-animated brand elements).
 
 5. **Theme Compliance Policy (Git-Ignored)**:
-   * Established a local rule in [BRANDING_POLICY.md](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/BRANDING_POLICY.md) (explicitly hidden from GitHub via `.gitignore`) instructing all developers and AI agents to respect standard Frappe themes and strictly reference native CSS variables instead of forcing hardcoded color hexes.
+   * Established a local rule in [BRANDING_POLICY.md](../../apps/smriti_retail_os/BRANDING_POLICY.md) (explicitly hidden from GitHub via `.gitignore`) instructing all developers and AI agents to respect standard Frappe themes and strictly reference native CSS variables instead of forcing hardcoded color hexes.
 
 ---
 
@@ -51,3 +68,24 @@ By refining the stylesheets ([smriti_theme.css](file:///d:/Smriti_Retail_OS/apps
 * **Global Status**: Completed with **0 errors**.
 * **Visual Polish**: Checked elements globally. The layout now renders standard Frappe light-mode pages and POS terminal screens cleanly without color clashes, keeping SMRITI's logo and fonts perfectly integrated.
 * **Result**: **Frappe default theme compatibility restored across all screens, including POS Billing, Shift, Inventory, and Barcode pages, with whitelabeling fully intact!**
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

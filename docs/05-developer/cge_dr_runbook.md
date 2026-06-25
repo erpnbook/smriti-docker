@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-008"
+Title: "SMRITI Customer Growth Engine (CGE) — Disaster Recovery (DR) Runbook v1.0"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Customer Growth Engine (CGE) — Disaster Recovery (DR) Runbook v1.0
 
 This runbook describes the disaster recovery procedures, backup schedules, database restore commands, and verification steps required to restore the SMRITI Customer Growth Engine (CGE) in the event of database corruption or hardware failure.
@@ -6,15 +23,15 @@ This runbook describes the disaster recovery procedures, backup schedules, datab
 
 ## 1. Backup Schedule & Policy
 
-Database backups are captured automatically using [backup_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/backup_api.py).
+Database backups are captured automatically using [backup_api.py](../../apps/smriti_retail_os/smriti_retail_os/backup_api.py).
 
 ### Automatic Schedule
-*   **Daily Backups**: Triggered nightly at `00:00` by the scheduler event listener [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py#L325).
+*   **Daily Backups**: Triggered nightly at `00:00` by the scheduler event listener [hooks.py](../../apps/smriti_retail_os/smriti_retail_os/hooks.py#L325).
 *   **Storage Location**: Backups are written to `d:\Smriti_Retail_OS\backups\`.
 *   **Retention**:
     *   Daily backups are kept for **90 days**.
     *   Monthly backups (captured on the 1st of each month) are kept for **5 years**.
-    *   Expired snapshots are cleaned up daily by `execute_snapshot_cleanup` in [cge_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L604).
+    *   Expired snapshots are cleaned up daily by `execute_snapshot_cleanup` in [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L604).
 
 ---
 
@@ -37,7 +54,7 @@ bench --site smriti_retail execute smriti_retail_os.backup_api.run_scheduled_bac
 
 ## 3. Simulating a Data Wipe (Testing DR Only)
 
-To test the disaster recovery pipeline (as verified in [test_cge_rules.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/tests/test_cge_rules.py#L256)):
+To test the disaster recovery pipeline (as verified in [test_cge_rules.py](../../apps/smriti_retail_os/smriti_retail_os/tests/test_cge_rules.py#L256)):
 
 1.  Run the manual backup to generate a snapshot.
 2.  Log in to the database console:
@@ -105,3 +122,24 @@ After restoration, verify CGE data integrity:
     Confirm that the output snapshot shows `status = Reconciled` and `variance = 0.0`.
 4.  **Inspect System Activity Logs**:
     Verify that the Activity Log entries match expected post-restore state.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

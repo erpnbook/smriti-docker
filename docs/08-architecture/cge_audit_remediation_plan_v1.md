@@ -1,3 +1,20 @@
+---
+Document ID: "ARCH-009"
+Title: "SMRITI Customer Growth Engine (CGE) — Audit Remediation Plan v1.0"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Customer Growth Engine (CGE) — Audit Remediation Plan v1.0
 **Author**: SMRITI Agent / Antigravity AI  
 **Status**: Active  
@@ -64,24 +81,24 @@ To ensure a structured and risk-isolated rollout, fixes are divided into three s
 
 | ID | Component | Title / Finding | Severity | Sprint | Status | Target File |
 |---|---|---|---|---|---|---|
-| **AUD-01** | General Ledger | Reversal of Promotion Expense / Unreconciled Customer Ledger | 🔴 Critical | Sprint A | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-02** | Coupon Engine | POS Invoice Bypass on Coupon Usage Limits | 🔴 Critical | Sprint A | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-03** | Wallet Engine | Wallet negative balance exploit | 🔴 Critical | Sprint A | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-04** | Document Hooks | Missing server-side validation on invoice saving/submission | 🔴 Critical | Sprint A | Closed | [hooks_logic.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) |
-| **AUD-05** | General Ledger | Journal Entry failure swallowed silently | 🔴 Critical | Sprint A | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-06** | DB Transaction | Manual database commits inside hooks | 🔴 Critical | Sprint A | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-07** | Concurrency | Race condition in sequence generation | 🔴 Critical | Sprint A | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-08** | Document Hooks | Lack of Hook Error Isolation | 🟠 High | Sprint B | Closed | [hooks.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py) |
-| **AUD-09** | Liability Engine | Liability over-statement (sums loyalty points instead of remaining points) | 🟠 High | Sprint B | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-10** | Rule Evaluator | N+1 Database Queries inside Item Loop | 🟠 High | Sprint B | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-11** | Reconciler | N+1 Database Queries in Daily Wallet Reconciliation | 🟠 High | Sprint B | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-12** | Offline Cache | Offline cache memory exhaustion limit risk (OOM) | 🟠 High | Sprint B | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-13** | Offline Cache | Write-only Offline Cache Bypass | 🟠 High | Sprint B | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-14** | Expiry Scheduler | Missing Wallet/Cashback Expiry Logic | 🟡 Medium | Sprint C | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-15** | Wallet Engine | Cashback Balance Queries Lack Dynamic Expiry Date Filtering | 🟡 Medium | Sprint C | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-16** | Snapshot Job | Duplicate Daily Liability Snapshots | 🟡 Medium | Sprint C | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-17** | Campaign Mgr | Coupon Budget Lockup on Abandoned / Deleted Draft Invoices | 🟡 Medium | Sprint C | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
-| **AUD-18** | Code Quality | Redundant Database Schema Metadata Queries inside Item Loop | 🟢 Low | Sprint C | Closed | [cge_service.py](file:///D:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-01** | General Ledger | Reversal of Promotion Expense / Unreconciled Customer Ledger | 🔴 Critical | Sprint A | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-02** | Coupon Engine | POS Invoice Bypass on Coupon Usage Limits | 🔴 Critical | Sprint A | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-03** | Wallet Engine | Wallet negative balance exploit | 🔴 Critical | Sprint A | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-04** | Document Hooks | Missing server-side validation on invoice saving/submission | 🔴 Critical | Sprint A | Closed | [hooks_logic.py](../../apps/smriti_retail_os/smriti_retail_os/hooks_logic.py) |
+| **AUD-05** | General Ledger | Journal Entry failure swallowed silently | 🔴 Critical | Sprint A | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-06** | DB Transaction | Manual database commits inside hooks | 🔴 Critical | Sprint A | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-07** | Concurrency | Race condition in sequence generation | 🔴 Critical | Sprint A | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-08** | Document Hooks | Lack of Hook Error Isolation | 🟠 High | Sprint B | Closed | [hooks.py](../../apps/smriti_retail_os/smriti_retail_os/hooks.py) |
+| **AUD-09** | Liability Engine | Liability over-statement (sums loyalty points instead of remaining points) | 🟠 High | Sprint B | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-10** | Rule Evaluator | N+1 Database Queries inside Item Loop | 🟠 High | Sprint B | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-11** | Reconciler | N+1 Database Queries in Daily Wallet Reconciliation | 🟠 High | Sprint B | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-12** | Offline Cache | Offline cache memory exhaustion limit risk (OOM) | 🟠 High | Sprint B | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-13** | Offline Cache | Write-only Offline Cache Bypass | 🟠 High | Sprint B | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-14** | Expiry Scheduler | Missing Wallet/Cashback Expiry Logic | 🟡 Medium | Sprint C | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-15** | Wallet Engine | Cashback Balance Queries Lack Dynamic Expiry Date Filtering | 🟡 Medium | Sprint C | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-16** | Snapshot Job | Duplicate Daily Liability Snapshots | 🟡 Medium | Sprint C | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-17** | Campaign Mgr | Coupon Budget Lockup on Abandoned / Deleted Draft Invoices | 🟡 Medium | Sprint C | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
+| **AUD-18** | Code Quality | Redundant Database Schema Metadata Queries inside Item Loop | 🟢 Low | Sprint C | Closed | [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py) |
 
 ---
 
@@ -182,3 +199,24 @@ To ensure a structured and risk-isolated rollout, fixes are divided into three s
 #### AUD-18: Schema Queries Fix
 *   **Target**: `cge_service.py` $\rightarrow$ `CGERuleEvaluator`
 *   **Plan**: Extract `frappe.db.has_column` checks from the item loop, placing them as static variables at the evaluator constructor level.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

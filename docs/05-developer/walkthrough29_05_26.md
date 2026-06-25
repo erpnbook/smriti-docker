@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-064"
+Title: "Walkthrough: Sidebar Popouts & Floating Controls"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Walkthrough: Sidebar Popouts & Floating Controls
 
 I have completed the implementation of sidebar popout buttons for all links, global popout layout overrides, and a floating window control panel for distraction-free/popout modes.
@@ -52,3 +69,24 @@ During a deep audit of Frappe v16's page wrapper layout, several structural chal
 4. **Navigate inside the popout window** to other pages. Verify that popout mode persists and the sidebar remains hidden even when routing.
 5. **Verify DocType Forms**: Open a standard Sales Invoice or Customer form in the popout window. Note that the top navbar, breadcrumbs, and sidebars are completely hidden, but the sleek top page header containing the **Save** and **Submit** actions is kept visible and accessible.
 6. **Verify Custom Pages**: Open the custom Billing or Item Master Import page in the popout window and verify that the standard `.page-head` is completely hidden, and that the custom layout occupies **100% width** with no white spacing on the left.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

@@ -1,8 +1,18 @@
 ---
-title: Backup & Restore Guide
-version: 1.0
-last_updated: 2026-06-18
-applies_to: SMRITI Retail OS v1.x
+Document ID: "ADMIN-004"
+Title: "SMRITI OS Backup & Restore Guide"
+Owner: "Administration Team"
+Audience: "Administrator"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI OS Backup & Restore Guide
@@ -54,3 +64,23 @@ To restore an encrypted database backup (e.g. `smriti_backup-v1.enc`):
      bench --site smriti_retail restore decrypted_backup.sql.gz --with-public-files public.tar --with-private-files private.tar --force --db-root-username root --db-root-password admin
      ```
 3. **Audit**: Restores are logged automatically, and decrypter files are overwritten using the UNIX `shred` utility (with zero-overwrite fallback) to prevent trace leaks on disk.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

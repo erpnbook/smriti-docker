@@ -1,3 +1,20 @@
+---
+Document ID: "USER-017"
+Title: "SMRITI PSV Certified Planner Guide (Level 1)"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI PSV Certified Planner Guide (Level 1)
 ## SMRITI Inventory Visibility Certified Planner Program
 

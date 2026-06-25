@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-017"
+Title: "COMM-08 — PSV Pilot Success Criteria"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-08 — PSV Pilot Success Criteria
 **Sprint**: PSV-COMM-001 Wave 1
 **Dependency**: Embedded in COMM-04 (Pilot Offer Structure) — shared in same conversation
@@ -176,3 +193,10 @@ Week 4 Review — 45 minutes
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *Criteria targets may be adjusted per pilot — core framework is fixed.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

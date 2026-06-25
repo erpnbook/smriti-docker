@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-018"
+Title: "COMM-11 — PSV Brand Planner Guide"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-11 — PSV Brand Planner Guide
 **Sprint**: PSV-COMM-001
 **Audience**: Brand Planner / Supply Chain Manager (internal — daily PSV user)
@@ -181,3 +198,10 @@ FIX:     Monday review must include network view — imbalances are often invisi
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *This guide assumes PSV v1.1 — Phase 1.2 frozen. Update as features are added in Phase 1.3+*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

@@ -1,3 +1,20 @@
+---
+Document ID: "USER-019"
+Title: "Psv Sales Battlecard"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 ﻿# SUPERSEDED DOCUMENT
 
 **Status**: SUPERSEDED
@@ -21,3 +38,10 @@ This document has been replaced by:
 
 *Governance: SMRITI_DOCUMENT_GOVERNANCE_RULE_001 — this file contains content and therefore passes the 0-byte gate.*
 *The canonical document is at the location listed above.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

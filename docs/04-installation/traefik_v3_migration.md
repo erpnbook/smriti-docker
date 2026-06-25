@@ -1,5 +1,18 @@
 ---
-title: Migrate Traefik from v2 to v3
+Document ID: "INSTALL-014"
+Title: "Migrate an existing Traefik v2 instance to v3"
+Owner: "Installation Team"
+Audience: "Installer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Migrate an existing Traefik v2 instance to v3
@@ -68,7 +81,7 @@ docker compose --env-file .env \
 docker compose --project-name <project-name> -f ~/gitops/docker-compose.yml up -d
 ```
 
-See [Single Server Example](../02-setup/07-single-server-example.md)
+See [Single Server Example](../05-developer/setup_single_server.md)
 
 ### Step 3: Verify Traefik
 
@@ -81,3 +94,23 @@ If you need to rollback:
 1. Revert Traefik image to `v2.11`
 2. Restore the old `SITES` variable format and v2 rules
 3. Regenerate the compose config and restart
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

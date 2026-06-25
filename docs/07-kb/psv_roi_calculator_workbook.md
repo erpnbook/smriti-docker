@@ -1,3 +1,20 @@
+---
+Document ID: "KB-015"
+Title: "COMM-07 — PSV ROI Workbook"
+Owner: "Support Team"
+Audience: "Support Engineer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-07 — PSV ROI Workbook
 **Sprint**: PSV-COMM-001
 **Audience**: CFO, Brand Owner, Operations Head — "Kitna paisa bachega?"
@@ -151,3 +168,10 @@ All formulas in this workbook are governed by Formula Registry:
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *All ROI figures are estimates based on brand-specific inputs. Actual results depend on pilot data.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

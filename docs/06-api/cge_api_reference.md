@@ -1,6 +1,23 @@
+---
+Document ID: "API-001"
+Title: "SMRITI Customer Growth Engine (CGE) — API Reference Manual v1.0"
+Owner: "Integration Team"
+Audience: "API Integrator"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Customer Growth Engine (CGE) — API Reference Manual v1.0
 
-This document describes all whitelisted API endpoints exposed by the SMRITI Customer Growth Engine (CGE) in [cge_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/api/cge_api.py). These methods are whitelisted for execution from the POS terminal, CGE Studio, or external integrations.
+This document describes all whitelisted API endpoints exposed by the SMRITI Customer Growth Engine (CGE) in [cge_api.py](../../apps/smriti_retail_os/smriti_retail_os/cge/api/cge_api.py). These methods are whitelisted for execution from the POS terminal, CGE Studio, or external integrations.
 
 ---
 
@@ -207,3 +224,24 @@ These endpoints process updates for rules, tiers, and campaigns from the Studio 
 *   **Role Gate**: `System Manager`, `SMRITI Store Manager`
 *   **Method Type**: POST
 *   **Response Format**: Returns the database primary key `name` of the saved document.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

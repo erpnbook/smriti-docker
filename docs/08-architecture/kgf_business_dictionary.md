@@ -1,8 +1,18 @@
 ---
-title: Business Dictionary
-version: 1.0
-last_updated: 2026-06-19
-applies_to: SMRITI Retail OS v2.2.0
+Document ID: "ARCH-014"
+Title: "SMRITI Business Dictionary (DOC-04)"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI Business Dictionary (DOC-04)
@@ -142,3 +152,22 @@ The following core business terms are registered in the Business Dictionary for 
 ## Support & Helpdesk
 For questions or support, please contact the SMRITI Helpdesk at **support@aitdl.com**.
 
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

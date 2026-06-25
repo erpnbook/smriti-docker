@@ -1,3 +1,20 @@
+---
+Document ID: "REL-011"
+Title: "SMRITI Retail OS — Release Notes v1.0 GA"
+Owner: "Release Team"
+Audience: "Executive / Team"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Retail OS — Release Notes v1.0 GA
 
 This document describes the General Availability (GA) release of SMRITI Retail OS v1.0. This release establishes a secure, inventory-first retail operating system built on top of ERPNext.
@@ -44,3 +61,10 @@ AITDL (AI Technology & Development Lab)
 ## ⚠️ Known Limitations & Workarounds
 - **Offline Limits**: Register operations require a local network connection tomariadb to sync transactions. Offline sales buffering is queued for a future v1.1 release.
 - **License Binding**: Key activations are locked to unique Installation UUIDs by default. Moving hosts requires key regeneration.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

@@ -1,12 +1,25 @@
 ---
-title: Setup Examples
+Document ID: "DEV-050"
+Title: "Setup Examples"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Setup Examples
 
-This guide provides practical examples for common setup scenarios. These examples build upon the [container setup guide](01-overview.md) and demonstrate how to combine the base compose file with overrides.
+This guide provides practical examples for common setup scenarios. These examples build upon the [container setup guide](setup_overview.md) and demonstrate how to combine the base compose file with overrides.
 
-> **Note:** This setup is not for development. A complete development environment is available [here](../05-development/01-development.md).
+> **Note:** This setup is not for development. A complete development environment is available [here](../05-developer/development.md).
 
 ## Prerequisites
 
@@ -22,7 +35,7 @@ Copy the example docker environment file to `.env`:
 cp example.env .env
 ```
 
-Edit `.env` and set variables according to your needs. See [environment variables](04-env-variables.md) for detailed descriptions of all available variables.
+Edit `.env` and set variables according to your needs. See [environment variables](setup_env_variables.md) for detailed descriptions of all available variables.
 
 ## Storing Generated YAML Files
 
@@ -97,11 +110,11 @@ docker compose -f compose.yaml \
 docker compose --project-name <project-name> -f ~/gitops/docker-compose.yml up -d
 ```
 
-> **Note:** Ensure your `SITES_RULE` variable is properly formatted. See [environment variables](04-env-variables.md) for the correct format.
+> **Note:** Ensure your `SITES_RULE` variable is properly formatted. See [environment variables](setup_env_variables.md) for the correct format.
 
 ## Create First Site
 
-After starting containers, create your first site. Refer to [site operations](../04-operations/01-site-operations.md#setup-new-site) for detailed instructions.
+After starting containers, create your first site. Refer to [site operations](../02-user-guide/site_operations.md#setup-new-site) for detailed instructions.
 
 ## Updating Images
 
@@ -133,10 +146,30 @@ docker compose --project-name <project-name> -f ~/gitops/docker-compose.yml up -
 > - Pull and stop container commands can be skipped if immutable image tags are used
 > - `docker compose up -d` will pull new immutable tags if not found
 
-To migrate sites after updating, refer to [site operations](../04-operations/01-site-operations.md#migrate-site).
+To migrate sites after updating, refer to [site operations](../02-user-guide/site_operations.md#migrate-site).
 
 ---
 
-**Back:** [Start Setup →](03-start-setup.md)
+**Back:** [Start Setup →](setup_start.md)
 
-**Next:** [Single Server Example →](07-single-server-example.md)
+**Next:** [Single Server Example →](setup_single_server.md)
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

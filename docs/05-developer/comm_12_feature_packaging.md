@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-019"
+Title: "COMM-12 — PSV Feature Packaging & Tier Definition"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-12 — PSV Feature Packaging & Tier Definition
 **Sprint**: PSV-COMM-001
 **Audience**: Founder (approval), Sales team (reference)
@@ -176,3 +193,10 @@ Authority: Jawahar R. Mallah, Founder & Chief Architect, AITDL
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *This document is an internal commercial reference. Pricing section is not complete until Founder approval.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

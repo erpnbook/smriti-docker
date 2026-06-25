@@ -1,5 +1,18 @@
 ---
-title: Getting Started
+Document ID: "INSTALL-008"
+Title: "Getting Started with Frappe Docker"
+Owner: "Installation Team"
+Audience: "Installer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Getting Started with Frappe Docker
@@ -71,7 +84,7 @@ Real-time:
 ### 📁 Core Configuration Files
 
 > ⚠️ Before deploying, read
-> **[Choosing a Deployment Method](01-getting-started/01-choosing-a-deployment-method.md)**
+> **[Choosing a Deployment Method](../05-developer/choosing_deployment_method.md)**
 > to understand the differences between `pwd.yml`, development setup, the Easy Install script and the production setup.
 
 - **compose.yaml** - Main Docker Compose file defining all services
@@ -89,7 +102,7 @@ Four predefined Dockerfiles are available, each serving different use cases:
 - **images/layered/** - Same final contents as `custom` but based on prebuilt images from Docker Hub; faster builds for production when using Frappe-managed dependency versions
 - **images/production/** - Installs only Frappe and ERPNext (not customizable with `apps.json`); best for **quick starts or exploration**; for real deployments, use `custom` or `layered`
 
-> **Note:** For detailed build arguments and advanced configuration options, see [docs/02-setup/01-overview.md](02-setup/01-overview.md).
+> **Note:** For detailed build arguments and advanced configuration options, see [docs/../05-developer/setup_overview.md](../05-developer/setup_overview.md).
 
 ### 📁 overrides/ - Compose File Extensions
 
@@ -859,13 +872,13 @@ Many teams use both: Frappe for back-office/admin tools, Django for customer-fac
 
 ### Key Files in This Repository
 
-- [`docs/05-development/01-development.md`](05-development/01-development.md) - Detailed development setup
-- [`docs/02-setup/04-env-variables.md`](02-setup/04-env-variables.md) - Environment variable reference
-- [`docs/02-setup/07-single-server-example.md`](02-setup/07-single-server-example.md) - Production deployment guide
-- [`docs/04-operations/01-site-operations.md`](04-operations/01-site-operations.md) - Common site management tasks
+- [`docs/05-developer/development.md`](../05-developer/development.md) - Detailed development setup
+- [`docs/05-developer/setup_env_variables.md`](../05-developer/setup_env_variables.md) - Environment variable reference
+- [`docs/05-developer/setup_single_server.md`](../05-developer/setup_single_server.md) - Production deployment guide
+- [`docs/02-user-guide/site_operations.md`](../02-user-guide/site_operations.md) - Common site management tasks
 - `development/installer.py` - Automated setup script
-- [`pwd.yml`](../pwd.yml) - Quick test configuration
-- [`compose.yaml`](../compose.yaml) - Base Docker Compose configuration
+- [`pwd.yml`](../../pwd.yml) - Quick test configuration
+- [`compose.yaml`](../../compose.yaml) - Base Docker Compose configuration
 
 ### Community Resources
 
@@ -958,7 +971,7 @@ bench update                     # Update framework and apps
 
 ### Getting Help
 
-1. **Check existing docs** - Most issues covered in [`docs/07-troubleshooting/01-troubleshoot.md](07-troubleshooting/01-troubleshoot.md)
+1. **Check existing docs** - Most issues covered in [`docs/07-kb/troubleshoot.md](../07-kb/troubleshoot.md)
 2. **Search Frappe Forum** - [discuss.frappe.io](https://discuss.frappe.io)
 3. **GitHub Issues** - Search existing issues first
 4. **Discord/Telegram** - Community real-time chat (links in main repo)
@@ -976,3 +989,23 @@ Found issues or improvements for this guide?
 _This guide provides a comprehensive overview of Frappe Docker for developers of all backgrounds. For specific use cases or advanced topics, refer to the linked documentation._
 
 _Last updated: October 2025_
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

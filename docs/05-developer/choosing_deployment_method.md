@@ -1,5 +1,18 @@
 ---
-title: Choosing a Method
+Document ID: "DEV-011"
+Title: "Choosing a Deployment or Development Method"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Choosing a Deployment or Development Method
@@ -49,7 +62,7 @@ If you start with `pwd.yml`, you should expect to **throw the environment away**
 
 ## 2. VS Code Devcontainers – Local Development Setup
 
-The development setup described in [`/docs/05-development/development.md`](../05-development/01-development.md)
+The development setup described in [`/docs/05-development/development.md`](../05-developer/development.md)
 
 uses **VS Code Devcontainers** to provide a **local Frappe development environment**.
 
@@ -107,7 +120,7 @@ It uses:
 - The main `compose.yml`
 - Override files from the `overrides/` directory
 
-Detailed instructions are available in [`/docs/02-setup`](../02-setup/01-overview.md)
+Detailed instructions are available in [`/docs/02-setup`](./setup_overview.md)
 
 ### Characteristics
 
@@ -123,4 +136,24 @@ Detailed instructions are available in [`/docs/02-setup`](../02-setup/01-overvie
 - Each setup serves a **distinct purpose**
 - Development, testing, and production are **separate workflows**
 - Do not expect to evolve a disposable setup into production
-- Apps must be included **at build time**, not installed later ([Docker immutability](02-docker-immutability.md))
+- Apps must be included **at build time**, not installed later ([Docker immutability](../04-installation/docker_immutability.md))
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

@@ -1,41 +1,41 @@
 ---
-title: Go-Live Checklist Runbook
-version: 1.0
-last_updated: 2026-06-18
-applies_to: SMRITI Retail OS v1.x
+Document ID: "KB-023"
+Title: "Support Runbook — Go-Live Checklist Failures"
+Owner: "Support Team"
+Audience: "Support Engineer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Support Runbook — Go-Live Checklist Failures
 
-This runbook guides support engineers in diagnosing and resolving system configuration failures flagged by the Go-Live Readiness page.
+> **Important:** This runbook has been merged into the central [TROUBLESHOOTING.md](troubleshooting_core.md) at the repository root.
+> Please refer to [SECTION 6 — Business Module Issues](troubleshooting_core.md#section-6--business-module-issues) (specifically Issue 25/Go-Live diagnostics) for the latest instructions.
 
-## 🚨 Symptom
-The Go-Live page `/smriti-go-live` returns a status of `NOT READY` or displays warning indicators (`WARN` / `FAIL`).
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
 
 ---
 
-## 🔍 Diagnostics Step-by-Step
+## Author Profile
 
-### Step 1: Troubleshoot "CSRFTokenError"
-If the checklist fails to load and returns a CSRF validation error:
-1. Clear your browser cookies and cache.
-2. Ensure you are logged in as a user with the `System Manager` or `SMRITI System Admin` role.
-3. Verify that `smriti-go-live.py` is successfully updated to fetch the standard session token:
-   ```python
-   context.csrf_token = frappe.sessions.get_csrf_token()
-   ```
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
 
-### Step 2: Resolve Product Catalogue Blocks (`FAIL`)
-If the checklist flags a catalog failure:
-- Ensure the database contains at least **5 items** marked as sellable.
-- Run this database query to check active items:
-  ```sql
-  SELECT count(*) FROM `tabItem` WHERE disabled=0 AND is_sales_item=1 AND maintain_stock=1;
-  ```
-- *Resolution*: If the count is less than 5, seed standard items or run the catalogue import spreadsheet.
-
-### Step 3: Resolve Default Company / Warehouse Setup Mismatches
-If store setup checks fail:
-- Ensure that the primary company has at least one active cost center.
-- Verify that POS Profiles are not linked to inactive or archived warehouses.
-- *Resolution*: Open your active POS Profile settings, verify warehouse assignments, and re-run the checks.
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

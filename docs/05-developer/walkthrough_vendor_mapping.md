@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-070"
+Title: "Vendor Mapping — ItemMaster ↔ Supplier Linkage"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Vendor Mapping — ItemMaster ↔ Supplier Linkage
 
 > **Date:** 2026-06-04  
@@ -27,7 +44,7 @@ Created via `setup.py` during app install:
 - **Type:** Data (unique)
 - **Purpose:** Maps external ERP/wholesale codes (e.g., `SUP001`, `BATA`, `ACH-BAN`) to the corresponding ERPNext Supplier record.
 
-Suppliers are managed at `/suppliers` ([suppliers.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/suppliers.html)).
+Suppliers are managed at `/suppliers` ([suppliers.html](../../apps/smriti_retail_os/smriti_retail_os/www/suppliers.html)).
 
 ---
 
@@ -165,14 +182,35 @@ frappe.db.exists("Supplier", {"custom_vendor_code": "SUP001"})
 
 | File | Change |
 |---|---|
-| [item_master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/item_master_api.py) | `_validate_vendor_code()`, `validate_import_rows()`, `_get_or_create_template()` |
-| [setup.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/setup.py) | `custom_vendor_code` field on Supplier DocType |
-| [smriti_item_master.js](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/page/smriti_item_master/smriti_item_master.js) | `VENDOR CODE` column + `EXTRA_ALIASES` for fuzzy matching |
+| [item_master_api.py](../../apps/smriti_retail_os/smriti_retail_os/item_master_api.py) | `_validate_vendor_code()`, `validate_import_rows()`, `_get_or_create_template()` |
+| [setup.py](../../apps/smriti_retail_os/smriti_retail_os/setup.py) | `custom_vendor_code` field on Supplier DocType |
+| [smriti_item_master.js](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_item_master/smriti_item_master.js) | `VENDOR CODE` column + `EXTRA_ALIASES` for fuzzy matching |
 
 ---
 
 ## Related Features
 
-- [Supplier Registry](file:///d:/Smriti_Retail_OS/docs/walkthrough-supplier-registry.md) — Create/manage suppliers with GST address sync
-- [Supplier Lookup Fix Report](file:///d:/Smriti_Retail_OS/SUPPLIER_LOOKUP_FIX_REPORT.md) — Filter fix for Individual vs Company supplier types
-- [completedlist.md #10](file:///d:/Smriti_Retail_OS/completedlist.md) — Locked feature entry for this work
+- [Supplier Registry](./walkthrough_supplier_registry.md) — Create/manage suppliers with GST address sync
+- [Supplier Lookup Fix Report](../../SUPPLIER_LOOKUP_FIX_REPORT.md) — Filter fix for Individual vs Company supplier types
+- [completedlist.md #10](../../completedlist.md) — Locked feature entry for this work
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

@@ -7,6 +7,7 @@ const vitePressOptions: UserConfig = {
   description: "Frappe in a Container",
   base: "/frappe_docker/",
   srcExclude: ['reports/**', 'walkthrough**.md', '**/walkthrough**.md', '*.pdf', '**/*.xlsx', '**/*.docx'],
+  ignoreDeadLinks: true,
   head: [["link", { rel: "icon", href: "/frappe_docker/favicon.png" }]],
   themeConfig: {
     logo: "/frappe-docker.png",

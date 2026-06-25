@@ -1,8 +1,18 @@
 ---
-title: Changelog
-version: 1.0
-last_updated: 2026-06-18
-applies_to: SMRITI Retail OS v1.x
+Document ID: "REL-008"
+Title: "SMRITI Retail OS — Customer Changelog"
+Owner: "Release Team"
+Audience: "Executive / Team"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI Retail OS — Customer Changelog
@@ -32,3 +42,23 @@ This document logs customer-facing updates, bug fixes, and feature releases for 
 - **Go-Live UI CSRF Fix**: Resolved `CSRFTokenError` on the Go-Live page by updating template contexts to retrieve standard session tokens via `frappe.sessions.get_csrf_token()`.
 - **Catalogue Check Seeding**: Fixed checklist blocks on blank database setups by seeding 5 compliant items with HSN codes (`640399`) and mapping default GST templates.
 - **Role Redirection**: Corrected setup wizard loops by redirecting administrative paths to `/app/smriti-dashboard` for all store cashiers.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

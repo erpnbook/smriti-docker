@@ -1,3 +1,20 @@
+---
+Document ID: "ARCH-004"
+Title: "Architecture Change Proposal (ACP-UI-001)"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Architecture Change Proposal (ACP-UI-001)
 
 **Title:** Dimension Namespace Extension for UI Configuration Engine  
@@ -11,7 +28,7 @@
 
 ## 1. Context and Problem Statement
 
-The [SMRITI UI Configuration Engine V1](file:///d:/Smriti_Retail_OS/docs/architecture/ui/SMRITI_UI_CONFIGURATION_ENGINE_V1.md) (§6) defines a frozen set of approved token namespaces:
+The [SMRITI UI Configuration Engine V1](./smriti_ui_configuration_engine_v1.md) (§6) defines a frozen set of approved token namespaces:
 - `--smriti-color-*`
 - `--smriti-spacing-*` (padding, margin, gap)
 - `--smriti-radius-*`
@@ -68,3 +85,24 @@ And define the initial layout tokens in the registry:
 }
 ```
 These will be declared at Level 7 default level inside `smriti_tokens.css`.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

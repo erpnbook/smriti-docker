@@ -1,3 +1,20 @@
+---
+Document ID: "ARCH-007"
+Title: "BRD-01: Branding, Attribution & Documentation Governance Standard"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # BRD-01: Branding, Attribution & Documentation Governance Standard
 
 **Status:** LOCKED (Frozen for SMRITI v1.0)  
@@ -165,3 +182,10 @@ To add a new term to the dictionary: scheme:
 2. Create the `SMRITI Business Term` DocType record with `status=Approved, is_active=1`.
 3. Run `seed_default_terms.py` patch if the term is a standard KGF term.
 
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

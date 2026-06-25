@@ -1,3 +1,20 @@
+---
+Document ID: "USER-013"
+Title: "PSV — Party Stock Visibility"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # PSV — Party Stock Visibility
 ## Executive One-Pager
 
@@ -104,3 +121,10 @@ Contact: AITDL — Jawahar R. Mallah | jawahar.mallah@gmail.com
 
 *"Always decision-ready."*
 *— Jawahar R. Mallah, Founder & Chief Architect, AITDL*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

@@ -1,8 +1,18 @@
 ---
-title: "How to Generate E-Way Bills on the E-Way Bill Portal?"
-description: "A comprehensive operational guide on E-way Bill (EWB) portal workflows, prerequisites, and step-by-step portal generation, updated with the latest 2026 GSTN Advisory."
-author: "Annapoorna"
-date: "2026-05-25"
+Document ID: "USER-004"
+Title: "How to Generate E-Way Bills on the E-Way Bill Portal?"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # How to Generate E-Way Bills on the E-Way Bill Portal?
@@ -107,3 +117,23 @@ To adapt to the latest GSTN improvements before the **15 June 2026** production 
 * [ ] **Perform Sandbox API Integration:** If you utilize custom API links (such as SMRITI’s automated billing triggers), obtain the latest NIC closure API specs, conduct sandbox testing, and configure the new parameters.
 * [ ] **Train Operations Team:** Educate billing managers, dispatch cashiers, and drivers on the voluntary closure workflows to maintain high compliance scores.
 * [ ] **Document Adjustments:** Keep log files updated with closing remarks, ensuring seamless compliance audits.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

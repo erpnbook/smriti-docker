@@ -1,8 +1,26 @@
+---
+Document ID: MANIFEST-001
+Title: SMRITI Documentation Manifest
+Owner: Chief Architect
+Audience: Product / User / Admin / Developer / Architect
+Module: Core
+Version: 1.0.0
+Status: Frozen
+Primary Document: Yes
+Depends On: ""
+Related Modules: ""
+Last Updated: 2026-06-25
+Last Reviewed: 2026-06-25
+AI Generated: Yes
+Reviewed By: Jawahar R. Mallah
+---
+
 # SMRITI Documentation Manifest
 
-Version: 1.0.0  
-Author: Jawahar R. Mallah, Founder & Chief Architect, AITDL  
-Status: Active  
+**Governance Version**: 1.0.0  
+**Status**: FROZEN  
+**Effective Date**: 2026-06-25  
+**Change Control**: Chief Architect Approval Required  
 
 ---
 
@@ -17,10 +35,10 @@ This manifest serves as the entry point and structural blueprint for all documen
 All documentation is organized into **nine (9) structured folders** and **four (4) core governance files** at the root of the `docs/` directory.
 
 ### Core Governance Roots
-- [DOCUMENTATION_MANIFEST.md](file:///d:/Smriti_Retail_OS/docs/DOCUMENTATION_MANIFEST.md) *(This file)* — Overall architecture, folder mappings, and entry guide.
-- [DOCUMENTATION_CONSTITUTION.md](file:///d:/Smriti_Retail_OS/docs/DOCUMENTATION_CONSTITUTION.md) — Mandatory governance rules, permission matrix, decision tree, and zero-duplicate policies.
-- [DOCUMENTATION_STYLE_GUIDE.md](file:///d:/Smriti_Retail_OS/docs/DOCUMENTATION_STYLE_GUIDE.md) — Writing standards, markdown formats, heading structures, worked example layouts, and YAML frontmatter templates.
-- [DOCUMENTATION_INDEX.md](file:///d:/Smriti_Retail_OS/docs/DOCUMENTATION_INDEX.md) — The authoritative registry cataloging every document, stable IDs, statuses, and ownership metadata.
+- [DOCUMENTATION_MANIFEST.md](./DOCUMENTATION_MANIFEST.md) *(This file)* — Overall architecture, folder mappings, and entry guide.
+- [DOCUMENTATION_CONSTITUTION.md](./DOCUMENTATION_CONSTITUTION.md) — Mandatory governance rules, permission matrix, decision tree, and zero-duplicate policies.
+- [DOCUMENTATION_STYLE_GUIDE.md](./DOCUMENTATION_STYLE_GUIDE.md) — Writing standards, markdown formats, heading structures, worked example layouts, and YAML frontmatter templates.
+- [DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md) — The authoritative registry cataloging every document, stable IDs, statuses, and ownership metadata. (Automatically generated; do not edit manually).
 
 ### Folder Mapping & Taxonomy
 
@@ -34,7 +52,7 @@ docs/
 ├── 06-api/              # REST APIs, whitelisted methods, integration, webhooks
 ├── 07-kb/               # Errors, troubleshooting, FAQ, recovery guides
 ├── 08-architecture/     # Core architecture, formula registry, KGF, explainability, state machines
-└── 09-release-notes/    # Version history, sprint notes, migration guides, breaking changes
+├── 09-release-notes/    # Version history, sprint notes, migration guides, breaking changes
 ```
 
 ---
@@ -51,19 +69,40 @@ All documents cycle through the following status values:
 
 ---
 
-## AI Agent & Developer Workflow
-
-Before doing any work, follow the **Phase 0 Governance Gate**:
-1. Check the [DOCUMENTATION_INDEX.md](file:///d:/Smriti_Retail_OS/docs/DOCUMENTATION_INDEX.md) to see if a document on the topic already exists.
-2. If it exists, update the existing document. **Do not create a new one.**
-3. If it does not exist, create the document under the appropriate folder, assign a stable **Document ID**, and register it in `DOCUMENTATION_INDEX.md`.
-4. Ensure all changes include updated **Revision History** and follow the templates in `DOCUMENTATION_STYLE_GUIDE.md`.
+## Naming Conventions
+- All folder names must follow the `##-slug` format (e.g., `01-product`, `05-developer`).
+- All document filenames must be lowercase, using underscores instead of spaces or hyphens (e.g., `backup_strategy.md`, `billing_integration.md`).
+- Filenames containing placeholder suffixes like `_copy`, `_v2`, `_latest`, `_draft`, or `_final` are strictly prohibited.
 
 ---
 
-## Maintenance & Auditing
+## Automated Compilation & Tooling
+Tooling for the documentation system resides under the `docs/tools/` folder:
+- `docs/tools/generate_documentation_index.py`: Parses YAML headers of all markdown files and compiles the root `DOCUMENTATION_INDEX.md` and subfolder `index.md` tables of contents automatically.
+- `docs/tools/documentation_schema.yaml`: The single source of truth defining mandatory and optional metadata fields.
+- `docs/tools/audit/doc_health_audit.py`: The validation script executed during CI/CD to verify compliance against metadata, link accuracy, duplicates, and example presence.
 
-The documentation is audited once per sprint to generate a **Documentation Health Report** detailing compliance metrics, broken links, and missing metadata. Keep the system clean, DRY, and accurate.
+---
+
+## Maintenance & Auditing Process
+
+The documentation workspace is verified automatically using the health check script. Once per sprint, a **Documentation Health Report** is generated to detail compliance metrics and ensure the repository remains clean, DRY, and accurate.
 
 > "Always decision-ready."  
 > — Jawahar R. Mallah, Founder & Chief Architect, AITDL
+
+---
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Initial frozen release of SMRITI Documentation Governance v1.0.0 |
+
+**Author**: Jawahar R. Mallah  
+**Designation**: Founder & Chief Architect  
+**Organization**: AITDL – AI Technology & Development Lab  
+**Experience**: 20+ Years of Experience in Software Development, Retail Technology, POS Solutions, and Enterprise Application Design.  
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah

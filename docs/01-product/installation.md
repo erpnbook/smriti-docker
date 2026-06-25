@@ -1,8 +1,18 @@
 ---
-title: Installation Guide
-version: 1.0
-last_updated: 2026-06-18
-applies_to: SMRITI Retail OS v1.x
+Document ID: "PROD-008"
+Title: "SMRITI OS Installation Guide"
+Owner: "Product Team"
+Audience: "Product / Executive"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI OS Installation Guide
@@ -92,3 +102,23 @@ Rebuild database structures and flush Redis buffers:
 bench --site smriti_retail migrate
 bench --site smriti_retail clear-cache
 ```
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

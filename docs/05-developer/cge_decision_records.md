@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-006"
+Title: "SMRITI Customer Growth Engine (CGE) — Architecture Decision Records (ADR)"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Customer Growth Engine (CGE) — Architecture Decision Records (ADR)
 
 This document records the major architectural design decisions made during the development of the SMRITI Customer Growth Engine (CGE) v1.0, preserving the context and reasoning for future maintainers.
@@ -11,7 +28,7 @@ Customers earn and redeem cashback rewards during retail transactions. We need t
 
 ### Alternatives Considered
 1.  **Direct ERPNext General Ledger (GL) Integration**: Posting every wallet credit/debit directly as standard GL entries in `tabGL Entry` under a customer account.
-2.  **Separate Custom Database Schema (SMRITI Shadow Ledger)**: Maintaining credits/debits inside a custom append-only table [smriti_wallet_ledger.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_ledger/smriti_wallet_ledger.json) and posting aggregated/underlying double-entry Journal Vouchers asynchronously or via hook events.
+2.  **Separate Custom Database Schema (SMRITI Shadow Ledger)**: Maintaining credits/debits inside a custom append-only table [smriti_wallet_ledger.json](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_ledger/smriti_wallet_ledger.json) and posting aggregated/underlying double-entry Journal Vouchers asynchronously or via hook events.
 
 ### Decision
 We selected **Alternative 2: SMRITI Shadow Ledger**.
@@ -19,7 +36,7 @@ We selected **Alternative 2: SMRITI Shadow Ledger**.
 ### Rationale
 *   **Performance**: Standard ERPNext GL posting involves heavy tax calculations, ledger checks, and database locks. A custom shadow ledger allows fast read/write checkout performance ($< 15\text{ ms}$).
 *   **Audit Separation**: High-frequency promotional ledger operations do not pollute standard accounting general ledgers.
-*   **Compliance & Accounting Alignment**: Under the hood, [CGEWalletLedger](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L305) automatically creates double-entry ERPNext Journal Entries (Debit Promotion Expense, Credit Cashback Liability) to ensure official accounting books match physical wallet balances.
+*   **Compliance & Accounting Alignment**: Under the hood, [CGEWalletLedger](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L305) automatically creates double-entry ERPNext Journal Entries (Debit Promotion Expense, Credit Cashback Liability) to ensure official accounting books match physical wallet balances.
 
 ---
 
@@ -74,7 +91,7 @@ We selected **Alternative 2: Two-Phase Reservation**.
 
 ### Rationale
 *   **Handling Abandoned Carts**: Commit-On-Checkout would require complex reversal logic if a customer abandons their cart.
-*   **Concurrency Guard**: Temporary reservations are written to Redis with a 30-minute expiration. If the invoice is submitted, [CGECampaignManager](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L215) commits the budget. If the session expires or is cancelled, the reserved budget is automatically released.
+*   **Concurrency Guard**: Temporary reservations are written to Redis with a 30-minute expiration. If the invoice is submitted, [CGECampaignManager](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L215) commits the budget. If the session expires or is cancelled, the reserved budget is automatically released.
 
 ---
 
@@ -94,3 +111,24 @@ We selected **Alternative 2: Isolated Bounded Contexts**.
 *   **Domain Separation**: CGE deals with customer incentives (marketing campaigns, loyalty rules, point entries). SPM deals with employee incentives (sales targets, leaderboards, commission rates).
 *   **Security & Privacy**: Employee commission records contain sensitive payroll data. Separating SPM ensures that cashiers and auditors do not have access to internal payroll records.
 *   **Independent Lifecycles**: Isolating CGE and SPM allows teams to update customer marketing policies without affecting employee payroll logic.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

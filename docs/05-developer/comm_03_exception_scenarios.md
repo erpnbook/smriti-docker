@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-014"
+Title: "COMM-03 — PSV Exception Scenario Flows"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-03 — PSV Exception Scenario Flows
 **Sprint**: PSV-COMM-001 Wave 2
 **Purpose**: Three demo-ready stories that cover the most common retailer and distributor questions
@@ -212,3 +229,10 @@ Fresh PO avoided : Yes — no new brand order needed
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *Scenario numbers (stock quantities, margins) are illustrative. Use brand-specific data in live pilots.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

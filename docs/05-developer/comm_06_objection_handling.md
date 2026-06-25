@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-016"
+Title: "COMM-06 — PSV Objection Handling Guide"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-06 — PSV Objection Handling Guide
 **Sprint**: PSV-COMM-001 Wave 3
 **Audience**: Salesperson (internal reference — not shared with prospect)
@@ -207,3 +224,10 @@ DO NOT:     Continue demo over an unresolved trust objection
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *Internal tool — responses are starting points, not scripts. Adapt to the conversation.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

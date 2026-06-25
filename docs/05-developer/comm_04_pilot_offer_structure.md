@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-015"
+Title: "COMM-04 — PSV Pilot Offer Structure"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-04 — PSV Pilot Offer Structure
 **Sprint**: PSV-COMM-001 Wave 1
 **Audience**: Retailer / Brand Owner (closing conversation, post-demo)
@@ -154,3 +171,10 @@ Before pilot starts, confirm:
 
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *Pricing numbers require Founder approval before client presentation.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

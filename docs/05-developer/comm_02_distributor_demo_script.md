@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-013"
+Title: "COMM-02 — PSV Distributor Demo Script (15 Minutes)"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # COMM-02 — PSV Distributor Demo Script (15 Minutes)
 **Sprint**: PSV-COMM-001 Wave 2
 **Audience**: Distributor / Channel Partner (operational, field-level decision maker)
@@ -206,3 +223,24 @@ If declined:
   → Understand exact reason — data concern / effort concern / trust concern
   → Document for COMM-06 objection handling refinement
 ```
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

@@ -1,3 +1,20 @@
+---
+Document ID: "REL-007"
+Title: "SMRITI CGE Sprint C — Final Stabilization Implementation Plan"
+Owner: "Release Team"
+Audience: "Executive / Team"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI CGE Sprint C — Final Stabilization Implementation Plan
 
 This plan governs the implementation of the final stabilization phase (**AUD-14** to **AUD-17**) for the SMRITI Customer Growth Engine (CGE) v1.0.
@@ -7,7 +24,7 @@ This plan governs the implementation of the final stabilization phase (**AUD-14*
 ## 1. Overview of Tasks
 
 ### AUD-14: Wallet Credit Expiry Scheduler
-*   **Target File**: [cge_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py)
+*   **Target File**: [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [hooks.py](../../apps/smriti_retail_os/smriti_retail_os/hooks.py)
 *   **Goal**: Periodically check and expire cashback wallet credits that have passed their expiry date.
 *   **Implementation**:
     - Add `expire_wallet_credits()` function in `cge_service.py` to run SQL:
@@ -21,7 +38,7 @@ This plan governs the implementation of the final stabilization phase (**AUD-14*
     - Register `smriti_retail_os.cge.service.cge_service.expire_wallet_credits` in the daily scheduled tasks in `hooks.py`.
 
 ### AUD-15: Expiry Calculation Correctness & Timezones
-*   **Target File**: [cge_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [smriti_cge_settings.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_cge_settings/smriti_cge_settings.json)
+*   **Target File**: [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [smriti_cge_settings.json](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_cge_settings/smriti_cge_settings.json)
 *   **Goal**: Enforce correct, timezone-safe 90-day credit validity logic dynamically.
 *   **Implementation**:
     - Add `wallet_validity_days` (Int, default 90) configuration field to `SMRITI CGE Settings` DocType.
@@ -35,7 +52,7 @@ This plan governs the implementation of the final stabilization phase (**AUD-14*
     - Ensure date parsing uses standard `getdate(nowdate())` to remain timezone-resilient.
 
 ### AUD-16: Snapshot Duplication Prevention & Multi-Company Support
-*   **Target File**: [cge_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py), [smriti_liability_snapshot.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_liability_snapshot/smriti_liability_snapshot.json), [smriti_wallet_ledger.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_ledger/smriti_wallet_ledger.json)
+*   **Target File**: [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [hooks.py](../../apps/smriti_retail_os/smriti_retail_os/hooks.py), [smriti_liability_snapshot.json](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_liability_snapshot/smriti_liability_snapshot.json), [smriti_wallet_ledger.json](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_ledger/smriti_wallet_ledger.json)
 *   **Goal**: Track liability snapshots per company and prevent duplicate records.
 *   **Implementation**:
     - Add `company` field to `SMRITI Wallet Ledger` and `SMRITI Liability Snapshot` DocTypes.
@@ -47,7 +64,7 @@ This plan governs the implementation of the final stabilization phase (**AUD-14*
     - Implement a parent scheduled task `generate_all_liability_snapshots()` that loops through active companies and triggers the snapshot. Register it in `hooks.py` `daily` scheduler.
 
 ### AUD-17: Campaign Reserved Budget Release
-*   **Target File**: [cge_service.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py), [hooks_logic.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks_logic.py)
+*   **Target File**: [cge_service.py](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py), [hooks.py](../../apps/smriti_retail_os/smriti_retail_os/hooks.py), [hooks_logic.py](../../apps/smriti_retail_os/smriti_retail_os/hooks_logic.py)
 *   **Goal**: Release campaign budget reservations immediately when draft invoices are deleted or cancelled.
 *   **Implementation**:
     - Add `release_reserved_budget_on_trash(doc, method=None)` in `hooks_logic.py`.
@@ -66,3 +83,24 @@ This plan governs the implementation of the final stabilization phase (**AUD-14*
     2.  **Date Validity Check**: Post credit without expiry, verify `expiry_date` is set to exactly 90 days in the future.
     3.  **Liability Snapshot Uniqueness**: Trigger snapshot for the same company twice on the same date and verify only one snapshot document exists.
     4.  **Budget Release on Delete**: Apply a coupon, verify budget is reserved in Redis/DB, delete the draft Sales Invoice, and verify campaign budget is fully released.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

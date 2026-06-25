@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-066"
+Title: "Smriti Retail OS — Installation Improvement Walkthrough"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Smriti Retail OS — Installation Improvement Walkthrough
 
 ## Summary
@@ -8,7 +25,7 @@ Users were struggling to install Smriti Retail OS due to hardcoded paths, missin
 
 ## Changes Made
 
-### 1. Fixed Hardcoded Paths — [pwd.yml](file:///d:/Smriti_Retail_OS/pwd.yml)
+### 1. Fixed Hardcoded Paths — [pwd.yml](../../pwd.yml)
 
 **The #1 installation blocker.** The compose file had `D:/Smriti_Retail_OS/assets` hardcoded in **8 places** across 8 service definitions. This broke the setup on every machine except the original developer's.
 
@@ -21,7 +38,7 @@ All 8 occurrences replaced. Now works on any machine, any OS.
 
 ---
 
-### 2. Windows Installer — [install.ps1](file:///d:/Smriti_Retail_OS/install.ps1) `[NEW]`
+### 2. Windows Installer — [install.ps1](../../install.ps1) `[NEW]`
 
 One-command installer that runs **7 automated phases**:
 
@@ -45,7 +62,7 @@ One-command installer that runs **7 automated phases**:
 
 ---
 
-### 3. Linux/macOS Installer — [install.sh](file:///d:/Smriti_Retail_OS/install.sh) `[NEW]`
+### 3. Linux/macOS Installer — [install.sh](../../install.sh) `[NEW]`
 
 Mirrors `install.ps1` feature-for-feature in bash. Supports Linux and macOS.
 
@@ -56,7 +73,7 @@ bash install.sh --password MyPass --force
 
 ---
 
-### 4. Health Checker — [check.ps1](file:///d:/Smriti_Retail_OS/check.ps1) `[NEW]`
+### 4. Health Checker — [check.ps1](../../check.ps1) `[NEW]`
 
 Standalone diagnostic script with **4 sections, 20+ checks**:
 
@@ -75,7 +92,7 @@ Produces a clear pass/warn/fail summary:
 
 ---
 
-### 5. Installation Guide — [INSTALL.md](file:///d:/Smriti_Retail_OS/INSTALL.md) `[NEW]`
+### 5. Installation Guide — [INSTALL.md](../04-installation/install.md) `[NEW]`
 
 Comprehensive guide covering:
 - ⚡ One-command install (Windows + Linux)
@@ -89,7 +106,7 @@ Comprehensive guide covering:
 
 ---
 
-### 6. Rewritten README — [README.md](file:///d:/Smriti_Retail_OS/README.md)
+### 6. Rewritten README — [README.md](../../README.md)
 
 **Before:** 6-step manual process buried in the middle, no mention of installers.
 
@@ -132,15 +149,15 @@ Installer handles everything automatically with progress feedback and error reco
 
 | File | Status | Purpose |
 |---|---|---|
-| [pwd.yml](file:///d:/Smriti_Retail_OS/pwd.yml) | Modified | Fixed 8 hardcoded asset paths; built in automated SMRITI setup & asset hard-sync hooks in `create-site` container and default localhost CORS origin in `configurator` container. |
-| [install.ps1](file:///d:/Smriti_Retail_OS/install.ps1) | New | Windows one-command installer (rewritten for 100% pure ASCII to avoid encoding issues; handles stderr gracefully with Continue preference). |
-| [install.sh](file:///d:/Smriti_Retail_OS/install.sh) | New | Linux/macOS one-command installer (updated with corrected india-compliance repository URL). |
-| [check.ps1](file:///d:/Smriti_Retail_OS/check.ps1) | New | Pre-flight validator + health checker (fully ASCII-fied). |
-| [INSTALL.md](file:///d:/Smriti_Retail_OS/INSTALL.md) | New | Detailed installation guide (updated with corrected repository URL). |
-| [README.md](file:///d:/Smriti_Retail_OS/README.md) | Rewritten | Quick-install first, cleaner structure. |
-| [RELEASE_NOTES.md](file:///d:/Smriti_Retail_OS/RELEASE_NOTES.md) | Modified | Updated release installation commands with corrected repository URL. |
-| [sync_assets.py](file:///d:/Smriti_Retail_OS/sync_assets.py) | Modified | Rewritten to physically copy assets (dist, css, js, locale, app-specific) to the shared `sites/assets` volume, resolving frontend 404 errors in multi-container setups. |
-| [apps/smriti_retail_os/smriti_retail_os/sync_assets.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/sync_assets.py) | Modified | App-specific sync script updated to use the same robust physical-copy logic. |
+| [pwd.yml](../../pwd.yml) | Modified | Fixed 8 hardcoded asset paths; built in automated SMRITI setup & asset hard-sync hooks in `create-site` container and default localhost CORS origin in `configurator` container. |
+| [install.ps1](../../install.ps1) | New | Windows one-command installer (rewritten for 100% pure ASCII to avoid encoding issues; handles stderr gracefully with Continue preference). |
+| [install.sh](../../install.sh) | New | Linux/macOS one-command installer (updated with corrected india-compliance repository URL). |
+| [check.ps1](../../check.ps1) | New | Pre-flight validator + health checker (fully ASCII-fied). |
+| [INSTALL.md](../04-installation/install.md) | New | Detailed installation guide (updated with corrected repository URL). |
+| [README.md](../../README.md) | Rewritten | Quick-install first, cleaner structure. |
+| [RELEASE_NOTES.md](../09-release-notes/release_notes.md) | Modified | Updated release installation commands with corrected repository URL. |
+| [sync_assets.py](../../sync_assets.py) | Modified | Rewritten to physically copy assets (dist, css, js, locale, app-specific) to the shared `sites/assets` volume, resolving frontend 404 errors in multi-container setups. |
+| [apps/smriti_retail_os/smriti_retail_os/sync_assets.py](../../apps/smriti_retail_os/smriti_retail_os/sync_assets.py) | Modified | App-specific sync script updated to use the same robust physical-copy logic. |
 
 
 ---
@@ -155,3 +172,24 @@ Installer handles everything automatically with progress feedback and error reco
 ---
 
 *Completed: May 27, 2026*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

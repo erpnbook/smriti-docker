@@ -1,9 +1,18 @@
 ---
-title: Offline POS Operations & Architecture
-version: 1.0
-last_updated: 2026-06-19
-author: Jawahar R Mallah <jawahar.mallah@gmail.com>
-applies_to: SMRITI Retail OS v2.1+
+Document ID: "USER-006"
+Title: "SMRITI OS Offline POS Operations & PWA Architecture Guide"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI OS Offline POS Operations & PWA Architecture Guide
@@ -79,3 +88,23 @@ If background sync is delayed, trigger synchronization via the console:
 ```javascript
 window.SmritiOfflineStore.syncPendingInvoices();
 ```
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

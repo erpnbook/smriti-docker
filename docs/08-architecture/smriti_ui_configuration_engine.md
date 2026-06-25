@@ -1,3 +1,20 @@
+---
+Document ID: "ARCH-027"
+Title: "SMRITI UI Configuration Engine — Governance Document v1.4"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI UI Configuration Engine — Governance Document v1.4
 **Date**: 2026-06-24
 **Audit Execution**: AITDL
@@ -74,11 +91,11 @@ The SMRITI UI Configuration Engine is a **deterministic 7-level token resolver**
 
 | File | Purpose | Version |
 |------|---------|---------|
-| [`smriti_ui_resolver.js`](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_ui_resolver.js) | 7-Level resolver engine | v1.4.0 |
-| [`smriti_theme_manager.js`](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_theme_manager.js) | Public switching API | v1.1.0 |
-| [`smriti_sidebar.js`](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar.js) | SPA sidebar pills | v1.9.2 |
-| [`smriti_sidebar_standalone.js`](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js) | Standalone sidebar pills | v1.9.2 |
-| [`smriti_tokens.css`](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/public/css/smriti_tokens.css) | CSS token declarations | v1.3 |
+| [`smriti_ui_resolver.js`](../../apps/smriti_retail_os/smriti_retail_os/public/js/smriti_ui_resolver.js) | 7-Level resolver engine | v1.4.0 |
+| [`smriti_theme_manager.js`](../../apps/smriti_retail_os/smriti_retail_os/public/js/smriti_theme_manager.js) | Public switching API | v1.1.0 |
+| [`smriti_sidebar.js`](../../apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar.js) | SPA sidebar pills | v1.9.2 |
+| [`smriti_sidebar_standalone.js`](../../apps/smriti_retail_os/smriti_retail_os/public/js/smriti_sidebar_standalone.js) | Standalone sidebar pills | v1.9.2 |
+| [`smriti_tokens.css`](../../apps/smriti_retail_os/smriti_retail_os/public/css/smriti_tokens.css) | CSS token declarations | v1.3 |
 
 ---
 
@@ -334,3 +351,10 @@ after `PILOT_EXECUTION_MODE = ON` for any module.
 *"Always decision-ready."*
 
 
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |

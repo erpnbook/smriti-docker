@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-065"
+Title: "Walkthrough: Sizewise Item Master — Pre-Import Verification & On-the-Fly Insert"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Walkthrough: Sizewise Item Master — Pre-Import Verification & On-the-Fly Insert
 
 **Date:** 2026-05-31  
@@ -38,7 +55,7 @@ A full **pre-import verification panel** was added between the paste preview gri
 
 ### 2. New Backend API: `validate_pivot_values`
 
-**File:** [`item_master_api.py`](../apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
+**File:** [`item_master_api.py`](../../apps/smriti_retail_os/smriti_retail_os/item_master_api.py)
 
 ```python
 @frappe.whitelist()
@@ -200,3 +217,24 @@ feat(sizewise): pre-import verification with on-the-fly insert & spell correctio
 Commit: f9243f4
 Files:  2 changed, +492 insertions
 ```
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

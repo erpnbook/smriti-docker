@@ -1,5 +1,18 @@
 ---
-title: Introduction
+Document ID: "INSTALL-007"
+Title: "Introduction to Frappe Docker"
+Owner: "Installation Team"
+Audience: "Installer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Introduction to Frappe Docker
@@ -63,7 +76,7 @@ Four predefined Dockerfiles are available, each serving different use cases:
 - **images/layered/** - Same final contents as `custom` but based on prebuilt images from Docker Hub; faster builds for production when using Frappe-managed dependency versions
 - **images/production/** - Installs only Frappe and ERPNext (not customizable with `apps.json`); best for **quick starts or exploration**; for real deployments, use `custom` or `layered`
 
-> **Note:** For detailed build arguments and advanced configuration options, see [Setup Overview](../02-setup/01-overview.md).
+> **Note:** For detailed build arguments and advanced configuration options, see [Setup Overview](../05-developer/setup_overview.md).
 
 ### `overrides/`: Compose File Extensions
 
@@ -90,3 +103,23 @@ Docker Compose "overrides" that extend the base compose.yaml for different scena
 
 - **core/nginx/nginx-entrypoint.sh** - Dynamic Nginx configuration generator script
 - **core/nginx/nginx-template.conf** - Nginx configuration template with variable substitution
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

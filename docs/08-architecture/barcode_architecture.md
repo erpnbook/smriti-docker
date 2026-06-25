@@ -1,5 +1,18 @@
 ---
-title: Barcode Architecture & Hardening
+Document ID: "ARCH-006"
+Title: "Barcode Architecture & Validation Hardening (Option B)"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Barcode Architecture & Validation Hardening (Option B)
@@ -90,3 +103,23 @@ To track physical scanning performance and print usability, SMRITI implements a 
    $$SRS = \left( \frac{FirstPassSuccesses + 0.5 \times RetrySuccesses}{TotalScans} \right) \times 100$$
 4. **90-Day Retention Policy**: Prunes raw event logs older than 90 days daily via the system scheduler job `delete_expired_scan_events`. Snapshots are stored permanently.
 5. **Role-based API Access**: Restricts submission to authenticated POS cashiers, managers, and system managers.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

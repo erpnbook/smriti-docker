@@ -1,8 +1,18 @@
 ---
-title: Warehouse Setup Guide
-version: 1.0
-last_updated: 2026-06-18
-applies_to: SMRITI Retail OS v1.x
+Document ID: "KB-029"
+Title: "SMRITI OS Warehouse Setup Guide"
+Owner: "Support Team"
+Audience: "Support Engineer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI OS Warehouse Setup Guide
@@ -46,3 +56,23 @@ Under SMRITI's inventory-first constitution, physical stock checks verify system
 - **Active Scopes**: Ensure the target warehouse is marked as `Active` to allow selection in the Stock Audit page (`/app/stock-audit`).
 - **Showroom vs Storage Exclusions**: You can flag secondary storage locations or transit warehouses to exclude them from the SMRITI Redistribution Engine scan, preventing suggestions from targeting closed storage bins.
 - **Parent Consolidations**: When running the SMRITI Current Stock Position report, selecting a group warehouse (like `Store Warehouses`) automatically sums balances of all children, simplifying regional analysis.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

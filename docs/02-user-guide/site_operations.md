@@ -1,5 +1,18 @@
 ---
-title: Site Operations
+Document ID: "USER-022"
+Title: "Site operations"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Site operations
@@ -19,7 +32,7 @@ docker-compose exec backend bench new-site --mariadb-user-host-login-scope=% --d
 
 If you need to install some app, specify `--install-app`. To see all options, just run `bench new-site --help`.
 
-To create a Postgres site (assuming you already use [Postgres compose override](../02-setup/05-overrides.md)), the `root_login` and `root_password` are now automatically set by the `configurator`. For major version upgrades, please refer to the [Postgres Migration Guide](../06-migration/03-postgres-major-version-upgrade.md).
+To create a Postgres site (assuming you already use [Postgres compose override](../05-developer/setup_overrides.md)), the `root_login` and `root_password` are now automatically set by the `configurator`. For major version upgrades, please refer to the [Postgres Migration Guide](../04-installation/postgres_upgrade.md).
 
 To create a new Postgres site:
 
@@ -83,3 +96,23 @@ Note:
 ```sh
 docker-compose exec backend bench --site <site-name> migrate
 ```
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

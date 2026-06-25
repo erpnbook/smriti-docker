@@ -1,8 +1,18 @@
 ---
-title: First Login Guide
-version: 1.0
-last_updated: 2026-06-18
-applies_to: SMRITI Retail OS v1.x
+Document ID: "PROD-007"
+Title: "SMRITI OS First Login Guide"
+Owner: "Product Team"
+Audience: "Product / Executive"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI OS First Login Guide
@@ -62,3 +72,23 @@ Store Managers must set up their POS PIN to authorize cashier exceptions (like l
 3. Click the `🔢 Set PIN` button.
 4. Input a secure 4-6 digit numeric PIN, verify, and click **Set PIN**.
 5. The PIN is hashed and saved securely in the authentication ledger.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

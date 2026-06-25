@@ -1,5 +1,18 @@
 ---
-title: Build Setup
+Document ID: "DEV-048"
+Title: "Prerequisites"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 This guide walks you through building Frappe images from the repository resources.
@@ -80,7 +93,7 @@ podman build \
 
 This repository is fully suited for automated builds, i.e. using CI/CD pipelines.
 
-See [Automated Builds and Deployment](../03-production/06-automated-builds-and-deployment.md) for more information.
+See [Automated Builds and Deployment](./automated_builds_deployment.md) for more information.
 
 ## Build args, secrets and flags
 
@@ -90,7 +103,7 @@ See [Automated Builds and Deployment](../03-production/06-automated-builds-and-d
 | FRAPPE_PATH          | Repository URL for Frappe framework source code. Defaults to <https://github.com/frappe/frappe>                                   |
 | FRAPPE_BRANCH        | Branch to use for Frappe framework. Defaults to version-16                                                                        |
 | **Custom Apps**      |                                                                                                                                   |
-| CACHE_BUST           | Can be used to invalidate the cached layer. See [Build Cache](../03-production/06-automated-builds-and-deployment.md#build-cache) |
+| CACHE_BUST           | Can be used to invalidate the cached layer. See [Build Cache](./automated_builds_deployment.md#build-cache) |
 | (secret) apps_json   | Passed via `--secret=id=apps_json,src=apps.json`. Never use `--build-arg` for this file.                                          |
 | **Dependencies**     |                                                                                                                                   |
 | PYTHON_VERSION       | Python version for the base image                                                                                                 |
@@ -111,7 +124,7 @@ The compose file requires several environment variables. You can either export t
 cp example.env custom.env
 ```
 
-Edit `custom.env` to customize variables for your setup. The template includes common variables, but you can add, modify, or remove any as needed. See [env-variables.md](04-env-variables.md) for detailed descriptions of all available variables.
+Edit `custom.env` to customize variables for your setup. The template includes common variables, but you can add, modify, or remove any as needed. See [env-variables.md](setup_env_variables.md) for detailed descriptions of all available variables.
 
 For this setup, make sure **at least** the following values are added to `custom.env`:
 
@@ -125,7 +138,7 @@ PULL_POLICY=missing
 > `PULL_POLICY` ensures Docker does not attempt to pull the image, but instead uses the locally built one (the default pull policy is `always`).
 
 **⚠️ This is not meant to be a complete `.env` configuration guide. These are only the minimal additions required for this example.
-Please have a look at [env-variables.md](04-env-variables.md) for a full description of all available variables and adjust them according to your needs.**
+Please have a look at [env-variables.md](setup_env_variables.md) for a full description of all available variables and adjust them according to your needs.**
 
 ## Creating the final compose file
 
@@ -146,8 +159,28 @@ This generates `compose.custom.yaml`, which you'll use to start all containers. 
 
 ---
 
-**Next:** [Start Setup →](03-start-setup.md)
+**Next:** [Start Setup →](setup_start.md)
 
-**Back:** [Container Overview ←](01-overview.md)
+**Back:** [Container Overview ←](setup_overview.md)
 
-**See also:** [Setup Examples](06-setup-examples.md) for practical deployment scenarios.
+**See also:** [Setup Examples](setup_examples.md) for practical deployment scenarios.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

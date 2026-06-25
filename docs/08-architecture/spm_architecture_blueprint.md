@@ -1,3 +1,20 @@
+---
+Document ID: "ARCH-029"
+Title: "SMRITI Sales Performance Management (SPM) — Architecture Blueprint v1.0"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Sales Performance Management (SPM) — Architecture Blueprint v1.0
 
 This document defines the initial architectural blueprint, database schemas, commission calculation rules, and security controls for the SMRITI Sales Performance Management (SPM) v1.0 module.
@@ -135,7 +152,7 @@ $$\text{Commission Earned} = \text{Net Sales Amount} \times \text{Base Commissio
 
 ### Stage 1: Base Commission Rate
 Upon POS invoice submission, the system identifies the active salesperson:
-1.  Query active [SMRITI Commission Rule](file:///d:/Smriti_Retail_OS/docs/spm/SPM_ARCHITECTURE_BLUEPRINT.md) matching item brand/group dimensions.
+1.  Query active [SMRITI Commission Rule](./spm_architecture_blueprint.md) matching item brand/group dimensions.
 2.  If none match, fallback to the `Global` commission rule.
 
 ### Stage 2: Achievement Multiplier
@@ -147,7 +164,7 @@ At month-end or dynamically on invoice submission:
     *   **Level 2**: $80\% - 90\%$ achievement $\rightarrow 0.8\text{x}$ multiplier.
     *   **Level 3**: $90\% - 100\%$ achievement $\rightarrow 1.0\text{x}$ multiplier (Standard).
     *   **Level 4**: $>100\%$ achievement $\rightarrow 1.2\text{x}$ multiplier (Over-achievement bonus).
-3.  Calculate final commission and write to the [SMRITI Commission Ledger](file:///d:/Smriti_Retail_OS/docs/spm/SPM_ARCHITECTURE_BLUEPRINT.md).
+3.  Calculate final commission and write to the [SMRITI Commission Ledger](./spm_architecture_blueprint.md).
 
 ---
 
@@ -174,3 +191,24 @@ We will implement the SPM Studio UI under a single SMRITI page route: `/app/smri
 *   **Commission Rules Tab**: Interactive editor for managers to define commission rates and target multipliers.
 *   **Commissions Log Tab**: Shows individual ledger credits with status pills (`Pending`, `Approved`, `Paid`).
 *   **Payout Approval Modal**: SMRITI HR/Accountant can select salesperson ledger entries, input authorization remarks, and post to ERPNext JVs with one click.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

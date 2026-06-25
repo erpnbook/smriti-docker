@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-068"
+Title: "Walkthrough: Enhanced Supplier Registry in SMRITI Retail OS"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Walkthrough: Enhanced Supplier Registry in SMRITI Retail OS
 
 We have successfully enhanced the Supplier Registry module in SMRITI Retail OS to fully support all standard and advanced supplier fields available in ERPNext/Frappe v16. The user interface now offers a clean, retail-centric quick creation flow while giving access to complete compliance, purchase controls, and defaults.
@@ -7,7 +24,7 @@ We have successfully enhanced the Supplier Registry module in SMRITI Retail OS t
 ## 🛠️ Changes Implemented
 
 ### 1. Backend API Enhancements
-- **Modified** [master_api.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/master_api.py):
+- **Modified** [master_api.py](../../apps/smriti_retail_os/smriti_retail_os/master_api.py):
   - Updated `get_supplier_detail(name)` to fetch all standard operational and compliance fields (e.g. currency, price list, bank account, transporter/internal flags, freeze, hold type/release date, RFQ/PO warnings, website, details).
   - Updated `save_supplier_detail(**kwargs)` to accept and map all basic and advanced fields to the `Supplier` document.
   - Implemented dynamic status mapping (`Active`, `Disabled`, `On Hold`) to Frappe's `disabled` and `on_hold` field flags.
@@ -15,7 +32,7 @@ We have successfully enhanced the Supplier Registry module in SMRITI Retail OS t
   - Created or updated linked `Contact` records automatically on save.
 
 ### 2. Frontend User Interface Upgrades
-- **Modified** [suppliers.html](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/www/suppliers.html):
+- **Modified** [suppliers.html](../../apps/smriti_retail_os/smriti_retail_os/www/suppliers.html):
   - Structured the creation modal into two core visual panels:
     - **General Profile** (Basic Details): Naming Series, Supplier Name, Supplier Type, Contact Person, Status, Mobile, Email, GSTIN, GST Category, PAN, Billing Address, and Shipping Address (with "Same as Billing" checkbox).
     - **Advanced Details** (Collapsible Toggle): Pricing & Defaults, Internal & Logistics Settings, Purchase Controls & Holds, Warnings & Prevent Rules, and Extra Metadata.
@@ -51,3 +68,24 @@ Toggling "Advanced Details" expands settings for price list matching, credit ter
   - **Advanced Settings**: Credit Days = `45`, Transporter = `Checked`, Website = `www.testsupplier.com`
   - **Billing & Shipping Address**: Successfully matched and synced.
 - The record saved correctly and reloaded on the fly. Editing the record works perfectly and updates the listing dynamically.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

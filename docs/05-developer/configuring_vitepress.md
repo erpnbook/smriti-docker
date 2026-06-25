@@ -1,5 +1,18 @@
 ---
-title: Configuring VitePress
+Document ID: "DEV-020"
+Title: "Configuring VitePress"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
 ---
 
 # Configuring VitePress
@@ -43,3 +56,23 @@ pnpm run docs:dev
 4. VitePress specific config is `docs/.vitepress/config.mts`.
 5. To auto populate the sidebar, a plugin called 'VitePress Sidebar' is used. The `config.mts` also include config for this plugin. More details can be found in the [documentation page](https://vitepress-sidebar.cdget.com/guide/getting-started).
 6. Each subfolder has an `index.md` file. This is used to specify the group heading of the pages in the sidebar.
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

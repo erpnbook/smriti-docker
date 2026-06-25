@@ -1,3 +1,20 @@
+---
+Document ID: "ARCH-008"
+Title: "SMRITI Customer Growth Engine (CGE) — Architecture Specification v1.0"
+Owner: "Architecture Team"
+Audience: "Architect"
+Module: "CGE"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Customer Growth Engine (CGE) — Architecture Specification v1.0
 
 This document defines the production-ready baseline architecture for the SMRITI Customer Growth Engine (CGE) subsystem (v1.0-RC), detailing the component interaction, execution pipeline, data models, and system boundary constraints.
@@ -40,7 +57,7 @@ graph TD
 
 ## 2. POS Checkout Rule Pipeline
 
-The POS Checkout calculation is routed through a single API entry point: [validate_checkout_rules](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/api/cge_api.py#L20). This pipeline processes calculations in a deterministic sequence to evaluate discounts, loyalty points, and cashback deductions.
+The POS Checkout calculation is routed through a single API entry point: [validate_checkout_rules](../../apps/smriti_retail_os/smriti_retail_os/cge/api/cge_api.py#L20). This pipeline processes calculations in a deterministic sequence to evaluate discounts, loyalty points, and cashback deductions.
 
 ```mermaid
 sequenceDiagram
@@ -64,7 +81,7 @@ sequenceDiagram
 ```
 
 ### Calculation Steps
-1.  **Loyalty Resolution**: Evaluates item-level promotions using [CGERuleEvaluator](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L24) based on active tiers.
+1.  **Loyalty Resolution**: Evaluates item-level promotions using [CGERuleEvaluator](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L24) based on active tiers.
 2.  **Coupon Validation**: Checks linked `Pricing Rule` scope, validity dates, maximum global/customer/mobile usage, and daily limits.
 3.  **Wallet Deduction**: If requested, validates that the user's available cashback balance is sufficient and applies the deduction up to the net invoice total.
 
@@ -72,7 +89,7 @@ sequenceDiagram
 
 ## 3. The Loyalty & Rules Engine
 
-The loyalty evaluation engine is driven by [CGERuleEvaluator](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L24). It maps transaction dimensions to active rules.
+The loyalty evaluation engine is driven by [CGERuleEvaluator](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L24). It maps transaction dimensions to active rules.
 
 ### Matching Dimensions
 Rules are matched against:
@@ -91,13 +108,13 @@ Rules are matched against:
 *   **Caps**: Point accumulation limits are evaluated by picking the lowest cap value among matching rules.
 
 ### Rule Evaluation Tracing
-If `enable_rule_trace` is checked in [smriti_cge_settings.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_cge_settings/smriti_cge_settings.json), matching operations are logged in `SMRITI Rule Evaluation Log` for cashier visibility.
+If `enable_rule_trace` is checked in [smriti_cge_settings.json](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_cge_settings/smriti_cge_settings.json), matching operations are logged in `SMRITI Rule Evaluation Log` for cashier visibility.
 
 ---
 
 ## 4. Campaign Budgeting & Reservations
 
-The [CGECampaignManager](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L215) prevents marketing budget overrun.
+The [CGECampaignManager](../../apps/smriti_retail_os/smriti_retail_os/cge/service/cge_service.py#L215) prevents marketing budget overrun.
 
 ```mermaid
 stateDiagram-v2
@@ -109,14 +126,14 @@ stateDiagram-v2
 ```
 
 *   **Temporary Reservation**: During POS checkout, the estimated discount is added to the campaign's `budget_reserved` and stored in Redis with a 30-minute expiration.
-*   **Commitment**: Upon submit (via [hooks.py](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/hooks.py) event listeners), the reservation is deleted, and `budget_consumed` is incremented.
+*   **Commitment**: Upon submit (via [hooks.py](../../apps/smriti_retail_os/smriti_retail_os/hooks.py) event listeners), the reservation is deleted, and `budget_consumed` is incremented.
 *   **Release & Expiry**: A cron job runs every 30 minutes to clean up expired session allocations and release reserved budgets.
 
 ---
 
 ## 5. Wallet Cashback Shadow Ledger
 
-The wallet ledger runs as an append-only shadow ledger using the custom DocType [smriti_wallet_ledger.json](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_ledger/smriti_wallet_ledger.json).
+The wallet ledger runs as an append-only shadow ledger using the custom DocType [smriti_wallet_ledger.json](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_ledger/smriti_wallet_ledger.json).
 
 ### Ledger Integrity Controls
 *   **Immutability**: Python controllers block `on_update` and `on_trash` events, preventing any modifications or deletions of historical records.
@@ -131,5 +148,26 @@ To guarantee ledger integrity, CGE runs a daily reconciliation job:
 1.  **Ledger Balance Summary**: Computes the sum of all `Credit` transactions (excluding expired) minus `Debit` transactions across the entire `tabSMRITI Wallet Ledger`.
 2.  **Customer Wallet Sum**: Sums up the calculated net balances of individual customer wallets.
 3.  **Variance Check**: Calculates $\text{Ledger Total} - \text{Wallet Total}$.
-4.  **Reconciliation Log**: Stores the result in [SMRITI Wallet Reconciliation Snapshot](file:///d:/Smriti_Retail_OS/apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_reconciliation_snapshot/).
+4.  **Reconciliation Log**: Stores the result in [SMRITI Wallet Reconciliation Snapshot](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_wallet_reconciliation_snapshot).
 5.  **Alerting**: If a variance $\ne 0$ is detected, it raises a critical alert inside the system Error Log.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

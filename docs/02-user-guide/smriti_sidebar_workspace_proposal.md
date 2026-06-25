@@ -1,3 +1,20 @@
+---
+Document ID: "USER-024"
+Title: "SMRITI Retail OS — Sidebar & Workspace Enhancement Proposal"
+Owner: "Operations Team"
+Audience: "End User"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Retail OS — Sidebar & Workspace Enhancement Proposal
 
 This document outlines structural and aesthetic proposals to transform the blank **SMRITI Retail OS** workspace and sidebar into a state-of-the-art, high-conversion Retail Command Center. 
@@ -141,3 +158,24 @@ If you approve this vision, we can execute it systematically through the followi
 - [ ] **Establish Live KPI Queries**: Hook up backend query scripts that calculate live sales, cash balances, and average bill sizes to feed into the workspace cards.
 - [ ] **Build the Hourly Sales Trend Chart**: Integrate a standard Frappe Dashboard Chart showing hourly sales.
 - [ ] **Construct the Alert Feed**: Write a light API endpoint to check for low stock, GST issues, and held bills, displaying them dynamically.
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+
+
+---
+
+## Author Profile
+
+- **Author**: Jawahar R. Mallah
+- **Designation**: Founder & Chief Architect
+- **Organization**: AITDL – AI Technology & Development Lab
+- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
+
+> "Always decision-ready."  
+> — Jawahar R. Mallah  
+> Founder & Chief Architect, AITDL

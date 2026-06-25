@@ -1,3 +1,20 @@
+---
+Document ID: "DEV-040"
+Title: "PILOT-001 — Tattly Threads Pilot Execution Plan"
+Owner: "Development Team"
+Audience: "Developer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-25"
+Last Reviewed: "2026-06-25"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # PILOT-001 — Tattly Threads Pilot Execution Plan
 **Document Type**: Pilot Governance + Field Operations
 **Status**: READY — Awaiting Pilot Start Date
@@ -78,7 +95,7 @@ SIGNED:   Jawahar R. Mallah, Founder
 
 ## 3. Pilot Success Criteria
 
-Full criteria detail: [COMM-08 Pilot Success Criteria](../comm/COMM-08_pilot_success_criteria.md)
+Full criteria detail: [COMM-08 Pilot Success Criteria](./comm_08_pilot_success_criteria.md)
 
 **Summary** — agree these with Tattly Threads on Day 1:
 
@@ -458,3 +475,10 @@ Date:      2026-06-24
 *Governance: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 *This document runs Pilot Customer #1. It is not a product document — it is a business execution document.*
 *Update weekly. Review with Founder every Monday.*
+
+
+## Revision History
+
+| Version | Date | Author | Summary of Changes |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
