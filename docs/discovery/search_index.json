@@ -1,9 +1,11 @@
 {
-  "ir_version": "1.0",
+  "ir_version": "1.2",
   "compiler_version": "1.1",
+  "generated_by": "SDC 1.1.2-GA",
+  "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-25T10:19:35Z",
-  "repository_commit": "f95b4fe91f273f7a6745f2f7d1de4733757db2dd",
+  "generated_at": "2026-06-25T20:15:34Z",
+  "repository_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
@@ -3367,6 +3369,18 @@
     ],
     "get_doctype_schema": [
       "ART-API-00393"
+    ],
+    "smriti_retail_os.api.ai_integration_api.get_ai_context": [
+      "ART-API-00611"
+    ],
+    "get_ai_context": [
+      "ART-API-00611"
+    ],
+    "smriti_retail_os.api.ai_integration_api.ask_smriti_ai": [
+      "ART-API-00612"
+    ],
+    "ask_smriti_ai": [
+      "ART-API-00612"
     ],
     "smriti_retail_os.api.analytics_api.get_dashboard_kpis": [
       "ART-API-00394"

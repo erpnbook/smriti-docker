@@ -1,9 +1,11 @@
 {
-  "ir_version": "1.0",
+  "ir_version": "1.2",
   "compiler_version": "1.1",
+  "generated_by": "SDC 1.1.2-GA",
+  "schema_version": "1.2",
   "artifact_type": "screen_inventory",
-  "generated_at": "2026-06-25T10:19:35Z",
-  "repository_commit": "f95b4fe91f273f7a6745f2f7d1de4733757db2dd",
+  "generated_at": "2026-06-25T20:15:34Z",
+  "repository_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
   "provenance": {
     "artifact_id": "ART-SCREEN-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -89,7 +91,30 @@
       "developer": {
         "manual_reference": "Volume 2 > Master Data > Item Import Services",
         "training_reference": "TRN-item-master-import"
-      }
+      },
+      "asset_type": "screen",
+      "validation_status": "Certified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "narrative",
+        "path": "sdc/rules/screen_narratives.json",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "screen_id": "billing",
@@ -138,7 +163,30 @@
       "developer": {
         "manual_reference": "Volume 3 > Store Operations > POS Billing",
         "training_reference": "TRN-billing-pos"
-      }
+      },
+      "asset_type": "screen",
+      "validation_status": "Certified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "narrative",
+        "path": "sdc/rules/screen_narratives.json",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "screen_id": "purchase",
@@ -168,7 +216,30 @@
       "developer": {
         "manual_reference": "Volume 4 > Procurement > Purchase Operations",
         "training_reference": "TRN-purchase-order"
-      }
+      },
+      "asset_type": "screen",
+      "validation_status": "Certified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "narrative",
+        "path": "sdc/rules/screen_narratives.json",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "screen_id": "inventory",
@@ -200,7 +271,30 @@
       "developer": {
         "manual_reference": "Volume 5 > Warehouse Operations > Inventory Ledger",
         "training_reference": "TRN-inventory-ledger"
-      }
+      },
+      "asset_type": "screen",
+      "validation_status": "Certified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "narrative",
+        "path": "sdc/rules/screen_narratives.json",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     }
   ]
 }

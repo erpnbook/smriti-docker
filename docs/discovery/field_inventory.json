@@ -1,9 +1,11 @@
 {
-  "ir_version": "1.0",
+  "ir_version": "1.2",
   "compiler_version": "1.1",
+  "generated_by": "SDC 1.1.2-GA",
+  "schema_version": "1.2",
   "artifact_type": "field_inventory",
-  "generated_at": "2026-06-25T10:19:35Z",
-  "repository_commit": "f95b4fe91f273f7a6745f2f7d1de4733757db2dd",
+  "generated_at": "2026-06-25T20:15:34Z",
+  "repository_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
   "provenance": {
     "artifact_id": "ART-FIELD-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -25,7 +27,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2047,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2047,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00135",
@@ -36,7 +62,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2056,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2056,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00136",
@@ -47,7 +97,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2063,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2063,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00137",
@@ -58,7 +132,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2070,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2070,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00138",
@@ -69,7 +167,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2078,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2078,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00139",
@@ -80,7 +202,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2087,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2087,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00140",
@@ -91,7 +237,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2100,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2100,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00141",
@@ -102,7 +272,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2108,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2108,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00142",
@@ -113,7 +307,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2117,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2117,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00143",
@@ -124,7 +342,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2127,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2127,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00144",
@@ -135,7 +377,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2136,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2136,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00145",
@@ -146,7 +412,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2145,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2145,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00146",
@@ -157,7 +447,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2153,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2153,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00147",
@@ -168,7 +482,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2162,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2162,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00148",
@@ -179,7 +517,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2170,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2170,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00149",
@@ -190,7 +552,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2178,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2178,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00150",
@@ -201,7 +587,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2188,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2188,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00151",
@@ -212,7 +622,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2196,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2196,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00152",
@@ -223,7 +657,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2204,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2204,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00153",
@@ -234,7 +692,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2212,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2212,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00099",
@@ -245,7 +727,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2220,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2220,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00154",
@@ -256,7 +762,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2228,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2228,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00155",
@@ -267,7 +797,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2236,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2236,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00156",
@@ -278,7 +832,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2244,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2244,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00157",
@@ -289,7 +867,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2252,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2252,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00158",
@@ -300,7 +902,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2260,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2260,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00159",
@@ -311,7 +937,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2268,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2268,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00160",
@@ -322,7 +972,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2276,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2276,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00161",
@@ -333,7 +1007,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2284,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2284,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00162",
@@ -344,7 +1042,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2292,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2292,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00163",
@@ -355,7 +1077,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2303,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2303,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00164",
@@ -366,7 +1112,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2310,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2310,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00165",
@@ -377,7 +1147,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2317,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2317,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00166",
@@ -388,7 +1182,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2326,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2326,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00167",
@@ -399,7 +1217,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2333,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2333,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00168",
@@ -410,7 +1252,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2340,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2340,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00169",
@@ -421,7 +1287,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2348,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2348,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00170",
@@ -432,7 +1322,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2355,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2355,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00171",
@@ -443,7 +1357,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2362,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2362,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00172",
@@ -454,7 +1392,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2369,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2369,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00173",
@@ -465,7 +1427,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2378,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2378,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00174",
@@ -476,7 +1462,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2387,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2387,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00175",
@@ -487,7 +1497,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2395,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2395,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00176",
@@ -498,7 +1532,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2402,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2402,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00177",
@@ -509,7 +1567,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2409,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2409,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00178",
@@ -520,7 +1602,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2416,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2416,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00179",
@@ -531,7 +1637,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2425,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2425,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00180",
@@ -542,7 +1672,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2432,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2432,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00181",
@@ -553,7 +1707,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2439,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2439,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00182",
@@ -564,7 +1742,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2446,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2446,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00183",
@@ -575,7 +1777,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2456,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2456,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00184",
@@ -586,7 +1812,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2466,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2466,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00185",
@@ -597,7 +1847,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2476,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2476,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00186",
@@ -608,7 +1882,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2485,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2485,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00187",
@@ -619,7 +1917,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2494,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2494,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00188",
@@ -630,7 +1952,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2502,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2502,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00189",
@@ -641,7 +1987,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2510,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2510,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00190",
@@ -652,7 +2022,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2518,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2518,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00191",
@@ -663,7 +2057,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2528,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2528,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00192",
@@ -674,7 +2092,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2536,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2536,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00193",
@@ -685,7 +2127,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2544,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2544,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     },
     {
       "artifact_id": "ART-FIELD-00100",
@@ -696,7 +2162,31 @@
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2555,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2555,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
     }
   ]
 }

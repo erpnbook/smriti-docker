@@ -1,9 +1,11 @@
 {
-  "ir_version": "1.0",
+  "ir_version": "1.2",
   "compiler_version": "1.1",
+  "generated_by": "SDC 1.1.2-GA",
+  "schema_version": "1.2",
   "artifact_type": "discovery_manifest",
-  "generated_at": "2026-06-25T10:19:35Z",
-  "repository_commit": "f95b4fe91f273f7a6745f2f7d1de4733757db2dd",
+  "generated_at": "2026-06-25T20:15:34Z",
+  "repository_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
   "provenance": {
     "artifact_id": "ART-MANIFEST-00001",
     "produced_by": "Phase0_Discovery",
@@ -30,6 +32,7 @@
       "docs/discovery/api_inventory.json",
       "docs/discovery/business_dictionary.json",
       "docs/discovery/screen_inventory.json",
+      "docs/discovery/collections_inventory.json",
       "docs/discovery/search_index.json",
       "docs/discovery/dependency_graph.json"
     ]

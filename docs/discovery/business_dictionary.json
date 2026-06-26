@@ -1,9 +1,11 @@
 {
-  "ir_version": "1.0",
+  "ir_version": "1.2",
   "compiler_version": "1.1",
+  "generated_by": "SDC 1.1.2-GA",
+  "schema_version": "1.2",
   "artifact_type": "business_dictionary",
-  "generated_at": "2026-06-25T10:19:35Z",
-  "repository_commit": "f95b4fe91f273f7a6745f2f7d1de4733757db2dd",
+  "generated_at": "2026-06-25T20:15:34Z",
+  "repository_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
   "provenance": {
     "artifact_id": "ART-GLOSSARY-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -46,7 +48,33 @@
           "a": "PSA should never write directly to ERPNext General Ledger."
         }
       ],
-      "artifact_id": "ART-TERM-00517"
+      "artifact_id": "ART-TERM-00517",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "PSV",
+        "Party Stock Ledger"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "PSV",
@@ -80,7 +108,33 @@
           "a": "Partner stock belongs to distributors, not the company warehouses."
         }
       ],
-      "artifact_id": "ART-TERM-00518"
+      "artifact_id": "ART-TERM-00518",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "PSA",
+        "Party Stock Ledger"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "PDT",
@@ -115,7 +169,33 @@
           "a": "Always ensure CGE and reorder rules are approved."
         }
       ],
-      "artifact_id": "ART-TERM-00519"
+      "artifact_id": "ART-TERM-00519",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "WOC",
+        "Reorder Suggestion"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "WOC",
@@ -150,7 +230,33 @@
           "a": "Static WOC calculations during festival seasons will lead to stockouts."
         }
       ],
-      "artifact_id": "ART-TERM-00520"
+      "artifact_id": "ART-TERM-00520",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Sales Velocity",
+        "Stockout Risk"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Sales Velocity",
@@ -183,7 +289,32 @@
           "a": "For items with < 14 days history, use variant curves instead of sales velocity."
         }
       ],
-      "artifact_id": "ART-TERM-00521"
+      "artifact_id": "ART-TERM-00521",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "WOC"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Forecast Confidence",
@@ -217,7 +348,33 @@
           "a": "Forecast is probabilistic; always consider lead time tolerance."
         }
       ],
-      "artifact_id": "ART-TERM-00522"
+      "artifact_id": "ART-TERM-00522",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "PDT",
+        "Reorder Suggestion"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Dead Stock",
@@ -250,7 +407,32 @@
           "a": "Liquidation margins drop further the longer dead stock stays on shelves."
         }
       ],
-      "artifact_id": "ART-TERM-00523"
+      "artifact_id": "ART-TERM-00523",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "WOC"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Sell Through",
@@ -283,7 +465,32 @@
           "a": "Always add initial opening stock in the denominator to reflect true visibility."
         }
       ],
-      "artifact_id": "ART-TERM-00524"
+      "artifact_id": "ART-TERM-00524",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Sales Velocity"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Stock Accuracy",
@@ -316,7 +523,32 @@
           "a": "Delaying adjustments leads to wrong planning in PDT."
         }
       ],
-      "artifact_id": "ART-TERM-00525"
+      "artifact_id": "ART-TERM-00525",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Physical Snapshot"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Inventory Turnover",
@@ -350,7 +582,33 @@
           "a": "Turnover must always use Cost of Goods Sold (COGS), never selling prices."
         }
       ],
-      "artifact_id": "ART-TERM-00526"
+      "artifact_id": "ART-TERM-00526",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "WOC",
+        "Dead Stock"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Outlet Health Score",
@@ -383,7 +641,32 @@
           "a": "Long offline sync gaps inflate OHS artificially before actual updates."
         }
       ],
-      "artifact_id": "ART-TERM-00527"
+      "artifact_id": "ART-TERM-00527",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Stock Accuracy"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Transfer Benefit Score",
@@ -417,7 +700,33 @@
           "a": "Transferring hot-selling items from high demand outlets causes stockouts."
         }
       ],
-      "artifact_id": "ART-TERM-00528"
+      "artifact_id": "ART-TERM-00528",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "PDT",
+        "Lead Time"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Physical Snapshot",
@@ -450,7 +759,32 @@
           "a": "Always freeze snapshot state before entering physical counts."
         }
       ],
-      "artifact_id": "ART-TERM-00529"
+      "artifact_id": "ART-TERM-00529",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Stock Accuracy"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Party Stock Ledger",
@@ -482,7 +816,33 @@
           "a": "Never force db updates on ledger entries, use reversal transactions."
         }
       ],
-      "artifact_id": "ART-TERM-00530"
+      "artifact_id": "ART-TERM-00530",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "PSA",
+        "PSV"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Reorder Suggestion",
@@ -517,7 +877,33 @@
           "a": "Always double check CGE budget reserves before submitting PO."
         }
       ],
-      "artifact_id": "ART-TERM-00531"
+      "artifact_id": "ART-TERM-00531",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "PDT",
+        "Stockout Risk"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Stockout Risk",
@@ -551,7 +937,33 @@
           "a": "Suppliers take longer during holiday seasons; lead time must be dynamic."
         }
       ],
-      "artifact_id": "ART-TERM-00532"
+      "artifact_id": "ART-TERM-00532",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "WOC",
+        "Lead Time"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Variant Curve",
@@ -584,7 +996,32 @@
           "a": "Footwear curves vary by gender; kids clothing has completely different ratios."
         }
       ],
-      "artifact_id": "ART-TERM-00533"
+      "artifact_id": "ART-TERM-00533",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Inventory Turnover"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "EMA",
@@ -618,7 +1055,33 @@
           "a": "High alpha value makes the system fluctuate erraticly on single large orders."
         }
       ],
-      "artifact_id": "ART-TERM-00534"
+      "artifact_id": "ART-TERM-00534",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Sales Velocity",
+        "Seasonality Factor"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Seasonality Factor",
@@ -649,7 +1112,32 @@
           "a": "Festivals are region-specific; South region seasonality differs from North region."
         }
       ],
-      "artifact_id": "ART-TERM-00535"
+      "artifact_id": "ART-TERM-00535",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "EMA"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     },
     {
       "term_id": "Lead Time",
@@ -681,7 +1169,33 @@
           "a": "Lead time calculations must cover logistics transit buffers, not just supplier factory dispatch."
         }
       ],
-      "artifact_id": "ART-TERM-00536"
+      "artifact_id": "ART-TERM-00536",
+      "asset_type": "glossary_term",
+      "validation_status": "Draft",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+        "last_scan_timestamp": "2026-06-25T20:15:34Z",
+        "last_validated_timestamp": "2026-06-25T20:15:34Z"
+      },
+      "related_assets": [
+        "Stockout Risk",
+        "Transfer Benefit Score"
+      ],
+      "evidence": {
+        "type": "seeder",
+        "path": "apps/smriti_retail_os/smriti_retail_os/patches/seed_default_terms.py",
+        "checksum": ""
+      },
+      "owner": "AITDL"
     }
   ]
 }
