@@ -92,7 +92,7 @@ Custom raw print templates support the following placeholder tokens. SMRITI supp
 | `{style_code}` | **Explicit Style Code / Article Number**<br><br>Returns the explicit Style Code / Article Number field exactly as stored in the Item Master without applying Style Resolution. | `BBM-SPORTS` |
 | `{variant_template}` | **ERP Variant Template ID**<br><br>Returns the template item ID (<i>variant_of</i>) for variant items. | `BBM-SPORTS` |
 | `{item_name}` | Item Name (truncated to 28 characters) | `BBM Sports Black` |
-| `{brand}` | Brand | `BIG BOSS` |
+| `{brand}` | Brand | `Tattly Threads` |
 | `{mrp}` | Maximum Retail Price (Integer value) | `1899` |
 | `{size}` | Attribute: Size | `8` |
 | `{color}` | Attribute: Color / Colour / Shade | `BLACK` |
