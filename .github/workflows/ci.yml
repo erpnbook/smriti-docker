@@ -23,11 +23,29 @@ jobs:
       run: |
         python sdc/discovery.py
 
+    - name: Verify Coverage Trend History
+      run: |
+        python -c "
+        import json
+        with open('docs/discovery/coverage_history.jsonl') as f:
+            lines = [l.strip() for l in f if l.strip()]
+        assert len(lines) >= 1, 'coverage_history.jsonl is empty'
+        last = json.loads(lines[-1])
+        assert last['coverage'] >= 92.0, f'Coverage regressed: {last[\"coverage\"]}%'
+        assert last['drift_violations'] == 0, f'Drift violations present: {last[\"drift_violations\"]}'
+        print(f'Coverage trend OK: {last[\"coverage\"]}% | drift_violations: {last[\"drift_violations\"]} | health: {last[\"health_score\"]}')
+        "
+
     - name: Install dependencies for testing
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
+        pip install pytest
+
+    - name: Run SDC-006 Mutation Tests
+      run: |
+        python -m pytest apps/smriti_retail_os/smriti_retail_os/tests/test_sdc006_mutation.py -v
 
     - name: Run SMRITI App Unit Tests
       run: |

@@ -1,9 +1,15 @@
 {
-  "policy_version": "1.0",
+  "policy_version": "1.1",
   "weights": {
     "coverage": 0.45,
     "validation": 0.20,
     "broken_references": 0.20,
     "drift": 0.15
+  },
+  "thresholds": {
+    "coverage_min": 92.0,
+    "broken_references_max": 0,
+    "formula_drift_tolerance": 0,
+    "banned_terminology_tolerance": 0
   }
 }

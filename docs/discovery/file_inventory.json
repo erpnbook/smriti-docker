@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-26T04:19:43Z",
-  "repository_commit": "UNKNOWN_COMMIT",
+  "generated_at": "2026-06-26T05:43:08Z",
+  "repository_commit": "062a1630635d9f02f536e8994a64b0ff1c01113a",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -40,7 +40,7 @@
       "file_path": "apps/smriti_retail_os/scripts/color_baseline.json",
       "sha256": "e0bdc407defaec756c292e81c93130b45478413587593059c61540e0758735cf",
       "size_bytes": 6247,
-      "modified_date": "2026-06-26T09:06:05Z"
+      "modified_date": "2026-06-26T10:59:01Z"
     },
     {
       "file_path": "apps/smriti_retail_os/scripts/fix_boilerplate_headers.py",
@@ -3848,9 +3848,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_knowledge_governance.py",
-      "sha256": "a12a54e437e4a63567e8dcd0203363f082a3f406c4bb2b6302f4bfeec526b2f1",
-      "size_bytes": 9573,
-      "modified_date": "2026-06-26T08:56:20Z"
+      "sha256": "d7e076e1f1127905cec1118b30ff5d5d03bd60e0b98ca36092a09c051760ac4f",
+      "size_bytes": 13504,
+      "modified_date": "2026-06-26T09:51:08Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_knowledge_os.py",

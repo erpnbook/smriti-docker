@@ -1,0 +1,73 @@
+{
+  "snapshot_version": "1.0",
+  "generated_at": "2026-06-26T05:43:08Z",
+  "description": "SHA256 hashes of formula_expression+variables and explainability_json per formula. SDC-006 drift gate uses this to detect when a formula changes without its explain object being updated.",
+  "formulas": {
+    "INV-001": {
+      "formula_name": "Sales Velocity",
+      "formula_hash": "e3d85f15426950aae83540593cd1692170243cf1b9021caddf671502a2da29c7",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "INV-002": {
+      "formula_name": "Weeks of Cover (WOC)",
+      "formula_hash": "ab86239747e78b4590f1e9ca645e57fe7a4480180da9ff1fbe1e951cd0420df9",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "INV-003": {
+      "formula_name": "Dead Stock Score",
+      "formula_hash": "ca4a49b4e96208f26cb917064d88bee5931c850ca922d60583268f42b54a4952",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "FRC-001": {
+      "formula_name": "Forecast Confidence",
+      "formula_hash": "97e78d9af284b8cb391d47d12192f30e9768b5feb577d2c085d283ad6aed53e0",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "OHS-001": {
+      "formula_name": "Outlet Health Score",
+      "formula_hash": "eaca3db00167b7a310643411d30c2287244ad628d2190b9f95e27d0128cdb4fc",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "TRF-001": {
+      "formula_name": "Transfer Benefit Score",
+      "formula_hash": "55333586741ab3cc3a8df2a3d6565c85a3442f2cc63adbec2ae6cb22de943b79",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "SAL-001": {
+      "formula_name": "Sell Through %",
+      "formula_hash": "af15f2e9610341a51cccc205beda2dbe4370aa8d47638c3b1faa7add8af912af",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "AUD-001": {
+      "formula_name": "Stock Accuracy %",
+      "formula_hash": "d1b50b1c843a324f7078427158dbeb261a6dbc94b8ba37f21eb7f189e9003983",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "INV-004": {
+      "formula_name": "Inventory Turnover",
+      "formula_hash": "5be4730ed83fb7cf6e0e3b0f8b6b101b7f59db7ba163d932cce7a80688b5c07f",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "VAR-001": {
+      "formula_name": "Variant Curve Health",
+      "formula_hash": "40ce3eab3acb4a08cafe88f39ef9840aa97fb44bb852273485defae599d90d45",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    },
+    "KGF-001": {
+      "formula_name": "KGF Coverage %",
+      "formula_hash": "78e165848742705baabe9f0122eb5b4442df389f7d99a60eee0854d98865008e",
+      "explain_hash": "dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91",
+      "last_verified": "2026-06-26T05:43:08Z"
+    }
+  }
+}
