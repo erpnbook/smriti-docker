@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-25T20:15:34Z",
-  "repository_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+  "generated_at": "2026-06-26T04:00:40Z",
+  "repository_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
@@ -615,6 +615,7 @@
       "ART-DOCTYPE-00045",
       "ART-DOCTYPE-00046",
       "ART-DOCTYPE-00047",
+      "ART-DOCTYPE-00613",
       "ART-DOCTYPE-00048",
       "ART-DOCTYPE-00049",
       "ART-DOCTYPE-00050",
@@ -1453,6 +1454,7 @@
     "log": [
       "ART-DOCTYPE-00007",
       "ART-DOCTYPE-00011",
+      "ART-DOCTYPE-00613",
       "ART-DOCTYPE-00050",
       "ART-DOCTYPE-00069",
       "ART-DOCTYPE-00070",
@@ -1689,7 +1691,8 @@
     ],
     "knowledge": [
       "ART-DOCTYPE-00046",
-      "ART-DOCTYPE-00047"
+      "ART-DOCTYPE-00047",
+      "ART-DOCTYPE-00613"
     ],
     "asset": [
       "ART-DOCTYPE-00046"
@@ -1699,6 +1702,12 @@
     ],
     "relation": [
       "ART-DOCTYPE-00047"
+    ],
+    "smriti knowledge usage log": [
+      "ART-DOCTYPE-00613"
+    ],
+    "usage": [
+      "ART-DOCTYPE-00613"
     ],
     "smriti liability snapshot": [
       "ART-DOCTYPE-00048"
@@ -3638,6 +3647,36 @@
     ],
     "get_ske_meta": [
       "ART-API-00610"
+    ],
+    "smriti_retail_os.api.knowledge_studio_api.log_telemetry_event": [
+      "ART-API-00614"
+    ],
+    "log_telemetry_event": [
+      "ART-API-00614"
+    ],
+    "smriti_retail_os.api.knowledge_studio_api.get_telemetry_logs": [
+      "ART-API-00615"
+    ],
+    "get_telemetry_logs": [
+      "ART-API-00615"
+    ],
+    "smriti_retail_os.api.knowledge_studio_api.trigger_telemetry_cleanup": [
+      "ART-API-00616"
+    ],
+    "trigger_telemetry_cleanup": [
+      "ART-API-00616"
+    ],
+    "smriti_retail_os.api.knowledge_studio_api.get_explainable_health": [
+      "ART-API-00617"
+    ],
+    "get_explainable_health": [
+      "ART-API-00617"
+    ],
+    "smriti_retail_os.api.knowledge_studio_api.get_collections": [
+      "ART-API-00618"
+    ],
+    "get_collections": [
+      "ART-API-00618"
     ],
     "smriti_retail_os.api.license_api.get_license_status": [
       "ART-API-00434"

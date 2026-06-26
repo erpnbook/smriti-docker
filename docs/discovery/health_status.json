@@ -3,8 +3,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "health_status",
-  "generated_at": "2026-06-25T20:15:34Z",
-  "repository_commit": "3bc4d0c9edd3fdb20788de773ab19f03b5f9bb38",
+  "generated_at": "2026-06-26T04:00:40Z",
+  "repository_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
   "provenance": {
     "artifact_id": "ART-HEALTH-STATUS-00001",
     "produced_by": "Phase0_Discovery",
@@ -15,15 +15,15 @@
     ]
   },
   "data": {
-    "health_score": 94.17216117216117,
+    "health_score": 94.1268115942029,
     "policy_version": "1.0",
     "breakdown": {
       "coverage": {
-        "score": 93.04029304029304,
+        "score": 92.93478260869566,
         "weight": 0.45
       },
       "validation": {
-        "score": 86.52014652014653,
+        "score": 86.53079710144928,
         "weight": 0.2
       },
       "broken_references": {

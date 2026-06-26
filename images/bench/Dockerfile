@@ -106,7 +106,7 @@ WORKDIR /home/frappe
 
 # Install Python via pyenv
 ENV PYTHON_VERSION_PREV=3.12.12
-ENV PYTHON_VERSION=3.14.2
+ENV PYTHON_VERSION=3.11.9
 ENV PYENV_ROOT=/home/frappe/.pyenv
 ENV PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 

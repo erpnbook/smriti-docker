@@ -1,5 +1,5 @@
 {
-  "lease_count": 612,
+  "lease_count": 618,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4284,6 +4284,48 @@
       "type": "api",
       "status": "ACTIVE",
       "leased_at": "2026-06-26 01:45:04"
+    },
+    "doctype:SMRITI Knowledge Usage Log": {
+      "id": "ART-DOCTYPE-00613",
+      "name": "SMRITI Knowledge Usage Log",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-26 09:30:40"
+    },
+    "api:smriti_retail_os.api.knowledge_studio_api.log_telemetry_event": {
+      "id": "ART-API-00614",
+      "name": "smriti_retail_os.api.knowledge_studio_api.log_telemetry_event",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-26 09:30:41"
+    },
+    "api:smriti_retail_os.api.knowledge_studio_api.get_telemetry_logs": {
+      "id": "ART-API-00615",
+      "name": "smriti_retail_os.api.knowledge_studio_api.get_telemetry_logs",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-26 09:30:41"
+    },
+    "api:smriti_retail_os.api.knowledge_studio_api.trigger_telemetry_cleanup": {
+      "id": "ART-API-00616",
+      "name": "smriti_retail_os.api.knowledge_studio_api.trigger_telemetry_cleanup",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-26 09:30:41"
+    },
+    "api:smriti_retail_os.api.knowledge_studio_api.get_explainable_health": {
+      "id": "ART-API-00617",
+      "name": "smriti_retail_os.api.knowledge_studio_api.get_explainable_health",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-26 09:30:41"
+    },
+    "api:smriti_retail_os.api.knowledge_studio_api.get_collections": {
+      "id": "ART-API-00618",
+      "name": "smriti_retail_os.api.knowledge_studio_api.get_collections",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-26 09:30:41"
     }
   }
 }

@@ -15,5 +15,6 @@ BRANDING_POLICY.md
 scratch/
 .github_config.json
 .github_todos.json
-
-
+/backups/
+/rollback/
+assets_clean.tar.gz
