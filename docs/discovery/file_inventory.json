@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-26T05:43:08Z",
-  "repository_commit": "062a1630635d9f02f536e8994a64b0ff1c01113a",
+  "generated_at": "2026-06-26T12:11:59Z",
+  "repository_commit": "33e25c6612e6149076d8d657f096fc03b06a42ef",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -1244,9 +1244,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/compiler.py",
-      "sha256": "9454329da37762855237b7a2c8bf7cea0e4584cebd6fb0d185214f239a8c736e",
-      "size_bytes": 7815,
-      "modified_date": "2026-06-25T15:08:28Z"
+      "sha256": "23bdb592d7f2e7d2b8043752e93da5c9b34b52416479fd27ccbf78546e3d323b",
+      "size_bytes": 7986,
+      "modified_date": "2026-06-26T11:10:34Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/compiler_config.json",
@@ -1256,9 +1256,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/discovery.py",
-      "sha256": "c3efa0cdc73ed0f610e22d1a7caee5dff0880ad65213ccc7a1a138bbd83321bc",
-      "size_bytes": 57825,
-      "modified_date": "2026-06-26T08:20:54Z"
+      "sha256": "7aba19a52636cd92ea2dc7e3bd30027753d4e40c24a7f2363b05f17974bd50be",
+      "size_bytes": 73758,
+      "modified_date": "2026-06-26T17:41:49Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/migration_registry.py",
@@ -1289,6 +1289,12 @@
       "sha256": "496ccc47a54c9e38897645351232f71639506db7b403017b4743dd3a196e052c",
       "size_bytes": 3622,
       "modified_date": "2026-06-25T15:45:51Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/drift_snapshots/formula_drift_snapshot.json",
+      "sha256": "2c647a2c8784b1e9a391cd64b6d19b3220f863b6f0804fdc38b75bb96b02e4cb",
+      "size_bytes": 322,
+      "modified_date": "2026-06-26T17:40:25Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/rules/knowledge_health_policy.json",
@@ -3941,6 +3947,12 @@
       "sha256": "83632fcad3a52715c244f4684bd5f609e751f5461ceff766bf4768a695bcf256",
       "size_bytes": 5951,
       "modified_date": "2026-06-21T22:38:31Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_sdc006_mutation.py",
+      "sha256": "6ad9a440cb3c0fc2c115e9b886eb024adb726fc4b1271629b533830b5dfd04c3",
+      "size_bytes": 14387,
+      "modified_date": "2026-06-26T11:15:59Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_sfc.py",

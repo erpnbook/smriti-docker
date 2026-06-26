@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-26T05:43:08Z",
-  "repository_commit": "062a1630635d9f02f536e8994a64b0ff1c01113a",
+  "generated_at": "2026-06-26T12:11:59Z",
+  "repository_commit": "33e25c6612e6149076d8d657f096fc03b06a42ef",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
