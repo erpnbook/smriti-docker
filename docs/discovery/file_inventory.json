@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-26T12:11:59Z",
-  "repository_commit": "33e25c6612e6149076d8d657f096fc03b06a42ef",
+  "generated_at": "2026-06-26T14:05:26Z",
+  "repository_commit": "04fd701b7ec92c2ca973533efbbb9f6c5889587d",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -1244,9 +1244,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/compiler.py",
-      "sha256": "23bdb592d7f2e7d2b8043752e93da5c9b34b52416479fd27ccbf78546e3d323b",
-      "size_bytes": 7986,
-      "modified_date": "2026-06-26T11:10:34Z"
+      "sha256": "8cc66ddd79c55647ac28fc837a5103a3bf163150f93a2201e175637b398ebe8a",
+      "size_bytes": 8148,
+      "modified_date": "2026-06-26T19:22:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/compiler_config.json",
@@ -1256,9 +1256,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/discovery.py",
-      "sha256": "7aba19a52636cd92ea2dc7e3bd30027753d4e40c24a7f2363b05f17974bd50be",
-      "size_bytes": 73758,
-      "modified_date": "2026-06-26T17:41:49Z"
+      "sha256": "643983bff32683812f99f07d176f0b1c1cba21c3450e2ac5bb275d0b7f0926e7",
+      "size_bytes": 82694,
+      "modified_date": "2026-06-26T19:23:55Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/migration_registry.py",
@@ -1294,13 +1294,13 @@
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/drift_snapshots/formula_drift_snapshot.json",
       "sha256": "2c647a2c8784b1e9a391cd64b6d19b3220f863b6f0804fdc38b75bb96b02e4cb",
       "size_bytes": 322,
-      "modified_date": "2026-06-26T17:40:25Z"
+      "modified_date": "2026-06-26T17:42:10Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/rules/knowledge_health_policy.json",
-      "sha256": "ca41d7fa2dd21d671702327e4a2b7e2603d7030212fd0de787d78a15a1c6bc07",
-      "size_bytes": 145,
-      "modified_date": "2026-06-26T01:41:10Z"
+      "sha256": "c248acc30701ebe3a0d0687b61e1cc4458a542692ce25053c5458aec1373272d",
+      "size_bytes": 871,
+      "modified_date": "2026-06-26T19:22:25Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/sdc/rules/screen_narratives.json",
@@ -3950,9 +3950,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_sdc006_mutation.py",
-      "sha256": "6ad9a440cb3c0fc2c115e9b886eb024adb726fc4b1271629b533830b5dfd04c3",
-      "size_bytes": 14387,
-      "modified_date": "2026-06-26T11:15:59Z"
+      "sha256": "df12a8383705cbc2e566623f2c4ae8f13f4b4ce510ddb766d66251e56502b0bf",
+      "size_bytes": 16684,
+      "modified_date": "2026-06-26T19:34:49Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_sfc.py",
