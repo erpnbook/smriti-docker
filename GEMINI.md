@@ -987,5 +987,100 @@ Rules 13, 14, 15, 16, and 17 collectively constitute the **SMRITI Knowledge Gove
 - **Every recommendation** generated is traceable with an immutable digital audit trail.
 - **Every metric** is defined clearly in a centralized Business Dictionary.
 - **Every release** is fully documented, verified, and accompanied by practical onboarding training materials.
-- **Every operational asset** is dynamically linked and traversable through the centralized SMRITI Knowledge Operating System graph.
+- Every operational asset is dynamically linked and traversable through the centralized SMRITI Knowledge Operating System graph.
+
+---
+
+## Rule 19: SMRITI Master Data Import Engine (MDIE) & Style Resolution Rule (Rule ID: IMPORT-01 - LOCKED)
+
+### Policy Statement
+SMRITI must support both Variant-based and Flat Item Master workflows. The AI assistant or automated development tool shall not assume that `variant_of` is populated. During bulk copy-paste or Excel import, the system must automatically detect the available data model, prefer explicit business fields (Style Code/Article Number), and use SKU parsing only as a last-resort compatibility fallback. The import process should validate the chosen strategy and warn the user whenever style information cannot be determined unambiguously. The import engine shall support reusable Import Profiles, AI-assisted column mapping, pre-import validation, logical grouping of flat item masters, dry-run simulation with validation preview, automatic database snapshots for one-click rollback, fuzzy duplicate detection, business rule compliance checks, and permanent import audit logging. The system must never require ERP Variant structures for successful operation and shall preserve the retailer's preferred data format while enriching it with derived business metadata where appropriate. All imports executed through the MDIE must be strictly idempotent (preventing duplicates on re-runs) and transactional (enforcing all-or-nothing commits by default). The validation architecture must be implemented as a pluggable pipeline, allowing new business and AI validators to be appended dynamically without core engine modifications.
+
+### Core Platform Status
+The SMRITI Master Data Import Engine (MDIE) is designated as a core platform engine, managed on par with the Billing Engine, Channel Governance Engine (CGE), Party Stock Visibility (PSV), Formula Registry, and Explainability Engine. It acts as a governed ingestion and data-quality platform rather than a simple import utility.
+
+### Practical Implementation Principles
+To ensure consistency across all future implementations of the import engine, developers must adhere to these three core guardrails:
+
+#### 1. Idempotent Ingestion (Highest Priority)
+The engine must guarantee that importing the same file or data payload multiple times does not create duplicate master records or corrupt existing data.
+* **Deduplication:** Subsequent imports of identical files must result in zero inserts and updates if no modifications are present.
+* **Strategy Compliance:** Updates must follow the user-specified reconciliation strategy (Skip / Update / Merge / Replace):
+  * **Skip:** Do not overwrite existing values; ignore conflicts.
+  * **Update:** Overwrite existing values with new values from the import sheet.
+  * **Merge:** Fill in missing values without overwriting existing data.
+  * **Replace:** Completely replace the existing item representation.
+* **Deterministic Outcomes:** Every execution of the engine given the same initial state and input payload must produce the exact same final database state.
+* **Deterministic Logging Example:**
+  ```text
+  Import #1 (First Run)
+  Inserted : 10,000
+  Updated  : 0
+  Skipped  : 0
+
+  Import #2 (Re-run with same file)
+  Inserted : 0
+  Updated  : 0
+  Skipped  : 10,000
+  ```
+
+#### 2. Transactional Commit Boundaries (All-or-Nothing)
+The engine must enforce strict atomicity to prevent leaving the Item Master or general ledger in a partially updated or corrupted state.
+* **Atomic Operations:** By default, if any row in the import payload (e.g., row 8,742 out of 10,000) fails validation or database insertion, the entire transaction must be rolled back completely.
+* **Explicit Override:** Partial commits are strictly prohibited unless the user makes an explicit, conscious choice via the UI, accompanied by a comprehensive error and action report.
+
+#### 3. Pluggable Validation Pipeline
+The validation engine must be structured as an extensible linear pipeline, allowing the registration of new custom, business-specific, or AI-driven validators without modifying the core import engine logic.
+* **Pipeline Stages:**
+  ```text
+  Pre-Validation (Schema check, file format verification)
+  ↓
+  Column Mapping (Profile matching, AI field alignment)
+  ↓
+  Business Rules (GST codes, UOM checks, custom classification verification)
+  ↓
+  Duplicate Detection (System-wide and intra-sheet deduplication checks)
+  ↓
+  Custom Validators (Vendor-specific compliance, barcode standards, marketplace compliance)
+  ↓
+  AI Validators (Quality and integrity scoring, categorization suggestions)
+  ↓
+  Commit (Database transaction completion)
+  ```
+
+### MDIE Ingestion Architecture Layers
+The import flow must strictly follow the architectural layers defined below:
+```text
+Import Sources (Copy-Paste, Excel, CSV, API, Connectors)
+      ↓
+Import Profiles (Reusable mapping memory)
+      ↓
+AI Mapping (Automated column alignment)
+      ↓
+Validation Pipeline (Extensible check pipeline)
+      ↓
+Dry Run (Simulation mode without db impact)
+      ↓
+Duplicate Intelligence (Fuzzy and exact matching)
+      ↓
+Business Rules (Field-level checks)
+      ↓
+Preview (Detailed impact assessment screen)
+      ↓
+Transactional Commit (Atomic database block write)
+      ↓
+Audit Log (Immutable history trail)
+      ↓
+Rollback Snapshot (Pre-import state recovery)
+```
+
+### Classification
+Data Integrity
+Catalog Governance
+Operational Flexibility
+Import Layer Hardening
+
+### Severity
+Critical
+
 

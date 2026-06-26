@@ -82,17 +82,34 @@ Every print run writes a JSON-formatted activity log to the database. The analyt
 
 ## 4. Template Reference Tokens
 
-Custom raw print templates support the following placeholder tokens:
+Custom raw print templates support the following placeholder tokens. SMRITI supports both ERP Variant-based and Flat Item Master workflows, and barcode/PRN printing does not require ERP Variant structures.
 
 | Token | ERP Field Reference | Example Value |
 |---|---|---|
 | `{barcode}` | Item Barcode (primary child table) | `8901030987654` |
-| `{item_code}` | Item Code (Variant) | `BBM-40-BRZ` |
-| `{style}` | Style/Article Code (prefix of Item Code) | `BBM` |
-| `{item_name}` | Item Name (truncated to 28 characters) | `Casual Loafer` |
+| `{item_code}` | **ERPNext Item Code** used for inventory identification. May differ from the resolved business Style/Article code. | `BBM-SPORTS-BLK-08` |
+| `{style}` | **Intelligent Style Resolution Engine**<br><br>Returns the business Style/Article code using the configured resolution priority.<br>See <b>Resolution Note</b> below. | `BBM-SPORTS` |
+| `{style_code}` | **Explicit Style Code / Article Number**<br><br>Returns the explicit Style Code / Article Number field exactly as stored in the Item Master without applying Style Resolution. | `BBM-SPORTS` |
+| `{variant_template}` | **ERP Variant Template ID**<br><br>Returns the template item ID (<i>variant_of</i>) for variant items. | `BBM-SPORTS` |
+| `{item_name}` | Item Name (truncated to 28 characters) | `BBM Sports Black` |
 | `{brand}` | Brand | `BIG BOSS` |
-| `{mrp}` | Maximum Retail Price (Integer value) | `499` |
+| `{mrp}` | Maximum Retail Price (Integer value) | `1899` |
 | `{size}` | Attribute: Size | `8` |
-| `{color}` | Attribute: Color / Colour / Shade | `BRONZE` |
+| `{color}` | Attribute: Color / Colour / Shade | `BLACK` |
 | `{pkd_date}` | Generated print date (MM/YY format) | `06/26` |
-| `{purchase_class}` | Custom Purchase Class (e.g. MFW, LFW) | `MFW` |
+| `{purchase_class}` | Custom Purchase Class (e.g. MFW, LFW) | `SPORTS` |
+
+> **Resolution Note**
+>
+> `{style}` represents the business Style/Article identifier and is resolved dynamically using the configured priority. It is **not** guaranteed to be a substring of `{item_code}`. In flat Item Master workflows, Style may originate from an explicit Style Code field or Import Profile mapping. SKU parsing is used only as a legacy compatibility fallback.
+>
+> The complete resolution order for `{style}` is:
+> 1. Parent Template Item Code (`variant_of`) for ERP Variant items.
+> 2. Explicit Style Code / Article Number field.
+> 3. Import Profile mapped Style field (bulk copy-paste imports).
+> 4. Configured SKU parsing rule (legacy compatibility fallback).
+>
+> When both `{style}` and `{style_code}` are available, `{style}` returns the resolved business value while `{style_code}` always returns the original stored field value.
+>
+> Future versions of SMRITI may extend the Style Resolution Engine with additional configurable data sources without changing existing template syntax. Existing templates using `{style}` remain backward compatible.
+

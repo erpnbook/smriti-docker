@@ -17,6 +17,7 @@ server {
 	server_name ${FRAPPE_SITE_NAME_HEADER};
   absolute_redirect off;
 	root /home/frappe/frappe-bench/sites;
+	error_page 502 503 504 /status/outage.html;
 
 	proxy_buffer_size 128k;
 	proxy_buffers 4 256k;
@@ -30,6 +31,14 @@ server {
 
 	location /assets {
 		try_files $uri =404;
+	}
+
+	location /status {
+		root /home/frappe/frappe-bench/sites/assets/smriti_retail_os;
+		try_files $uri =404;
+		add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0" always;
+		add_header Pragma "no-cache" always;
+		expires -1;
 	}
 
 	location ~ ^/protected/(.*) {
@@ -117,6 +126,7 @@ server {
 	server_name ${FRAPPE_SITE_NAME_HEADER};
 	absolute_redirect off;
 	root /home/frappe/frappe-bench/sites;
+	error_page 502 503 504 /status/outage.html;
 
 	proxy_buffer_size 128k;
 	proxy_buffers 4 256k;
@@ -130,6 +140,14 @@ server {
 
 	location /assets {
 		try_files $uri =404;
+	}
+
+	location /status {
+		root /home/frappe/frappe-bench/sites/assets/smriti_retail_os;
+		try_files $uri =404;
+		add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0" always;
+		add_header Pragma "no-cache" always;
+		expires -1;
 	}
 
 	location ~ ^/protected/(.*) {
