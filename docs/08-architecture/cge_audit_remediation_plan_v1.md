@@ -16,7 +16,9 @@ Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI Customer Growth Engine (CGE) — Audit Remediation Plan v1.0
-**Author**: SMRITI Agent / Antigravity AI  
+**Author**: Jawahar R. Mallah (Founder & Chief Architect, AITDL)
+**Maintainer**: AITDL
+**Implementation Assistance**: Automated AI development tools
 **Status**: Active  
 **Date**: 2026-06-19  
 

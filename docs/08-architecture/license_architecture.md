@@ -379,7 +379,7 @@ Ready For:
 ✓ Phase-1 Build
 ```
 
-Governance directive for AI coding agents (Claude Code, Cursor, Gemini, Antigravity, and any future agent touching licensing code):
+Governance directive for any AI assistant or automated development tool touching licensing code:
 
 ```
 Licensing-related development MUST comply with

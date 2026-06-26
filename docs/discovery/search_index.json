@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-26T14:05:26Z",
-  "repository_commit": "04fd701b7ec92c2ca973533efbbb9f6c5889587d",
+  "generated_at": "2026-06-26T19:45:46Z",
+  "repository_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
@@ -3513,6 +3513,48 @@
     ],
     "get_explain_payload": [
       "ART-API-00415"
+    ],
+    "smriti_retail_os.api.field_explorer_api.get_doctype_list": [
+      "ART-API-00619"
+    ],
+    "get_doctype_list": [
+      "ART-API-00619"
+    ],
+    "smriti_retail_os.api.field_explorer_api.get_doctype_fields": [
+      "ART-API-00620"
+    ],
+    "get_doctype_fields": [
+      "ART-API-00620"
+    ],
+    "smriti_retail_os.api.field_explorer_api.get_document_data": [
+      "ART-API-00621"
+    ],
+    "get_document_data": [
+      "ART-API-00621"
+    ],
+    "smriti_retail_os.api.field_explorer_api.search_fields": [
+      "ART-API-00622"
+    ],
+    "search_fields": [
+      "ART-API-00622"
+    ],
+    "smriti_retail_os.api.field_explorer_api.get_doctype_tree": [
+      "ART-API-00623"
+    ],
+    "get_doctype_tree": [
+      "ART-API-00623"
+    ],
+    "smriti_retail_os.api.field_explorer_api.resolve_label_preview": [
+      "ART-API-00624"
+    ],
+    "resolve_label_preview": [
+      "ART-API-00624"
+    ],
+    "smriti_retail_os.api.field_explorer_api.get_field_id_registry": [
+      "ART-API-00625"
+    ],
+    "get_field_id_registry": [
+      "ART-API-00625"
     ],
     "smriti_retail_os.api.formula_api.get_active_formulas": [
       "ART-API-00416"

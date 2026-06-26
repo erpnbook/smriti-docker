@@ -1,7 +1,8 @@
 # SMRITI Retail OS — Architecture Compliance Report
 
 **Last Audit Date:** 2026-06-10
-**Auditor:** Automated Code Intelligence (Antigravity AI)
+**Auditor:** Automated Code Intelligence (Antigravity AI - Original Review)
+**Lead Reviewer & Project Owner:** Jawahar R. Mallah (Founder & Chief Architect, AITDL)
 **Scope:** Full SMRITI Retail OS codebase inspection against `GEMINI.md` ARCHITECTURE DIRECTIVE + Deep Production-Readiness Audit.
 
 ---

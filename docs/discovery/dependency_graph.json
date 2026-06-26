@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-26T14:05:26Z",
-  "repository_commit": "04fd701b7ec92c2ca973533efbbb9f6c5889587d",
+  "generated_at": "2026-06-26T19:45:46Z",
+  "repository_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -2115,6 +2115,41 @@
         "id": "ART-API-00415",
         "type": "API",
         "label": "get_explain_payload"
+      },
+      {
+        "id": "ART-API-00619",
+        "type": "API",
+        "label": "get_doctype_list"
+      },
+      {
+        "id": "ART-API-00620",
+        "type": "API",
+        "label": "get_doctype_fields"
+      },
+      {
+        "id": "ART-API-00621",
+        "type": "API",
+        "label": "get_document_data"
+      },
+      {
+        "id": "ART-API-00622",
+        "type": "API",
+        "label": "search_fields"
+      },
+      {
+        "id": "ART-API-00623",
+        "type": "API",
+        "label": "get_doctype_tree"
+      },
+      {
+        "id": "ART-API-00624",
+        "type": "API",
+        "label": "resolve_label_preview"
+      },
+      {
+        "id": "ART-API-00625",
+        "type": "API",
+        "label": "get_field_id_registry"
       },
       {
         "id": "ART-API-00416",

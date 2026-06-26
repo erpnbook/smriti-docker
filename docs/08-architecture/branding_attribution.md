@@ -96,7 +96,7 @@ Every chapter in the SMRITI User Manuals must follow this structure:
 
 ## 7. AI Agent Compliance Policy
 
-All AI coding assistants (including Antigravity, Gemini, and future agents) generating documentation, in-app explanations, or code assets for SMRITI must adhere to the following directives:
+Any AI assistant or automated development tool generating documentation, in-app explanations, or code assets for SMRITI must adhere to the following directives:
 1. **No Inventing Claims**: AI agents shall not invent licensing claims, features, or warranties.
 2. **No Deleting Attribution**: AI agents shall not delete open-source attributions, company credits, or standard copyright notices.
 3. **No Unauthorized Branding**: AI agents must adhere to the official SMRITI Retail OS™ typography and branding rules, avoiding unauthorized styles or logo variations.

@@ -594,8 +594,7 @@ Ready For:
   ✓ 3-layer enforcement setup
 ```
 
-Governance directive for all AI coding agents (Antigravity, Gemini, Claude, Cursor,
-or any future agent touching UI configuration code):
+Governance directive for any AI assistant or automated development tool touching UI configuration code:
 
 ```
 UI configuration development MUST comply with

@@ -21,7 +21,9 @@ Reviewed By: "Jawahar R. Mallah"
 **Proposal ID:** ACP-UI-001  
 **Status:** APPROVED ✅  
 **Date:** 2026-06-18  
-**Author:** Antigravity AI  
+**Author:** Jawahar R. Mallah (Founder & Chief Architect, AITDL)
+**Maintainer:** AITDL
+**Implementation Assistance:** Automated AI development tools
 **Authority:** SMRITI Architecture Committee / PrathamOne  
 
 ---

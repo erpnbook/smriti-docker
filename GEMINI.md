@@ -289,7 +289,7 @@ in smriti_retail_os/boot.py. Never remove existing entries.
 
 ### Permanent AI Agent Rule
 
-For AI agents (Antigravity, Gemini, or any future agent) working on SMRITI:
+For any AI assistant or automated development tool working on SMRITI:
 
   Before using any Frappe/ERPNext page, DocType form, list view, or URL:
   STOP. Check if a SMRITI equivalent exists.

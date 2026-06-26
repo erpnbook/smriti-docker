@@ -481,9 +481,9 @@ Each dimension is scored 1–10 using the following scale:
 
 ---
 
-*Audit prepared by: Antigravity Agent — Architecture Review Layer*  
+*Audit prepared by: Antigravity Agent — Architecture Review Layer (Original Review)*  
+*Project Owner & Lead Architect: Jawahar R. Mallah, Founder & Chief Architect, AITDL*  
 *Based on: SMRITI source analysis, token adoption scan (`docs/audit/evidence/token_adoption_scan.txt`), benchmark source register (`docs/audit/evidence/benchmark_sources.md`), published design system research, 2025–2026 SaaS UX benchmarks*  
-*Author Attribution: Jawahar R. Mallah, Founder & Chief Architect, AITDL*
 
 
 ## Revision History

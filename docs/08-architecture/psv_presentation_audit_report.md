@@ -17,7 +17,8 @@ Reviewed By: "Jawahar R. Mallah"
 
 # PSV Presentation Audit Report
 **Audit Date**: 2026-06-24
-**Auditor**: AITDL (AI Agent — Antigravity)
+**Auditor**: AITDL (AI Agent — Antigravity - Original Review)
+**Project Owner**: Jawahar R. Mallah, Founder & Chief Architect, AITDL
 **Authority**: Jawahar R. Mallah, Founder & Chief Architect, AITDL
 **Scope**: `smriti_retail_os/www/smriti-presentation.html` — PSV & CGE slides
 

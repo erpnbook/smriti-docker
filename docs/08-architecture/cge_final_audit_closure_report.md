@@ -16,7 +16,9 @@ Reviewed By: "Jawahar R. Mallah"
 ---
 
 # SMRITI Customer Growth Engine (CGE) — Final Audit Closure Report
-**Author**: SMRITI Agent / Antigravity AI  
+**Author**: Jawahar R. Mallah (Founder & Chief Architect, AITDL)
+**Maintainer**: AITDL
+**Implementation Assistance**: Automated AI development tools
 **Status**: 🔒 Locked & Production Frozen  
 **Date**: 2026-06-19  
 
