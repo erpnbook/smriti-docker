@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "business_dictionary",
-  "generated_at": "2026-06-26T04:00:40Z",
-  "repository_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
+  "generated_at": "2026-06-26T04:19:43Z",
+  "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-GLOSSARY-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -22,8 +22,8 @@
       "term_id": "PSA",
       "term_name": "Party Stock Account",
       "term_category": "Distribution",
-      "definition": "Party Stock Account maintains the ledger balances and shadow accounting of stock held by channel partners.",
-      "hinglish_definition": "Distributors ya channel partners ke stock balances aur shadow ledger calculations ko track karne wala internal ledger master.",
+      "definition": "Party Stock Account maintains the ledger balances and visibility tracking of stock held by channel partners.",
+      "hinglish_definition": "Distributors ya channel partners ke stock balances aur Inventory Visibility Layer calculations ko track karne wala internal ledger master.",
       "term_aliases": [
         "PSA",
         "Stock Account",
@@ -39,7 +39,7 @@
       "faq": [
         {
           "q": "Does PSA replace ERPNext warehouses?",
-          "a": "No, it reads ERPNext master data but acts as an independent shadow ledger."
+          "a": "No, it reads ERPNext master data but acts as an independent Inventory Visibility Layer."
         }
       ],
       "common_mistakes": [
@@ -61,9 +61,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "PSV",
@@ -121,9 +121,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "PSA",
@@ -182,9 +182,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "WOC",
@@ -243,9 +243,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Sales Velocity",
@@ -302,9 +302,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "WOC"
@@ -361,9 +361,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "PDT",
@@ -420,9 +420,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "WOC"
@@ -478,9 +478,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Sales Velocity"
@@ -536,9 +536,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Physical Snapshot"
@@ -595,9 +595,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "WOC",
@@ -654,9 +654,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Stock Accuracy"
@@ -713,9 +713,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "PDT",
@@ -772,9 +772,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Stock Accuracy"
@@ -829,9 +829,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "PSA",
@@ -890,9 +890,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "PDT",
@@ -950,9 +950,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "WOC",
@@ -1009,9 +1009,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Inventory Turnover"
@@ -1068,9 +1068,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Sales Velocity",
@@ -1125,9 +1125,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "EMA"
@@ -1182,9 +1182,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "8ebc1b4987eacbd75b7f5557a56c100bc42a63a9",
-        "last_scan_timestamp": "2026-06-26T04:00:40Z",
-        "last_validated_timestamp": "2026-06-26T04:00:40Z"
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-26T04:19:43Z",
+        "last_validated_timestamp": "2026-06-26T04:19:43Z"
       },
       "related_assets": [
         "Stockout Risk",

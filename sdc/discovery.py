@@ -1061,6 +1061,70 @@ class Phase0Compiler(object):
                 
         return 100.0
 
+    def parse_formulas(self):
+        """Parses the default formulas seeded in seed_default_formulas.py using AST."""
+        seed_py = os.path.join(
+            self.repo_path, "apps", "smriti_retail_os", "smriti_retail_os", "patches", "seed_default_formulas.py"
+        )
+        if not os.path.exists(seed_py):
+            return []
+
+        try:
+            with io.open(seed_py, "r", encoding="utf-8") as f:
+                content = f.read()
+
+            tree = ast.parse(content)
+            
+            class FormulaVisitor(ast.NodeVisitor):
+                def __init__(self):
+                    self.formulas = []
+
+                def visit_Assign(self, node):
+                    for target in node.targets:
+                        if isinstance(target, ast.Name) and target.id == "formulas":
+                            if isinstance(node.value, ast.List):
+                                for element in node.value.elts:
+                                    if isinstance(element, ast.Dict):
+                                        formula_data = self.parse_dict(element)
+                                        if formula_data and "formula_id" in formula_data:
+                                            self.formulas.append(formula_data)
+                    self.generic_visit(node)
+
+                def parse_dict(self, dict_node):
+                    res = {}
+                    for k, v in zip(dict_node.keys, dict_node.values):
+                        k_val = self.get_value(k)
+                        if k_val:
+                            res[k_val] = self.parse_node(v)
+                    return res
+
+                def parse_node(self, node):
+                    if isinstance(node, ast.Dict):
+                        return self.parse_dict(node)
+                    elif isinstance(node, ast.List):
+                        return [self.parse_node(el) for el in node.elts]
+                    elif isinstance(node, ast.Constant):
+                        return node.value
+                    if hasattr(ast, "Str") and isinstance(node, ast.Str):
+                        return node.s
+                    if hasattr(ast, "Num") and isinstance(node, ast.Num):
+                        return node.n
+                    return None
+
+                def get_value(self, node):
+                    if isinstance(node, ast.Constant):
+                        return node.value
+                    if hasattr(ast, "Str") and isinstance(node, ast.Str):
+                        return node.s
+                    return None
+
+            visitor = FormulaVisitor()
+            visitor.visit(tree)
+            return visitor.formulas
+        except Exception as e:
+            SDCLogger.error(f"Failed to parse default formulas: {str(e)}")
+            return []
+
     def save_and_validate(self):
         """Writes canonical JSON files and runs the validation check."""
         out_dir = os.path.join(self.repo_path, "docs", "discovery")
@@ -1216,6 +1280,25 @@ class Phase0Compiler(object):
         SDCLogger.info(f"Wrote health status: {health_path}")
 
         # Print final Gate Verification
+        terms_count = len(self.business_dictionary_list)
+        formulas_count = len(self.parse_formulas())
+        is_gate_passed = (avg_coverage >= 92.0) and (broken_edges == 0)
+
+        print("\n" + "="*41)
+        print("      KNOWLEDGE COVERAGE GATE REPORT     ")
+        print("="*41)
+        print(f"Total Scanned Files: {len(self.file_list)}")
+        print(f"Total Discovered Terms: {terms_count}")
+        print(f"Total Discovered Formulas: {formulas_count}")
+        print(f"Knowledge Coverage Score: {avg_coverage:.2f}%")
+        print(f"Broken References: {broken_edges}")
+        print("-"*41)
+        print(f"STATUS: {'PASS' if is_gate_passed else 'BUILD FAILED'}")
+        print("="*41 + "\n")
+
+        if not is_gate_passed:
+            sdc_exit("SDC401", "Knowledge Coverage Gate failed: Coverage < 92.0% or Broken References > 0.")
+
         print(json.dumps({
             "PHASE_0_COMPLETE": True,
             "METRICS": {
@@ -1223,7 +1306,8 @@ class Phase0Compiler(object):
                 "doctypes_discovered": len(self.doctype_list),
                 "fields_discovered": len(self.field_list),
                 "apis_discovered": len(self.api_list),
-                "glossary_terms_discovered": len(self.business_dictionary_list),
+                "glossary_terms_discovered": terms_count,
+                "formulas_discovered": formulas_count,
                 "screens_discovered": len(self.screen_list),
                 "edges_compiled": len(self.edges)
             },
