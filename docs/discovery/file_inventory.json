@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T20:47:56Z",
-  "repository_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+  "generated_at": "2026-06-27T20:57:49Z",
+  "repository_commit": "ea1542cb86f8606680679950876337081a96ec17",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -152,9 +152,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/hooks.py",
-      "sha256": "fc8598ccaddb84ae80d478d3c7b095d9decc27320bf9e85af927e6790b17cd22",
-      "size_bytes": 32837,
-      "modified_date": "2026-06-27T21:50:09Z"
+      "sha256": "8ff5c5989b540693956a1d812b59b4c1b522e8340ec56808cbc7f438d6b28ed8",
+      "size_bytes": 33029,
+      "modified_date": "2026-06-28T02:20:33Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/hooks_logic.py",
@@ -3073,6 +3073,66 @@
       "modified_date": "2026-06-25T05:27:51Z"
     },
     {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_credential/smriti_uie_credential.json",
+      "sha256": "089cdcf8f50ae248cd00bffbfd87ba8b52755310b0e3a91714edd7e6a71577b5",
+      "size_bytes": 1676,
+      "modified_date": "2026-06-28T02:18:43Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_credential/smriti_uie_credential.py",
+      "sha256": "20e347b278e6a1ca2e48c8c53e2bbcd91a6f50b70267380359b3f21b9ca7d69b",
+      "size_bytes": 247,
+      "modified_date": "2026-06-28T02:18:49Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_endpoint/smriti_uie_endpoint.json",
+      "sha256": "a7378a411cc272e09c440ed38f6b28fddc01ab800550bc7bc61e76ee02811872",
+      "size_bytes": 1763,
+      "modified_date": "2026-06-28T02:18:35Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_endpoint/smriti_uie_endpoint.py",
+      "sha256": "c44eeef09083f341956a56507a3b3e967e9edce80a2886b432b3e72fb3f1c13a",
+      "size_bytes": 245,
+      "modified_date": "2026-06-28T02:18:39Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_integration/smriti_uie_integration.json",
+      "sha256": "24a83d491c545a5d09ee7f23ab65453bc4a9f4da4cd9dae46f11142e9fc1a440",
+      "size_bytes": 2578,
+      "modified_date": "2026-06-28T02:18:26Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_integration/smriti_uie_integration.py",
+      "sha256": "1880d7a19880f94c3c597f3f147634a7edd2fde2e64f69ad693432c0f46e87e8",
+      "size_bytes": 248,
+      "modified_date": "2026-06-28T02:18:30Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_sync_log/smriti_uie_sync_log.json",
+      "sha256": "724d526b36b30155f89c5b9e62e8a045f671ecc2d7546ea358a57161411deb19",
+      "size_bytes": 1707,
+      "modified_date": "2026-06-28T02:19:01Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_sync_log/smriti_uie_sync_log.py",
+      "sha256": "3e1f39476905db369569f1a1279414ba8c89663b9289113c26e9e4f2ab7d6345",
+      "size_bytes": 244,
+      "modified_date": "2026-06-28T02:19:05Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_sync_queue/smriti_uie_sync_queue.json",
+      "sha256": "349c4d091a7fd93d2e6e7b4d959e682b6f849fbdd2e843bcf81f11df0fe6972f",
+      "size_bytes": 2744,
+      "modified_date": "2026-06-28T02:18:53Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_uie_sync_queue/smriti_uie_sync_queue.py",
+      "sha256": "3a30d5951dc8992d7fc28d4d1f23b1f4d53a46a8b510697c78c821baa37e6c5e",
+      "size_bytes": 246,
+      "modified_date": "2026-06-28T02:18:57Z"
+    },
+    {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_upper_material/smriti_upper_material.js",
       "sha256": "37828579730ee4ed675ed68f1e76208db896fb662c0e96c0a57f09d2d6ac3c7b",
       "size_bytes": 511,
@@ -3883,6 +3943,30 @@
       "modified_date": "2026-06-28T02:07:12Z"
     },
     {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/uie/services/dispatcher.py",
+      "sha256": "e6ac2fd41f006f6c4f690a91d0f3235eae02740ae1f8320964b16393acef37d3",
+      "size_bytes": 3872,
+      "modified_date": "2026-06-28T02:20:26Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/uie/services/payload_builder.py",
+      "sha256": "82f3ffacbbdea2f51cbc862516d967bcb5b3ca1e0c6a2fa6fb4ecfcff41c85bc",
+      "size_bytes": 1559,
+      "modified_date": "2026-06-28T02:19:41Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/uie/services/sdk/base_adapter.py",
+      "sha256": "df18ae16a60cb86a996d4c080b201b6b7e75f2ba01fb9bea4123e871382b39a9",
+      "size_bytes": 848,
+      "modified_date": "2026-06-28T02:19:26Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/uie/services/sdk/rest_adapter.py",
+      "sha256": "5071b117d3674273c56d33bdd0cb77b86c91370344d2c05623c43e030d96acaa",
+      "size_bytes": 2217,
+      "modified_date": "2026-06-28T02:19:36Z"
+    },
+    {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/status/provider.py",
       "sha256": "6c627a5699c13f990a03ec53f4c19d0c2694b2079dd8771ca1e1a4e26ab0e036",
       "size_bytes": 1803,
@@ -4277,6 +4361,12 @@
       "sha256": "f4a619fae8c0bf4bbf94419a0aba5e8b52d030c055a8db74b9842bab33797cf0",
       "size_bytes": 17306,
       "modified_date": "2026-06-27T18:42:25Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_uie.py",
+      "sha256": "15da6a985277dc46a243f490469f70d71ee906728ed4af67925213de7039c8cd",
+      "size_bytes": 3030,
+      "modified_date": "2026-06-28T02:20:38Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/utils/ensure_doctype_schema.py",

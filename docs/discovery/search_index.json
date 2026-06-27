@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-27T20:47:56Z",
-  "repository_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+  "generated_at": "2026-06-27T20:57:49Z",
+  "repository_commit": "ea1542cb86f8606680679950876337081a96ec17",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
@@ -820,6 +820,11 @@
       "ART-DOCTYPE-00091",
       "ART-DOCTYPE-00092",
       "ART-DOCTYPE-00093",
+      "ART-DOCTYPE-00670",
+      "ART-DOCTYPE-00671",
+      "ART-DOCTYPE-00672",
+      "ART-DOCTYPE-00673",
+      "ART-DOCTYPE-00674",
       "ART-DOCTYPE-00094",
       "ART-DOCTYPE-00095",
       "ART-DOCTYPE-00096",
@@ -1652,7 +1657,8 @@
       "ART-DOCTYPE-00069",
       "ART-DOCTYPE-00070",
       "ART-DOCTYPE-00082",
-      "ART-DOCTYPE-00661"
+      "ART-DOCTYPE-00661",
+      "ART-DOCTYPE-00673"
     ],
     "smriti attribution event": [
       "ART-DOCTYPE-00008"
@@ -2136,7 +2142,9 @@
       "ART-DOCTYPE-00661"
     ],
     "sync": [
-      "ART-DOCTYPE-00661"
+      "ART-DOCTYPE-00661",
+      "ART-DOCTYPE-00673",
+      "ART-DOCTYPE-00674"
     ],
     "smriti telemetry event definition": [
       "ART-DOCTYPE-00659"
@@ -2167,6 +2175,40 @@
     ],
     "smriti trial settings": [
       "ART-DOCTYPE-00093"
+    ],
+    "smriti uie credential": [
+      "ART-DOCTYPE-00670"
+    ],
+    "uie": [
+      "ART-DOCTYPE-00670",
+      "ART-DOCTYPE-00671",
+      "ART-DOCTYPE-00672",
+      "ART-DOCTYPE-00673",
+      "ART-DOCTYPE-00674"
+    ],
+    "credential": [
+      "ART-DOCTYPE-00670"
+    ],
+    "smriti uie endpoint": [
+      "ART-DOCTYPE-00671"
+    ],
+    "endpoint": [
+      "ART-DOCTYPE-00671"
+    ],
+    "smriti uie integration": [
+      "ART-DOCTYPE-00672"
+    ],
+    "integration": [
+      "ART-DOCTYPE-00672"
+    ],
+    "smriti uie sync log": [
+      "ART-DOCTYPE-00673"
+    ],
+    "smriti uie sync queue": [
+      "ART-DOCTYPE-00674"
+    ],
+    "queue": [
+      "ART-DOCTYPE-00674"
     ],
     "smriti upper material": [
       "ART-DOCTYPE-00094"

@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-27T20:47:56Z",
-  "repository_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+  "generated_at": "2026-06-27T20:57:49Z",
+  "repository_commit": "ea1542cb86f8606680679950876337081a96ec17",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -515,6 +515,31 @@
         "id": "ART-DOCTYPE-00093",
         "type": "DOCTYPE",
         "label": "SMRITI Trial Settings"
+      },
+      {
+        "id": "ART-DOCTYPE-00670",
+        "type": "DOCTYPE",
+        "label": "SMRITI UIE Credential"
+      },
+      {
+        "id": "ART-DOCTYPE-00671",
+        "type": "DOCTYPE",
+        "label": "SMRITI UIE Endpoint"
+      },
+      {
+        "id": "ART-DOCTYPE-00672",
+        "type": "DOCTYPE",
+        "label": "SMRITI UIE Integration"
+      },
+      {
+        "id": "ART-DOCTYPE-00673",
+        "type": "DOCTYPE",
+        "label": "SMRITI UIE Sync Log"
+      },
+      {
+        "id": "ART-DOCTYPE-00674",
+        "type": "DOCTYPE",
+        "label": "SMRITI UIE Sync Queue"
       },
       {
         "id": "ART-DOCTYPE-00094",

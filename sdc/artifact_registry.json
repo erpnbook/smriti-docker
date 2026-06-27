@@ -1,5 +1,5 @@
 {
-  "lease_count": 669,
+  "lease_count": 674,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4683,6 +4683,41 @@
       "type": "api",
       "status": "ACTIVE",
       "leased_at": "2026-06-28 01:46:38"
+    },
+    "doctype:SMRITI UIE Credential": {
+      "id": "ART-DOCTYPE-00670",
+      "name": "SMRITI UIE Credential",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 02:27:49"
+    },
+    "doctype:SMRITI UIE Endpoint": {
+      "id": "ART-DOCTYPE-00671",
+      "name": "SMRITI UIE Endpoint",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 02:27:49"
+    },
+    "doctype:SMRITI UIE Integration": {
+      "id": "ART-DOCTYPE-00672",
+      "name": "SMRITI UIE Integration",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 02:27:49"
+    },
+    "doctype:SMRITI UIE Sync Log": {
+      "id": "ART-DOCTYPE-00673",
+      "name": "SMRITI UIE Sync Log",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 02:27:49"
+    },
+    "doctype:SMRITI UIE Sync Queue": {
+      "id": "ART-DOCTYPE-00674",
+      "name": "SMRITI UIE Sync Queue",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 02:27:49"
     }
   }
 }

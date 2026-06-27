@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "collections_inventory",
-  "generated_at": "2026-06-27T20:47:56Z",
-  "repository_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+  "generated_at": "2026-06-27T20:57:49Z",
+  "repository_commit": "ea1542cb86f8606680679950876337081a96ec17",
   "provenance": {
     "artifact_id": "ART-COLLECTIONS-INV-00001",
     "produced_by": "Phase0_Discovery",
