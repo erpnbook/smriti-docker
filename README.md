@@ -43,7 +43,7 @@ SMRITI Retail OS is a **Retail Experience and Intelligence Layer** built on top 
 | **Inventory** | GRN, stock transfer, stock audit, reorder alerts |
 | **Purchase** | Purchase orders, supplier management, landed cost |
 | **Analytics** | Sales velocity, weeks of cover, outlet health, dead stock |
-| **Channel (PSV)** | Party Stock Visibility — distributor stock via shadow ledger |
+| **Channel (PSV)** | Party Stock Visibility — distributor stock tracking via channel ledger |
 | **Formula Registry** | Central KPI registry with ⓘ Explain on every metric |
 | **POS Profiles** | Create, clone, archive profiles with shift-lock protection |
 | **Trial CRM** | Lead capture, trial activation, platform admin |
