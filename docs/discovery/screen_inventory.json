@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "screen_inventory",
-  "generated_at": "2026-06-27T14:48:54Z",
-  "repository_commit": "1699de893bc440c8aec632d399e255e1574ae106",
+  "generated_at": "2026-06-27T14:53:26Z",
+  "repository_commit": "82ebcf2076fb344d6c22f44d1eeb2dfa203002de",
   "provenance": {
     "artifact_id": "ART-SCREEN-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -104,9 +104,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "1699de893bc440c8aec632d399e255e1574ae106",
-        "last_scan_timestamp": "2026-06-27T14:48:54Z",
-        "last_validated_timestamp": "2026-06-27T14:48:54Z"
+        "last_scanned_commit": "82ebcf2076fb344d6c22f44d1eeb2dfa203002de",
+        "last_scan_timestamp": "2026-06-27T14:53:26Z",
+        "last_validated_timestamp": "2026-06-27T14:53:26Z"
       },
       "related_assets": [],
       "evidence": {
@@ -179,9 +179,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "1699de893bc440c8aec632d399e255e1574ae106",
-        "last_scan_timestamp": "2026-06-27T14:48:54Z",
-        "last_validated_timestamp": "2026-06-27T14:48:54Z"
+        "last_scanned_commit": "82ebcf2076fb344d6c22f44d1eeb2dfa203002de",
+        "last_scan_timestamp": "2026-06-27T14:53:26Z",
+        "last_validated_timestamp": "2026-06-27T14:53:26Z"
       },
       "related_assets": [],
       "evidence": {
@@ -232,9 +232,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "1699de893bc440c8aec632d399e255e1574ae106",
-        "last_scan_timestamp": "2026-06-27T14:48:54Z",
-        "last_validated_timestamp": "2026-06-27T14:48:54Z"
+        "last_scanned_commit": "82ebcf2076fb344d6c22f44d1eeb2dfa203002de",
+        "last_scan_timestamp": "2026-06-27T14:53:26Z",
+        "last_validated_timestamp": "2026-06-27T14:53:26Z"
       },
       "related_assets": [],
       "evidence": {
@@ -287,9 +287,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "1699de893bc440c8aec632d399e255e1574ae106",
-        "last_scan_timestamp": "2026-06-27T14:48:54Z",
-        "last_validated_timestamp": "2026-06-27T14:48:54Z"
+        "last_scanned_commit": "82ebcf2076fb344d6c22f44d1eeb2dfa203002de",
+        "last_scan_timestamp": "2026-06-27T14:53:26Z",
+        "last_validated_timestamp": "2026-06-27T14:53:26Z"
       },
       "related_assets": [],
       "evidence": {
