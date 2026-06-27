@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T22:02:06Z",
-  "repository_commit": "e78729a671c8942356bddfff89f836668305c193",
+  "generated_at": "2026-06-27T22:09:58Z",
+  "repository_commit": "4109417647e5f436339534e077917971a7a2e762",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -5161,18 +5161,6 @@
       "modified_date": "2026-06-27T21:59:02Z"
     },
     {
-      "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-tally.html",
-      "sha256": "98f53094b3fd110587a51df74cde530622d37125809bab42d2d4df97c1144035",
-      "size_bytes": 34046,
-      "modified_date": "2026-06-28T01:46:02Z"
-    },
-    {
-      "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-tally.py",
-      "sha256": "ea07f19202593b4dde6fb051fb935ee477dfcf54c985462bd05e3d15f17d8640",
-      "size_bytes": 1278,
-      "modified_date": "2026-06-27T23:17:15Z"
-    },
-    {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-trial-leads.html",
       "sha256": "11d31b6cf62b716fba9531de18d03b4a150cfd22dae9383f414ff130f832b3cd",
       "size_bytes": 34471,
@@ -5195,6 +5183,18 @@
       "sha256": "84392a646e328f3d2d55d495d1e516614ec3c18d9c5cd1466cfc588f6340fa0c",
       "size_bytes": 719,
       "modified_date": "2026-06-24T22:38:22Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-uie.html",
+      "sha256": "b974c2889f61186313383c5050e01a2538e12edd25d21e760cfe5fe3cbb52387",
+      "size_bytes": 40594,
+      "modified_date": "2026-06-28T03:38:43Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-uie.py",
+      "sha256": "74b55157ac2b24d4029e51472751052ddcd25c4315bda72a94f1fd7300703bb9",
+      "size_bytes": 1112,
+      "modified_date": "2026-06-28T03:38:22Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti_support.html",
