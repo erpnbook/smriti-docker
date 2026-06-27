@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T23:06:51Z",
-  "repository_commit": "06daa51b5fcec21d729b2d634f1bc4b7332aa8be",
+  "generated_at": "2026-06-27T23:12:07Z",
+  "repository_commit": "d46222656a5c52fe8ece441070c0e611f49a76b4",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -1016,9 +1016,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/public/js/smriti_nav_config.js",
-      "sha256": "2d5564cf59724d1836d872497252e42ab7c5f2d3361016f96866e7169aa829e2",
-      "size_bytes": 24046,
-      "modified_date": "2026-06-27T23:17:27Z"
+      "sha256": "461361eae04050ff17d8cb94a2af10065d04b908842eac6d7267b78b91492508",
+      "size_bytes": 24095,
+      "modified_date": "2026-06-28T04:38:39Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/public/js/smriti_offline_store.js",
