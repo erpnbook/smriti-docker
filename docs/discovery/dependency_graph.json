@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-27T19:21:18Z",
-  "repository_commit": "b91c6e7468142f3e39ca8bf8b44001461a53fdc6",
+  "generated_at": "2026-06-27T19:39:14Z",
+  "repository_commit": "ff5733b5b0ae829b9c673994508bd55311561855",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -3377,6 +3377,11 @@
         "label": "Employee"
       },
       {
+        "id": "ART-DOCTYPE-00668",
+        "type": "DOCTYPE_VIRTUAL",
+        "label": "Purchase Invoice"
+      },
+      {
         "id": "ART-DOCTYPE-00606",
         "type": "DOCTYPE_VIRTUAL",
         "label": "File"
@@ -5936,6 +5941,16 @@
       {
         "source": "ART-API-00662",
         "target": "ART-DOCTYPE-00551",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00666",
+        "target": "ART-DOCTYPE-00602",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00666",
+        "target": "ART-DOCTYPE-00668",
         "relation": "USES"
       },
       {

@@ -1,5 +1,5 @@
 {
-  "lease_count": 667,
+  "lease_count": 668,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4669,6 +4669,13 @@
       "type": "api",
       "status": "ACTIVE",
       "leased_at": "2026-06-27 23:17:38"
+    },
+    "doctype:Purchase Invoice": {
+      "id": "ART-DOCTYPE-00668",
+      "name": "Purchase Invoice",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 01:09:17"
     }
   }
 }
