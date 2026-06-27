@@ -1,5 +1,5 @@
 {
-  "lease_count": 659,
+  "lease_count": 667,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4613,6 +4613,62 @@
       "type": "doctype",
       "status": "ACTIVE",
       "leased_at": "2026-06-27 22:37:20"
+    },
+    "doctype:SMRITI Tally Settings": {
+      "id": "ART-DOCTYPE-00660",
+      "name": "SMRITI Tally Settings",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:36"
+    },
+    "doctype:SMRITI Tally Sync Log": {
+      "id": "ART-DOCTYPE-00661",
+      "name": "SMRITI Tally Sync Log",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:36"
+    },
+    "api:smriti_retail_os.smriti_retail_os.api.tally_api.get_settings": {
+      "id": "ART-API-00662",
+      "name": "smriti_retail_os.smriti_retail_os.api.tally_api.get_settings",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:38"
+    },
+    "api:smriti_retail_os.smriti_retail_os.api.tally_api.save_settings": {
+      "id": "ART-API-00663",
+      "name": "smriti_retail_os.smriti_retail_os.api.tally_api.save_settings",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:38"
+    },
+    "api:smriti_retail_os.smriti_retail_os.api.tally_api.get_pending_vouchers": {
+      "id": "ART-API-00664",
+      "name": "smriti_retail_os.smriti_retail_os.api.tally_api.get_pending_vouchers",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:38"
+    },
+    "api:smriti_retail_os.smriti_retail_os.api.tally_api.export_bulk_xml": {
+      "id": "ART-API-00665",
+      "name": "smriti_retail_os.smriti_retail_os.api.tally_api.export_bulk_xml",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:38"
+    },
+    "api:smriti_retail_os.smriti_retail_os.api.tally_api.sync_to_tally": {
+      "id": "ART-API-00666",
+      "name": "smriti_retail_os.smriti_retail_os.api.tally_api.sync_to_tally",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:38"
+    },
+    "api:smriti_retail_os.smriti_retail_os.api.tally_api.get_sync_logs": {
+      "id": "ART-API-00667",
+      "name": "smriti_retail_os.smriti_retail_os.api.tally_api.get_sync_logs",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 23:17:38"
     }
   }
 }

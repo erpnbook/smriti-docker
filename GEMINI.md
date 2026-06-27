@@ -1083,4 +1083,27 @@ Import Layer Hardening
 ### Severity
 Critical
 
+
+---
+
+## Rule 14: Docker Execution Environment Restriction (LOCKED — 2026-06-27)
+
+### Policy Statement
+All Docker containers, docker-compose actions, database migrations (`bench migrate`), in-container test executions (`bench run-tests`), and runtime environments MUST be executed strictly within the testing directory:
+`F:\smriti_retail`
+
+The development directory:
+`D:\Smriti_Retail_OS`
+is strictly reserved for code development, editing, git staging/commit operations, and local SDC compilations (`python sdc/discovery.py`). NO Docker containers or active runtime environments shall be initialized or run from `D:\Smriti_Retail_OS`.
+
+### Verification Checklist for AI Agents
+Before executing any docker-compose or container commands, the AI agent MUST:
+1. Confirm that the current working directory (`Cwd`) is within `F:\smriti_retail`.
+2. Confirm that no active containers are left running under the development path `D:\Smriti_Retail_OS`.
+3. Synchronize code modifications from the development directory `D:\Smriti_Retail_OS` to the testing directory `F:\smriti_retail` using approved file sync scripts or `robocopy` commands before executing test suites.
+
+### Enforcement
+Failure to run containers from the correct testing directory path `F:\smriti_retail` is classified as a critical policy violation.
+
+
 

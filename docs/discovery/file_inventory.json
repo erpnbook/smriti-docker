@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T17:07:19Z",
-  "repository_commit": "00e72cf6251b21565baeb1c9af9b7447871a9e5f",
+  "generated_at": "2026-06-27T17:47:35Z",
+  "repository_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -1016,9 +1016,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/public/js/smriti_nav_config.js",
-      "sha256": "3dd459586794b18f4ee6bdcdab2910030ae0e281b9412e2885205fd44fd45383",
-      "size_bytes": 23779,
-      "modified_date": "2026-06-27T21:59:01Z"
+      "sha256": "2d5564cf59724d1836d872497252e42ab7c5f2d3361016f96866e7169aa829e2",
+      "size_bytes": 24046,
+      "modified_date": "2026-06-27T23:17:27Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/public/js/smriti_offline_store.js",
@@ -1595,6 +1595,12 @@
       "sha256": "9876a06d732801b1ac871836a0568b5d8484d643ef9df5dfc8668e7f9d2011a8",
       "size_bytes": 338,
       "modified_date": "2026-06-27T21:59:01Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/api/tally_api.py",
+      "sha256": "613de49dbd712f9258b51e018afcfcc513f059498b75685cbd1f5c0bea6261fa",
+      "size_bytes": 5534,
+      "modified_date": "2026-06-27T23:05:15Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/psv_channel_partner/psv_channel_partner.json",
@@ -2929,6 +2935,42 @@
       "modified_date": "2026-06-27T21:59:01Z"
     },
     {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_settings/smriti_tally_settings.json",
+      "sha256": "f240ab868d61966abf44cbd13b5eaed33303bb01b9c8346fd7caf72e63c1a06f",
+      "size_bytes": 2507,
+      "modified_date": "2026-06-27T23:04:46Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_settings/smriti_tally_settings.py",
+      "sha256": "924af3135ae29acb30e2253ddaeb1bfeb37f85d820c2658793170ebc307de86d",
+      "size_bytes": 244,
+      "modified_date": "2026-06-27T23:04:41Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_settings/__init__.py",
+      "sha256": "8b084a9f378124b2b1a51563bf3c22444eb7ff33692017da28b2136ae56987ed",
+      "size_bytes": 24,
+      "modified_date": "2026-06-27T23:04:36Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_sync_log/smriti_tally_sync_log.json",
+      "sha256": "a86becbdfeaf3da0a7fa2f67a3af2caaa6d0e2ec91e69ed08e31bacc5b7fa044",
+      "size_bytes": 1819,
+      "modified_date": "2026-06-27T23:04:59Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_sync_log/smriti_tally_sync_log.py",
+      "sha256": "ddc4eba40d9177fd835119b0ade9f8ad3f22f7e52b2aa61093d0eaa08d397229",
+      "size_bytes": 243,
+      "modified_date": "2026-06-27T23:04:55Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_sync_log/__init__.py",
+      "sha256": "8b084a9f378124b2b1a51563bf3c22444eb7ff33692017da28b2136ae56987ed",
+      "size_bytes": 24,
+      "modified_date": "2026-06-27T23:04:50Z"
+    },
+    {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_telemetry_event_definition/smriti_telemetry_event_definition.json",
       "sha256": "c55a445c2f5cc5a612967bccc718c2c88d42293ebd6344a8a0dd8a691bf10700",
       "size_bytes": 1363,
@@ -3791,6 +3833,12 @@
       "sha256": "e146c685fe07c1e416e3758261e27571531c68bcf61bda7dfff25b90f2e5cffc",
       "size_bytes": 2873,
       "modified_date": "2026-06-09T15:38:30Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/tally_service.py",
+      "sha256": "134cac84895e83dcd940058835600fb5769ef51bfef1b6601de41413f89838d5",
+      "size_bytes": 5993,
+      "modified_date": "2026-06-27T23:05:08Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/status/provider.py",
@@ -4973,6 +5021,18 @@
       "sha256": "4c242838b19afab3944c82a5efa6d8ffef85afde24eb9103ea2c9a5e649eb396",
       "size_bytes": 2146,
       "modified_date": "2026-06-27T21:59:02Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-tally.html",
+      "sha256": "be02ae13594654dca149b636243a42eb8a2e4b6a4ec7e617d713e5f764d86b5a",
+      "size_bytes": 27711,
+      "modified_date": "2026-06-27T23:05:38Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-tally.py",
+      "sha256": "ea07f19202593b4dde6fb051fb935ee477dfcf54c985462bd05e3d15f17d8640",
+      "size_bytes": 1278,
+      "modified_date": "2026-06-27T23:17:15Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-trial-leads.html",

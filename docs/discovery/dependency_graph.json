@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-27T17:07:19Z",
-  "repository_commit": "00e72cf6251b21565baeb1c9af9b7447871a9e5f",
+  "generated_at": "2026-06-27T17:47:35Z",
+  "repository_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -480,6 +480,16 @@
         "id": "ART-DOCTYPE-00089",
         "type": "DOCTYPE",
         "label": "SMRITI Sub Category"
+      },
+      {
+        "id": "ART-DOCTYPE-00660",
+        "type": "DOCTYPE",
+        "label": "SMRITI Tally Settings"
+      },
+      {
+        "id": "ART-DOCTYPE-00661",
+        "type": "DOCTYPE",
+        "label": "SMRITI Tally Sync Log"
       },
       {
         "id": "ART-DOCTYPE-00659",
@@ -2850,6 +2860,36 @@
         "id": "ART-API-00515",
         "type": "API",
         "label": "get_store_performance_center"
+      },
+      {
+        "id": "ART-API-00662",
+        "type": "API",
+        "label": "get_settings"
+      },
+      {
+        "id": "ART-API-00663",
+        "type": "API",
+        "label": "save_settings"
+      },
+      {
+        "id": "ART-API-00664",
+        "type": "API",
+        "label": "get_pending_vouchers"
+      },
+      {
+        "id": "ART-API-00665",
+        "type": "API",
+        "label": "export_bulk_xml"
+      },
+      {
+        "id": "ART-API-00666",
+        "type": "API",
+        "label": "sync_to_tally"
+      },
+      {
+        "id": "ART-API-00667",
+        "type": "API",
+        "label": "get_sync_logs"
       },
       {
         "id": "ART-API-00516",
@@ -5891,6 +5931,16 @@
       {
         "source": "ART-API-00515",
         "target": "ART-DOCTYPE-00084",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00662",
+        "target": "ART-DOCTYPE-00551",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00666",
+        "target": "ART-DOCTYPE-00661",
         "relation": "USES"
       },
       {

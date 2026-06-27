@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-27T17:07:19Z",
-  "repository_commit": "00e72cf6251b21565baeb1c9af9b7447871a9e5f",
+  "generated_at": "2026-06-27T17:47:35Z",
+  "repository_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
@@ -813,6 +813,8 @@
       "ART-DOCTYPE-00087",
       "ART-DOCTYPE-00088",
       "ART-DOCTYPE-00089",
+      "ART-DOCTYPE-00660",
+      "ART-DOCTYPE-00661",
       "ART-DOCTYPE-00659",
       "ART-DOCTYPE-00090",
       "ART-DOCTYPE-00091",
@@ -1567,6 +1569,7 @@
       "ART-DOCTYPE-00030",
       "ART-DOCTYPE-00074",
       "ART-DOCTYPE-00086",
+      "ART-DOCTYPE-00660",
       "ART-DOCTYPE-00093"
     ],
     "configured": [
@@ -1648,7 +1651,8 @@
       "ART-DOCTYPE-00050",
       "ART-DOCTYPE-00069",
       "ART-DOCTYPE-00070",
-      "ART-DOCTYPE-00082"
+      "ART-DOCTYPE-00082",
+      "ART-DOCTYPE-00661"
     ],
     "smriti attribution event": [
       "ART-DOCTYPE-00008"
@@ -2121,6 +2125,19 @@
     "smriti sub category": [
       "ART-DOCTYPE-00089"
     ],
+    "smriti tally settings": [
+      "ART-DOCTYPE-00660"
+    ],
+    "tally": [
+      "ART-DOCTYPE-00660",
+      "ART-DOCTYPE-00661"
+    ],
+    "smriti tally sync log": [
+      "ART-DOCTYPE-00661"
+    ],
+    "sync": [
+      "ART-DOCTYPE-00661"
+    ],
     "smriti telemetry event definition": [
       "ART-DOCTYPE-00659"
     ],
@@ -2187,13 +2204,15 @@
       "ART-API-00194"
     ],
     "get_settings": [
-      "ART-API-00194"
+      "ART-API-00194",
+      "ART-API-00662"
     ],
     "smriti_retail_os.backup_api.save_settings": [
       "ART-API-00195"
     ],
     "save_settings": [
-      "ART-API-00195"
+      "ART-API-00195",
+      "ART-API-00663"
     ],
     "smriti_retail_os.backup_api.get_backup_status": [
       "ART-API-00196"
@@ -4474,6 +4493,36 @@
     ],
     "get_store_performance_center": [
       "ART-API-00515"
+    ],
+    "smriti_retail_os.smriti_retail_os.api.tally_api.get_settings": [
+      "ART-API-00662"
+    ],
+    "smriti_retail_os.smriti_retail_os.api.tally_api.save_settings": [
+      "ART-API-00663"
+    ],
+    "smriti_retail_os.smriti_retail_os.api.tally_api.get_pending_vouchers": [
+      "ART-API-00664"
+    ],
+    "get_pending_vouchers": [
+      "ART-API-00664"
+    ],
+    "smriti_retail_os.smriti_retail_os.api.tally_api.export_bulk_xml": [
+      "ART-API-00665"
+    ],
+    "export_bulk_xml": [
+      "ART-API-00665"
+    ],
+    "smriti_retail_os.smriti_retail_os.api.tally_api.sync_to_tally": [
+      "ART-API-00666"
+    ],
+    "sync_to_tally": [
+      "ART-API-00666"
+    ],
+    "smriti_retail_os.smriti_retail_os.api.tally_api.get_sync_logs": [
+      "ART-API-00667"
+    ],
+    "get_sync_logs": [
+      "ART-API-00667"
     ],
     "smriti_retail_os.utils.opening_balance.parse_opening_excel": [
       "ART-API-00516"
