@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-26T19:45:46Z",
-  "repository_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
+  "generated_at": "2026-06-27T14:09:01Z",
+  "repository_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
@@ -153,6 +153,13 @@
     ],
     "sales": [
       "ART-TERM-00521",
+      "ART-FIELD-00627",
+      "ART-FIELD-00628",
+      "ART-FIELD-00629",
+      "ART-FIELD-00634",
+      "ART-FIELD-00637",
+      "ART-FIELD-00639",
+      "ART-FIELD-00641",
       "ART-DOCTYPE-00061",
       "ART-DOCTYPE-00062",
       "ART-DOCTYPE-00083",
@@ -475,6 +482,8 @@
     ],
     "business": [
       "ART-FIELD-00134",
+      "ART-FIELD-00633",
+      "ART-FIELD-00636",
       "ART-DOCTYPE-00019"
     ],
     "type": [
@@ -483,6 +492,151 @@
       "ART-FIELD-00191",
       "ART-DOCTYPE-00013",
       "ART-DOCTYPE-00044"
+    ],
+    "custom_discount_mode": [
+      "ART-FIELD-00626"
+    ],
+    "discount_mode": [
+      "ART-FIELD-00626"
+    ],
+    "discount mode": [
+      "ART-FIELD-00626"
+    ],
+    "discount": [
+      "ART-FIELD-00626",
+      "ART-FIELD-00630",
+      "ART-FIELD-00631",
+      "ART-FIELD-00632",
+      "ART-FIELD-00149",
+      "ART-FIELD-00635",
+      "ART-FIELD-00178",
+      "ART-FIELD-00190",
+      "ART-FIELD-00638",
+      "ART-FIELD-00640",
+      "ART-FIELD-00642"
+    ],
+    "mode": [
+      "ART-FIELD-00626"
+    ],
+    "custom_enable_bill_sales_person": [
+      "ART-FIELD-00627"
+    ],
+    "enable_bill_sales_person": [
+      "ART-FIELD-00627"
+    ],
+    "enable bill sales person": [
+      "ART-FIELD-00627"
+    ],
+    "enable": [
+      "ART-FIELD-00627",
+      "ART-FIELD-00628"
+    ],
+    "bill": [
+      "ART-FIELD-00627"
+    ],
+    "person": [
+      "ART-FIELD-00627",
+      "ART-FIELD-00628",
+      "ART-FIELD-00629",
+      "ART-FIELD-00634",
+      "ART-FIELD-00637",
+      "ART-FIELD-00639",
+      "ART-FIELD-00641"
+    ],
+    "custom_enable_item_sales_person": [
+      "ART-FIELD-00628"
+    ],
+    "enable_item_sales_person": [
+      "ART-FIELD-00628"
+    ],
+    "enable item sales person": [
+      "ART-FIELD-00628"
+    ],
+    "item": [
+      "ART-FIELD-00628",
+      "ART-FIELD-00629",
+      "ART-FIELD-00152",
+      "ART-DOCTYPE-00059",
+      "ART-DOCTYPE-00061",
+      "ART-DOCTYPE-00076",
+      "ART-SCREEN-ITEM_MASTER"
+    ],
+    "custom_allow_item_sales_person_override": [
+      "ART-FIELD-00629"
+    ],
+    "allow_item_sales_person_override": [
+      "ART-FIELD-00629"
+    ],
+    "allow item sales person override": [
+      "ART-FIELD-00629"
+    ],
+    "allow": [
+      "ART-FIELD-00629"
+    ],
+    "override": [
+      "ART-FIELD-00629",
+      "ART-FIELD-00165"
+    ],
+    "custom_mandatory_discount_reason": [
+      "ART-FIELD-00630"
+    ],
+    "mandatory_discount_reason": [
+      "ART-FIELD-00630"
+    ],
+    "mandatory discount reason": [
+      "ART-FIELD-00630"
+    ],
+    "mandatory": [
+      "ART-FIELD-00630"
+    ],
+    "reason": [
+      "ART-FIELD-00630",
+      "ART-FIELD-00635",
+      "ART-FIELD-00638",
+      "ART-FIELD-00640",
+      "ART-FIELD-00642"
+    ],
+    "custom_discount_approval_limit": [
+      "ART-FIELD-00631"
+    ],
+    "discount_approval_limit": [
+      "ART-FIELD-00631"
+    ],
+    "discount approval limit (%)": [
+      "ART-FIELD-00631"
+    ],
+    "approval": [
+      "ART-FIELD-00631"
+    ],
+    "limit": [
+      "ART-FIELD-00631"
+    ],
+    "(%)": [
+      "ART-FIELD-00631",
+      "ART-FIELD-00632",
+      "ART-FIELD-00151"
+    ],
+    "custom_max_offline_cashier_discount": [
+      "ART-FIELD-00632"
+    ],
+    "max_offline_cashier_discount": [
+      "ART-FIELD-00632"
+    ],
+    "max offline cashier discount (%)": [
+      "ART-FIELD-00632"
+    ],
+    "max": [
+      "ART-FIELD-00632",
+      "ART-FIELD-00175",
+      "ART-FIELD-00176",
+      "ART-FIELD-00177",
+      "ART-FIELD-00178"
+    ],
+    "offline": [
+      "ART-FIELD-00632"
+    ],
+    "cashier": [
+      "ART-FIELD-00632"
     ],
     "custom_print_profiles_json": [
       "ART-FIELD-00135"
@@ -763,6 +917,26 @@
       "ART-FIELD-00146",
       "ART-FIELD-00186"
     ],
+    "custom_business_display_number": [
+      "ART-FIELD-00633",
+      "ART-FIELD-00636"
+    ],
+    "business_display_number": [
+      "ART-FIELD-00633",
+      "ART-FIELD-00636"
+    ],
+    "business display number": [
+      "ART-FIELD-00633",
+      "ART-FIELD-00636"
+    ],
+    "display": [
+      "ART-FIELD-00633",
+      "ART-FIELD-00636"
+    ],
+    "number": [
+      "ART-FIELD-00633",
+      "ART-FIELD-00636"
+    ],
     "custom_wallet_deduction": [
       "ART-FIELD-00147",
       "ART-FIELD-00188"
@@ -828,10 +1002,41 @@
       "ART-DOCTYPE-00031",
       "ART-DOCTYPE-00032"
     ],
-    "discount": [
-      "ART-FIELD-00149",
-      "ART-FIELD-00178",
-      "ART-FIELD-00190"
+    "custom_sales_person": [
+      "ART-FIELD-00634",
+      "ART-FIELD-00637",
+      "ART-FIELD-00639",
+      "ART-FIELD-00641"
+    ],
+    "sales_person": [
+      "ART-FIELD-00634",
+      "ART-FIELD-00637",
+      "ART-FIELD-00639",
+      "ART-FIELD-00641"
+    ],
+    "sales person": [
+      "ART-FIELD-00634",
+      "ART-FIELD-00637",
+      "ART-FIELD-00639",
+      "ART-FIELD-00641"
+    ],
+    "custom_discount_reason": [
+      "ART-FIELD-00635",
+      "ART-FIELD-00638",
+      "ART-FIELD-00640",
+      "ART-FIELD-00642"
+    ],
+    "discount_reason": [
+      "ART-FIELD-00635",
+      "ART-FIELD-00638",
+      "ART-FIELD-00640",
+      "ART-FIELD-00642"
+    ],
+    "discount reason": [
+      "ART-FIELD-00635",
+      "ART-FIELD-00638",
+      "ART-FIELD-00640",
+      "ART-FIELD-00642"
     ],
     "custom_mrp": [
       "ART-FIELD-00150"
@@ -864,9 +1069,6 @@
     "gst": [
       "ART-FIELD-00151"
     ],
-    "(%)": [
-      "ART-FIELD-00151"
-    ],
     "custom_is_retail_item": [
       "ART-FIELD-00152"
     ],
@@ -875,13 +1077,6 @@
     ],
     "is retail item": [
       "ART-FIELD-00152"
-    ],
-    "item": [
-      "ART-FIELD-00152",
-      "ART-DOCTYPE-00059",
-      "ART-DOCTYPE-00061",
-      "ART-DOCTYPE-00076",
-      "ART-SCREEN-ITEM_MASTER"
     ],
     "custom_department": [
       "ART-FIELD-00153"
@@ -1087,9 +1282,6 @@
     "inclusive": [
       "ART-FIELD-00165"
     ],
-    "override": [
-      "ART-FIELD-00165"
-    ],
     "custom_birthday": [
       "ART-FIELD-00166"
     ],
@@ -1214,12 +1406,6 @@
     ],
     "max uses per customer": [
       "ART-FIELD-00175"
-    ],
-    "max": [
-      "ART-FIELD-00175",
-      "ART-FIELD-00176",
-      "ART-FIELD-00177",
-      "ART-FIELD-00178"
     ],
     "uses": [
       "ART-FIELD-00175",
@@ -4008,6 +4194,48 @@
     "get_lead_counts": [
       "ART-API-00481"
     ],
+    "smriti_retail_os.api.udne_api.preview_number": [
+      "ART-API-00643"
+    ],
+    "preview_number": [
+      "ART-API-00643"
+    ],
+    "smriti_retail_os.api.udne_api.save_rule": [
+      "ART-API-00644"
+    ],
+    "save_rule": [
+      "ART-API-00644"
+    ],
+    "smriti_retail_os.api.udne_api.get_rules": [
+      "ART-API-00645"
+    ],
+    "get_rules": [
+      "ART-API-00645"
+    ],
+    "smriti_retail_os.api.udne_api.get_reservations": [
+      "ART-API-00646"
+    ],
+    "get_reservations": [
+      "ART-API-00646"
+    ],
+    "smriti_retail_os.api.udne_api.scan_sequence_gaps": [
+      "ART-API-00647"
+    ],
+    "scan_sequence_gaps": [
+      "ART-API-00647"
+    ],
+    "smriti_retail_os.api.udne_api.explain_doc": [
+      "ART-API-00648"
+    ],
+    "explain_doc": [
+      "ART-API-00648"
+    ],
+    "smriti_retail_os.api.udne_api.get_dashboard_metrics": [
+      "ART-API-00649"
+    ],
+    "get_dashboard_metrics": [
+      "ART-API-00649"
+    ],
     "smriti_retail_os.api.__init__.get_item_stock": [
       "ART-API-00482"
     ],
@@ -4148,6 +4376,30 @@
     "log_explain_audit": [
       "ART-API-00505"
     ],
+    "smriti_retail_os.services.approval_service.validate_approval_override": [
+      "ART-API-00650"
+    ],
+    "validate_approval_override": [
+      "ART-API-00650"
+    ],
+    "smriti_retail_os.services.billing_summary_engine.calculate_billing_summary": [
+      "ART-API-00651"
+    ],
+    "calculate_billing_summary": [
+      "ART-API-00651"
+    ],
+    "smriti_retail_os.services.discount_service.validate_discount_limit": [
+      "ART-API-00652"
+    ],
+    "validate_discount_limit": [
+      "ART-API-00652"
+    ],
+    "smriti_retail_os.services.discount_service.get_company_discount_settings": [
+      "ART-API-00653"
+    ],
+    "get_company_discount_settings": [
+      "ART-API-00653"
+    ],
     "smriti_retail_os.services.formula_service.get_active_formulas": [
       "ART-API-00506"
     ],
@@ -4171,6 +4423,12 @@
     ],
     "search_assets": [
       "ART-API-00510"
+    ],
+    "smriti_retail_os.services.salesperson_service.get_active_salespersons": [
+      "ART-API-00654"
+    ],
+    "get_active_salespersons": [
+      "ART-API-00654"
     ],
     "smriti_retail_os.sfm.api.sfc_api.run_monthly_calculation": [
       "ART-API-00511"

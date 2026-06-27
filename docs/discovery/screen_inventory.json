@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "screen_inventory",
-  "generated_at": "2026-06-26T19:45:46Z",
-  "repository_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
+  "generated_at": "2026-06-27T14:09:01Z",
+  "repository_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
   "provenance": {
     "artifact_id": "ART-SCREEN-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -104,9 +104,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
-        "last_scan_timestamp": "2026-06-26T19:45:46Z",
-        "last_validated_timestamp": "2026-06-26T19:45:46Z"
+        "last_scanned_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
+        "last_scan_timestamp": "2026-06-27T14:09:01Z",
+        "last_validated_timestamp": "2026-06-27T14:09:01Z"
       },
       "related_assets": [],
       "evidence": {
@@ -124,10 +124,13 @@
       "fields": [
         "custom_sizewise_json",
         "custom_billing_session_id",
+        "custom_business_display_number",
         "custom_party_stock_account",
         "custom_wallet_deduction",
         "custom_loyalty_points_earned",
-        "custom_coupon_discount"
+        "custom_coupon_discount",
+        "custom_sales_person",
+        "custom_discount_reason"
       ],
       "apis": [
         "smriti_retail_os.billing_api.submit_bill",
@@ -176,9 +179,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
-        "last_scan_timestamp": "2026-06-26T19:45:46Z",
-        "last_validated_timestamp": "2026-06-26T19:45:46Z"
+        "last_scanned_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
+        "last_scan_timestamp": "2026-06-27T14:09:01Z",
+        "last_validated_timestamp": "2026-06-27T14:09:01Z"
       },
       "related_assets": [],
       "evidence": {
@@ -229,9 +232,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
-        "last_scan_timestamp": "2026-06-26T19:45:46Z",
-        "last_validated_timestamp": "2026-06-26T19:45:46Z"
+        "last_scanned_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
+        "last_scan_timestamp": "2026-06-27T14:09:01Z",
+        "last_validated_timestamp": "2026-06-27T14:09:01Z"
       },
       "related_assets": [],
       "evidence": {
@@ -284,9 +287,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
-        "last_scan_timestamp": "2026-06-26T19:45:46Z",
-        "last_validated_timestamp": "2026-06-26T19:45:46Z"
+        "last_scanned_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
+        "last_scan_timestamp": "2026-06-27T14:09:01Z",
+        "last_validated_timestamp": "2026-06-27T14:09:01Z"
       },
       "related_assets": [],
       "evidence": {

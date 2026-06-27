@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-26T19:45:46Z",
-  "repository_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
+  "generated_at": "2026-06-27T14:09:01Z",
+  "repository_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -527,6 +527,41 @@
         "label": "SMRITI Company Settings.custom_business_type"
       },
       {
+        "id": "ART-FIELD-00626",
+        "type": "FIELD",
+        "label": "SMRITI Company Settings.custom_discount_mode"
+      },
+      {
+        "id": "ART-FIELD-00627",
+        "type": "FIELD",
+        "label": "SMRITI Company Settings.custom_enable_bill_sales_person"
+      },
+      {
+        "id": "ART-FIELD-00628",
+        "type": "FIELD",
+        "label": "SMRITI Company Settings.custom_enable_item_sales_person"
+      },
+      {
+        "id": "ART-FIELD-00629",
+        "type": "FIELD",
+        "label": "SMRITI Company Settings.custom_allow_item_sales_person_override"
+      },
+      {
+        "id": "ART-FIELD-00630",
+        "type": "FIELD",
+        "label": "SMRITI Company Settings.custom_mandatory_discount_reason"
+      },
+      {
+        "id": "ART-FIELD-00631",
+        "type": "FIELD",
+        "label": "SMRITI Company Settings.custom_discount_approval_limit"
+      },
+      {
+        "id": "ART-FIELD-00632",
+        "type": "FIELD",
+        "label": "SMRITI Company Settings.custom_max_offline_cashier_discount"
+      },
+      {
         "id": "ART-FIELD-00135",
         "type": "FIELD",
         "label": "SMRITI Company Settings.custom_print_profiles_json"
@@ -587,6 +622,11 @@
         "label": "POS Invoice.custom_billing_session_id"
       },
       {
+        "id": "ART-FIELD-00633",
+        "type": "FIELD",
+        "label": "POS Invoice.custom_business_display_number"
+      },
+      {
         "id": "ART-FIELD-00147",
         "type": "FIELD",
         "label": "POS Invoice.custom_wallet_deduction"
@@ -600,6 +640,16 @@
         "id": "ART-FIELD-00149",
         "type": "FIELD",
         "label": "POS Invoice.custom_coupon_discount"
+      },
+      {
+        "id": "ART-FIELD-00634",
+        "type": "FIELD",
+        "label": "POS Invoice.custom_sales_person"
+      },
+      {
+        "id": "ART-FIELD-00635",
+        "type": "FIELD",
+        "label": "POS Invoice.custom_discount_reason"
       },
       {
         "id": "ART-FIELD-00150",
@@ -792,6 +842,11 @@
         "label": "Sales Invoice.custom_billing_session_id"
       },
       {
+        "id": "ART-FIELD-00636",
+        "type": "FIELD",
+        "label": "Sales Invoice.custom_business_display_number"
+      },
+      {
         "id": "ART-FIELD-00187",
         "type": "FIELD",
         "label": "Sales Invoice.custom_party_stock_account"
@@ -810,6 +865,36 @@
         "id": "ART-FIELD-00190",
         "type": "FIELD",
         "label": "Sales Invoice.custom_coupon_discount"
+      },
+      {
+        "id": "ART-FIELD-00637",
+        "type": "FIELD",
+        "label": "Sales Invoice.custom_sales_person"
+      },
+      {
+        "id": "ART-FIELD-00638",
+        "type": "FIELD",
+        "label": "Sales Invoice.custom_discount_reason"
+      },
+      {
+        "id": "ART-FIELD-00639",
+        "type": "FIELD",
+        "label": "Sales Invoice Item.custom_sales_person"
+      },
+      {
+        "id": "ART-FIELD-00640",
+        "type": "FIELD",
+        "label": "Sales Invoice Item.custom_discount_reason"
+      },
+      {
+        "id": "ART-FIELD-00641",
+        "type": "FIELD",
+        "label": "POS Invoice Item.custom_sales_person"
+      },
+      {
+        "id": "ART-FIELD-00642",
+        "type": "FIELD",
+        "label": "POS Invoice Item.custom_discount_reason"
       },
       {
         "id": "ART-FIELD-00191",
@@ -2527,6 +2612,41 @@
         "label": "get_lead_counts"
       },
       {
+        "id": "ART-API-00643",
+        "type": "API",
+        "label": "preview_number"
+      },
+      {
+        "id": "ART-API-00644",
+        "type": "API",
+        "label": "save_rule"
+      },
+      {
+        "id": "ART-API-00645",
+        "type": "API",
+        "label": "get_rules"
+      },
+      {
+        "id": "ART-API-00646",
+        "type": "API",
+        "label": "get_reservations"
+      },
+      {
+        "id": "ART-API-00647",
+        "type": "API",
+        "label": "scan_sequence_gaps"
+      },
+      {
+        "id": "ART-API-00648",
+        "type": "API",
+        "label": "explain_doc"
+      },
+      {
+        "id": "ART-API-00649",
+        "type": "API",
+        "label": "get_dashboard_metrics"
+      },
+      {
         "id": "ART-API-00482",
         "type": "API",
         "label": "get_item_stock"
@@ -2647,6 +2767,26 @@
         "label": "log_explain_audit"
       },
       {
+        "id": "ART-API-00650",
+        "type": "API",
+        "label": "validate_approval_override"
+      },
+      {
+        "id": "ART-API-00651",
+        "type": "API",
+        "label": "calculate_billing_summary"
+      },
+      {
+        "id": "ART-API-00652",
+        "type": "API",
+        "label": "validate_discount_limit"
+      },
+      {
+        "id": "ART-API-00653",
+        "type": "API",
+        "label": "get_company_discount_settings"
+      },
+      {
         "id": "ART-API-00506",
         "type": "API",
         "label": "get_active_formulas"
@@ -2670,6 +2810,11 @@
         "id": "ART-API-00510",
         "type": "API",
         "label": "search_assets"
+      },
+      {
+        "id": "ART-API-00654",
+        "type": "API",
+        "label": "get_active_salespersons"
       },
       {
         "id": "ART-API-00511",
@@ -2870,6 +3015,16 @@
         "id": "ART-DOCTYPE-00546",
         "type": "DOCTYPE_VIRTUAL",
         "label": "Sales Invoice"
+      },
+      {
+        "id": "ART-DOCTYPE-00655",
+        "type": "DOCTYPE_VIRTUAL",
+        "label": "Sales Invoice Item"
+      },
+      {
+        "id": "ART-DOCTYPE-00656",
+        "type": "DOCTYPE_VIRTUAL",
+        "label": "POS Invoice Item"
       },
       {
         "id": "ART-DOCTYPE-00547",
@@ -3162,6 +3317,16 @@
         "label": "SMRITI Trial Health Snapshot"
       },
       {
+        "id": "ART-DOCTYPE-00657",
+        "type": "DOCTYPE_VIRTUAL",
+        "label": "SMRITI Numbering Rule"
+      },
+      {
+        "id": "ART-DOCTYPE-00658",
+        "type": "DOCTYPE_VIRTUAL",
+        "label": "SMRITI Numbering Reserved Range"
+      },
+      {
         "id": "ART-DOCTYPE-00605",
         "type": "DOCTYPE_VIRTUAL",
         "label": "Employee"
@@ -3175,6 +3340,41 @@
     "edges": [
       {
         "source": "ART-FIELD-00134",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00626",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00627",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00628",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00629",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00630",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00631",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00632",
         "target": "ART-DOCTYPE-00030",
         "relation": "EXTENDS"
       },
@@ -3239,6 +3439,11 @@
         "relation": "EXTENDS"
       },
       {
+        "source": "ART-FIELD-00633",
+        "target": "ART-DOCTYPE-00539",
+        "relation": "EXTENDS"
+      },
+      {
         "source": "ART-FIELD-00147",
         "target": "ART-DOCTYPE-00539",
         "relation": "EXTENDS"
@@ -3250,6 +3455,16 @@
       },
       {
         "source": "ART-FIELD-00149",
+        "target": "ART-DOCTYPE-00539",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00634",
+        "target": "ART-DOCTYPE-00539",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00635",
         "target": "ART-DOCTYPE-00539",
         "relation": "EXTENDS"
       },
@@ -3444,6 +3659,11 @@
         "relation": "EXTENDS"
       },
       {
+        "source": "ART-FIELD-00636",
+        "target": "ART-DOCTYPE-00546",
+        "relation": "EXTENDS"
+      },
+      {
         "source": "ART-FIELD-00187",
         "target": "ART-DOCTYPE-00546",
         "relation": "EXTENDS"
@@ -3461,6 +3681,36 @@
       {
         "source": "ART-FIELD-00190",
         "target": "ART-DOCTYPE-00546",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00637",
+        "target": "ART-DOCTYPE-00546",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00638",
+        "target": "ART-DOCTYPE-00546",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00639",
+        "target": "ART-DOCTYPE-00655",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00640",
+        "target": "ART-DOCTYPE-00655",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00641",
+        "target": "ART-DOCTYPE-00656",
+        "relation": "EXTENDS"
+      },
+      {
+        "source": "ART-FIELD-00642",
+        "target": "ART-DOCTYPE-00656",
         "relation": "EXTENDS"
       },
       {
@@ -5414,6 +5664,21 @@
         "relation": "USES"
       },
       {
+        "source": "ART-API-00644",
+        "target": "ART-DOCTYPE-00657",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00645",
+        "target": "ART-DOCTYPE-00657",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00646",
+        "target": "ART-DOCTYPE-00658",
+        "relation": "USES"
+      },
+      {
         "source": "ART-API-00482",
         "target": "ART-DOCTYPE-00586",
         "relation": "USES"
@@ -5549,6 +5814,16 @@
         "relation": "USES"
       },
       {
+        "source": "ART-API-00653",
+        "target": "ART-DOCTYPE-00569",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00653",
+        "target": "ART-DOCTYPE-00030",
+        "relation": "USES"
+      },
+      {
         "source": "ART-API-00506",
         "target": "ART-DOCTYPE-00042",
         "relation": "USES"
@@ -5566,6 +5841,11 @@
       {
         "source": "ART-API-00510",
         "target": "ART-DOCTYPE-00046",
+        "relation": "USES"
+      },
+      {
+        "source": "ART-API-00654",
+        "target": "ART-DOCTYPE-00587",
         "relation": "USES"
       },
       {

@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "collections_inventory",
-  "generated_at": "2026-06-26T19:45:46Z",
-  "repository_commit": "b861c63f83b5ab09b47f985eba43408e6b66108a",
+  "generated_at": "2026-06-27T14:09:01Z",
+  "repository_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
   "provenance": {
     "artifact_id": "ART-COLLECTIONS-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -559,6 +559,11 @@
           "title": "POS Invoice.custom_billing_session_id"
         },
         {
+          "artifact_id": "ART-FIELD-00633",
+          "asset_type": "field",
+          "title": "POS Invoice.custom_business_display_number"
+        },
+        {
           "artifact_id": "ART-FIELD-00147",
           "asset_type": "field",
           "title": "POS Invoice.custom_wallet_deduction"
@@ -572,6 +577,16 @@
           "artifact_id": "ART-FIELD-00149",
           "asset_type": "field",
           "title": "POS Invoice.custom_coupon_discount"
+        },
+        {
+          "artifact_id": "ART-FIELD-00634",
+          "asset_type": "field",
+          "title": "POS Invoice.custom_sales_person"
+        },
+        {
+          "artifact_id": "ART-FIELD-00635",
+          "asset_type": "field",
+          "title": "POS Invoice.custom_discount_reason"
         },
         {
           "artifact_id": "ART-FIELD-00173",
@@ -614,6 +629,11 @@
           "title": "Sales Invoice.custom_billing_session_id"
         },
         {
+          "artifact_id": "ART-FIELD-00636",
+          "asset_type": "field",
+          "title": "Sales Invoice.custom_business_display_number"
+        },
+        {
           "artifact_id": "ART-FIELD-00187",
           "asset_type": "field",
           "title": "Sales Invoice.custom_party_stock_account"
@@ -632,6 +652,36 @@
           "artifact_id": "ART-FIELD-00190",
           "asset_type": "field",
           "title": "Sales Invoice.custom_coupon_discount"
+        },
+        {
+          "artifact_id": "ART-FIELD-00637",
+          "asset_type": "field",
+          "title": "Sales Invoice.custom_sales_person"
+        },
+        {
+          "artifact_id": "ART-FIELD-00638",
+          "asset_type": "field",
+          "title": "Sales Invoice.custom_discount_reason"
+        },
+        {
+          "artifact_id": "ART-FIELD-00639",
+          "asset_type": "field",
+          "title": "Sales Invoice Item.custom_sales_person"
+        },
+        {
+          "artifact_id": "ART-FIELD-00640",
+          "asset_type": "field",
+          "title": "Sales Invoice Item.custom_discount_reason"
+        },
+        {
+          "artifact_id": "ART-FIELD-00641",
+          "asset_type": "field",
+          "title": "POS Invoice Item.custom_sales_person"
+        },
+        {
+          "artifact_id": "ART-FIELD-00642",
+          "asset_type": "field",
+          "title": "POS Invoice Item.custom_discount_reason"
         },
         {
           "artifact_id": "ART-API-00208",
@@ -849,6 +899,11 @@
           "title": "save_coupon_campaign"
         },
         {
+          "artifact_id": "ART-API-00651",
+          "asset_type": "api",
+          "title": "calculate_billing_summary"
+        },
+        {
           "artifact_id": "ART-SCREEN-BILLING",
           "asset_type": "screen",
           "title": "POS Billing Center"
@@ -892,6 +947,16 @@
           "artifact_id": "ART-DOCTYPE-00089",
           "asset_type": "doctype",
           "title": "SMRITI Sub Category"
+        },
+        {
+          "artifact_id": "ART-FIELD-00628",
+          "asset_type": "field",
+          "title": "SMRITI Company Settings.custom_enable_item_sales_person"
+        },
+        {
+          "artifact_id": "ART-FIELD-00629",
+          "asset_type": "field",
+          "title": "SMRITI Company Settings.custom_allow_item_sales_person_override"
         },
         {
           "artifact_id": "ART-FIELD-00150",
@@ -962,6 +1027,26 @@
           "artifact_id": "ART-FIELD-00162",
           "asset_type": "field",
           "title": "Item.custom_style_code"
+        },
+        {
+          "artifact_id": "ART-FIELD-00639",
+          "asset_type": "field",
+          "title": "Sales Invoice Item.custom_sales_person"
+        },
+        {
+          "artifact_id": "ART-FIELD-00640",
+          "asset_type": "field",
+          "title": "Sales Invoice Item.custom_discount_reason"
+        },
+        {
+          "artifact_id": "ART-FIELD-00641",
+          "asset_type": "field",
+          "title": "POS Invoice Item.custom_sales_person"
+        },
+        {
+          "artifact_id": "ART-FIELD-00642",
+          "asset_type": "field",
+          "title": "POS Invoice Item.custom_discount_reason"
         },
         {
           "artifact_id": "ART-FIELD-00100",

@@ -1,5 +1,5 @@
 {
-  "lease_count": 625,
+  "lease_count": 658,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4375,6 +4375,237 @@
       "type": "api",
       "status": "ACTIVE",
       "leased_at": "2026-06-27 01:15:15"
+    },
+    "field:SMRITI Company Settings:custom_discount_mode": {
+      "id": "ART-FIELD-00626",
+      "name": "SMRITI Company Settings:custom_discount_mode",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:SMRITI Company Settings:custom_enable_bill_sales_person": {
+      "id": "ART-FIELD-00627",
+      "name": "SMRITI Company Settings:custom_enable_bill_sales_person",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:SMRITI Company Settings:custom_enable_item_sales_person": {
+      "id": "ART-FIELD-00628",
+      "name": "SMRITI Company Settings:custom_enable_item_sales_person",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:SMRITI Company Settings:custom_allow_item_sales_person_override": {
+      "id": "ART-FIELD-00629",
+      "name": "SMRITI Company Settings:custom_allow_item_sales_person_override",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:SMRITI Company Settings:custom_mandatory_discount_reason": {
+      "id": "ART-FIELD-00630",
+      "name": "SMRITI Company Settings:custom_mandatory_discount_reason",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:SMRITI Company Settings:custom_discount_approval_limit": {
+      "id": "ART-FIELD-00631",
+      "name": "SMRITI Company Settings:custom_discount_approval_limit",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:SMRITI Company Settings:custom_max_offline_cashier_discount": {
+      "id": "ART-FIELD-00632",
+      "name": "SMRITI Company Settings:custom_max_offline_cashier_discount",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:POS Invoice:custom_business_display_number": {
+      "id": "ART-FIELD-00633",
+      "name": "POS Invoice:custom_business_display_number",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:POS Invoice:custom_sales_person": {
+      "id": "ART-FIELD-00634",
+      "name": "POS Invoice:custom_sales_person",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:POS Invoice:custom_discount_reason": {
+      "id": "ART-FIELD-00635",
+      "name": "POS Invoice:custom_discount_reason",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:Sales Invoice:custom_business_display_number": {
+      "id": "ART-FIELD-00636",
+      "name": "Sales Invoice:custom_business_display_number",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:Sales Invoice:custom_sales_person": {
+      "id": "ART-FIELD-00637",
+      "name": "Sales Invoice:custom_sales_person",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:Sales Invoice:custom_discount_reason": {
+      "id": "ART-FIELD-00638",
+      "name": "Sales Invoice:custom_discount_reason",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:Sales Invoice Item:custom_sales_person": {
+      "id": "ART-FIELD-00639",
+      "name": "Sales Invoice Item:custom_sales_person",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:Sales Invoice Item:custom_discount_reason": {
+      "id": "ART-FIELD-00640",
+      "name": "Sales Invoice Item:custom_discount_reason",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:POS Invoice Item:custom_sales_person": {
+      "id": "ART-FIELD-00641",
+      "name": "POS Invoice Item:custom_sales_person",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "field:POS Invoice Item:custom_discount_reason": {
+      "id": "ART-FIELD-00642",
+      "name": "POS Invoice Item:custom_discount_reason",
+      "type": "field",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.api.udne_api.preview_number": {
+      "id": "ART-API-00643",
+      "name": "smriti_retail_os.api.udne_api.preview_number",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.api.udne_api.save_rule": {
+      "id": "ART-API-00644",
+      "name": "smriti_retail_os.api.udne_api.save_rule",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.api.udne_api.get_rules": {
+      "id": "ART-API-00645",
+      "name": "smriti_retail_os.api.udne_api.get_rules",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.api.udne_api.get_reservations": {
+      "id": "ART-API-00646",
+      "name": "smriti_retail_os.api.udne_api.get_reservations",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.api.udne_api.scan_sequence_gaps": {
+      "id": "ART-API-00647",
+      "name": "smriti_retail_os.api.udne_api.scan_sequence_gaps",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.api.udne_api.explain_doc": {
+      "id": "ART-API-00648",
+      "name": "smriti_retail_os.api.udne_api.explain_doc",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.api.udne_api.get_dashboard_metrics": {
+      "id": "ART-API-00649",
+      "name": "smriti_retail_os.api.udne_api.get_dashboard_metrics",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:10"
+    },
+    "api:smriti_retail_os.services.approval_service.validate_approval_override": {
+      "id": "ART-API-00650",
+      "name": "smriti_retail_os.services.approval_service.validate_approval_override",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "api:smriti_retail_os.services.billing_summary_engine.calculate_billing_summary": {
+      "id": "ART-API-00651",
+      "name": "smriti_retail_os.services.billing_summary_engine.calculate_billing_summary",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "api:smriti_retail_os.services.discount_service.validate_discount_limit": {
+      "id": "ART-API-00652",
+      "name": "smriti_retail_os.services.discount_service.validate_discount_limit",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "api:smriti_retail_os.services.discount_service.get_company_discount_settings": {
+      "id": "ART-API-00653",
+      "name": "smriti_retail_os.services.discount_service.get_company_discount_settings",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "api:smriti_retail_os.services.salesperson_service.get_active_salespersons": {
+      "id": "ART-API-00654",
+      "name": "smriti_retail_os.services.salesperson_service.get_active_salespersons",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "doctype:Sales Invoice Item": {
+      "id": "ART-DOCTYPE-00655",
+      "name": "Sales Invoice Item",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "doctype:POS Invoice Item": {
+      "id": "ART-DOCTYPE-00656",
+      "name": "POS Invoice Item",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "doctype:SMRITI Numbering Rule": {
+      "id": "ART-DOCTYPE-00657",
+      "name": "SMRITI Numbering Rule",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
+    },
+    "doctype:SMRITI Numbering Reserved Range": {
+      "id": "ART-DOCTYPE-00658",
+      "name": "SMRITI Numbering Reserved Range",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 19:38:11"
     }
   }
 }
