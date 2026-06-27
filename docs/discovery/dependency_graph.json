@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-27T21:45:24Z",
-  "repository_commit": "ffa1755c064f6c137da1c48d49ce5aa8b2f7e1ec",
+  "generated_at": "2026-06-27T22:02:06Z",
+  "repository_commit": "e78729a671c8942356bddfff89f836668305c193",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -3137,9 +3137,9 @@
         "label": "Item Group"
       },
       {
-        "id": "ART-DOCTYPE-00553",
+        "id": "ART-DOCTYPE-00573",
         "type": "DOCTYPE_VIRTUAL",
-        "label": "Item Attribute"
+        "label": "Item Variant Attribute"
       },
       {
         "id": "ART-DOCTYPE-00554",
@@ -3232,9 +3232,9 @@
         "label": "Item Supplier"
       },
       {
-        "id": "ART-DOCTYPE-00573",
+        "id": "ART-DOCTYPE-00553",
         "type": "DOCTYPE_VIRTUAL",
-        "label": "Item Variant Attribute"
+        "label": "Item Attribute"
       },
       {
         "id": "ART-DOCTYPE-00574",
@@ -3875,7 +3875,7 @@
       },
       {
         "source": "ART-API-00106",
-        "target": "ART-DOCTYPE-00553",
+        "target": "ART-DOCTYPE-00573",
         "relation": "USES"
       },
       {
