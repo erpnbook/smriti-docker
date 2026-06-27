@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "screen_inventory",
-  "generated_at": "2026-06-27T17:47:35Z",
-  "repository_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
+  "generated_at": "2026-06-27T19:19:07Z",
+  "repository_commit": "85b39e57b43e6d6298066009866e7f801399f693",
   "provenance": {
     "artifact_id": "ART-SCREEN-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -104,9 +104,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
-        "last_scan_timestamp": "2026-06-27T17:47:35Z",
-        "last_validated_timestamp": "2026-06-27T17:47:35Z"
+        "last_scanned_commit": "85b39e57b43e6d6298066009866e7f801399f693",
+        "last_scan_timestamp": "2026-06-27T19:19:07Z",
+        "last_validated_timestamp": "2026-06-27T19:19:07Z"
       },
       "related_assets": [],
       "evidence": {
@@ -145,7 +145,8 @@
         "smriti_retail_os.sizewise_invoice_api.get_sizewise_invoice",
         "smriti_retail_os.sizewise_invoice_api.list_sizewise_invoices",
         "smriti_retail_os.sizewise_invoice_api.cancel_sizewise_invoice",
-        "smriti_retail_os.cge.service.cge_service.validate_checkout_rules"
+        "smriti_retail_os.cge.service.cge_service.validate_checkout_rules",
+        "smriti_retail_os.smriti_retail_os.api.tally_api.sync_to_tally"
       ],
       "reports": [
         "Sales Register",
@@ -179,9 +180,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
-        "last_scan_timestamp": "2026-06-27T17:47:35Z",
-        "last_validated_timestamp": "2026-06-27T17:47:35Z"
+        "last_scanned_commit": "85b39e57b43e6d6298066009866e7f801399f693",
+        "last_scan_timestamp": "2026-06-27T19:19:07Z",
+        "last_validated_timestamp": "2026-06-27T19:19:07Z"
       },
       "related_assets": [],
       "evidence": {
@@ -232,9 +233,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
-        "last_scan_timestamp": "2026-06-27T17:47:35Z",
-        "last_validated_timestamp": "2026-06-27T17:47:35Z"
+        "last_scanned_commit": "85b39e57b43e6d6298066009866e7f801399f693",
+        "last_scan_timestamp": "2026-06-27T19:19:07Z",
+        "last_validated_timestamp": "2026-06-27T19:19:07Z"
       },
       "related_assets": [],
       "evidence": {
@@ -287,9 +288,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "2ccdeb4c89e8da8f08f951143ff08b6e3c4bc2f3",
-        "last_scan_timestamp": "2026-06-27T17:47:35Z",
-        "last_validated_timestamp": "2026-06-27T17:47:35Z"
+        "last_scanned_commit": "85b39e57b43e6d6298066009866e7f801399f693",
+        "last_scan_timestamp": "2026-06-27T19:19:07Z",
+        "last_validated_timestamp": "2026-06-27T19:19:07Z"
       },
       "related_assets": [],
       "evidence": {
