@@ -1,5 +1,5 @@
 {
-  "lease_count": 674,
+  "lease_count": 680,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4718,6 +4718,48 @@
       "type": "doctype",
       "status": "ACTIVE",
       "leased_at": "2026-06-28 02:27:49"
+    },
+    "doctype:SMRITI Navigation Assignment": {
+      "id": "ART-DOCTYPE-00675",
+      "name": "SMRITI Navigation Assignment",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 04:59:14"
+    },
+    "doctype:SMRITI Navigation Override": {
+      "id": "ART-DOCTYPE-00676",
+      "name": "SMRITI Navigation Override",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 04:59:14"
+    },
+    "doctype:SMRITI Navigation Permission": {
+      "id": "ART-DOCTYPE-00677",
+      "name": "SMRITI Navigation Permission",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 04:59:14"
+    },
+    "doctype:SMRITI Navigation Profile": {
+      "id": "ART-DOCTYPE-00678",
+      "name": "SMRITI Navigation Profile",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 04:59:14"
+    },
+    "doctype:SMRITI Navigation Profile Favorite": {
+      "id": "ART-DOCTYPE-00679",
+      "name": "SMRITI Navigation Profile Favorite",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 04:59:14"
+    },
+    "doctype:SMRITI Navigation Profile Order": {
+      "id": "ART-DOCTYPE-00680",
+      "name": "SMRITI Navigation Profile Order",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 04:59:14"
     }
   }
 }

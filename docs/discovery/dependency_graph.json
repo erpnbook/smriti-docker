@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-27T23:12:07Z",
-  "repository_commit": "d46222656a5c52fe8ece441070c0e611f49a76b4",
+  "generated_at": "2026-06-27T23:29:13Z",
+  "repository_commit": "43ea253a377f502e17d3006e1b2f6b179a785fa4",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -320,6 +320,36 @@
         "id": "ART-DOCTYPE-00057",
         "type": "DOCTYPE",
         "label": "SMRITI Merchandise Category"
+      },
+      {
+        "id": "ART-DOCTYPE-00675",
+        "type": "DOCTYPE",
+        "label": "SMRITI Navigation Assignment"
+      },
+      {
+        "id": "ART-DOCTYPE-00676",
+        "type": "DOCTYPE",
+        "label": "SMRITI Navigation Override"
+      },
+      {
+        "id": "ART-DOCTYPE-00677",
+        "type": "DOCTYPE",
+        "label": "SMRITI Navigation Permission"
+      },
+      {
+        "id": "ART-DOCTYPE-00678",
+        "type": "DOCTYPE",
+        "label": "SMRITI Navigation Profile"
+      },
+      {
+        "id": "ART-DOCTYPE-00679",
+        "type": "DOCTYPE",
+        "label": "SMRITI Navigation Profile Favorite"
+      },
+      {
+        "id": "ART-DOCTYPE-00680",
+        "type": "DOCTYPE",
+        "label": "SMRITI Navigation Profile Order"
       },
       {
         "id": "ART-DOCTYPE-00058",
