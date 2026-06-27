@@ -1,5 +1,5 @@
 {
-  "lease_count": 668,
+  "lease_count": 669,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4676,6 +4676,13 @@
       "type": "doctype",
       "status": "ACTIVE",
       "leased_at": "2026-06-28 01:09:17"
+    },
+    "api:smriti_retail_os.smriti_retail_os.api.tally_api.compare_sync_status": {
+      "id": "ART-API-00669",
+      "name": "smriti_retail_os.smriti_retail_os.api.tally_api.compare_sync_status",
+      "type": "api",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-28 01:46:38"
     }
   }
 }

@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T20:06:31Z",
-  "repository_commit": "a7757a85842c946946c94dc49075eb8fc3f8e191",
+  "generated_at": "2026-06-27T20:16:36Z",
+  "repository_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -40,7 +40,7 @@
       "file_path": "apps/smriti_retail_os/scripts/color_baseline.json",
       "sha256": "9250f1d2e09225c1371ad8f65fec48e32e2eabd464e9e918d97812287969c822",
       "size_bytes": 7467,
-      "modified_date": "2026-06-28T01:36:22Z"
+      "modified_date": "2026-06-28T01:46:09Z"
     },
     {
       "file_path": "apps/smriti_retail_os/scripts/fix_boilerplate_headers.py",
@@ -1598,9 +1598,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/api/tally_api.py",
-      "sha256": "1ebc3db6fbf692693c8c65e535e2eb2e8c0b20045e97a5ea372f6866356bf992",
-      "size_bytes": 10312,
-      "modified_date": "2026-06-28T01:34:56Z"
+      "sha256": "29a426cdbe4676f165e153475c5edcd5cf8474f864758e422ceaf2ed9f126708",
+      "size_bytes": 11346,
+      "modified_date": "2026-06-28T01:44:53Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/psv_channel_partner/psv_channel_partner.json",
@@ -3836,9 +3836,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/tally_service.py",
-      "sha256": "b4455df9559905e96189fd63aa6a7af0b6489416944a0638929ab284d3c4b749",
-      "size_bytes": 11640,
-      "modified_date": "2026-06-28T01:35:30Z"
+      "sha256": "a8bf0b42832593107ca3a0355992a59954f353d739704615cb70e7e310324888",
+      "size_bytes": 12053,
+      "modified_date": "2026-06-28T01:44:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/status/provider.py",
@@ -5030,9 +5030,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-tally.html",
-      "sha256": "e1c640e324ee4f3f57de194e082586467dc6fe23eb30bcb5942d3fb7f8044293",
-      "size_bytes": 31835,
-      "modified_date": "2026-06-28T01:35:45Z"
+      "sha256": "98f53094b3fd110587a51df74cde530622d37125809bab42d2d4df97c1144035",
+      "size_bytes": 34046,
+      "modified_date": "2026-06-28T01:46:02Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/www/smriti-tally.py",
