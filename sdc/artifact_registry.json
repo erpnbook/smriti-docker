@@ -1,5 +1,5 @@
 {
-  "lease_count": 658,
+  "lease_count": 659,
   "artifacts": {
     "doctype:PSV Channel Partner": {
       "id": "ART-DOCTYPE-00001",
@@ -4606,6 +4606,13 @@
       "type": "doctype",
       "status": "ACTIVE",
       "leased_at": "2026-06-27 19:38:11"
+    },
+    "doctype:SMRITI Telemetry Event Definition": {
+      "id": "ART-DOCTYPE-00659",
+      "name": "SMRITI Telemetry Event Definition",
+      "type": "doctype",
+      "status": "ACTIVE",
+      "leased_at": "2026-06-27 22:37:20"
     }
   }
 }

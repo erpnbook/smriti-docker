@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-27T16:55:19Z",
-  "repository_commit": "UNKNOWN_COMMIT",
+  "generated_at": "2026-06-27T17:07:19Z",
+  "repository_commit": "00e72cf6251b21565baeb1c9af9b7447871a9e5f",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
     "produced_by": "Phase0_Discovery",
@@ -813,6 +813,7 @@
       "ART-DOCTYPE-00087",
       "ART-DOCTYPE-00088",
       "ART-DOCTYPE-00089",
+      "ART-DOCTYPE-00659",
       "ART-DOCTYPE-00090",
       "ART-DOCTYPE-00091",
       "ART-DOCTYPE-00092",
@@ -1660,7 +1661,8 @@
     "event": [
       "ART-DOCTYPE-00008",
       "ART-DOCTYPE-00025",
-      "ART-DOCTYPE-00041"
+      "ART-DOCTYPE-00041",
+      "ART-DOCTYPE-00659"
     ],
     "smriti attribution ledger": [
       "ART-DOCTYPE-00009"
@@ -1861,7 +1863,8 @@
       "ART-DOCTYPE-00078"
     ],
     "definition": [
-      "ART-DOCTYPE-00042"
+      "ART-DOCTYPE-00042",
+      "ART-DOCTYPE-00659"
     ],
     "smriti gender": [
       "ART-DOCTYPE-00043"
@@ -2117,6 +2120,12 @@
     ],
     "smriti sub category": [
       "ART-DOCTYPE-00089"
+    ],
+    "smriti telemetry event definition": [
+      "ART-DOCTYPE-00659"
+    ],
+    "telemetry": [
+      "ART-DOCTYPE-00659"
     ],
     "smriti trial activation": [
       "ART-DOCTYPE-00090"

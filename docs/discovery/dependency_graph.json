@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-27T16:55:19Z",
-  "repository_commit": "UNKNOWN_COMMIT",
+  "generated_at": "2026-06-27T17:07:19Z",
+  "repository_commit": "00e72cf6251b21565baeb1c9af9b7447871a9e5f",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
     "produced_by": "Phase0_Discovery",
@@ -480,6 +480,11 @@
         "id": "ART-DOCTYPE-00089",
         "type": "DOCTYPE",
         "label": "SMRITI Sub Category"
+      },
+      {
+        "id": "ART-DOCTYPE-00659",
+        "type": "DOCTYPE",
+        "label": "SMRITI Telemetry Event Definition"
       },
       {
         "id": "ART-DOCTYPE-00090",
