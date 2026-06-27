@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T14:09:01Z",
-  "repository_commit": "c0b1f6629cb83372350f1192f93f3727fe43e169",
+  "generated_at": "2026-06-27T14:19:46Z",
+  "repository_commit": "933069ff300214353c83cb281c7d1719d1338a48",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -40,7 +40,7 @@
       "file_path": "apps/smriti_retail_os/scripts/color_baseline.json",
       "sha256": "979811e8598e7faaa766bfe03ae69dc44eb6c4f9928b7423f2bbd00b06ccc95a",
       "size_bytes": 6972,
-      "modified_date": "2026-06-27T18:17:43Z"
+      "modified_date": "2026-06-27T19:39:18Z"
     },
     {
       "file_path": "apps/smriti_retail_os/scripts/fix_boilerplate_headers.py",
@@ -230,9 +230,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/hooks.py",
-      "sha256": "98d2ddf5360db6d1133f0a2d046b4e22fa2d45aeded59006f1d4249524916a54",
-      "size_bytes": 32838,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "a5f5e5b1c264e463709c1af10799c2b5252ee3bae4428824025f89bbdf4b5235",
+      "size_bytes": 32837,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/hooks_logic.py",
@@ -482,15 +482,15 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/__init__.py",
-      "sha256": "1702297f786dbb5f6ae4eaa540a4cb49771616039dc7946217309520bb29641e",
-      "size_bytes": 3692,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "e1c45708443cdf07ecb5084302c4566c602fd2ce50873e3ebdccc1f3b8f624b8",
+      "size_bytes": 3690,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/api/ai_integration_api.py",
-      "sha256": "1e88a43ef6adaf1bca2f3b532f8ef7e6bab9fd9f18c5449649e0542c62a9dfb2",
-      "size_bytes": 7791,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "f088ac1452d115f15d85a82279cc493bd074784b15e217c9be97e8621bf09905",
+      "size_bytes": 7790,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/api/analytics_api.py",
@@ -566,9 +566,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/api/knowledge_studio_api.py",
-      "sha256": "5da75c48ce49a3420404b0d894c656df464071bd294b7430f361382243bda16d",
-      "size_bytes": 8786,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "416854df18c2a9045ae328d9bbaa378fca82084f1e01cf6b5307093874e1dd61",
+      "size_bytes": 8785,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/api/license_api.py",
@@ -584,9 +584,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/api/pdt_api.py",
-      "sha256": "7b161bba33b0e4ec0d9d7216b97da351e048b6859570ea5175516fd7585d1e0c",
-      "size_bytes": 7745,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "1ca02721af0f43359c44888d85312462f5e3a956e494be049d7ab62014db95ff",
+      "size_bytes": 7744,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/api/pos_profile_api.py",
@@ -794,9 +794,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/license/manager.py",
-      "sha256": "04d83d12149c966543a5df4edb001f14f2f48e52dc813b7f8d63be4511c411db",
-      "size_bytes": 8810,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "75c29759566874b3af3aa0aa27f3971d6148460ff2bfbdb5ceb9d91a11a7f201",
+      "size_bytes": 8809,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/license/tasks.py",
@@ -1436,9 +1436,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/ai_context_service.py",
-      "sha256": "98a1e7ce0d8a53a8ac8cbc600f39252b6e183039ccec4abbe15444a2bda1df8c",
-      "size_bytes": 7446,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "4712cdf11aa88abe785f991dee8ffd3c23620f9a992c4bcd4b06d9fc4348e41f",
+      "size_bytes": 7445,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/approval_service.py",
@@ -1472,15 +1472,15 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/field_explorer_service.py",
-      "sha256": "914558039804b6276f80c0b2aa616aa8cab55d90cd5e3f90c7620090ded7739a",
-      "size_bytes": 26176,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "2bba7c3fbca15dec1e44ba09fb6f3f5d1284e5eb184df5d3e53abb9c04aace55",
+      "size_bytes": 26175,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/forecasting_service.py",
-      "sha256": "8a055b7b8a7a18c9e5d1df1a82efe2d09e5672ac1a63ed0021520bac0bba38a3",
-      "size_bytes": 5321,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "9141d567dd29c9cf726fe81e6de493fd836861b7b5e9a9edb5d3b08cff3aa5ef",
+      "size_bytes": 5320,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/formula_service.py",
@@ -1508,15 +1508,15 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/optimization_service.py",
-      "sha256": "6d69f14acb5ab8a694c0c7a6c5cae523ec03f267ca6f2c48600bb37097453fc0",
-      "size_bytes": 6879,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "1d5fb0a03ec90ce5d00058b1fc2177e6a3663d9b74395843662d6e83f2854e0c",
+      "size_bytes": 6878,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/pdt_service.py",
-      "sha256": "9b8417644f58db8dfae4f601f8b4d3ff1dcb2e37258c713f04c82d7e2ad45afe",
-      "size_bytes": 12326,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "4b453eff0c2f955c9f31b0fb6eeaaafbbb417de2ef9cb9fa42bdfbbf4b257703",
+      "size_bytes": 12325,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/pos_profile_service.py",
@@ -1532,9 +1532,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/simulation_service.py",
-      "sha256": "e223aa05f17751c5eab9857b84cccde3f1f343e50a1c17d5b49b83063cdc7c67",
-      "size_bytes": 4646,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "488abe7261950f37eee872270f3c4e573c125cf0fdcbf2c4b561cf3b363edbf4",
+      "size_bytes": 4645,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/trial_service.py",
@@ -1544,9 +1544,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/twin_quality_service.py",
-      "sha256": "ba8d2bd16144bbf9505af56bade91d456791a675de9c79181a13b934d2f967ea",
-      "size_bytes": 5356,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "fa262d1e383a868b2c000d03da254a8a4bc8219f9b3bef7aa8aaf988f02a11f3",
+      "size_bytes": 5355,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/services/__init__.py",
@@ -4016,9 +4016,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_ai_context.py",
-      "sha256": "37210a6281faed57b5c869ab66e77c8b568a40e8c37336a3953d1334db9842cf",
-      "size_bytes": 3778,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "334f5158a7f727002ef47271420c10654275aae4ad49a0a3dcb3ae389ba68399",
+      "size_bytes": 3777,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_audit_fixes.py",
@@ -4148,9 +4148,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_knowledge_governance.py",
-      "sha256": "ca144b22d5d9e2265ff64f616be4bed6fec36213a648719a78b877318f4a8cb2",
-      "size_bytes": 13822,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "840d273f4ec9c67eecbe8f772ec39d8b433105661454482f4d9513c56b2e5d9d",
+      "size_bytes": 13821,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_knowledge_os.py",
@@ -4670,9 +4670,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/www/release_notes.html",
-      "sha256": "b29c1d5ac9c0660186c89f4a55878167194b7a62e08575f68f7271a4410601b0",
-      "size_bytes": 23631,
-      "modified_date": "2026-06-27T19:38:44Z"
+      "sha256": "6b2c5ed48ebec2b3c8d904bf0f954436ba59cb0a3dd04c1c96ac7119df494926",
+      "size_bytes": 23630,
+      "modified_date": "2026-06-27T19:49:40Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/www/release_notes.py",
