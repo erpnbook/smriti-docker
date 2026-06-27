@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T16:29:36Z",
-  "repository_commit": "07fa8cade463b01d7beabb1b07c242d8a75ed4c2",
+  "generated_at": "2026-06-27T16:37:16Z",
+  "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -38,9 +38,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/scripts/color_baseline.json",
-      "sha256": "979811e8598e7faaa766bfe03ae69dc44eb6c4f9928b7423f2bbd00b06ccc95a",
-      "size_bytes": 6972,
-      "modified_date": "2026-06-27T21:50:27Z"
+      "sha256": "28937396eca2f08167c4742ab24027a28902bbae39e0b018e765e76571966f24",
+      "size_bytes": 7345,
+      "modified_date": "2026-06-27T22:00:38Z"
     },
     {
       "file_path": "apps/smriti_retail_os/scripts/fix_boilerplate_headers.py",

@@ -18,3 +18,5 @@ scratch/
 /backups/
 /rollback/
 assets_clean.tar.gz
+*.tar.gz
+*.tgz
