@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T14:43:18Z",
-  "repository_commit": "031c8f9860d36d78af1e4be45e90a7e9adea7c4a",
+  "generated_at": "2026-06-27T14:45:13Z",
+  "repository_commit": "65692f10c3773d914c1648f4659ee5d2a6f3d833",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -4244,9 +4244,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_sdc006_mutation.py",
-      "sha256": "df12a8383705cbc2e566623f2c4ae8f13f4b4ce510ddb766d66251e56502b0bf",
-      "size_bytes": 16684,
-      "modified_date": "2026-06-26T19:34:49Z"
+      "sha256": "8a6268084f71d0423e66564eb6391d7117263453ca2ff3d54074bf8720e391ae",
+      "size_bytes": 16683,
+      "modified_date": "2026-06-27T20:14:58Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/tests/test_sfc.py",
