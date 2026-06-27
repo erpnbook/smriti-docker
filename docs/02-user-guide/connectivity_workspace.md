@@ -1,6 +1,6 @@
 ---
 Document ID: "USER-031"
-Title: "SMRITI OS Connectivity Workspace — User Manual v1.0"
+Title: "SMRITI OS UIE Integration Center — User Manual v1.0"
 Owner: "Operations Team"
 Audience: "End User"
 Module: "Core"
@@ -15,7 +15,7 @@ AI Generated: "Yes"
 Reviewed By: "Jawahar R. Mallah"
 ---
 
-# SMRITI OS Connectivity Workspace — User Manual v1.0
+# SMRITI OS UIE Integration Center — User Manual v1.0
 
 ## Author Profile (Document Start)
 
@@ -28,38 +28,81 @@ Reviewed By: "Jawahar R. Mallah"
 
 ## 1. Introduction & Overview
 
-The **Accounting & Inventory Workspace** in SMRITI Retail OS is the single control panel for managing connections to external systems (such as TallyPrime and mall APIs). This console replaces the legacy sync interfaces and provides store managers and accountants with a unified, real-time interface.
+The **SMRITI Universal Integration Engine (UIE) Integration Center** is the unified control panel for configuring, dispatching, and monitoring outbound integration connections to external systems (such as TallyPrime, Busy, Marg ERP, e-commerce platforms like Shopify, and Mall POS APIs). 
+
+Served directly at the custom route `/smriti-uie`, it replaces all vendor-specific synchronization interfaces with an adapter-driven, event-based orchestration dashboard.
 
 ---
 
-## 2. Navigating the Workspace
+## 2. Navigating the Workspace Panels
 
-The workspace is organized into six tabs:
+The console is organized into the following workspace panels:
 
-### 2.1 Overview Dashboard
-Provides a graphical view of connectivity health:
-- **Status Badges:** Shows current connector states.
-- **Sync Tally Counters:** Ready, Synced, Pending, and Failed stats for Sales Invoices, Purchase Invoices, and Payments.
-- **Connection Badges:** Active indicator showing connectivity to Tally or external mall endpoints.
+### 2.1 Dashboard
+Provides a graphical view of connectivity health and adapter registry tiles:
+- **Total Integrations:** The number of integrations registered.
+- **Active Connections:** The number of enabled connectors.
+- **Pending Queue:** Transient items waiting to be dispatched.
+- **Success Rate:** The average execution success rate percentage.
+- **Connector Registry Tiles:** Displays live statuses (Connected, Not Configured, Disabled) for active connectors like TallyPrime and Phoenix Mall.
 
-### 2.2 Accounting & Inventory Sync
-Allows manually triggering sync runs and reviewing delta trackers. Includes:
-- **Sales Voucher Posting:** View and submit local transactions.
-- **Stock Journal Sync:** Synchronize inventory movements to ERPNext.
+### 2.2 Connectors
+Displays all active connector records (`SMRITI UIE Integration` models) showing the protocol type (SOAP, REST, SFTP, etc.), endpoint addresses, credential profiles, and active status.
 
-### 2.3 Settings & Credentials
-- **Active Toggles:** Separately enable/disable Accounting, Inventory, and Master sync.
-- **Conflict Resolution Rules:** Configure `SMRITI Wins` or `Tally Wins` policies.
+### 2.3 Jobs
+A business-friendly view of the outbound dispatch queue (`SMRITI UIE Sync Queue`):
+- Displays Document ID, Destination Connector, Event Type (Submit/Cancel), Retry Count, and Execution Status.
+- Includes a **Payload Preview** action allowing operators to select a document and preview its serialized payload before dispatching.
+
+### 2.4 Mappings
+Provides a visual interface to map standard SMRITI database columns to external vendor fields. For example:
+- `name` (Invoice ID) $\rightarrow$ `BillNumber`
+- `customer` (Customer Name) $\rightarrow$ `PartyName`
+- `grand_total` (Grand Total) $\rightarrow$ `Amount`
+
+### 2.5 Credentials
+Encrypted Vault configuration (`SMRITI UIE Credential`) mapping Auth Types (Basic, Bearer, API-Key) and credentials parameters per connection.
+
+### 2.6 Monitoring
+Tracks detailed, real-time integration statistics:
+- **Queue Depth:** Total items currently queued.
+- **Average Latency:** Request-response roundtrip latency (ms).
+- **Events / Min:** Rate of outbound integration messages.
+- **Health Indicators:** Status indicators for Pending, Sending, Retrying, Failed, and Dead Letter categories.
+
+### 2.7 Audit
+Accesses detailed sync execution logs (`SMRITI UIE Sync Log`) capturing timestamps, HTTP request/response payloads, HTTP statuses, retry attempt metrics, and correlation IDs for support diagnostics.
+
+### 2.8 Settings
+Preserves legacy configuration parameters for the TallyPrime adapter, including URL connections and general ledger/statutory tax account mapping.
 
 ---
 
-## 3. Monitoring Integration Queues
+## 3. Worked Example: Outbound Mall POS Sync
 
-For Mall and third-party APIs, the workspace displays a live dispatch feed:
-- **Pending:** Items successfully hashed and queued.
-- **Success:** Delivered to partner REST/Webhook API.
-- **Failed:** Network timeout or request rejected.
-- **Dead-Letter (DLQ):** Exceeded maximum retries (limit: 5). Requires administrative review.
+When a Sales Invoice is finalized on the SMRITI POS terminal, the UIE automatically intercepts the submission event.
+
+### 3.1 Source Transaction
+- **Document Name:** `SINV-2026-00001`
+- **Party Name:** `Walk-in Customer`
+- **Grand Total:** `4,500.0`
+
+### 3.2 Dynamic Mapping Rule
+```text
+SMRITI Field          Target Field
+name           -->    BillNumber
+customer       -->    PartyName
+grand_total    -->    Amount
+```
+
+### 3.3 Serialized JSON Payload Output
+```json
+{
+  "BillNumber": "SINV-2026-00001",
+  "PartyName": "Walk-in Customer",
+  "Amount": 4500.0
+}
+```
 
 ---
 
