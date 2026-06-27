@@ -1,4 +1,22 @@
-# SMRITI Retail OS User Manual ÔÇö Volume 2: Manager & Supervisor Guide
+---
+Document ID: "USER-032"
+Title: "SMRITI Retail OS User Manual — Volume 2: Manager & Supervisor Guide"
+Owner: "Support Team"
+Audience: "Store Manager"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-06-28"
+Last Reviewed: "2026-06-28"
+AI Generated: "Yes"
+Reviewed By: "Jawahar R. Mallah"
+---
+
+# SMRITI Retail OS User Manual — Volume 2: Manager & Supervisor Guide
+
 
 Welcome to the **SMRITI Retail OS Manager & Supervisor Guide**. This volume is written for Sales Managers, Distributor Supervisors, Audit Leads, and Store Owners. It covers auditing, stock rebalancing recommendations, and key administrative settings.
 
@@ -232,5 +250,34 @@ Instead of guessing how the 1.5 figure was arrived at, the manager clicks the **
 
 ---
 
+## Chapter 5: SMRITI Navigation Manager (SNM) (स्मृति नेविगेशन प्रबंधक)
+
+### 1. Purpose (उद्देश्य)
+The **SMRITI Navigation Manager (SNM)** provides a fully dynamic, database-driven sidebar layout engine that replaces hard-coded menus. Store owners and administrators can configure distinct navigation profiles, customize labels, change icons, and reorder menus without redeploying code.
+- **Business Problem Solved**: Bypasses the need for software code updates whenever a retail franchise wants to restrict cashier views, rename catalog menus, or change icon symbols.
+
+### 2. Real-Life Example (वास्तविक जीवन का उदाहरण)
+At **Pune Plaza Footwear**, the manager wants Cashiers to *only* see **Sales** (POS Billing) and **Help Desk** menus, hiding all purchasing, inventory, and backend configurations. The administrator creates a Navigation Profile named `Cashier Profile`, overrides the visibility of unauthorized menus, and assigns it to all users with the `SMRITI Cashier` role.
+
+### 3. Step-by-Step Configuration Process (प्रक्रिया)
+1. **Menu Path**: SMRITI Home ➔ Administration ➔ **Navigation Profiles**
+2. **Create Profile**: Click **New SMRITI Navigation Profile**, enter the profile name (e.g. `Cashier Navigation`), and specify the home dashboard route.
+3. **Add Overrides**: Click **New SMRITI Navigation Override**, select your target Profile, input the canonical `Menu ID` (e.g. `inventory`), and set the Override State to `Disabled` to hide it.
+4. **Define Assignment**: Go to **Navigation Assignments**, create an assignment mapping the role `SMRITI Cashier` to your new Navigation Profile with a priority weight of `50`.
+5. **Flush Cache**: If changes do not reflect instantly, clear the cache using the administrative action button.
+
+### 4. Field-by-Field Explanation (SMRITI Navigation Override)
+
+| Field Name | Type | Mandatory? | Simple Explanation | Example Value |
+| :--- | :--- | :--- | :--- | :--- |
+| **Menu ID** | Data | **Yes** | The canonical identifier linking to the static config registry. | `inventory` |
+| **Navigation Profile** | Link | **Yes** | The navigation profile this override applies to. | `Cashier Profile` |
+| **Override State** | Select | **Yes** | Behaves as: Inherit (default), Override (custom settings), or Disabled (hidden). | `Override` |
+| **Label Override** | Data | No | Customized title text for the menu node. | `Stockroom Management` |
+| **Display Order** | Int | No | Reordering weight for layout sorting. | `15` |
+
+---
+
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
+

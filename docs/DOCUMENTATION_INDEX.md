@@ -227,8 +227,8 @@ Last Audited: 2026-06-25
 | [USER-029](./02-user-guide/volume_6_psv_user_manual.md) | Volume 6 — PSV User Manual | `02-user-guide` | End User | PSV | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-030](./02-user-guide/pos_profile_usage.md) | SMRITI OS POS Profile User Guide | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-031](./02-user-guide/connectivity_workspace.md) | SMRITI OS UIE Integration Center — User Manual v1.0 | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-28 |
+| [USER-032](./02-user-guide/volume_2_manager_guide.md) | SMRITI Retail OS User Manual — Volume 2: Manager & Supervisor Guide | `02-user-guide` | Store Manager | Core | Support Team | Active | 1.0.0 | 2026-06-28 |
 | [N/A](./01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./01-product/walkthrough.md) | walkthrough.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
-| [N/A](./02-user-guide/volume_2_manager_guide.md) | volume_2_manager_guide.md | `02-user-guide` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./08-architecture/sprint_005_proposal.md) | sprint_005_proposal.md | `08-architecture` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |

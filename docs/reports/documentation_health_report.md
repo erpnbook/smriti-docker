@@ -10,9 +10,9 @@
 | Total Documents Scanned | 226 | - |
 | Duplicate IDs | 0 | ✅ PASS |
 | Broken Links | 0 | ✅ PASS |
-| Missing Metadata | 9 | ❌ FAIL |
+| Missing Metadata | 8 | ❌ FAIL |
 | Missing Examples | 92 | ⚠️ Warning |
-| Missing Revision History | 4 | ⚠️ Warning |
+| Missing Revision History | 5 | ⚠️ Warning |
 
 ---
 
@@ -25,7 +25,6 @@ These violations must be resolved before changes can be merged.
 | `01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `01-product/walkthrough.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `02-user-guide/volume_2_manager_guide.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `08-architecture/sprint_005_proposal.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `certification/psv_certified_planner_guide.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `generated/api_inventory.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
@@ -40,6 +39,7 @@ These items should be addressed to improve quality but will not block merges.
 | --- | --- | --- |
 | `02-user-guide/connectivity_workspace.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `02-user-guide/psv_planner_guide.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `02-user-guide/volume_2_manager_guide.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `05-developer/universal_integration_engine.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `07-kb/connectivity_troubleshooting.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `04-installation/multi_image_migration.md, 05-developer/multi_tenancy.md` | *Duplicate Title* | Multiple files share the same Title '... removed for brevity': 04-installation/multi_image_migration.md, 05-developer/multi_tenancy.md |
