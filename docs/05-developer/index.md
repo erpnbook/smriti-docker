@@ -74,3 +74,4 @@ Welcome to the **Developer & Integration Guides** documentation set. Below is th
 | [DEV-069](./walkthrough_thesmes.md) | Walkthrough: SMRITI Whitelabel Branding & Frappe Default Theme Integration | Developer | Core | Development Team | Active | 2026-06-25 |
 | [DEV-070](./walkthrough_vendor_mapping.md) | Vendor Mapping — ItemMaster ↔ Supplier Linkage | Developer | Core | Development Team | Active | 2026-06-25 |
 | [DEV-071](./pos_profile_developer.md) | SMRITI POS Profile Developer Guide | Developer | Core | Development Team | Active | 2026-06-25 |
+| [DEV-072](./universal_integration_engine.md) | SMRITI Universal Integration Engine (UIE) — Developer Reference Spec v1.0 | Developer | Core | Development Team | Active | 2026-06-28 |

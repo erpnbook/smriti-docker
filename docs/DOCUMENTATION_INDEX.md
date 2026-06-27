@@ -125,6 +125,7 @@ Last Audited: 2026-06-25
 | [DEV-069](./05-developer/walkthrough_thesmes.md) | Walkthrough: SMRITI Whitelabel Branding & Frappe Default Theme Integration | `05-developer` | Developer | Core | Development Team | Active | 1.0.0 | 2026-06-25 |
 | [DEV-070](./05-developer/walkthrough_vendor_mapping.md) | Vendor Mapping — ItemMaster ↔ Supplier Linkage | `05-developer` | Developer | Core | Development Team | Active | 1.0.0 | 2026-06-25 |
 | [DEV-071](./05-developer/pos_profile_developer.md) | SMRITI POS Profile Developer Guide | `05-developer` | Developer | Core | Development Team | Active | 1.0.0 | 2026-06-25 |
+| [DEV-072](./05-developer/universal_integration_engine.md) | SMRITI Universal Integration Engine (UIE) — Developer Reference Spec v1.0 | `05-developer` | Developer | Core | Development Team | Active | 1.0.0 | 2026-06-28 |
 | [INSTALL-001](./04-installation/arm64_setup.md) | How to install ERPNext on linux/mac using Frappe_docker ? | `04-installation` | Installer | Core | Installation Team | Active | 1.0.0 | 2026-06-25 |
 | [INSTALL-002](./04-installation/benchmark_sources.md) | SMRITI Benchmark Source Register | `04-installation` | Installer | Core | Installation Team | Active | 1.0.0 | 2026-06-25 |
 | [INSTALL-003](./04-installation/cge_benchmark_report.md) | SMRITI Customer Growth Engine (CGE) — Benchmark Report v1.0 | `04-installation` | Installer | CGE | Installation Team | Active | 1.0.0 | 2026-06-25 |
@@ -170,6 +171,7 @@ Last Audited: 2026-06-25
 | [KB-029](./07-kb/warehouse_setup.md) | SMRITI OS Warehouse Setup Guide | `07-kb` | Support Engineer | Core | Support Team | Active | 1.0.0 | 2026-06-25 |
 | [KB-030](./07-kb/windows_nginx_entrypoint_error.md) | Resolving Docker `nginx-entrypoint.sh` Script Not Found Error on Windows | `07-kb` | Support Engineer | Core | Support Team | Active | 1.0.0 | 2026-06-25 |
 | [KB-031](./07-kb/pos_profile_troubleshooting.md) | Troubleshooting SMRITI POS Profile Issues | `07-kb` | Administrator | Core | Support Team | Active | 1.0.0 | 2026-06-25 |
+| [KB-032](./07-kb/connectivity_troubleshooting.md) | Connectivity & UIE Troubleshooting Guide | `07-kb` | Support Engineer | Core | Support Team | Active | 1.0.0 | 2026-06-28 |
 | [PROD-001](./01-product/about_aitdl.md) | About AITDL | `01-product` | Product / Executive | Core | Product Team | Active | 1.0.0 | 2026-06-25 |
 | [PROD-002](./01-product/about_author.md) | About Author | `01-product` | Product / Executive | Core | Product Team | Active | 1.0.0 | 2026-06-25 |
 | [PROD-003](./01-product/about_smriti.md) | About SMRITI Retail OS | `01-product` | Product / Executive | PSV | Product Team | Active | 1.0.0 | 2026-06-25 |
@@ -220,7 +222,12 @@ Last Audited: 2026-06-25
 | [USER-024](./02-user-guide/smriti_sidebar_workspace_proposal.md) | SMRITI Retail OS — Sidebar & Workspace Enhancement Proposal | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-025](./02-user-guide/updating_from_github.md) | Updating SMRITI Retail OS from GitHub | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-026](./02-user-guide/volume_1_daily_operations.md) | Volume 1 Daily Operations | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
-| [USER-027](./02-user-guide/volume_2_manager_guide.md) | Volume 2 Manager Guide | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-028](./02-user-guide/volume_5_training_workbook.md) | Volume 5 Training Workbook | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-029](./02-user-guide/volume_6_psv_user_manual.md) | Volume 6 — PSV User Manual | `02-user-guide` | End User | PSV | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-030](./02-user-guide/pos_profile_usage.md) | SMRITI OS POS Profile User Guide | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
+| [USER-031](./02-user-guide/connectivity_workspace.md) | SMRITI OS Connectivity Workspace — User Manual v1.0 | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-28 |
+| [N/A](./01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
+| [N/A](./01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
+| [N/A](./01-product/walkthrough.md) | walkthrough.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
+| [N/A](./02-user-guide/volume_2_manager_guide.md) | volume_2_manager_guide.md | `02-user-guide` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
+| [N/A](./08-architecture/sprint_005_proposal.md) | sprint_005_proposal.md | `08-architecture` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |

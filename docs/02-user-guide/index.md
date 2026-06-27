@@ -30,7 +30,8 @@ Welcome to the **End User & Operations Guides** documentation set. Below is the 
 | [USER-024](./smriti_sidebar_workspace_proposal.md) | SMRITI Retail OS — Sidebar & Workspace Enhancement Proposal | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-025](./updating_from_github.md) | Updating SMRITI Retail OS from GitHub | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-026](./volume_1_daily_operations.md) | Volume 1 Daily Operations | End User | Core | Operations Team | Active | 2026-06-25 |
-| [USER-027](./volume_2_manager_guide.md) | Volume 2 Manager Guide | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-028](./volume_5_training_workbook.md) | Volume 5 Training Workbook | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-029](./volume_6_psv_user_manual.md) | Volume 6 — PSV User Manual | End User | PSV | Operations Team | Active | 2026-06-25 |
 | [USER-030](./pos_profile_usage.md) | SMRITI OS POS Profile User Guide | End User | Core | Operations Team | Active | 2026-06-25 |
+| [USER-031](./connectivity_workspace.md) | SMRITI OS Connectivity Workspace — User Manual v1.0 | End User | Core | Operations Team | Active | 2026-06-28 |
+| [N/A](./volume_2_manager_guide.md) | volume_2_manager_guide.md | N/A | Core | N/A | Active | 2026-06-25 |

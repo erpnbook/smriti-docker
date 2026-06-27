@@ -35,3 +35,4 @@ Welcome to the **Knowledge Base & Troubleshooting** documentation set. Below is 
 | [KB-029](./warehouse_setup.md) | SMRITI OS Warehouse Setup Guide | Support Engineer | Core | Support Team | Active | 2026-06-25 |
 | [KB-030](./windows_nginx_entrypoint_error.md) | Resolving Docker `nginx-entrypoint.sh` Script Not Found Error on Windows | Support Engineer | Core | Support Team | Active | 2026-06-25 |
 | [KB-031](./pos_profile_troubleshooting.md) | Troubleshooting SMRITI POS Profile Issues | Administrator | Core | Support Team | Active | 2026-06-25 |
+| [KB-032](./connectivity_troubleshooting.md) | Connectivity & UIE Troubleshooting Guide | Support Engineer | Core | Support Team | Active | 2026-06-28 |
