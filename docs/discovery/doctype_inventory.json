@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "doctype_inventory",
-  "generated_at": "2026-06-27T20:16:36Z",
-  "repository_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
+  "generated_at": "2026-06-27T20:47:56Z",
+  "repository_commit": "578aabaeda7b4b61e85190648981819bae00390a",
   "provenance": {
     "artifact_id": "ART-DOCTYPE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -134,9 +134,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -178,9 +178,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -300,9 +300,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -368,9 +368,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -478,9 +478,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -570,9 +570,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -638,9 +638,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -730,9 +730,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -858,9 +858,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -902,9 +902,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -964,9 +964,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1050,9 +1050,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1124,9 +1124,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1168,9 +1168,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1296,9 +1296,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1364,9 +1364,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1414,9 +1414,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1470,9 +1470,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1532,9 +1532,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1768,9 +1768,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1854,9 +1854,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1922,9 +1922,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2008,9 +2008,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2064,9 +2064,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2126,9 +2126,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2224,9 +2224,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2304,9 +2304,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2390,9 +2390,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2446,9 +2446,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2556,9 +2556,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2792,9 +2792,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2878,9 +2878,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2958,9 +2958,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3014,9 +3014,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3202,9 +3202,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3402,9 +3402,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3500,9 +3500,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3574,9 +3574,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3780,9 +3780,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3866,9 +3866,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3922,9 +3922,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -3996,9 +3996,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4166,9 +4166,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4204,9 +4204,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4242,9 +4242,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4322,9 +4322,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4438,9 +4438,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4512,9 +4512,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4598,9 +4598,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -4666,9 +4666,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5064,9 +5064,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5126,9 +5126,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5188,9 +5188,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5250,9 +5250,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5300,9 +5300,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5410,9 +5410,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5478,9 +5478,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5540,9 +5540,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5578,9 +5578,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5616,9 +5616,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5678,9 +5678,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5752,9 +5752,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5802,9 +5802,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -5882,9 +5882,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6016,9 +6016,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6120,9 +6120,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6236,9 +6236,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6334,9 +6334,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6426,9 +6426,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6512,9 +6512,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6616,9 +6616,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6702,9 +6702,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6800,9 +6800,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -6910,9 +6910,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7020,9 +7020,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7154,9 +7154,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7276,9 +7276,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7332,9 +7332,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7370,9 +7370,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7408,9 +7408,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7446,9 +7446,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7490,9 +7490,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7636,9 +7636,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7716,9 +7716,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7790,9 +7790,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7858,9 +7858,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7926,9 +7926,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -7988,9 +7988,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8230,9 +8230,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8280,9 +8280,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8318,9 +8318,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8335,7 +8335,7 @@
       "doctype_name": "SMRITI Tally Settings",
       "evidence_type": "JSON",
       "schema_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_settings/smriti_tally_settings.json",
-      "checksum": "20d736d289db0f4b1d89fbcb2612d52ce25dc907ac452e33ee041386b9ead7b3",
+      "checksum": "a13c0dcd808a4ba1902061b02136b672da2616243246e133335388641fc5396e",
       "fields": [
         {
           "fieldname": "connection_section",
@@ -8426,6 +8426,216 @@
           "label": "Auto-Create Missing Ledgers in Tally",
           "fieldtype": "Check",
           "mandatory": 0
+        },
+        {
+          "fieldname": "accounting_sync_section",
+          "label": "Accounting Sync Configurations",
+          "fieldtype": "Section Break",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_sales_invoices",
+          "label": "Sync Sales Invoices (V2)",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_purchase_invoices",
+          "label": "Sync Purchase Invoices",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_sales_returns",
+          "label": "Sync Sales Returns (Credit Notes)",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_purchase_returns",
+          "label": "Sync Purchase Returns (Debit Notes)",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_payment_entries",
+          "label": "Sync Payment Entries",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_receipt_entries",
+          "label": "Sync Receipt Entries",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_journal_entries",
+          "label": "Sync Journal Entries",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "inventory_sync_section",
+          "label": "Inventory Sync Configurations",
+          "fieldtype": "Section Break",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_inventory",
+          "label": "Enable Inventory Synchronization",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "inventory_sync_mode",
+          "label": "Inventory Sync Mode",
+          "fieldtype": "Select",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_item_masters",
+          "label": "Sync Item Masters",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_stock_groups",
+          "label": "Sync Stock Groups",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_units",
+          "label": "Sync Units of Measure",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_warehouses",
+          "label": "Sync Warehouses (Godowns)",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_opening_stock",
+          "label": "Sync Opening Stock",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_stock_journals",
+          "label": "Sync Stock Journals",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_stock_reconciliations",
+          "label": "Sync Stock Reconciliations",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_batch_numbers",
+          "label": "Sync Batch Numbers",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_serial_numbers",
+          "label": "Sync Serial Numbers",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "masters_sync_section",
+          "label": "Masters Sync Configurations",
+          "fieldtype": "Section Break",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_customers",
+          "label": "Sync Customer Masters",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_suppliers",
+          "label": "Sync Supplier Masters",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_ledger_masters",
+          "label": "Sync Ledger Masters",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_gst_ledgers",
+          "label": "Sync GST Ledgers",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "sync_cost_centres",
+          "label": "Sync Cost Centres",
+          "fieldtype": "Check",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "conflict_section",
+          "label": "Conflict Resolution Policies",
+          "fieldtype": "Section Break",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "if_item_exists",
+          "label": "If Item Exists in Target",
+          "fieldtype": "Select",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "if_ledger_exists",
+          "label": "If Ledger Exists in Target",
+          "fieldtype": "Select",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "if_warehouse_exists",
+          "label": "If Warehouse Exists in Target",
+          "fieldtype": "Select",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "if_quantity_mismatch",
+          "label": "If Quantity Mismatch",
+          "fieldtype": "Select",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "state_section",
+          "label": "Synchronization State Tracker",
+          "fieldtype": "Section Break",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "last_sync_accounting",
+          "label": "Last Successful Accounting Sync",
+          "fieldtype": "Datetime",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "last_sync_inventory",
+          "label": "Last Successful Inventory Sync",
+          "fieldtype": "Datetime",
+          "mandatory": 0
+        },
+        {
+          "fieldname": "last_sync_masters",
+          "label": "Last Successful Masters Sync",
+          "fieldtype": "Datetime",
+          "mandatory": 0
         }
       ],
       "asset_type": "doctype",
@@ -8440,15 +8650,15 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "schema",
         "path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_settings/smriti_tally_settings.json",
-        "checksum": "20d736d289db0f4b1d89fbcb2612d52ce25dc907ac452e33ee041386b9ead7b3"
+        "checksum": "a13c0dcd808a4ba1902061b02136b672da2616243246e133335388641fc5396e"
       },
       "owner": "AITDL"
     },
@@ -8514,9 +8724,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8558,9 +8768,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8752,9 +8962,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8814,9 +9024,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -8918,9 +9128,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -9004,9 +9214,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -9042,9 +9252,9 @@
       },
       "coverage_score": 80.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -9134,9 +9344,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -9238,9 +9448,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -9348,9 +9558,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {
@@ -9416,9 +9626,9 @@
       },
       "coverage_score": 100.0,
       "freshness": {
-        "last_scanned_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
-        "last_scan_timestamp": "2026-06-27T20:16:36Z",
-        "last_validated_timestamp": "2026-06-27T20:16:36Z"
+        "last_scanned_commit": "578aabaeda7b4b61e85190648981819bae00390a",
+        "last_scan_timestamp": "2026-06-27T20:47:56Z",
+        "last_validated_timestamp": "2026-06-27T20:47:56Z"
       },
       "related_assets": [],
       "evidence": {

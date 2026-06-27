@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T20:16:36Z",
-  "repository_commit": "23aeb3ccb16f7a0693c6de4e943c498f753b2ddc",
+  "generated_at": "2026-06-27T20:47:56Z",
+  "repository_commit": "578aabaeda7b4b61e85190648981819bae00390a",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -2936,9 +2936,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_settings/smriti_tally_settings.json",
-      "sha256": "20d736d289db0f4b1d89fbcb2612d52ce25dc907ac452e33ee041386b9ead7b3",
-      "size_bytes": 2847,
-      "modified_date": "2026-06-28T00:51:54Z"
+      "sha256": "a13c0dcd808a4ba1902061b02136b672da2616243246e133335388641fc5396e",
+      "size_bytes": 8406,
+      "modified_date": "2026-06-28T02:03:07Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_tally_settings/smriti_tally_settings.py",
@@ -3836,9 +3836,51 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/tally_service.py",
-      "sha256": "a8bf0b42832593107ca3a0355992a59954f353d739704615cb70e7e310324888",
-      "size_bytes": 12053,
-      "modified_date": "2026-06-28T01:44:40Z"
+      "sha256": "60e8fea1fde0b61706c2a31c251c5058a6dba8a16909e2371ac05a354c898cf8",
+      "size_bytes": 2237,
+      "modified_date": "2026-06-28T02:07:36Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/adapters/base_adapter.py",
+      "sha256": "f7702c6a57d960e06ec3ba3b9bc34f5b69ea6bb0c46f7d96f56e2e8bbaff3e77",
+      "size_bytes": 1506,
+      "modified_date": "2026-06-28T02:06:35Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/adapters/integration_engine.py",
+      "sha256": "daed3fa9992fbe16828bde66341dc5f23a8b40b5372ec1bf9f0349ad858495c6",
+      "size_bytes": 1121,
+      "modified_date": "2026-06-28T02:06:45Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/adapters/registry.py",
+      "sha256": "299ae74dd71ad99c68b233d8df0e59e12a859ee91fb2ab09f037225ceb1704fe",
+      "size_bytes": 614,
+      "modified_date": "2026-06-28T02:06:40Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/adapters/tally_adapter.py",
+      "sha256": "fb154939d04b6ada74c8c19d3d61048ea22bd578b1185ef631df16a341933c7d",
+      "size_bytes": 7154,
+      "modified_date": "2026-06-28T02:07:08Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/adapters/tally_transport.py",
+      "sha256": "a417302ac9be24b45ff92dac127dc2b1fbdb909e8ed364ae37b07491777107d9",
+      "size_bytes": 678,
+      "modified_date": "2026-06-28T02:06:54Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/adapters/tally_builders/accounting_builder.py",
+      "sha256": "66f8f8b551431a0a4df82064354e12e82b909935a069dedeb2a3d40ffe0802b7",
+      "size_bytes": 8992,
+      "modified_date": "2026-06-28T02:07:02Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/services/coordination/sync_coordinator.py",
+      "sha256": "5796227d009bff342981006257b92d37079e16f24864dc81163c12a2102b3042",
+      "size_bytes": 1240,
+      "modified_date": "2026-06-28T02:07:12Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/status/provider.py",
