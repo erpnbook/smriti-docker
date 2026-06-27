@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T19:39:14Z",
-  "repository_commit": "ff5733b5b0ae829b9c673994508bd55311561855",
+  "generated_at": "2026-06-27T19:56:48Z",
+  "repository_commit": "30d2ab5885c2b4a0e99768c8be3795046572f676",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -1598,9 +1598,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/api/tally_api.py",
-      "sha256": "c2c87dd71e2e19feb1ef1a49723405b00b4844236a7330baa25dd48d5be301df",
-      "size_bytes": 9594,
-      "modified_date": "2026-06-28T00:54:37Z"
+      "sha256": "67e0d831f8472b642049c4e0f5db47260acba14ce029c3acf8f2d9298c7b6169",
+      "size_bytes": 10266,
+      "modified_date": "2026-06-28T01:22:10Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/psv_channel_partner/psv_channel_partner.json",
