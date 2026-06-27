@@ -4,8 +4,8 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T19:19:07Z",
-  "repository_commit": "85b39e57b43e6d6298066009866e7f801399f693",
+  "generated_at": "2026-06-27T19:21:18Z",
+  "repository_commit": "b91c6e7468142f3e39ca8bf8b44001461a53fdc6",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
     "produced_by": "Phase0_Discovery",
@@ -40,7 +40,7 @@
       "file_path": "apps/smriti_retail_os/scripts/color_baseline.json",
       "sha256": "9250f1d2e09225c1371ad8f65fec48e32e2eabd464e9e918d97812287969c822",
       "size_bytes": 7467,
-      "modified_date": "2026-06-28T00:38:19Z"
+      "modified_date": "2026-06-28T00:49:26Z"
     },
     {
       "file_path": "apps/smriti_retail_os/scripts/fix_boilerplate_headers.py",
@@ -1598,9 +1598,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/api/tally_api.py",
-      "sha256": "116c212dbca24e0ea6f0c5a76d442e5979380ae0f4a7c5fe9f84b1265d7da33d",
-      "size_bytes": 5916,
-      "modified_date": "2026-06-28T00:45:13Z"
+      "sha256": "c335346632a0646afa08e5edb76f09fa59ac3a91cda0a43623c68c30b790cdfa",
+      "size_bytes": 6804,
+      "modified_date": "2026-06-28T00:50:44Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/psv_channel_partner/psv_channel_partner.json",
