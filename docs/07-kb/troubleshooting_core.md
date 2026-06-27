@@ -741,7 +741,44 @@ docker restart smriti_retail-frontend-1
 
 ---
 
-*Last Updated: June 2026 | SMRITI Retail OS Master Troubleshooting Guide v2.0*
+# 🧭 SECTION 11 — SMRITI Navigation Manager (SNM)
+
+---
+
+## 🔴 Issue 37: Custom Navigation Changes Do Not Appear in Sidebar
+
+### Symptom
+An administrator changes a menu setting (e.g. hides or re-labels an item) in the Navigation Override DocType, but users still see the old static layout.
+
+### Root Cause
+1. **Redis Caching:** SMRITI caches resolved navigation trees per user/company context in Redis for optimal performance.
+2. **Missing Assignment:** The user has not been correctly mapped to the updated Navigation Profile via the `SMRITI Navigation Assignment` DocType.
+
+### Fix
+1. Clear the navigation cache manually inside the container:
+   ```bash
+   docker exec -it smriti_retail-backend-1 bench --site smriti_retail execute smriti_retail_os.navigation.navigation_service.invalidate_navigation_cache
+   ```
+2. Verify profile assignments:
+   - Check the `SMRITI Navigation Assignment` list view.
+   - Verify the priority values: Assignments resolve sorted by priority (e.g., User = 50, Role = 30, Company = 20, Global = 10). If a lower-priority profile matches, make sure it is not overriding your settings.
+
+---
+
+## 🔴 Issue 38: Command Error "SQL functions are not allowed as strings in SELECT: max(modified)"
+
+### Symptom
+The resolver crashes with a ValidationError pointing to select function constraints.
+
+### Root Cause
+SQL aggregation functions in select strings are blocked in newer versioned query builders.
+
+### Fix
+Use order-by arrays instead of raw select strings to retrieve the latest entry. This has been fully resolved inside the core `navigation_service.py` module.
+
+---
+
+*Last Updated: June 2026 | SMRITI Retail OS Master Troubleshooting Guide v2.1*
 *Author: Jawahar R. Mallah — Founder & Chief Architect, AITDL*
 
 
@@ -750,3 +787,4 @@ docker restart smriti_retail-frontend-1
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+| 1.1.0 | 2026-06-28 | Jawahar R. Mallah | Added Section 11 for SMRITI Navigation Manager (SNM) |

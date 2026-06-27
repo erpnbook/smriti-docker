@@ -35,4 +35,5 @@ Welcome to the **Architecture Specifications & Proposals** documentation set. Be
 | [ARCH-029](./spm_architecture_blueprint.md) | SMRITI Sales Performance Management (SPM) — Architecture Blueprint v1.0 | Architect | CGE | Architecture Team | Active | 2026-06-25 |
 | [ARCH-030](./ui_profile_registry.md) | SMRITI UI Profile Registry | Architect | Core | Architecture Team | Active | 2026-06-25 |
 | [ARCH-031](./ux_theme_audit_v1.1.md) | SMRITI Retail OS — UX, UI & Theme Architecture Audit | Architect | PSV | Architecture Team | Active | 2026-06-25 |
+| [ARCH-032](./acp_snm_001.md) | Architecture Change Proposal (ACP-SNM-001) — SMRITI Navigation Manager (SNM) | Architect | Core | Architecture Team | Active | 2026-06-28 |
 | [N/A](./sprint_005_proposal.md) | sprint_005_proposal.md | N/A | Core | N/A | Active | 2026-06-25 |

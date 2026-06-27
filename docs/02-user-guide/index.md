@@ -33,5 +33,5 @@ Welcome to the **End User & Operations Guides** documentation set. Below is the 
 | [USER-028](./volume_5_training_workbook.md) | Volume 5 Training Workbook | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-029](./volume_6_psv_user_manual.md) | Volume 6 — PSV User Manual | End User | PSV | Operations Team | Active | 2026-06-25 |
 | [USER-030](./pos_profile_usage.md) | SMRITI OS POS Profile User Guide | End User | Core | Operations Team | Active | 2026-06-25 |
-| [USER-031](./connectivity_workspace.md) | SMRITI OS Connectivity Workspace — User Manual v1.0 | End User | Core | Operations Team | Active | 2026-06-28 |
+| [USER-031](./connectivity_workspace.md) | SMRITI OS UIE Integration Center — User Manual v1.0 | End User | Core | Operations Team | Active | 2026-06-28 |
 | [N/A](./volume_2_manager_guide.md) | volume_2_manager_guide.md | N/A | Core | N/A | Active | 2026-06-25 |

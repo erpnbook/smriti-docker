@@ -55,6 +55,7 @@ Last Audited: 2026-06-25
 | [ARCH-029](./08-architecture/spm_architecture_blueprint.md) | SMRITI Sales Performance Management (SPM) — Architecture Blueprint v1.0 | `08-architecture` | Architect | CGE | Architecture Team | Active | 1.0.0 | 2026-06-25 |
 | [ARCH-030](./08-architecture/ui_profile_registry.md) | SMRITI UI Profile Registry | `08-architecture` | Architect | Core | Architecture Team | Active | 1.0.0 | 2026-06-25 |
 | [ARCH-031](./08-architecture/ux_theme_audit_v1.1.md) | SMRITI Retail OS — UX, UI & Theme Architecture Audit | `08-architecture` | Architect | PSV | Architecture Team | Active | 1.0.0 | 2026-06-25 |
+| [ARCH-032](./08-architecture/acp_snm_001.md) | Architecture Change Proposal (ACP-SNM-001) — SMRITI Navigation Manager (SNM) | `08-architecture` | Architect | Core | Architecture Team | Active | 1.0.0 | 2026-06-28 |
 | [DEV-001](./05-developer/alternate_setup.md) | Docker Development Setup | `05-developer` | Developer | Core | Development Team | Active | 1.0.0 | 2026-06-25 |
 | [DEV-002](./05-developer/automated_builds_deployment.md) | Introduction | `05-developer` | Developer | Core | Development Team | Active | 1.0.0 | 2026-06-25 |
 | [DEV-003](./05-developer/build_version_10_images.md) | Build Version 10 Images | `05-developer` | Developer | Core | Development Team | Active | 1.0.0 | 2026-06-25 |
@@ -225,7 +226,7 @@ Last Audited: 2026-06-25
 | [USER-028](./02-user-guide/volume_5_training_workbook.md) | Volume 5 Training Workbook | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-029](./02-user-guide/volume_6_psv_user_manual.md) | Volume 6 — PSV User Manual | `02-user-guide` | End User | PSV | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-030](./02-user-guide/pos_profile_usage.md) | SMRITI OS POS Profile User Guide | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
-| [USER-031](./02-user-guide/connectivity_workspace.md) | SMRITI OS Connectivity Workspace — User Manual v1.0 | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-28 |
+| [USER-031](./02-user-guide/connectivity_workspace.md) | SMRITI OS UIE Integration Center — User Manual v1.0 | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-28 |
 | [N/A](./01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./01-product/walkthrough.md) | walkthrough.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
