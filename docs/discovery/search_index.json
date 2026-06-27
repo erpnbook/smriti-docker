@@ -4,7 +4,7 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "search_index",
-  "generated_at": "2026-06-27T16:37:16Z",
+  "generated_at": "2026-06-27T16:55:19Z",
   "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-SEARCH-INDEX-00001",
@@ -732,6 +732,7 @@
       "ART-DOCTYPE-00008",
       "ART-DOCTYPE-00009",
       "ART-DOCTYPE-00010",
+      "ART-DOCTYPE-00556",
       "ART-DOCTYPE-00011",
       "ART-DOCTYPE-00012",
       "ART-DOCTYPE-00013",
@@ -1094,7 +1095,8 @@
       "ART-FIELD-00099"
     ],
     "barcode": [
-      "ART-FIELD-00099"
+      "ART-FIELD-00099",
+      "ART-DOCTYPE-00556"
     ],
     "custom_current_stock_html": [
       "ART-FIELD-00154"
@@ -1557,6 +1559,7 @@
     "settings": [
       "ART-FIELD-00193",
       "ART-DOCTYPE-00006",
+      "ART-DOCTYPE-00556",
       "ART-DOCTYPE-00022",
       "ART-DOCTYPE-00023",
       "ART-DOCTYPE-00028",
@@ -1664,6 +1667,9 @@
     ],
     "smriti attribution rule": [
       "ART-DOCTYPE-00010"
+    ],
+    "smriti barcode settings": [
+      "ART-DOCTYPE-00556"
     ],
     "smriti benefit audit log": [
       "ART-DOCTYPE-00011"

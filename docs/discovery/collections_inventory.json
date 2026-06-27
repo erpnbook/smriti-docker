@@ -4,7 +4,7 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "collections_inventory",
-  "generated_at": "2026-06-27T16:37:16Z",
+  "generated_at": "2026-06-27T16:55:19Z",
   "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-COLLECTIONS-INV-00001",
@@ -23,6 +23,11 @@
       "title": "Barcode Studio",
       "description": "Enterprise barcode printing, warehouse ergonomics, and reprint queue management.",
       "assets": [
+        {
+          "artifact_id": "ART-DOCTYPE-00556",
+          "asset_type": "doctype",
+          "title": "SMRITI Barcode Settings"
+        },
         {
           "artifact_id": "ART-DOCTYPE-00065",
           "asset_type": "doctype",

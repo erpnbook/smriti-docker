@@ -4,7 +4,7 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "dependency_graph",
-  "generated_at": "2026-06-27T16:37:16Z",
+  "generated_at": "2026-06-27T16:55:19Z",
   "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-GRAPH-00001",
@@ -75,6 +75,11 @@
         "id": "ART-DOCTYPE-00010",
         "type": "DOCTYPE",
         "label": "SMRITI Attribution Rule"
+      },
+      {
+        "id": "ART-DOCTYPE-00556",
+        "type": "DOCTYPE",
+        "label": "SMRITI Barcode Settings"
       },
       {
         "id": "ART-DOCTYPE-00011",
@@ -3070,11 +3075,6 @@
         "id": "ART-DOCTYPE-00555",
         "type": "DOCTYPE_VIRTUAL",
         "label": "Activity Log"
-      },
-      {
-        "id": "ART-DOCTYPE-00556",
-        "type": "DOCTYPE_VIRTUAL",
-        "label": "SMRITI Barcode Settings"
       },
       {
         "id": "ART-DOCTYPE-00557",

@@ -4,7 +4,7 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "business_dictionary",
-  "generated_at": "2026-06-27T16:37:16Z",
+  "generated_at": "2026-06-27T16:55:19Z",
   "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-GLOSSARY-INV-00001",
@@ -62,8 +62,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "PSV",
@@ -122,8 +122,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "PSA",
@@ -183,8 +183,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "WOC",
@@ -244,8 +244,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Sales Velocity",
@@ -303,8 +303,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "WOC"
@@ -362,8 +362,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "PDT",
@@ -421,8 +421,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "WOC"
@@ -479,8 +479,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Sales Velocity"
@@ -537,8 +537,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Physical Snapshot"
@@ -596,8 +596,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "WOC",
@@ -655,8 +655,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Stock Accuracy"
@@ -714,8 +714,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "PDT",
@@ -773,8 +773,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Stock Accuracy"
@@ -830,8 +830,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "PSA",
@@ -891,8 +891,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "PDT",
@@ -951,8 +951,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "WOC",
@@ -1010,8 +1010,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Inventory Turnover"
@@ -1069,8 +1069,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Sales Velocity",
@@ -1126,8 +1126,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "EMA"
@@ -1183,8 +1183,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [
         "Stockout Risk",

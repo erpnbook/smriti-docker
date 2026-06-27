@@ -4,7 +4,7 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "file_inventory",
-  "generated_at": "2026-06-27T16:37:16Z",
+  "generated_at": "2026-06-27T16:55:19Z",
   "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-FILE-INV-00001",
@@ -302,9 +302,9 @@
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "sha256": "97ad50c346856e458951bb133ed3b2daa43d019000556aff4e1f45e1370f482a",
-      "size_bytes": 181237,
-      "modified_date": "2026-06-27T21:59:01Z"
+      "sha256": "5a293dc024131f87bafe1c27af5b05b75e7425c6d46e82ea75a438c088e29647",
+      "size_bytes": 178855,
+      "modified_date": "2026-06-27T22:20:14Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/setup_wizard_api.py",
@@ -785,6 +785,12 @@
       "sha256": "ab2237204cfc0a90bb8920e990c52f92cf8555053bf4f33421c3da72a954084b",
       "size_bytes": 463,
       "modified_date": "2026-06-27T21:59:01Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/patches/v1_8_7/migrate_barcode_settings_to_standard.py",
+      "sha256": "1a57d0911e703fc633f741fca827fdf43a80bbce4bad91e8fbf97d1966e7c705",
+      "size_bytes": 615,
+      "modified_date": "2026-06-27T22:20:03Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/public/manifest.json",
@@ -1745,6 +1751,24 @@
       "sha256": "a9005be6e89f9390aa333dd4361c5d66341aefa850c558e1c8f3ebbeb90ce084",
       "size_bytes": 409,
       "modified_date": "2026-06-27T21:59:01Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_barcode_settings/smriti_barcode_settings.json",
+      "sha256": "92bac5a0624448b19d13b4f1f67250fa60c49d270bc547eee7f80fdbbafe8170",
+      "size_bytes": 2030,
+      "modified_date": "2026-06-27T22:25:07Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_barcode_settings/smriti_barcode_settings.py",
+      "sha256": "a2050513a33dce746c8a7d443a712eab99f3f3093d87995511ed6edb64955f3c",
+      "size_bytes": 246,
+      "modified_date": "2026-06-27T22:25:02Z"
+    },
+    {
+      "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_barcode_settings/__init__.py",
+      "sha256": "8b084a9f378124b2b1a51563bf3c22444eb7ff33692017da28b2136ae56987ed",
+      "size_bytes": 24,
+      "modified_date": "2026-06-27T22:24:57Z"
     },
     {
       "file_path": "apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/doctype/smriti_benefit_audit_log/smriti_benefit_audit_log.json",

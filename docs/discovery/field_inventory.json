@@ -4,7 +4,7 @@
   "generated_by": "SDC 1.1.2-GA",
   "schema_version": "1.2",
   "artifact_type": "field_inventory",
-  "generated_at": "2026-06-27T16:37:16Z",
+  "generated_at": "2026-06-27T16:55:19Z",
   "repository_commit": "UNKNOWN_COMMIT",
   "provenance": {
     "artifact_id": "ART-FIELD-INV-00001",
@@ -26,7 +26,7 @@
       "fieldtype": "Select",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2185,
+      "source_line": 2141,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -41,14 +41,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2185,
+        "line": 2141,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -61,7 +61,7 @@
       "fieldtype": "Select",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2194,
+      "source_line": 2150,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -76,14 +76,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2194,
+        "line": 2150,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -96,7 +96,7 @@
       "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2203,
+      "source_line": 2159,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -111,14 +111,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2203,
+        "line": 2159,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -131,7 +131,7 @@
       "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2211,
+      "source_line": 2167,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -146,14 +146,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2211,
+        "line": 2167,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -166,7 +166,7 @@
       "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2219,
+      "source_line": 2175,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -181,14 +181,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2219,
+        "line": 2175,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -201,7 +201,7 @@
       "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2227,
+      "source_line": 2183,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -216,14 +216,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2227,
+        "line": 2183,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -236,7 +236,7 @@
       "fieldtype": "Float",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2235,
+      "source_line": 2191,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -251,14 +251,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2235,
+        "line": 2191,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -271,7 +271,7 @@
       "fieldtype": "Float",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2243,
+      "source_line": 2199,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -286,14 +286,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2243,
+        "line": 2199,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -304,6 +304,181 @@
       "fieldname": "custom_print_profiles_json",
       "label": "Print Profiles JSON",
       "fieldtype": "Long Text",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2207,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2207,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00136",
+      "target_doctype": "SMRITI Company Settings",
+      "fieldname": "default_printer_ip",
+      "label": "Default Printer IP",
+      "fieldtype": "Data",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2214,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2214,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00137",
+      "target_doctype": "SMRITI Company Settings",
+      "fieldname": "default_printer_port",
+      "label": "Default Printer Port",
+      "fieldtype": "Int",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2221,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2221,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00138",
+      "target_doctype": "SMRITI Company Settings",
+      "fieldname": "default_printer_lang",
+      "label": "Default Printer Language",
+      "fieldtype": "Select",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2229,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2229,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00139",
+      "target_doctype": "SMRITI Company Settings",
+      "fieldname": "default_label_size",
+      "label": "Default Label Size",
+      "fieldtype": "Select",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2238,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "FAIL",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 80.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2238,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00140",
+      "target_doctype": "User",
+      "fieldname": "custom_is_smriti_user",
+      "label": "Is SMRITI User",
+      "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2251,
@@ -321,189 +496,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
         "line": 2251,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00136",
-      "target_doctype": "SMRITI Company Settings",
-      "fieldname": "default_printer_ip",
-      "label": "Default Printer IP",
-      "fieldtype": "Data",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2258,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "FAIL",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 80.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2258,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00137",
-      "target_doctype": "SMRITI Company Settings",
-      "fieldname": "default_printer_port",
-      "label": "Default Printer Port",
-      "fieldtype": "Int",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2265,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "FAIL",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 80.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2265,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00138",
-      "target_doctype": "SMRITI Company Settings",
-      "fieldname": "default_printer_lang",
-      "label": "Default Printer Language",
-      "fieldtype": "Select",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2273,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "FAIL",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 80.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2273,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00139",
-      "target_doctype": "SMRITI Company Settings",
-      "fieldname": "default_label_size",
-      "label": "Default Label Size",
-      "fieldtype": "Select",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2282,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "FAIL",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 80.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2282,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00140",
-      "target_doctype": "User",
-      "fieldname": "custom_is_smriti_user",
-      "label": "Is SMRITI User",
-      "fieldtype": "Check",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2295,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2295,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -516,7 +516,7 @@
       "fieldtype": "Password",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2303,
+      "source_line": 2259,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -531,14 +531,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2303,
+        "line": 2259,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -551,7 +551,7 @@
       "fieldtype": "Float",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2312,
+      "source_line": 2268,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -566,14 +566,14 @@
       "coverage_score": 80.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2312,
+        "line": 2268,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -586,7 +586,7 @@
       "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2322,
+      "source_line": 2278,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -601,14 +601,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2322,
+        "line": 2278,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -621,7 +621,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2331,
+      "source_line": 2287,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -636,14 +636,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2331,
+        "line": 2287,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -656,7 +656,7 @@
       "fieldtype": "Datetime",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2340,
+      "source_line": 2296,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -671,14 +671,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2340,
+        "line": 2296,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -691,7 +691,7 @@
       "fieldtype": "Data",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2348,
+      "source_line": 2304,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -706,14 +706,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2348,
+        "line": 2304,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -726,7 +726,7 @@
       "fieldtype": "Data",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2357,
+      "source_line": 2313,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -741,14 +741,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2357,
+        "line": 2313,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -761,7 +761,7 @@
       "fieldtype": "Currency",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2365,
+      "source_line": 2321,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -776,14 +776,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2365,
+        "line": 2321,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -796,7 +796,7 @@
       "fieldtype": "Float",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2373,
+      "source_line": 2329,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -811,14 +811,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2373,
+        "line": 2329,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -831,7 +831,7 @@
       "fieldtype": "Currency",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2381,
+      "source_line": 2337,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -846,14 +846,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2381,
+        "line": 2337,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -866,7 +866,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2389,
+      "source_line": 2345,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -881,14 +881,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2389,
+        "line": 2345,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -901,7 +901,7 @@
       "fieldtype": "Small Text",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2397,
+      "source_line": 2353,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -916,14 +916,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2397,
+        "line": 2353,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -936,7 +936,7 @@
       "fieldtype": "Currency",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2406,
+      "source_line": 2362,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -951,14 +951,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2406,
+        "line": 2362,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -971,7 +971,7 @@
       "fieldtype": "Select",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2414,
+      "source_line": 2370,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -986,14 +986,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2414,
+        "line": 2370,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1006,7 +1006,7 @@
       "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2422,
+      "source_line": 2378,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1021,14 +1021,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2422,
+        "line": 2378,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1041,7 +1041,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2430,
+      "source_line": 2386,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1056,14 +1056,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2430,
+        "line": 2386,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1076,7 +1076,7 @@
       "fieldtype": "Select",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2438,
+      "source_line": 2394,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1091,14 +1091,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2438,
+        "line": 2394,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1111,7 +1111,7 @@
       "fieldtype": "HTML",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2446,
+      "source_line": 2402,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1126,14 +1126,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2446,
+        "line": 2402,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1146,7 +1146,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2454,
+      "source_line": 2410,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1161,14 +1161,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2454,
+        "line": 2410,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1181,7 +1181,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2462,
+      "source_line": 2418,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1196,14 +1196,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2462,
+        "line": 2418,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1216,7 +1216,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2470,
+      "source_line": 2426,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1231,14 +1231,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2470,
+        "line": 2426,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1251,7 +1251,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2478,
+      "source_line": 2434,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1266,14 +1266,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2478,
+        "line": 2434,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1286,7 +1286,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2486,
+      "source_line": 2442,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1301,14 +1301,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2486,
+        "line": 2442,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1321,7 +1321,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2494,
+      "source_line": 2450,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1336,14 +1336,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2494,
+        "line": 2450,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1356,7 +1356,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2502,
+      "source_line": 2458,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1371,14 +1371,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2502,
+        "line": 2458,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1391,7 +1391,7 @@
       "fieldtype": "Data",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2510,
+      "source_line": 2466,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1406,14 +1406,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2510,
+        "line": 2466,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1426,7 +1426,7 @@
       "fieldtype": "Small Text",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2521,
+      "source_line": 2477,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1441,14 +1441,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2521,
+        "line": 2477,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1461,7 +1461,7 @@
       "fieldtype": "Small Text",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2528,
+      "source_line": 2484,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1476,14 +1476,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2528,
+        "line": 2484,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1496,7 +1496,7 @@
       "fieldtype": "Select",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2535,
+      "source_line": 2491,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1511,14 +1511,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2535,
+        "line": 2491,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1531,7 +1531,7 @@
       "fieldtype": "Date",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2544,
+      "source_line": 2500,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1546,14 +1546,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2544,
+        "line": 2500,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1566,7 +1566,7 @@
       "fieldtype": "Date",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2551,
+      "source_line": 2507,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1581,14 +1581,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2551,
+        "line": 2507,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1601,7 +1601,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2558,
+      "source_line": 2514,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1616,14 +1616,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2558,
+        "line": 2514,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1636,7 +1636,7 @@
       "fieldtype": "Date",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2566,
+      "source_line": 2522,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1651,14 +1651,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2566,
+        "line": 2522,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1671,7 +1671,7 @@
       "fieldtype": "Date",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2573,
+      "source_line": 2529,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1686,14 +1686,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2573,
+        "line": 2529,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1706,7 +1706,7 @@
       "fieldtype": "Float",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2580,
+      "source_line": 2536,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1721,14 +1721,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2580,
+        "line": 2536,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1741,7 +1741,7 @@
       "fieldtype": "Datetime",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2587,
+      "source_line": 2543,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1756,14 +1756,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2587,
+        "line": 2543,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1776,7 +1776,7 @@
       "fieldtype": "Select",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2596,
+      "source_line": 2552,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1791,14 +1791,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2596,
+        "line": 2552,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1811,7 +1811,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2605,
+      "source_line": 2561,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1826,14 +1826,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2605,
+        "line": 2561,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -1843,6 +1843,216 @@
       "target_doctype": "Coupon Code",
       "fieldname": "custom_max_uses_per_customer",
       "label": "Max Uses per Customer",
+      "fieldtype": "Int",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2569,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2569,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00176",
+      "target_doctype": "Coupon Code",
+      "fieldname": "custom_max_uses_per_mobile",
+      "label": "Max Uses per Mobile",
+      "fieldtype": "Int",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2576,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2576,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00177",
+      "target_doctype": "Coupon Code",
+      "fieldname": "custom_max_uses_per_day",
+      "label": "Max Uses per Day",
+      "fieldtype": "Int",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2583,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2583,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00178",
+      "target_doctype": "Coupon Code",
+      "fieldname": "custom_max_discount_cap",
+      "label": "Max Discount Cap",
+      "fieldtype": "Currency",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2590,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2590,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00179",
+      "target_doctype": "Supplier",
+      "fieldname": "custom_address_text",
+      "label": "Address Text",
+      "fieldtype": "Small Text",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2599,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2599,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00180",
+      "target_doctype": "Supplier",
+      "fieldname": "custom_shipping_address_text",
+      "label": "Shipping Address Text",
+      "fieldtype": "Small Text",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2606,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2606,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00181",
+      "target_doctype": "Supplier",
+      "fieldname": "custom_credit_days",
+      "label": "Credit Days",
       "fieldtype": "Int",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
@@ -1861,8 +2071,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1874,11 +2084,11 @@
       "owner": "AITDL"
     },
     {
-      "artifact_id": "ART-FIELD-00176",
-      "target_doctype": "Coupon Code",
-      "fieldname": "custom_max_uses_per_mobile",
-      "label": "Max Uses per Mobile",
-      "fieldtype": "Int",
+      "artifact_id": "ART-FIELD-00182",
+      "target_doctype": "Supplier",
+      "fieldname": "custom_vendor_code",
+      "label": "Vendor Code",
+      "fieldtype": "Data",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2620,
@@ -1896,8 +2106,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
@@ -1909,14 +2119,14 @@
       "owner": "AITDL"
     },
     {
-      "artifact_id": "ART-FIELD-00177",
-      "target_doctype": "Coupon Code",
-      "fieldname": "custom_max_uses_per_day",
-      "label": "Max Uses per Day",
-      "fieldtype": "Int",
+      "artifact_id": "ART-FIELD-00183",
+      "target_doctype": "Delivery Note",
+      "fieldname": "custom_party_stock_account",
+      "label": "Party Stock Account (PSV)",
+      "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2627,
+      "source_line": 2630,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1931,27 +2141,27 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2627,
+        "line": 2630,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
     },
     {
-      "artifact_id": "ART-FIELD-00178",
-      "target_doctype": "Coupon Code",
-      "fieldname": "custom_max_discount_cap",
-      "label": "Max Discount Cap",
-      "fieldtype": "Currency",
+      "artifact_id": "ART-FIELD-00184",
+      "target_doctype": "Stock Entry",
+      "fieldname": "custom_party_stock_account",
+      "label": "Party Stock Account (PSV)",
+      "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2634,
+      "source_line": 2640,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -1966,59 +2176,24 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2634,
+        "line": 2640,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
     },
     {
-      "artifact_id": "ART-FIELD-00179",
-      "target_doctype": "Supplier",
-      "fieldname": "custom_address_text",
-      "label": "Address Text",
-      "fieldtype": "Small Text",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2643,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2643,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00180",
-      "target_doctype": "Supplier",
-      "fieldname": "custom_shipping_address_text",
-      "label": "Shipping Address Text",
-      "fieldtype": "Small Text",
+      "artifact_id": "ART-FIELD-00185",
+      "target_doctype": "Sales Invoice",
+      "fieldname": "custom_sizewise_json",
+      "label": "Sizewise Matrix JSON",
+      "fieldtype": "Long Text",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2650,
@@ -2036,8 +2211,8 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
@@ -2049,49 +2224,14 @@
       "owner": "AITDL"
     },
     {
-      "artifact_id": "ART-FIELD-00181",
-      "target_doctype": "Supplier",
-      "fieldname": "custom_credit_days",
-      "label": "Credit Days",
-      "fieldtype": "Int",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2657,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2657,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00182",
-      "target_doctype": "Supplier",
-      "fieldname": "custom_vendor_code",
-      "label": "Vendor Code",
+      "artifact_id": "ART-FIELD-00186",
+      "target_doctype": "Sales Invoice",
+      "fieldname": "custom_billing_session_id",
+      "label": "Billing Session ID",
       "fieldtype": "Data",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2664,
+      "source_line": 2659,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2106,27 +2246,62 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2664,
+        "line": 2659,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
     },
     {
-      "artifact_id": "ART-FIELD-00183",
-      "target_doctype": "Delivery Note",
+      "artifact_id": "ART-FIELD-00636",
+      "target_doctype": "Sales Invoice",
+      "fieldname": "custom_business_display_number",
+      "label": "Business Display Number",
+      "fieldtype": "Data",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2668,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2668,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00187",
+      "target_doctype": "Sales Invoice",
       "fieldname": "custom_party_stock_account",
-      "label": "Party Stock Account (PSV)",
+      "label": "Party Stock Account",
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2674,
+      "source_line": 2676,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2141,24 +2316,24 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2674,
+        "line": 2676,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
     },
     {
-      "artifact_id": "ART-FIELD-00184",
-      "target_doctype": "Stock Entry",
-      "fieldname": "custom_party_stock_account",
-      "label": "Party Stock Account (PSV)",
-      "fieldtype": "Link",
+      "artifact_id": "ART-FIELD-00188",
+      "target_doctype": "Sales Invoice",
+      "fieldname": "custom_wallet_deduction",
+      "label": "Wallet Deduction",
+      "fieldtype": "Currency",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2684,
@@ -2176,189 +2351,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
         "line": 2684,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00185",
-      "target_doctype": "Sales Invoice",
-      "fieldname": "custom_sizewise_json",
-      "label": "Sizewise Matrix JSON",
-      "fieldtype": "Long Text",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2694,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2694,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00186",
-      "target_doctype": "Sales Invoice",
-      "fieldname": "custom_billing_session_id",
-      "label": "Billing Session ID",
-      "fieldtype": "Data",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2703,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2703,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00636",
-      "target_doctype": "Sales Invoice",
-      "fieldname": "custom_business_display_number",
-      "label": "Business Display Number",
-      "fieldtype": "Data",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2712,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2712,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00187",
-      "target_doctype": "Sales Invoice",
-      "fieldname": "custom_party_stock_account",
-      "label": "Party Stock Account",
-      "fieldtype": "Link",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2720,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2720,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00188",
-      "target_doctype": "Sales Invoice",
-      "fieldname": "custom_wallet_deduction",
-      "label": "Wallet Deduction",
-      "fieldtype": "Currency",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2728,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2728,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -2371,7 +2371,7 @@
       "fieldtype": "Float",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2736,
+      "source_line": 2692,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2386,14 +2386,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2736,
+        "line": 2692,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -2406,7 +2406,7 @@
       "fieldtype": "Currency",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2744,
+      "source_line": 2700,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2421,14 +2421,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2744,
+        "line": 2700,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -2441,7 +2441,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2752,
+      "source_line": 2708,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2456,14 +2456,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2752,
+        "line": 2708,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -2476,7 +2476,7 @@
       "fieldtype": "Small Text",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2760,
+      "source_line": 2716,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2491,14 +2491,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2760,
+        "line": 2716,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -2511,7 +2511,7 @@
       "fieldtype": "Link",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2769,
+      "source_line": 2725,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2526,14 +2526,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2769,
+        "line": 2725,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -2546,7 +2546,7 @@
       "fieldtype": "Small Text",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2777,
+      "source_line": 2733,
       "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
       "asset_type": "field",
       "validation_status": "Verified",
@@ -2561,14 +2561,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2777,
+        "line": 2733,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
@@ -2579,6 +2579,181 @@
       "fieldname": "custom_sales_person",
       "label": "Sales Person",
       "fieldtype": "Link",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2742,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2742,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00642",
+      "target_doctype": "POS Invoice Item",
+      "fieldname": "custom_discount_reason",
+      "label": "Discount Reason",
+      "fieldtype": "Small Text",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2750,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2750,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00191",
+      "target_doctype": "Company",
+      "fieldname": "custom_smriti_store_type",
+      "label": "SMRITI Store Type",
+      "fieldtype": "Select",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2759,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2759,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00192",
+      "target_doctype": "Company",
+      "fieldname": "custom_smriti_gstin_state",
+      "label": "SMRITI GSTIN State Code",
+      "fieldtype": "Data",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2767,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2767,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00193",
+      "target_doctype": "Company",
+      "fieldname": "custom_smriti_settings_configured",
+      "label": "SMRITI Settings Configured",
+      "fieldtype": "Check",
+      "evidence_type": "AST",
+      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+      "source_line": 2775,
+      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
+      "asset_type": "field",
+      "validation_status": "Verified",
+      "operational_status": "Active",
+      "coverage_rules": {
+        "BUSINESS": "PASS",
+        "TECHNICAL": "PASS",
+        "API": "PASS",
+        "SCREEN": "PASS",
+        "MANUAL": "PASS"
+      },
+      "coverage_score": 100.0,
+      "freshness": {
+        "last_scanned_commit": "UNKNOWN_COMMIT",
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
+      },
+      "related_assets": [],
+      "evidence": {
+        "type": "ast",
+        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
+        "line": 2775,
+        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
+      },
+      "owner": "AITDL"
+    },
+    {
+      "artifact_id": "ART-FIELD-00100",
+      "target_doctype": "Item Barcode",
+      "fieldname": "custom_is_primary",
+      "label": "Is Primary",
+      "fieldtype": "Check",
       "evidence_type": "AST",
       "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
       "source_line": 2786,
@@ -2596,189 +2771,14 @@
       "coverage_score": 100.0,
       "freshness": {
         "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
+        "last_scan_timestamp": "2026-06-27T16:55:19Z",
+        "last_validated_timestamp": "2026-06-27T16:55:19Z"
       },
       "related_assets": [],
       "evidence": {
         "type": "ast",
         "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
         "line": 2786,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00642",
-      "target_doctype": "POS Invoice Item",
-      "fieldname": "custom_discount_reason",
-      "label": "Discount Reason",
-      "fieldtype": "Small Text",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2794,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2794,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00191",
-      "target_doctype": "Company",
-      "fieldname": "custom_smriti_store_type",
-      "label": "SMRITI Store Type",
-      "fieldtype": "Select",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2803,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2803,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00192",
-      "target_doctype": "Company",
-      "fieldname": "custom_smriti_gstin_state",
-      "label": "SMRITI GSTIN State Code",
-      "fieldtype": "Data",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2811,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2811,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00193",
-      "target_doctype": "Company",
-      "fieldname": "custom_smriti_settings_configured",
-      "label": "SMRITI Settings Configured",
-      "fieldtype": "Check",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2819,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2819,
-        "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
-      },
-      "owner": "AITDL"
-    },
-    {
-      "artifact_id": "ART-FIELD-00100",
-      "target_doctype": "Item Barcode",
-      "fieldname": "custom_is_primary",
-      "label": "Is Primary",
-      "fieldtype": "Check",
-      "evidence_type": "AST",
-      "source_file": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-      "source_line": 2830,
-      "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407",
-      "asset_type": "field",
-      "validation_status": "Verified",
-      "operational_status": "Active",
-      "coverage_rules": {
-        "BUSINESS": "PASS",
-        "TECHNICAL": "PASS",
-        "API": "PASS",
-        "SCREEN": "PASS",
-        "MANUAL": "PASS"
-      },
-      "coverage_score": 100.0,
-      "freshness": {
-        "last_scanned_commit": "UNKNOWN_COMMIT",
-        "last_scan_timestamp": "2026-06-27T16:37:16Z",
-        "last_validated_timestamp": "2026-06-27T16:37:16Z"
-      },
-      "related_assets": [],
-      "evidence": {
-        "type": "ast",
-        "path": "apps/smriti_retail_os/smriti_retail_os/setup.py",
-        "line": 2830,
         "checksum": "78fd37adc743d5dbbc89672996cb5e0d2ba0186eb4c7dad006c9cd4f70299407"
       },
       "owner": "AITDL"
