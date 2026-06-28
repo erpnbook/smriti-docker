@@ -34,3 +34,9 @@ If the agent has shell/file access, it is explicitly required to run `git diff` 
 
 ## 9. No Prose-Only Metric Claims
 Never claim a metrics improvement or successful test verification in prose unless accompanied by the literal, raw output (e.g., terminal output, test results, or linter runs) proving the assertion.
+
+## 10. Separate Tool Output From Interpretation
+Every report or verification summary must clearly separate and distinguish between:
+- **Evidence:** The raw, literal command outputs, logs, or diffs.
+- **Interpretation:** The objective explanation of what that evidence means, avoiding subjective qualifiers (e.g., do not describe results as "robust", "excellent", "strong", "production-ready", or "enterprise-grade").
+- **Recommendation:** Clear, actionable next steps based on the interpreted evidence.
