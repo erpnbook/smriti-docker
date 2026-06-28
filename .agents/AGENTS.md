@@ -29,14 +29,47 @@ Do not summarize file changes under high-level descriptions (e.g., "fixed the wh
 ## 7. Explicit "Unverified" Status
 If you are unsure whether a change is correct or has fully solved the issue, explicitly label the task status as "unverified" rather than "done". Do not round up unverified items.
 
-## 8. Git Diff Against Previous Committed State
-If the agent has shell/file access, it is explicitly required to run `git diff` against the previous committed state (e.g., `git diff` or `git diff HEAD~1`) and paste that literal diff output in the response. This ensures changes are verified on disk and not just assumed.
+## 8. No Summary Judgments
+Do not append an overall quality score, a star rating, a "production-ready" verdict, or congratulatory framing (✅, "successfully," "robust," "strong foundation") to a verification report.
+- State only what was checked and what the literal output showed.
+- Do not assign a numeric score (e.g. "9.8/10") to your own work, in whole or by category.
+- Do not declare a module, file, or feature "production-ready" — that is a judgment for the human to make from the evidence presented, not a conclusion the agent reaches on its own behalf.
+- Avoid qualitative language such as "robust," "excellent," "strong," "enterprise-grade" — unless explicitly attributed to a human decision rather than stated as the verifier's own conclusion.
+- It is still reasonable, and required by Rule 7, to classify **verification state** — provided the classification is one of these four objective status values, and nothing else:
+  ```
+  Done                 — change made, verified with evidence per Rules 1–4
+  Failed                — change attempted, verification shows it did not work
+  Partially Verified    — some evidence gathered, some claims still unconfirmed
+  Unverified            — claimed, but no evidence has been gathered yet
+  ```
+  These are states, not opinions — they describe what was checked, not how good the result is. Do not substitute a different word for these four, and do not add a score alongside them.
 
-## 9. No Prose-Only Metric Claims
-Never claim a metrics improvement or successful test verification in prose unless accompanied by the literal, raw output (e.g., terminal output, test results, or linter runs) proving the assertion.
+## 9. Show Outputs, Not Just Actions
+Narrating that a command was run, a file was edited, or a tool was used is not evidence of what happened. Every action must be followed immediately by the actual output it produced — not a transition straight to the next step.
+- "Ran command: `X`" must be followed by the literal stdout/stderr of that command, even if empty, even if it's a single line.
+- "Edited `file.py`" must be followed by either the diff (per Rule 1) or, if the editing tool returned a confirmation/error, that literal return value.
+- "Used tool: `Y`" must be followed by that tool's actual return value, not a paraphrase of what the agent expects or assumes it did.
+- A sequence of "Ran command... Edited... Ran command..." steps with no shown output between them, followed only by a closing prose summary, does not satisfy Rules 1–7 even if the summary's claims are individually plausible.
 
-## 10. Separate Tool Output From Interpretation
-Every report or verification summary must clearly separate and distinguish between:
-- **Evidence:** The raw, literal command outputs, logs, or diffs.
-- **Interpretation:** The objective explanation of what that evidence means, avoiding subjective qualifiers (e.g., do not describe results as "robust", "excellent", "strong", "production-ready", or "enterprise-grade").
-- **Recommendation:** Clear, actionable next steps based on the interpreted evidence.
+## 10. Separate Evidence From Interpretation From Recommendation
+Every verification report must structure its conclusions into three explicitly labeled parts, in this order:
+- **Evidence:** the literal, unmodified output (diff, terminal log, linter output, measurement) per Rules 1–4.
+- **Interpretation:** what that output means, stated plainly, with no claim beyond what the evidence actually supports, avoiding subjective qualifiers (e.g., do not describe results as "robust", "excellent", "strong", "production-ready", or "enterprise-grade").
+- **Recommendation:** what to do next, clearly marked as a suggestion, not a fact.
+- When a tool's output disagrees with what manual inspection shows (for example, a linter flags a "conflict" between two values that, once resolved through their var() chains, are actually identical), say so explicitly under Interpretation: state what the tool reported, what manual resolution showed, and why they differ. Do not silently prefer one over the other or average them into a vague middle conclusion.
+- A Recommendation must never be phrased as if it were Evidence. "This should be reviewed before expanding scope" is a Recommendation. "This is reviewed" is a false Evidence claim if no review actually happened.
+
+---
+
+### Self-check before sending any report
+Before presenting a verification report, the agent should confirm:
+- [ ] Every modified file has a pasted diff (Rule 1), not a description
+- [ ] Every test claim has pasted terminal output (Rule 2)
+- [ ] Every lint/validator claim has pasted console output (Rule 3)
+- [ ] Every metric has a shown before/after measurement (Rule 4)
+- [ ] Prior session claims were independently re-checked, not assumed (Rule 5)
+- [ ] Scope is enumerated file-by-file, not summarized at module level (Rule 6)
+- [ ] Every item is labeled with one of exactly four states — Done, Failed, Partially Verified, Unverified — not a score or adjective (Rules 7–8)
+- [ ] No score, star rating, or "production-ready" verdict appears anywhere (Rule 8)
+- [ ] Every "Ran command" / "Edited" / "Used tool" line is followed by its actual output (Rule 9)
+- [ ] Evidence, Interpretation, and Recommendation appear as distinct labeled sections, not blended into one narrative (Rule 10)
