@@ -133,8 +133,7 @@ services:
           echo "Creating new site 'smriti_retail'...";
           bench new-site --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --install-app india_compliance --install-app smriti_retail_os --set-default smriti_retail &&
           bench --site smriti_retail build --app smriti_retail_os --app india_compliance &&
-          bench --site smriti_retail execute smriti_retail_os.setup.setup_smriti_retail_os &&
-          bench --site smriti_retail execute smriti_retail_os.setup_demo_company.run;
+          bench --site smriti_retail execute smriti_retail_os.setup.setup_smriti_retail_os;
         fi &&
         bench --site smriti_retail execute smriti_retail_os.sync_assets.sync_assets;
 
