@@ -261,8 +261,8 @@ CGE v2 (2.0)  PILOT ACTIVE 🟡  228 tests
 ### Install / Re-Install
 **Windows (PowerShell):**
 ```powershell
-git clone https://github.com/erpnbook/smriti-docker.git smriti
-cd smriti
+git clone https://github.com/erpnbook/smriti-docker.git Smriti9
+cd Smriti9
 PowerShell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 

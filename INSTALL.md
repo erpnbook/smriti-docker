@@ -39,8 +39,8 @@ SMRITI Retail OS provides an automated installation script that checks prerequis
 ### Windows (PowerShell)
 ```powershell
 # Clone the orchestration repository
-git clone https://github.com/erpnbook/smriti-docker.git smriti
-cd smriti
+git clone https://github.com/erpnbook/smriti-docker.git Smriti9
+cd Smriti9
 
 # Run the installer script (bypassing execution restrictions if necessary)
 PowerShell -ExecutionPolicy Bypass -File .\install.ps1
@@ -52,8 +52,8 @@ PowerShell -ExecutionPolicy Bypass -File .\install.ps1
 ### Linux / macOS (Bash)
 ```bash
 # Clone the orchestration repository
-git clone https://github.com/erpnbook/smriti-docker.git smriti
-cd smriti
+git clone https://github.com/erpnbook/smriti-docker.git Smriti9
+cd Smriti9
 
 # Execute the shell installer
 bash install.sh
