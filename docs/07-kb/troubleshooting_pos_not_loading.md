@@ -62,6 +62,28 @@ If the billing terminal fails to load assets offline or throws security/MIME-typ
    - Check the `sw.js` precache cache list (`STATIC_ASSETS`) and ensure it contains `/assets/smriti_retail_os/css/smriti_tokens.css` and `/assets/smriti_retail_os/js/smriti_sidebar_standalone.js`.
    - Clear browser site data (Application -> Clear site data) and reload the page to trigger a fresh service worker cache pull.
 
+### Step 5: Switcher Pill Truncation & Label Cutoffs
+*Symptom*: Bottom-left theme selection switcher shows labels cut off (e.g., "Hybric" instead of "Hybrid", "Minima" instead of "Minimal").
+*Diagnosis*: CSS flex wrap layout wraps items and cuts off text due to width constraints of the container.
+*Resolution*: Modify `.smriti-standalone-theme-bar` inside `smriti_sidebar_standalone.css` to use CSS grid reordering instead of flex wrap:
+```css
+.smriti-standalone-theme-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+}
+```
+
+### Step 6: Thin Wrapper Interception Page Loading Issues
+*Symptom*: Accessing legacy Desk routes (e.g. `/app/smriti-barcode`, `/app/smriti-shift`, `/app/smriti-desk`) loads native Frappe desk screens or gives 404/500 errors.
+*Diagnosis*: Interceptor helper missing, or fallback route mapping missing in `boot.py` for `/desk/setup-wizard`.
+*Resolution*: Verify `boot.py` interceptor:
+```python
+def _map_smriti_path(path):
+    # maps hyphenated paths to canonical standalone routes
+```
+Restart Gunicorn after updates (`docker restart smriti_retail-backend-1`).
+
 ---
 
 ## 🛠️ Escalation Matrix
@@ -74,6 +96,7 @@ If the POS screen still fails to load after completing the steps above:
 
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
+| 1.0.1 | 2026-06-28 | Jawahar R. Mallah | Added theme switcher grid layout & thin wrapper updates |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
 
 

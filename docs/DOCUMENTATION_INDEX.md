@@ -231,4 +231,7 @@ Last Audited: 2026-06-25
 | [N/A](./01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./01-product/walkthrough.md) | walkthrough.md | `01-product` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
+| [N/A](./08-architecture/DESIGN_SYSTEM.md) | DESIGN_SYSTEM.md | `08-architecture` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
+| [N/A](./08-architecture/smriti_ui_governance_constitution.md) | smriti_ui_governance_constitution.md | `08-architecture` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
 | [N/A](./08-architecture/sprint_005_proposal.md) | sprint_005_proposal.md | `08-architecture` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |
+| [N/A](./08-architecture/TOKEN_MIGRATION.md) | TOKEN_MIGRATION.md | `08-architecture` | N/A | Core | N/A | Active | 1.0.0 | 2026-06-25 |

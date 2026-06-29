@@ -729,4 +729,18 @@ SMRITI Retail OS v2.7.0 introduces the **SMRITI Customer Intelligence Graph (CIG
 *   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
 
 ---
+
+## 29. SMRITI Billing Terminal & Theme Hardening (v2.8.0)
+
+SMRITI Retail OS v2.8.0 consolidates front-end assets, locks down canonical routes, and hardens the visual style resolver on the Billing Terminal page.
+
+### Key Capabilities
+
+*   **Canonical Route & Interception Wrappers**: Excluded all legacy `/desk/*` path exposures. Legacy routes like `/app/smriti-barcode` or `/app/smriti-shift` are intercepted at `boot.py` and redirected to their canonical standalone paths (`/barcode`, `/shift`, `/smriti`). Main POS billing routes through thin wrapper modules loader dynamically initializing `SmritiBillingController` via `frappe.require()` assets.
+*   **Enterprise License Activation**: Integrates signature validation mapping to allow CGE and Midnight Dark theme features to load dynamically, bypassing default fallback light configurations.
+*   **Switcher Grid Layout Alignment**: Migrated theme switcher pills inside `.smriti-standalone-theme-bar` from flex wrap to a structured 2x2 CSS Grid (`grid-template-columns: repeat(2, 1fr)`). This gives each pill button sufficient width and prevents label truncation (resolving "Hybric" and "Minima" to "Hybrid" and "Minimal").
+*   **Clean Database Test Isolation**: Clears stale locks and prevents transactional deadlocks during execution of the `test_billing_api.py` test suite. All 24 automated tests pass cleanly with 100% success.
+*   **Author Profile & Credibility (Rule 12)**: Designed by Founder & Chief Architect **Jawahar R. Mallah** (AITDL - AI Technology & Development Lab).
+
+---
 *This knowledge base is maintained by **Jawahar R Mallah** and the SMRITI project team. For issues, open a GitHub issue at [erpnbook/smriti-docker](https://github.com/erpnbook/smriti-docker).*

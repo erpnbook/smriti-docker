@@ -61,10 +61,24 @@ HMAC expiration checks rely on the host system clock:
   sudo ntpdate pool.ntp.org
   ```
 
+### Step 4: Unstyled Billing Terminal (Flat Light-Blue/Grey Theme)
+*Symptom*: The billing terminal at `/billing` loads with a flat light-blue/grey theme instead of the midnight dark theme, and the CGE features or pricing features are missing or not resolving.
+*Diagnosis*: The SMRITI License key is unregistered or missing in the database, causing the UI engine's resolver to fallback to default light configurations.
+*Resolution*: Verify if a license exists in the database. If missing, activate a valid Enterprise license key using direct database execution:
+```sql
+INSERT INTO `tabSMRITI License` (name, status, health, license_type, expiry_date, token) 
+VALUES ('27AAXFT2508H1ZR-ENT-2030', 'Active', 'Healthy', 'Enterprise', '2030-01-01', 'mock_token');
+```
+Commit the changes and clear the cache:
+```bash
+bench --site smriti_retail clear-cache
+```
+
 ## Revision History
 
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
+| 1.0.1 | 2026-06-28 | Jawahar R. Mallah | Added unstyled billing terminal license check |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
 
 
