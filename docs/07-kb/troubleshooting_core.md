@@ -595,6 +595,24 @@ bench --site smriti_retail set-maintenance-mode off
 
 ---
 
+## 🔴 Issue 39: Platform Center Backup Fails with "new_backup() got an unexpected keyword argument 'with_files'"
+
+### Symptom
+When triggering a manual backup from the SMRITI Platform Center admin console, the backup fails immediately with the traceback showing:
+`TypeError: new_backup() got an unexpected keyword argument 'with_files'`
+
+### Root Cause
+In Frappe v15 and v16, the deprecated `with_files` argument has been completely removed from `new_backup()`. Calling it with this parameter raises a python `TypeError`.
+
+### Fix
+Update the `new_backup()` calls to use the newer `ignore_files` parameter:
+1. Replace `new_backup(with_files=True)` with `new_backup(ignore_files=False, force=True)`.
+2. Replace `new_backup(with_files=False)` with `new_backup(ignore_files=True, force=True)`.
+3. Construct and return a JSON-serializable `data` dict from the resulting `BackupGenerator` instance attributes (like `backup_path_db` and `backup_path_files`).
+This is fully resolved in the core SMRITI `platform_api.py` module.
+
+---
+
 # ⚙️ SECTION 7 — Setup Wizard & Configure Portal
 
 ---
@@ -680,6 +698,42 @@ else:
     ba.save(ignore_permissions=True)
 frappe.db.commit()
 ```
+
+---
+
+## 🔴 Issue 40: Category Master Fails on Fresh Install with LinkValidationError: "Could not find Parent Item Group: All Item Groups"
+
+### Symptom
+When creating a category from the SMRITI Category Master page on a fresh installation, the insertion fails with:
+`LinkValidationError: Could not find Parent Item Group: All Item Groups`
+
+### Root Cause
+SMRITI bypasses the default Frappe Setup Wizard to present a unified SMRITI portal. As a result, standard ERPNext seeding of the root `Item Group` named `All Item Groups` is skipped. When creating a new category, SMRITI attempts to set the parent to `All Item Groups` which is missing from the database.
+
+### Fix
+1. **Setup-time Seeding:** A seeding hook has been added to `setup_smriti_retail_os` in `setup.py` that automatically creates the root `Item Group` if it is missing:
+   ```python
+   if not frappe.db.exists("Item Group", "All Item Groups"):
+       frappe.get_doc({
+           "doctype": "Item Group",
+           "item_group_name": "All Item Groups",
+           "is_group": 1,
+           "parent_item_group": ""
+       }).insert(ignore_permissions=True)
+   ```
+2. **Runtime Guard:** A runtime safety check `_ensure_root_item_group()` has been added to `create_category` in `category_api.py` to create the root group on-demand:
+   ```python
+   def _ensure_root_item_group():
+       if not frappe.db.exists("Item Group", "All Item Groups"):
+           root = frappe.get_doc({
+               "doctype": "Item Group",
+               "item_group_name": "All Item Groups",
+               "is_group": 1,
+               "parent_item_group": ""
+           })
+           root.insert(ignore_permissions=True)
+           frappe.db.commit()
+   ```
 
 ---
 
@@ -778,7 +832,32 @@ Use order-by arrays instead of raw select strings to retrieve the latest entry. 
 
 ---
 
-*Last Updated: June 2026 | SMRITI Retail OS Master Troubleshooting Guide v2.1*
+## 🔴 Issue 41: Barcode Center Console Error — "SyntaxError: Unexpected token '<'" & Favicon 404
+
+### Symptom
+The browser console on the Barcode Center / Label Studio page shows:
+- `barcode-center:6 Uncaught SyntaxError: Unexpected token '<'`
+- `favicon.ico:1 Failed to load resource: the server responded with a status of 404 (Not Found)`
+
+### Root Cause
+1. **SyntaxError:** Internal scripts (e.g. `smriti_sidebar_standalone.js`, `smriti_ui_resolver.js`) were loaded using version-pinned query parameters (like `?v=2.0.7`, `?v=2.0.9`). If `bench build` was not executed or after version upgrades, these scripts fail to load, causing the server to return the HTML 404/redirect page. The browser attempts to parse the HTML string as JavaScript, raising the `<` SyntaxError.
+2. **Favicon 404:** The `favicon.ico` was missing from individual templates, causing browser diagnostic requests to fail.
+
+### Fix
+1. **Remove Version Query Strings:** All hardcoded version strings (`?v=2.0.7`, etc.) pointing to local SMRITI assets have been stripped from the `www/*.html` templates.
+2. **Global Favicon:** Added the favicon link tag globally inside `smriti_token_loader.html`:
+   ```html
+   <link rel="icon" href="/assets/smriti_retail_os/images/icon-192.png" type="image/png">
+   ```
+3. **Rebuild Assets:** Run esbuild inside the backend container to package the linked assets:
+   ```powershell
+   docker compose -f pwd.yml exec backend bench build --app smriti_retail_os
+   docker compose -f pwd.yml restart backend
+   ```
+
+---
+
+*Last Updated: June 2026 | SMRITI Retail OS Master Troubleshooting Guide v2.2*
 *Author: Jawahar R. Mallah — Founder & Chief Architect, AITDL*
 
 
@@ -788,3 +867,4 @@ Use order-by arrays instead of raw select strings to retrieve the latest entry. 
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
 | 1.1.0 | 2026-06-28 | Jawahar R. Mallah | Added Section 11 for SMRITI Navigation Manager (SNM) |
+| 1.2.0 | 2026-06-29 | Jawahar R. Mallah | Added Issues 39, 40, and 41 (Backup/Seeding/SyntaxError fixes) |
