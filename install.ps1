@@ -380,14 +380,18 @@ $LanIP = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {
 if ([string]::IsNullOrWhiteSpace($LanIP)) { $LanIP = "localhost" }
 
 Write-Host ""
-Write-Host "SMRITI Retail OS is ready!" -ForegroundColor Green
-Write-Host "Local Access : http://localhost:$HttpPort" -ForegroundColor Cyan
-Write-Host "LAN Access   : http://${LanIP}:$HttpPort" -ForegroundColor Cyan
-Write-Host "Username     : Administrator" -ForegroundColor Green
-Write-Host "Password     : $AdminPassword" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Green
-Write-Host "  Run  .\check.ps1  anytime to verify system health" -ForegroundColor Green
+Write-Host "🎉 SMRITI Retail OS installed successfully!" -ForegroundColor Green
+Write-Host ""
+Write-Host "🌐 Local Access : http://localhost:$HttpPort" -ForegroundColor Cyan
+Write-Host "📶 LAN Access   : http://${LanIP}:$HttpPort" -ForegroundColor Cyan
+Write-Host "👤 Username     : Administrator" -ForegroundColor Green
+Write-Host "🔑 Password     : $AdminPassword" -ForegroundColor Green
+Write-Host ""
+Write-Host "🟢 Windows Explorer folder icon configured." -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Green
+Write-Host "  Run  .\check.ps1  anytime to verify system health" -ForegroundColor DarkGray
+Write-Host "==========================================================" -ForegroundColor DarkGray
 Write-Host ""
 
 # Open browser

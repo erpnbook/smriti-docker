@@ -44,10 +44,11 @@ cd Smriti9
 
 # Run the installer script (bypassing execution restrictions if necessary)
 PowerShell -ExecutionPolicy Bypass -File .\install.ps1
+```
 
 > [!TIP]
 > **Windows Custom Folder Icon**: On Windows systems, the installer dynamically copies SMRITI's branding icon (`smriti.ico`) and configures your installation directory to display the custom SMRITI visual identity (`🟢`) in Windows Explorer.
-```
+
 
 ### Linux / macOS (Bash)
 ```bash
