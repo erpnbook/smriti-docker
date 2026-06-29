@@ -1,0 +1,2 @@
+# Enforce LF line endings for shell scripts to prevent WSL/bash execution failures on Windows hosts
+*.sh text eol=lf
