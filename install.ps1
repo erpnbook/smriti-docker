@@ -300,6 +300,42 @@ if ($healthy) {
     Write-Step "Clearing cache..."
     docker exec $backendContainer bench --site $SITE_NAME clear-cache 2>&1
     Write-OK "Cache cleared."
+
+    # Apply SMRITI custom folder icon (Windows only)
+    Write-Step "Applying SMRITI custom folder icon..."
+    try {
+        $sourceIcon = "$PSScriptRoot\apps\smriti_retail_os\smriti_retail_os\public\images\smriti_favicon.ico"
+        $targetIcon = "$PSScriptRoot\smriti.ico"
+        $desktopIniPath = "$PSScriptRoot\desktop.ini"
+        
+        # Reset attributes before copy/write to avoid access denied errors
+        if (Test-Path $targetIcon) {
+            attrib -h -r -s $targetIcon
+        }
+        if (Test-Path $desktopIniPath) {
+            attrib -h -r -s $desktopIniPath
+        }
+
+        # Copy favicon to root as smriti.ico
+        if (Test-Path $sourceIcon) {
+            Copy-Item $sourceIcon $targetIcon -Force
+            attrib +h $targetIcon
+        }
+
+        # Write desktop.ini
+        $desktopIniContent = @"
+[.ShellClassInfo]
+IconResource=smriti.ico,0
+"@
+        $desktopIniContent | Set-Content $desktopIniPath -Encoding Ascii
+        attrib +h +s $desktopIniPath
+
+        # Set directory system attribute to trigger Windows Explorer custom icon parser
+        attrib +s "$PSScriptRoot"
+        Write-OK "Custom folder icon applied."
+    } catch {
+        Write-Warn "Could not apply custom folder icon: $_"
+    }
 } else {
     Write-Warn "Backend container not healthy yet. The site may still be initializing."
     Write-Warn "Run '.\check.ps1' in a few minutes to verify system health."

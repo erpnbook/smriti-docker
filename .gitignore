@@ -20,3 +20,7 @@ scratch/
 assets_clean.tar.gz
 *.tar.gz
 *.tgz
+
+# System Customizations
+desktop.ini
+smriti.ico
