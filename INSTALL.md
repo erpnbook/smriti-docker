@@ -44,6 +44,9 @@ cd smriti_retail
 
 # Run the installer script (bypassing execution restrictions if necessary)
 PowerShell -ExecutionPolicy Bypass -File .\install.ps1
+
+> [!TIP]
+> **Windows Custom Folder Icon**: On Windows systems, the installer dynamically copies SMRITI's branding icon (`smriti.ico`) and configures your installation directory to display the custom SMRITI visual identity (`🟢`) in Windows Explorer.
 ```
 
 ### Linux / macOS (Bash)
@@ -188,6 +191,7 @@ docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app s
 
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
+| 1.1.0 | 2026-06-29 | Jawahar R. Mallah | Added Windows folder icon customization details |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
 
 
