@@ -34,7 +34,11 @@ Before starting any installation, ensure your host environment meets the followi
 
 ## ⚡ 1. Fresh Install (One-Command)
 
-SMRITI Retail OS provides an automated installation script that checks prerequisites, clones dependencies, configures environment settings, and runs backend syncs.
+SMRITI Retail OS provides automated installation scripts. Choose the correct option based on your operating system:
+
+> [!IMPORTANT]
+> - **Windows Host (Recommended)**: Use the native **PowerShell installer (`install.ps1`)**. This is fully optimized for Windows systems and automatically configures SMRITI's branding folder icon (`🟢`) in Windows Explorer.
+> - **Linux / macOS / WSL**: Use the **Bash installer (`install.sh`)** inside your terminal.
 
 ### Windows (PowerShell)
 ```powershell
@@ -50,7 +54,7 @@ PowerShell -ExecutionPolicy Bypass -File .\install.ps1
 > **Windows Custom Folder Icon**: On Windows systems, the installer dynamically copies SMRITI's branding icon (`smriti.ico`) and configures your installation directory to display the custom SMRITI visual identity (`🟢`) in Windows Explorer.
 
 
-### Linux / macOS (Bash)
+### Linux / macOS / WSL (Bash)
 ```bash
 # Clone the orchestration repository
 git clone https://github.com/erpnbook/smriti-docker.git Smriti9
