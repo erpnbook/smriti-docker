@@ -863,8 +863,85 @@ The browser console on the Barcode Center / Label Studio page shows:
 
 ## Revision History
 
-| Version | Date | Author | Summary of Changes |
-| --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
 | 1.1.0 | 2026-06-28 | Jawahar R. Mallah | Added Section 11 for SMRITI Navigation Manager (SNM) |
 | 1.2.0 | 2026-06-29 | Jawahar R. Mallah | Added Issues 39, 40, and 41 (Backup/Seeding/SyntaxError fixes) |
+| 1.3.0 | 2026-06-30 | Jawahar R. Mallah | Added Issue 42 (Style/Article No 4-step resolution + prnContent dict extraction fix) |
+
+---
+
+## Issue 42 — Style / Article No Not Printing Correctly in PRN Labels
+
+**Symptom:** `{style}` token on variant items prints the full SKU code (e.g., `BBM-0001-6`) instead of the parent template / Article No. `{style_code}` and `{variant_template}` tokens show blank even when configured in the print template mapping.
+
+**Root Cause (3-part):**
+
+### Gap 1 — `{style}` resolution was SKU-split only (Step 4 only)
+`get_item_print_details()` in `barcode_api.py` resolved `style` with a single line:
+```python
+style = item_code.split("-")[0] if "-" in item_code else item_code
+```
+This only performed Step 4 (SKU prefix split). For variant items like `BBM-0001-6`, the parent template (`BBM-0001`) is stored in `item_doc.variant_of` — but the code never checked it. Result: `{style}` printed `BBM`, not `BBM-0001`.
+
+### Gap 2 — `{style_code}` token did not exist
+The return dict from `get_item_print_details()` had no `"style_code"` key. Any template using `{style_code}` printed blank.
+
+### Gap 3 — `{variant_template}` token did not exist
+Same as above — `"variant_template"` key was absent from the return dict.
+
+**Fix Applied — `barcode_api.py` (commit `efcd7e5`):**
+
+Replaced single-step SKU split with 4-step priority resolution:
+```python
+# Step 1: variant_of (ERP Variant parent template — most authoritative for variant items)
+style = item_doc.get("variant_of") or ""
+
+# Step 2: Explicit custom_style_code field
+if not style:
+    if item_doc.meta.has_field("custom_style_code"):
+        style = item_doc.get("custom_style_code") or ""
+
+# Step 3: Explicit style_no field
+if not style:
+    if item_doc.meta.has_field("style_no"):
+        style = item_doc.get("style_no") or ""
+
+# Step 4: SKU parsing — last resort
+if not style:
+    style = item_code.split("-")[0] if "-" in item_code else item_code
+```
+
+Added two new keys to the return dict:
+```python
+"style_code": item_doc.get("custom_style_code") or item_doc.get("style_no") or "",
+"variant_template": item_doc.get("variant_of") or "",
+```
+
+**Verification Commands:**
+```bash
+# 1. Confirm syntax
+python -m py_compile smriti_retail_os/barcode_api.py
+
+# 2. Confirm keys present in return dict
+grep -n "style_code\|variant_template\|variant_of" smriti_retail_os/barcode_api.py | grep -E "398|402|415|416|417|422|423|445|446"
+
+# 3. Confirm prnContent correctly extracted in all 3 flows
+grep -n "prnContent" smriti_retail_os/www/barcode.html | grep -v "const prnContent\|!prnContent\|//"
+# Must show .prn || prnContent at lines ~4414, ~4566, ~4621
+```
+
+**Available PRN Template Tokens After Fix:**
+
+| Token | Resolution |
+|---|---|
+| `{style}` | variant_of → custom_style_code → style_no → SKU split |
+| `{style_code}` | custom_style_code or style_no (stored field, no chain) |
+| `{variant_template}` | item_doc.variant_of (direct ERP parent template ID) |
+| `{item_code}` | Full SKU code |
+| `{item_name}` | Item name |
+
+**Files Modified:**
+- `smriti_retail_os/barcode_api.py` — lines 397–446 (`get_item_print_details`)
+- `smriti_retail_os/www/barcode.html` — lines 4414, 4566, 4621 (`prnContent.prn || prnContent`)
+
+**Commit:** `efcd7e5` — pushed to `origin/main`
