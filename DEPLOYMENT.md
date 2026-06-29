@@ -130,8 +130,8 @@ In the event of complete hardware failure or data corruption, follow this recove
 1. **Deploy New Host**: Provision a fresh VM or OS instance with Docker Desktop / Docker Compose and Git installed.
 2. **Clone Configuration**: Clone the orchestration repository:
    ```bash
-   git clone https://github.com/erpnbook/smriti-docker.git smriti_retail
-   cd smriti_retail
+   git clone https://github.com/erpnbook/smriti-docker.git smriti
+   cd smriti
    ```
 3. **Restore environment settings**: Re-create the `.env` file with matching database passwords and system configurations.
 4. **Pull cloud backups**: Download the latest database dump (`.sql.gz`) and assets tarballs from your S3 storage bucket.
