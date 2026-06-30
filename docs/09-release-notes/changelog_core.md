@@ -30,6 +30,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Implement AI-driven stock-out prediction engines.
 - Add multi-currency cashier ledger balancing.
 
+## [2.4.2] — 2026-06-30
+
+### Changed
+- **Navigation: Dedicated Barcode Studio Group**: Consolidated all barcode-related sidebar items under a new `Barcode Studio` menu group positioned between `Inventory` and `Finance`.
+  - `Barcode Center` (renamed to **Label Studio**, route `/barcode`) — moved from `Inventory`
+  - `Print Templates` (route `/print-templates`) — moved from `Inventory`
+  - `Sizewise Item CRUD` (route `/sizewise_item`) — moved from `Masters`
+  - `Sizewise Invoice` (route `/sizewise_invoice`) — moved from `Sales`
+- Both `smriti_nav_config.js` (client) and `navigation_service.py` (`CANONICAL_NAV`) updated in sync.
+- Legacy route `/barcode-center` preserved in `hooks.py` `website_route_rules` for backward-compatible bookmark redirects.
+
+---
+
 ## [2.4.1] — 2026-06-30
 
 ### Fixed
@@ -253,8 +266,9 @@ The current platform status is represented by the following readiness metrics:
 | Purchase            | ✅ Stable                    |
 | Inventory           | ✅ Stable                    |
 | Sizewise Invoice    | ✅ Stable                    |
-| Barcode Center      | ✅ Stable                    |
-| Label Studio v2.1   | ✅ Stable                    |
+| Barcode Studio      | ✅ Stable                    |
+| Label Studio        | ✅ Stable                    |
+| Print Templates     | ✅ Stable                    |
 | Analytics Dashboard | ⚠️ Requires Production Data |
 | USB/QZ Printing     | ⚠️ Pilot Validation         |
 | LAN Printing        | ⚠️ Pilot Validation         |
@@ -266,6 +280,7 @@ The current platform status is represented by the following readiness metrics:
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+| 1.1.0 | 2026-06-30 | Jawahar R. Mallah | Added v2.4.2 entry for Barcode Studio menu consolidation; updated Release Readiness Matrix |
 
 
 ---

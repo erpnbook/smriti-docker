@@ -43,10 +43,12 @@ Previously, the sidebar configuration was hard-coded inside `smriti_nav_config.j
 ## 2. Proposed Solution
 
 The **SMRITI Navigation Manager (SNM)** decouples the UI layout tree from static configuration scripts. It establishes:
-1. **Canonical Config as Registry:** `smriti_nav_config.js` remains the canon of all possible items.
+1. **Canonical Config as Registry:** `smriti_nav_config.js` remains the canon of all possible items. The `navigation_service.py` `CANONICAL_NAV` dict mirrors this structure server-side and must be kept in sync with any changes.
 2. **Database Overrides:** Profile-specific labels, icons, display sorting orders, feature flags, and statuses are stored inside the database via the `SMRITI Navigation Override` DocType.
 3. **Capability Mapping:** Explicit role, user, or company capability checks validate menu item visibility dynamically.
 4. **Redis Caching:** Precedence-resolved layout JSON structures are cached in Redis under a custom MD5 schema version hash.
+
+> **v2.4.2 Change Note:** A new top-level section `barcode_studio` was added to `CANONICAL_NAV` (between `inventory` and `finance`) to consolidate `label_studio`, `print_templates`, `sizewise_item`, and `sizewise_invoice` under a single Barcode Studio sidebar group. These items were removed from their legacy `inventory`, `masters`, and `sales` sections respectively.
 
 ---
 
@@ -77,3 +79,4 @@ Validated via backend test suite:
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-28 | Jawahar R. Mallah | Initial specification |
+| 1.1.0 | 2026-06-30 | Jawahar R. Mallah | Added v2.4.2 change note for barcode_studio group consolidation |

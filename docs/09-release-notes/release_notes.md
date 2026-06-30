@@ -31,6 +31,24 @@ Reviewed By: "Jawahar R. Mallah"
 
 ---
 
+## 🆕 v2.4.2 — SMRITI Barcode Studio Navigation Consolidation (2026-06-30)
+
+### 🗂️ 1. Dedicated Barcode Studio Sidebar Group
+- **New Menu Group**: Added a standalone `Barcode Studio` navigation group placed between `Inventory` and `Finance` in the SMRITI sidebar.
+- **Consolidated Items**:
+  - `Label Studio` (formerly **Barcode Center**) — moved from `Inventory`, route `/barcode`
+  - `Print Templates` — moved from `Inventory`, route `/print-templates`
+  - `Sizewise Item CRUD` — moved from `Masters`, route `/sizewise_item`
+  - `Sizewise Invoice` — moved from `Sales`, route `/sizewise_invoice`
+
+### 🔄 2. Backward-Compatible Routing
+- **Legacy Redirect Preserved**: The old `/barcode-center` route continues to redirect to `/barcode` via `hooks.py` `website_route_rules`, ensuring saved bookmarks remain functional.
+
+### 🔧 3. Dual-Config Sync
+- Both `smriti_nav_config.js` (client-side) and `navigation_service.py` (`CANONICAL_NAV` server-side) updated in perfect sync to ensure consistent navigation across developer builds, Redis-cached sessions, and database-driven navigation profiles.
+
+---
+
 ## 🆕 v2.4.0 — SMRITI Barcode Studio V2.4a Layout & Operations Upgrade (2026-06-21)
 
 ### 🔖 1. Warehouse Article Range Loader

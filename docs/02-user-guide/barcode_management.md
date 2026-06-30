@@ -4,11 +4,11 @@ Title: "Barcode & Label Print Management Guide"
 Owner: "Operations Team"
 Audience: "End User"
 Module: "Core"
-Version: "2.0.0"
+Version: "2.1.0"
 Status: "Active"
 Primary Document: "Yes"
 Depends On: ""
-Related Modules: "Barcode Center, Print Templates, Inventory"
+Related Modules: "Barcode Studio, Label Studio, Print Templates"
 Last Updated: "2026-06-30"
 Last Reviewed: "2026-06-30"
 AI Generated: "Yes"
@@ -17,7 +17,7 @@ Reviewed By: "Jawahar R. Mallah"
 
 # Barcode & Label Print Management Guide
 
-This guide covers **barcode setup**, **label print templates**, **token mapping**, **printer configuration**, and **troubleshooting** for the SMRITI Barcode Center (`/barcode`).
+This guide covers **barcode setup**, **label print templates**, **token mapping**, **printer configuration**, and **troubleshooting** for the SMRITI Label Studio (`/barcode`) under the dedicated **Barcode Studio** menu.
 
 ---
 
@@ -72,7 +72,7 @@ The **SMRITI Print Template** system (`/print-templates`) allows custom label la
 ### How It Works
 
 ```
-Item selected in Barcode Center
+Item selected in Label Studio
         ↓
 get_item_print_details() resolves all token values
         ↓
@@ -216,8 +216,7 @@ Saved profiles persist in SMRITI Company Settings and are shared across all user
 
 To scan your inventory for active products without barcodes:
 - Store managers can query the active missing barcodes list from the backend to identify items needing print runs or vendor barcode linking.
-- Only active, sellable variants (not templates) are scanned.
-- The **Transaction Load** feature in Barcode Center shows a checklist of items in any Purchase Receipt or Stock Entry. Items missing barcodes are highlighted with a red **Missing Barcode** badge.
+- The **Transaction Load** feature in Label Studio shows a checklist of items in any Purchase Receipt or Stock Entry. Items missing barcodes are highlighted with a red **Missing Barcode** badge.
 
 ---
 
@@ -241,6 +240,7 @@ To scan your inventory for active products without barcodes:
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Initial guide — barcodes and import |
 | 2.0.0 | 2026-06-30 | Jawahar R. Mallah | Full rewrite — added Print Templates, Token Reference, Field Mappings JSON, 4-step style resolution, QZ Tray flows, Print Profiles, Quick Fix table |
+| 2.1.0 | 2026-06-30 | Jawahar R. Mallah | Updated navigation references to Label Studio and the new Barcode Studio menu group |
 
 ---
 

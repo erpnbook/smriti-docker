@@ -857,7 +857,7 @@ The browser console on the Barcode Center / Label Studio page shows:
 
 ---
 
-*Last Updated: June 2026 | SMRITI Retail OS Master Troubleshooting Guide v2.2*
+*Last Updated: June 2026 | SMRITI Retail OS Master Troubleshooting Guide v2.3*
 *Author: Jawahar R. Mallah — Founder & Chief Architect, AITDL*
 
 
@@ -867,6 +867,7 @@ The browser console on the Barcode Center / Label Studio page shows:
 | 1.1.0 | 2026-06-28 | Jawahar R. Mallah | Added Section 11 for SMRITI Navigation Manager (SNM) |
 | 1.2.0 | 2026-06-29 | Jawahar R. Mallah | Added Issues 39, 40, and 41 (Backup/Seeding/SyntaxError fixes) |
 | 1.3.0 | 2026-06-30 | Jawahar R. Mallah | Added Issue 42 (Style/Article No 4-step resolution + prnContent dict extraction fix) |
+| 1.4.0 | 2026-06-30 | Jawahar R. Mallah | Added Issue 43 (Barcode Studio navigation group consolidation — Barcode Center retired) |
 
 ---
 
@@ -944,4 +945,44 @@ grep -n "prnContent" smriti_retail_os/www/barcode.html | grep -v "const prnConte
 - `smriti_retail_os/barcode_api.py` — lines 397–446 (`get_item_print_details`)
 - `smriti_retail_os/www/barcode.html` — lines 4414, 4566, 4621 (`prnContent.prn || prnContent`)
 
-**Commit:** `efcd7e5` — pushed to `origin/main`
+**Commit:** `efcd7e5` — pushed to `origin/main`
+
+---
+
+## Issue 43 — "Barcode Center" Menu Item Not Found / Relocated to Barcode Studio
+
+**Symptom:** Users who bookmarked the old "Barcode Center" link or who navigate to the Inventory sidebar group can no longer find the Barcode Center, Print Templates, Sizewise Item CRUD, or Sizewise Invoice entries in their previous locations.
+
+**Root Cause:**
+As part of SMRITI Navigation Consolidation (commit `3355e12`), all barcode-related sidebar links were moved from scattered groups into a new dedicated **Barcode Studio** group:
+- **Removed from Inventory**: `Barcode Center` (renamed → `Label Studio`) and `Print Templates`
+- **Removed from Masters**: `Sizewise Item CRUD`
+- **Removed from Sales**: `Sizewise Invoice`
+
+A new sidebar section `Barcode Studio` was inserted between `Inventory` and `Finance` containing all four items under their new labels.
+
+**Fix / Navigation Guide:**
+The menu items have not been deleted — they have been consolidated:
+
+| Old Location | Old Label | New Location | New Label | Route |
+|---|---|---|---|---|
+| Inventory → Barcode Center | Barcode Center | Barcode Studio → Label Studio | Label Studio | `/barcode` |
+| Inventory → Print Templates | Print Templates | Barcode Studio → Print Templates | Print Templates | `/print-templates` |
+| Masters → Sizewise Item CRUD | Sizewise Item CRUD | Barcode Studio → Sizewise Item CRUD | Sizewise Item CRUD | `/sizewise_item` |
+| Sales → Sizewise Invoice | Sizewise Invoice | Barcode Studio → Sizewise Invoice | Sizewise Invoice | `/sizewise_invoice` |
+
+**Note:** The legacy route `/barcode-center` still redirects to `/barcode` (via `hooks.py` `website_route_rules`) for backward compatibility with saved bookmarks.
+
+**Files Modified (commit `3355e12`):**
+- `smriti_retail_os/public/js/smriti_nav_config.js` — client-side sidebar navigation
+- `smriti_retail_os/navigation/navigation_service.py` — server-side `CANONICAL_NAV` dictionary
+
+**Verification Commands:**
+```bash
+# Confirm barcode_studio exists in both nav files
+grep -n "barcode_studio" smriti_retail_os/public/js/smriti_nav_config.js smriti_retail_os/navigation/navigation_service.py
+
+# Confirm barcode_center fully removed from nav files
+grep -n "barcode_center" smriti_retail_os/public/js/smriti_nav_config.js smriti_retail_os/navigation/navigation_service.py
+# Expected: zero results
+```

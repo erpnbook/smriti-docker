@@ -26,7 +26,7 @@ Welcome to the **End User & Operations Guides** documentation set. Below is the 
 | [USER-020](./psv_success_stories.md) | COMM-10 — PSV Success Story Pack | End User | PSV | Operations Team | Active | 2026-06-25 |
 | [USER-021](./single_compose_setup.md) | Single Compose Setup | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-022](./site_operations.md) | Site operations | End User | Core | Operations Team | Active | 2026-06-25 |
-| [USER-023](./sizewise_bulk_import.md) | Sizewise Item Master — Bulk Import (Paste from Excel) | End User | Core | Operations Team | Active | 2026-06-25 |
+| [USER-023](./sizewise_bulk_import.md) | Sizewise Item Master — Bulk Import (Paste from Excel) | End User | Core | Operations Team | Active | 2026-06-30 |
 | [USER-024](./smriti_sidebar_workspace_proposal.md) | SMRITI Retail OS — Sidebar & Workspace Enhancement Proposal | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-025](./updating_from_github.md) | Updating SMRITI Retail OS from GitHub | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-026](./volume_1_daily_operations.md) | Volume 1 Daily Operations | End User | Core | Operations Team | Active | 2026-06-25 |

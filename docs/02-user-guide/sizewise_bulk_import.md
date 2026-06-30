@@ -4,13 +4,13 @@ Title: "Sizewise Item Master — Bulk Import (Paste from Excel)"
 Owner: "Operations Team"
 Audience: "End User"
 Module: "Core"
-Version: "1.0.0"
+Version: "1.1.0"
 Status: "Active"
 Primary Document: "Yes"
 Depends On: ""
-Related Modules: ""
-Last Updated: "2026-06-25"
-Last Reviewed: "2026-06-25"
+Related Modules: "Barcode Studio"
+Last Updated: "2026-06-30"
+Last Reviewed: "2026-06-30"
 AI Generated: "Yes"
 Reviewed By: "Jawahar R. Mallah"
 ---
@@ -28,10 +28,12 @@ This guide covers the Paste mode, including the **Pre-Import Verification** syst
 
 ## How to Paste from Excel
 
+> **Navigation (v2.4.2+):** Sizewise Item Master is now located under **Barcode Studio** in the sidebar (previously under Masters). Direct URL: `/sizewise_item`
+
 1. Open your Excel / Google Sheets file
 2. Select rows including the **header row**
 3. Copy (Ctrl+C)
-4. Go to `/sizewise_item` → click **"Paste Size Matrix (Excel)"** tab
+4. Go to `Barcode Studio → Sizewise Item CRUD` (or navigate directly to `/sizewise_item`) → click **"Paste Size Matrix (Excel)"** tab
 5. Click anywhere in the paste zone → Paste (Ctrl+V)
 
 ### Required Column Headers
@@ -126,6 +128,7 @@ A: No. Failed rows are not partially imported, so there is no corrupt data to cl
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+| 1.1.0 | 2026-06-30 | Jawahar R. Mallah | Updated navigation reference — Sizewise Item CRUD now under Barcode Studio (moved from Masters) |
 
 
 ---

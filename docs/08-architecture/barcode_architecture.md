@@ -4,7 +4,7 @@ Title: "Barcode Architecture & Validation Hardening (Option B)"
 Owner: "Architecture Team"
 Audience: "Architect"
 Module: "Core"
-Version: "1.1.0"
+Version: "1.2.0"
 Status: "Active"
 Primary Document: "Yes"
 Depends On: ""
@@ -91,6 +91,7 @@ SMRITI Barcode Studio V2.4a provides a widescreen, 3-panel operations center for
 4. **Price Fallback Logic**: Automatically checks variant-level pricing, Price Lists, and parent templates to prevent printing empty rates.
 5. **Box & Carton Mode**: Converts carton packing capacities to label counts automatically.
 6. **Reprint Queue**: Caches the history of recent print batches in browser local storage for quick one-click reprints.
+7. **Dedicated Barcode Studio Sidebar Group**: Consolidates Label Studio (formerly Barcode Center), Print Templates, and Sizewise Item CRUD under a new standalone "Barcode Studio" menu group to streamline operations and clean up the Inventory/Masters groups.
 
 ---
 
@@ -134,6 +135,7 @@ The token generation method (`get_item_print_details`) exposes three distinct to
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
 | 1.1.0 | 2026-06-30 | Jawahar R. Mallah | Added Section 8 detailing Style/Article No 4-step resolution and token schema |
+| 1.2.0 | 2026-06-30 | Jawahar R. Mallah | Documented menu consolidation under dedicated Barcode Studio navigation group |
 
 
 ---
