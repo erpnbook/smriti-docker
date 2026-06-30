@@ -4,7 +4,7 @@ Welcome to the **End User & Operations Guides** documentation set. Below is the 
 
 | Document ID | Title | Audience | Module | Owner | Status | Last Updated |
 | --- | --- | --- | --- | --- | --- | --- |
-| [USER-001](./barcode_management.md) | Barcode Management & Hardening Guide | End User | Core | Operations Team | Active | 2026-06-25 |
+| [USER-001](./barcode_management.md) | Barcode & Label Print Management Guide | End User | Core | Operations Team | Active | 2026-06-30 |
 | [USER-002](./company_settings.md) | SMRITI Company Configurations | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-003](./customer_management.md) | SMRITI OS Customer Management Guide | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-004](./eway_bill.md) | How to Generate E-Way Bills on the E-Way Bill Portal? | End User | Core | Operations Team | Active | 2026-06-25 |

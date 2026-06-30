@@ -9,7 +9,7 @@ Welcome to the **Architecture Specifications & Proposals** documentation set. Be
 | [ARCH-003](./acp_barcode_003.md) | Acp Barcode 003 | Architect | Core | Architecture Team | Active | 2026-06-25 |
 | [ARCH-004](./acp_ui_001.md) | Architecture Change Proposal (ACP-UI-001) | Architect | Core | Architecture Team | Active | 2026-06-25 |
 | [ARCH-005](./ai_content_policy.md) | SMRITI AI Content Policy (AI-GOV-01) | Architect | Core | Architecture Team | Active | 2026-06-25 |
-| [ARCH-006](./barcode_architecture.md) | Barcode Architecture & Validation Hardening (Option B) | Architect | Core | Architecture Team | Active | 2026-06-25 |
+| [ARCH-006](./barcode_architecture.md) | Barcode Architecture & Validation Hardening (Option B) | Architect | Core | Architecture Team | Active | 2026-06-30 |
 | [ARCH-007](./branding_attribution.md) | BRD-01: Branding, Attribution & Documentation Governance Standard | Architect | PSV | Architecture Team | Active | 2026-06-25 |
 | [ARCH-008](./cge_architecture_v1.md) | SMRITI Customer Growth Engine (CGE) — Architecture Specification v1.0 | Architect | CGE | Architecture Team | Active | 2026-06-25 |
 | [ARCH-009](./cge_audit_remediation_plan_v1.md) | SMRITI Customer Growth Engine (CGE) — Audit Remediation Plan v1.0 | Architect | PSV | Architecture Team | Active | 2026-06-25 |

@@ -4,13 +4,13 @@ Title: "Changelog — SMRITI Retail OS"
 Owner: "Release Team"
 Audience: "Executive / Team"
 Module: "PSV"
-Version: "1.0.0"
+Version: "1.1.0"
 Status: "Active"
 Primary Document: "Yes"
 Depends On: ""
 Related Modules: ""
-Last Updated: "2026-06-25"
-Last Reviewed: "2026-06-25"
+Last Updated: "2026-06-30"
+Last Reviewed: "2026-06-30"
 AI Generated: "Yes"
 Reviewed By: "Jawahar R. Mallah"
 ---
@@ -29,6 +29,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Redesign the core desktop client utilizing Frappe v17.
 - Implement AI-driven stock-out prediction engines.
 - Add multi-currency cashier ledger balancing.
+
+## [2.4.1] — 2026-06-30
+
+### Fixed
+- **Style/Article No Fallback Resolution Chain**: Fixed style token printing on variant items by replacing single-step SKU hyphen split with 4-step priority resolution (`variant_of` $\rightarrow$ `custom_style_code` $\rightarrow$ `style_no` $\rightarrow$ SKU hyphen split fallback).
+- **ZPL/TSPL Print Tokens**: Added explicit `{style_code}` (raw field value mapping) and `{variant_template}` (direct `variant_of` mapping) print tokens to print data payloads.
+- **QZ Tray WebSocket Dict Payload Crash**: Resolved USB printing WebSocket crash `TypeError: data[i].data.search is not a function` by extracting raw PRN ZPL/TSPL string from the backend dictionary response (`prnContent.prn || prnContent`) in download, LAN, and USB print flows. Wired up warning toast notifications for fallback template prints.
 
 ---
 

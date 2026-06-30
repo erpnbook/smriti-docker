@@ -4,13 +4,13 @@ Title: "Barcode Architecture & Validation Hardening (Option B)"
 Owner: "Architecture Team"
 Audience: "Architect"
 Module: "Core"
-Version: "1.0.0"
+Version: "1.1.0"
 Status: "Active"
 Primary Document: "Yes"
 Depends On: ""
 Related Modules: ""
-Last Updated: "2026-06-25"
-Last Reviewed: "2026-06-25"
+Last Updated: "2026-06-30"
+Last Reviewed: "2026-06-30"
 AI Generated: "Yes"
 Reviewed By: "Jawahar R. Mallah"
 ---
@@ -104,11 +104,36 @@ To track physical scanning performance and print usability, SMRITI implements a 
 4. **90-Day Retention Policy**: Prunes raw event logs older than 90 days daily via the system scheduler job `delete_expired_scan_events`. Snapshots are stored permanently.
 5. **Role-based API Access**: Restricts submission to authenticated POS cashiers, managers, and system managers.
 
+---
+
+## 8. Style/Article No & Token Resolution Architecture
+
+To support footwear and apparel retail workflows where size-variants must be mapped back to their parent style template code (Article Number), the print layout pipeline implements a 4-step priority resolution for the `{style}` token and exposes dedicated style tokens.
+
+### 8.1 Fallback Style Resolution Chain (for `{style}`)
+When printing tags or loading worksheets, the style token is resolved in this sequence:
+1. **`variant_of`**: If the item is a variant in ERPNext, the parent template item ID is used.
+2. **`custom_style_code`**: Stored custom alphanumeric style code.
+3. **`style_no`**: Stored standard style number.
+4. **SKU Hyphen Split**: Last-resort fallback that splits the SKU on the first hyphen and returns the prefix (e.g. `BBM-0001-6` $\rightarrow$ `BBM`).
+
+### 8.2 Resolved Style Tokens Schema
+The token generation method (`get_item_print_details`) exposes three distinct tokens to ZPL/TSPL templates:
+
+| Token | Type | Resolution Logic | Use Case |
+|---|---|---|---|
+| `{style}` | Resolved String | 4-step fallback chain | Primary display of style code on retail tags. |
+| `{style_code}` | Raw Field Value | `custom_style_code` or `style_no` (no split fallback) | Explicit alphanumeric code mapping. |
+| `{variant_template}`| Raw Field Value | `variant_of` value (empty if non-variant) | Direct link to the ERP template item. |
+
+---
+
 ## Revision History
 
 | Version | Date | Author | Summary of Changes |
 | --- | --- | --- | --- |
 | 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
+| 1.1.0 | 2026-06-30 | Jawahar R. Mallah | Added Section 8 detailing Style/Article No 4-step resolution and token schema |
 
 
 ---
@@ -122,4 +147,4 @@ To track physical scanning performance and print usability, SMRITI implements a 
 
 > "Always decision-ready."  
 > — Jawahar R. Mallah  
-> Founder & Chief Architect, AITDL
+> Founder & Chief Architect, AITDL

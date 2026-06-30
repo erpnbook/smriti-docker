@@ -1,16 +1,16 @@
 # Documentation Health Report
 
-**Date**: 2026-06-28  
-**Overall Compliance**: 92.1%
+**Date**: 2026-06-30  
+**Overall Compliance**: 92.0%
 
 ## Summary Metrics
 
 | Metric | Value | Status |
 | --- | --- | --- |
-| Total Documents Scanned | 226 | - |
+| Total Documents Scanned | 229 | - |
 | Duplicate IDs | 0 | ✅ PASS |
 | Broken Links | 0 | ✅ PASS |
-| Missing Metadata | 8 | ❌ FAIL |
+| Missing Metadata | 11 | ❌ FAIL |
 | Missing Examples | 92 | ⚠️ Warning |
 | Missing Revision History | 5 | ⚠️ Warning |
 
@@ -25,7 +25,10 @@ These violations must be resolved before changes can be merged.
 | `01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `01-product/walkthrough.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
+| `08-architecture/DESIGN_SYSTEM.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
+| `08-architecture/smriti_ui_governance_constitution.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `08-architecture/sprint_005_proposal.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
+| `08-architecture/TOKEN_MIGRATION.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `certification/psv_certified_planner_guide.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `generated/api_inventory.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
 | `generated/business_dictionary.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
@@ -52,7 +55,6 @@ These items should be addressed to improve quality but will not block merges.
 | `01-product/enterprise_readiness.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `01-product/pos_profile_overview.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `01-product/volume_3_executive_guide.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
-| `02-user-guide/barcode_management.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/customer_management.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/eway_bill.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/manager_pos_override.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
@@ -126,6 +128,7 @@ These items should be addressed to improve quality but will not block merges.
 | `08-architecture/production_readiness_standard.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `08-architecture/sfm_architecture.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `08-architecture/sfm_ledger_governance.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
+| `08-architecture/TOKEN_MIGRATION.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `09-release-notes/cge_release_notes_v1.0.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `09-release-notes/cge_sprint_a_task_checklist.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `09-release-notes/cge_sprint_b_performance_baseline.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |

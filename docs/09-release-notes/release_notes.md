@@ -4,18 +4,30 @@ Title: "🚀 Release Notes — SMRITI Retail OS"
 Owner: "Release Team"
 Audience: "Executive / Team"
 Module: "PSV"
-Version: "1.0.0"
+Version: "1.1.0"
 Status: "Active"
 Primary Document: "Yes"
 Depends On: ""
 Related Modules: ""
-Last Updated: "2026-06-25"
-Last Reviewed: "2026-06-25"
+Last Updated: "2026-06-30"
+Last Reviewed: "2026-06-30"
 AI Generated: "Yes"
 Reviewed By: "Jawahar R. Mallah"
 ---
 
 # 🚀 Release Notes — SMRITI Retail OS
+
+## 🆕 v2.4.1 — SMRITI Barcode Studio Token & Print Fixes (2026-06-30)
+
+### 🔖 1. Style/Article No Fallback Resolution Chain
+- **4-Step Fallback Priority**: Resolved style token printing on variant items by replacing the single-step SKU hyphen split with a robust 4-step priority sequence (`variant_of` $\rightarrow$ `custom_style_code` $\rightarrow$ `style_no` $\rightarrow$ SKU hyphen split fallback). Variant items now correctly print their parent template code (e.g. `BBM-0001` instead of `BBM`).
+
+### 🧬 2. Extended Print Layout Tokens
+- **New Dynamic Placeholders**: Added explicit `{style_code}` (direct alphanumeric code mapping) and `{variant_template}` (direct `variant_of` mapping) tokens to print data payloads, allowing templates to print specific style identifiers without resolution split fallbacks.
+
+### 🔌 3. QZ Tray Dict Payload & USB Print Crash Fix
+- **WebSocket Payload Parsing**: Resolved the USB printing WebSocket error `TypeError: data[i].data.search is not a function` by extracting raw PRN ZPL/TSPL string from the backend dictionary response (`prnContent.prn || prnContent`) in download, LAN, and USB print flows.
+- **Fallback Template Warnings**: Wired up warning toast notifications to alert the user if a fallback label size template was rendered due to custom template issues.
 
 ---
 

@@ -1,9 +1,9 @@
 # SMRITI Master Documentation Index
 
-Version: 1.0.0  
+Version: 1.0.1  
 Author: Jawahar R. Mallah, Founder & Chief Architect, AITDL  
 Status: Active  
-Last Audited: 2026-06-25  
+Last Audited: 2026-06-30  
 
 > [!NOTE]
 > This is the Single Source of Truth (SSOT) document registry for the SMRITI Retail OS project.
@@ -29,7 +29,7 @@ Last Audited: 2026-06-25
 | [ARCH-003](./08-architecture/acp_barcode_003.md) | Acp Barcode 003 | `08-architecture` | Architect | Core | Architecture Team | Active | 1.0.0 | 2026-06-25 |
 | [ARCH-004](./08-architecture/acp_ui_001.md) | Architecture Change Proposal (ACP-UI-001) | `08-architecture` | Architect | Core | Architecture Team | Active | 1.0.0 | 2026-06-25 |
 | [ARCH-005](./08-architecture/ai_content_policy.md) | SMRITI AI Content Policy (AI-GOV-01) | `08-architecture` | Architect | Core | Architecture Team | Active | 1.0.0 | 2026-06-25 |
-| [ARCH-006](./08-architecture/barcode_architecture.md) | Barcode Architecture & Validation Hardening (Option B) | `08-architecture` | Architect | Core | Architecture Team | Active | 1.0.0 | 2026-06-25 |
+| [ARCH-006](./08-architecture/barcode_architecture.md) | Barcode Architecture & Validation Hardening (Option B) | `08-architecture` | Architect | Core | Architecture Team | Active | 1.1.0 | 2026-06-30 |
 | [ARCH-007](./08-architecture/branding_attribution.md) | BRD-01: Branding, Attribution & Documentation Governance Standard | `08-architecture` | Architect | PSV | Architecture Team | Active | 1.0.0 | 2026-06-25 |
 | [ARCH-008](./08-architecture/cge_architecture_v1.md) | SMRITI Customer Growth Engine (CGE) — Architecture Specification v1.0 | `08-architecture` | Architect | CGE | Architecture Team | Active | 1.0.0 | 2026-06-25 |
 | [ARCH-009](./08-architecture/cge_audit_remediation_plan_v1.md) | SMRITI Customer Growth Engine (CGE) — Audit Remediation Plan v1.0 | `08-architecture` | Architect | PSV | Architecture Team | Active | 1.0.0 | 2026-06-25 |
@@ -193,11 +193,11 @@ Last Audited: 2026-06-25
 | [REL-006](./09-release-notes/cge_sprint_c_closure_report.md) | SMRITI CGE Sprint C — Closure & Verification Report | `09-release-notes` | Executive / Team | CGE | Release Team | Active | 1.0.0 | 2026-06-25 |
 | [REL-007](./09-release-notes/cge_sprint_c_implementation_plan.md) | SMRITI CGE Sprint C — Final Stabilization Implementation Plan | `09-release-notes` | Executive / Team | CGE | Release Team | Active | 1.0.0 | 2026-06-25 |
 | [REL-008](./09-release-notes/changelog.md) | SMRITI Retail OS — Customer Changelog | `09-release-notes` | Executive / Team | CGE | Release Team | Active | 1.0.0 | 2026-06-25 |
-| [REL-009](./09-release-notes/changelog_core.md) | Changelog — SMRITI Retail OS | `09-release-notes` | Executive / Team | PSV | Release Team | Active | 1.0.0 | 2026-06-25 |
-| [REL-010](./09-release-notes/release_notes.md) | 🚀 Release Notes — SMRITI Retail OS | `09-release-notes` | Executive / Team | PSV | Release Team | Active | 1.0.0 | 2026-06-25 |
+| [REL-009](./09-release-notes/changelog_core.md) | Changelog — SMRITI Retail OS | `09-release-notes` | Executive / Team | PSV | Release Team | Active | 1.1.0 | 2026-06-30 |
+| [REL-010](./09-release-notes/release_notes.md) | 🚀 Release Notes — SMRITI Retail OS | `09-release-notes` | Executive / Team | PSV | Release Team | Active | 1.1.0 | 2026-06-30 |
 | [REL-011](./09-release-notes/release_notes_v1.0.md) | SMRITI Retail OS — Release Notes v1.0 GA | `09-release-notes` | Executive / Team | Core | Release Team | Active | 1.0.0 | 2026-06-25 |
 | [REL-012](./09-release-notes/sprint1_verification_report.md) | SPRINT 1 VERIFICATION REPORT | `09-release-notes` | Executive / Team | CGE | Release Team | Active | 1.0.0 | 2026-06-25 |
-| [USER-001](./02-user-guide/barcode_management.md) | Barcode Management & Hardening Guide | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
+| [USER-001](./02-user-guide/barcode_management.md) | Barcode & Label Print Management Guide | `02-user-guide` | End User | Core | Operations Team | Active | 2.0.0 | 2026-06-30 |
 | [USER-002](./02-user-guide/company_settings.md) | SMRITI Company Configurations | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-003](./02-user-guide/customer_management.md) | SMRITI OS Customer Management Guide | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
 | [USER-004](./02-user-guide/eway_bill.md) | How to Generate E-Way Bills on the E-Way Bill Portal? | `02-user-guide` | End User | Core | Operations Team | Active | 1.0.0 | 2026-06-25 |
