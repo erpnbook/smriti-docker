@@ -34,3 +34,25 @@ Reviewed By: "Jawahar R. Mallah"
 > "Always decision-ready."  
 > — Jawahar R. Mallah  
 > Founder & Chief Architect, AITDL
+---
+
+## Purchase Workflow (v2.0.0)
+
+> 📦 **New in v2.0.0:** The SMRITI Purchase Center replaces the legacy ERPNext purchase form workflow.
+> Access it from: **Sidebar → Purchase → Purchase Center** or URL `/smriti-purchase`
+
+### Daily Purchase Tasks
+
+| Task | Where | Frequency |
+|---|---|---|
+| Check pending GRNs | Purchase Center → GRN | Daily (morning) |
+| Approve pending POs | Purchase Center → PO → Pending Approval | As needed |
+| Create purchase invoices for received goods | Purchase Center → Invoices | Daily |
+| Review overdue supplier invoices | Reports → Purchase Invoice Register | Weekly |
+
+### Quick Reference
+
+- **Create PO:** Purchase Center → New PO → Select Supplier → Add Items → Save
+- **Receive Goods:** Purchase Center → New GRN → Link PO → Verify Qty → Submit
+- **Create Invoice:** Purchase Center → New Invoice → Link GRN → Enter Bill No → Submit
+- **View full guide:** [Purchase Center User Guide](./purchase_center.md)

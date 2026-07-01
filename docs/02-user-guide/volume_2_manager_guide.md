@@ -281,3 +281,44 @@ At **Pune Plaza Footwear**, the manager wants Cashiers to *only* see **Sales** (
 ## Support & Helpdesk
 Thank you for using SMRITI Retail OS. For additional support, please contact the Helpdesk at **support@aitdl.com**.
 
+
+---
+
+## Purchase Performance Monitoring (v2.0.0)
+
+### Purchase Reports for Managers
+
+Access from: **Reports → Purchase Reports** or **Analytics Studio → Purchase**
+
+| Report | What to Monitor | Frequency |
+|---|---|---|
+| Purchase Order Summary | Open POs, pending approvals, balance amounts | Daily |
+| Purchase Invoice Register | Overdue invoices (highlighted red) | Daily |
+| Supplier Purchase Summary | Supplier spend trends, top vendors | Weekly |
+| Item-wise Purchase Analysis | Cost per item, weighted average rate | Monthly |
+| Purchase Return Register | Return rates, GST reconciliation | Monthly |
+
+### Approval Queue Management
+
+If you are a Purchase Approver:
+1. Go to **Purchase Center → Purchase Orders**
+2. Filter by **Status = Pending Approval**
+3. Review each PO — check items, quantities, rates
+4. Click **Approve** or **Reject** with a reason
+5. All decisions are logged in the SMRITI Purchase Audit Log
+
+> **Policy:** POs above the approval threshold (configured in Purchase Settings) cannot be submitted without your approval.
+
+### Negative Stock Alerts
+
+The SMRITI Negative Stock Engine (SNSM) automatically flags negative stock events.
+
+**Daily checklist:**
+1. Go to **Inventory → Negative Stock Cases**
+2. Open any cases with status **Open**
+3. Review the root cause (missing GRN, data entry error, etc.)
+4. Approve or reject the proposed recovery action
+
+> **Target:** Zero open negative stock cases at end of day.
+
+For full SNSM guide: [Negative Stock Management User Guide](./negative_stock_management.md)

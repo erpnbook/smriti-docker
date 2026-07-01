@@ -62,3 +62,50 @@ This document logs customer-facing updates, bug fixes, and feature releases for 
 > "Always decision-ready."  
 > — Jawahar R. Mallah  
 > Founder & Chief Architect, AITDL
+---
+
+## [v2.0.0] — 2026-07-02 — Platform Expansion
+
+### 🆕 Added
+- **Purchase Studio**: Full PO → GRN → Invoice → Returns lifecycle at `/smriti-purchase`.
+  - 18 whitelisted API endpoints in `purchase_api.py`
+  - SMRITI Purchase Settings DocType (approval threshold, LC rule, invoice policy)
+  - SMRITI Purchase Audit Log DocType
+- **Purchase Analytics Studio**: 6 purchase reports (purchase_order_summary, grn_register, purchase_invoice_register, supplier_purchase_summary, item_wise_purchase, purchase_return_register)
+- **UIE Universal Integration Engine**: TallyPrime bidirectional sync at `/smriti-uie`
+  - Standard Connectivity Framework (SCF): BaseAdapter, TallyAdapter, SyncCoordinator
+  - 5 new DocTypes: SMRITI UIE Integration, Credential, Endpoint, Sync Log, Sync Queue
+  - DB index on idempotency_key for duplicate-safe dispatch
+- **SNM Navigation Manager**: Database-driven nav with Redis caching, 6 new DocTypes
+- **SNSM Negative Stock Engine**: Policy-based detection and recovery, 4 new DocTypes
+- **SMRITI Analytics Studio (SAS) v1.0**: SQL report engine, catalog, REPORT_QUERIES
+- SMRITI Barcode Settings → migrated to file-backed DocType
+- SMRITI Telemetry Event Definition → migrated to file-backed DocType
+- SMRITI Print Template → migrated to file-backed DocType with unit tests
+- Advanced PWA v2: IndexedDB, background sync, push notifications
+- SMRITI Print Modal for universal debranded print routing
+
+### 🔄 Changed
+- Theme system: `smriti_tokens.css` as single canonical token registry
+- `sleek-compact` as canonical theme fallback (THEME-005, all pages)
+- Barcode Studio: 4-step style resolution priority
+- `token_loader` included in all www pages (global favicon + theme coverage)
+- Sidebar: 37KB inline CSS duplication eliminated; background token aligned
+
+### 🐛 Fixed
+- `frappe.client` calls removed from all HTML pages (SPC Rule 6 compliance)
+- Frappe v16 whitelist test detection corrected
+- prnContent dict extraction in USB/LAN/download barcode flows
+- `initUIEngine` reliability via token_loader (65 pages)
+- HTTP status validation in fetch API helper (all www templates)
+- CSRF stale token handling in sw.js
+- Barcode DocType query: Item Attribute → Item Variant Attribute
+- `backup()` deprecated `with_files` param resolved; root Item Group seeded
+- SMRITI bag icon replaces default Frappe logo on login/setup pages
+- Purchase sidebar 404 routes resolved
+- `smriti-home.html` `/app/smriti-*` route dependency eliminated
+
+### ⚡ Performance
+- UIE payload builder decoupled from full document requirements (N+1 eliminated)
+
+---
