@@ -48,5 +48,9 @@ jobs:
         python -m pytest apps/smriti_retail_os/smriti_retail_os/tests/test_sdc006_mutation.py -v
 
     - name: Run SMRITI App Unit Tests
+      # NOTE: Tests requiring a live Frappe/MariaDB context (billing, PSV, barcode) will
+      # error here — this is EXPECTED and CORRECT. Do NOT add a || echo suppressor.
+      # Failures must be visible. Run `bench run-tests --app smriti_retail_os` on staging
+      # for full DB-dependent validation before merging to main.
       run: |
-        python -m unittest discover -s apps/smriti_retail_os/smriti_retail_os/tests/ -p "test_*.py" || echo "Note: Standard unittest runs may require Frappe context, but executed tests."
+        python -m unittest discover -s apps/smriti_retail_os/smriti_retail_os/tests/ -p "test_*.py"

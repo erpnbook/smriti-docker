@@ -73,3 +73,21 @@ Before presenting a verification report, the agent should confirm:
 - [ ] No score, star rating, or "production-ready" verdict appears anywhere (Rule 8)
 - [ ] Every "Ran command" / "Edited" / "Used tool" line is followed by its actual output (Rule 9)
 - [ ] Evidence, Interpretation, and Recommendation appear as distinct labeled sections, not blended into one narrative (Rule 10)
+
+---
+
+## Environment Rule: DEV vs TEST (MANDATORY — PERMANENT)
+
+| Drive | Purpose | Rule |
+|---|---|---|
+| `D:\Smriti_Retail_OS` | **Development** — all code is written here | All edits, new files, git commits happen here |
+| `F:\Smriti9` | **Testing** — receives code via git pull only | Never write code directly here; always sync via `git pull` |
+
+### Workflow
+
+1. Write all code in `D:\Smriti_Retail_OS\apps\smriti_retail_os`
+2. Commit and push from `D:\Smriti_Retail_OS\apps\smriti_retail_os`
+3. Pull into `F:\Smriti9\apps\smriti_retail_os` to deploy to the test environment
+4. Never edit files directly in `F:\Smriti9`
+
+This rule applies to ALL sessions, ALL agents, and ALL tasks. No exceptions.
