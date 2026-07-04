@@ -246,3 +246,4 @@ Last Audited: 2026-06-30
 | [SMRITI-ARCH-007](./08-architecture/TOKEN_MIGRATION.md) | SMRITI UI Midnight Token Migration Blueprint | `08-architecture` | Frontend Developer | Core | UI/UX Team | Active | 1.0.0 | 2026-07-04 |
 | [SMRITI-DOC-025](./01-product/walkthrough.md) | SMRITI Product Walkthrough | `01-product` | Support Engineer | Core | Product Team | Active | 1.0.0 | 2026-07-04 |
 | [SMRITI-REL-001](./09-release-notes/release_notes.md) | SMRITI Master Release Notes | `09-release-notes` | Support Engineer | Core | Release Engineering Team | Active | 1.0.0 | 2026-07-04 |
+| [STD-PLATFORM-01](./08-architecture/platform_services_standard.md) | SMRITI Platform Services Standard v1.0 | `08-architecture` | Architect, Developers | Core | Jawahar R. Mallah | Active | 1.0.0 | 2026-07-04 |

@@ -7,7 +7,7 @@
 
 | Metric | Value | Status |
 | --- | --- | --- |
-| Total Documents Scanned | 245 | - |
+| Total Documents Scanned | 246 | - |
 | Duplicate IDs | 0 | ✅ PASS |
 | Broken Links | 0 | ✅ PASS |
 | Missing Metadata | 0 | ✅ PASS |

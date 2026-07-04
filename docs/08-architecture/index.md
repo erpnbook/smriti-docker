@@ -42,3 +42,4 @@ Welcome to the **Architecture Specifications & Proposals** documentation set. Be
 | [SMRITI-ARCH-005](./smriti_ui_governance_constitution.md) | SMRITI UI Governance Constitution | Architect | Core | UI/UX Team | Active | 2026-07-04 |
 | [SMRITI-ARCH-006](./sprint_005_proposal.md) | Sprint 005 Architecture Proposal | Architect | Core | Product Team | Draft | 2026-07-04 |
 | [SMRITI-ARCH-007](./TOKEN_MIGRATION.md) | SMRITI UI Midnight Token Migration Blueprint | Frontend Developer | Core | UI/UX Team | Active | 2026-07-04 |
+| [STD-PLATFORM-01](./platform_services_standard.md) | SMRITI Platform Services Standard v1.0 | Architect, Developers | Core | Jawahar R. Mallah | Active | 2026-07-04 |
