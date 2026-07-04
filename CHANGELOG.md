@@ -1,4 +1,23 @@
-﻿# CHANGELOG — smriti-docker (erpnbook/smriti-docker)
+# CHANGELOG — smriti-docker (erpnbook/smriti-docker)
+
+## [2.4.1] — 2026-07-04
+
+### Changed
+- docs: bump bundled smriti_retail_os app reference to v2.1.0 (Engineering Governance)
+- chore: extend .gitignore to exclude verification screenshots and local test artifact files
+
+### Added
+- docs(arch): import architecture governance files from cloud migration
+  - architecture_baseline.json
+  - ARCHITECTURE_MIGRATION_BACKLOG.md
+  - check_architecture_boundaries.py
+
+### Bundled App Versions
+- smriti_retail_os: 2.1.0 (was 2.0.0)
+- frappe: v16.19.1 (unchanged)
+- erpnext: v16.19.1 (unchanged)
+
+---
 
 ## [2.4.0] — 2026-07-02
 

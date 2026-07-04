@@ -1,35 +1,42 @@
-﻿# RELEASE NOTES — smriti-docker v2.4.0
-# Release Date: 2026-07-02
-# Previous Release: v2.3.5
-# Commits since last tag: 41
+# RELEASE NOTES — smriti-docker v2.4.1
+# Release Date: 2026-07-04
+# Previous Release: v2.4.0
+# Commits since last tag: 2
 
 ## Summary
 
-Documentation expansion, install script hardening, Windows UX improvements,
-and UI governance framework publication.
+Maintenance release to synchronize bundled app version reference to
+smriti_retail_os v2.1.0 (Engineering Governance). Updates .gitignore
+to exclude verification screenshot artifacts and adds architecture
+governance docs from cloud migration.
 
-## Features
-- Windows custom folder icon automatically applied during installation
-- SMRITI UI Governance Constitution published (Rules UG-01 to UG-10)
-- Connectivity workspace user manual (UIE) — full documentation
+## App Version Sync
 
-## Enhancements
-- Installation directory renamed to Smriti9 across all guides
-- Troubleshooting guide updated: Issues 39–42 added
-- Barcode Studio navigation consolidated in all docs (v2.4.2 update)
-- SDC compiler discovery catalog updated for all new DocTypes
-- AGENTS.md — UI Verification Governance Rules 1-10 consolidated
+| App                | Previous | Current |
+|--------------------|----------|---------|
+| smriti_retail_os   | 2.0.0    | 2.1.0   |
+| frappe             | v16.19.1 | v16.19.1|
+| erpnext            | v16.19.1 | v16.19.1|
 
-## Bug Fixes
-- install.ps1: Non-ASCII emojis removed (prevented PowerShell parser errors)
-- install.ps1: Markdown tip moved out of code block
-- LF line endings enforced for shell scripts in gitattributes
+### smriti_retail_os v2.1.0 — Engineering Governance highlights:
+- Automated E2E UI Integration Regression Test Suite (5 headless DOM tests)
+- Config-driven SMRITI_DEVELOPER_MODE via frappe.conf.developer_mode
+- Centralized Roles constants: Accountant, Sales Manager, SMRITI Team
+- RELEASE_GATE_CRITERIA.md and QUALITY_DASHBOARD.md
+- Purchase Studio dynamic sidebar (L/R/T/B, collapse, popout, hash routing)
+
+## Repository Maintenance
+- `.gitignore` extended to exclude verification screenshots and local
+  test artifact files from commits.
+- `docs/from-cld/` — Architecture governance files imported:
+  - `architecture_baseline.json`
+  - `ARCHITECTURE_MIGRATION_BACKLOG.md`
+  - `check_architecture_boundaries.py`
 
 ## Deployment Notes
-This is a documentation and install-script release.
 No Docker Compose service changes.
-No image version changes.
-Pull latest: git pull origin main
+No image rebuild required.
+Pull latest: `git pull origin main`
 
 ## Known Issues
 - KI-005: Demo company seeding disabled in Docker env config (intentional)

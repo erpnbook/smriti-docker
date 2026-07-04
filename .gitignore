@@ -24,3 +24,15 @@ assets_clean.tar.gz
 # System Customizations
 desktop.ini
 smriti.ico
+
+# Verification screenshots and local test artifacts
+verify_step*.png
+sidebar_*.png
+topbar_*.png
+billing_*.png
+login_check*.png
+*.network-response
+backup_snapshot.txt
+billing_snapshot*.txt
+scan_report.json
+response.txt
