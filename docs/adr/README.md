@@ -23,6 +23,7 @@ This registry tracks the status and expiration criteria of all active and histor
 |---|---|---|---|---|---|
 | [ADR-0002](./ADR-0002.md) | SMRITI Business Layer Independence | ACTIVE | None | Permanent | 2026-07-04 |
 | [ADR-0008](./ADR-0008.md) | Barcode Studio Modularization | ACTIVE | None | Permanent | 2026-07-04 |
+| [ADR-0009](./ADR-0009.md) | SMRITI Platform Primitives and Services Standard | ACTIVE | None | Permanent | 2026-07-04 |
 
 ---
 
