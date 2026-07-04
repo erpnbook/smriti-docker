@@ -29,7 +29,7 @@ Reviewed By: "Jawahar R. Mallah"
 Under the authorized scope of **Phase 2C-W1**, the SMRITI Purchase Module (`purchase.html`) was successfully connected to the UI Configuration Engine via a clean token bridge. 
 
 The implementation copies the exact context loading and script bootstrapping pattern proven in the Billing Terminal reference implementation:
-1.  **Context Injection:** Updated [purchase.py](../../apps/smriti_retail_os/smriti_retail_os/www/purchase.py) to import and inject the `smriti_license` and `smriti_site_config` variables into page context (mirroring `billing.py` exactly).
+1.  **Context Injection:** Updated [purchase.py](../../apps/smriti_retail_os/smriti_retail_os/www/smriti_purchase.py) to import and inject the `smriti_license` and `smriti_site_config` variables into page context (mirroring `billing.py` exactly).
 2.  **Tokens Stylesheet:** Added the namespaced `smriti_tokens.css` link inside `<head>`.
 3.  **Bridge Layer:** Mapped all 19 legacy `:root` variables inside the page stylesheet directly to the namespaced `--smriti-*` variables.
 4.  **Resolver Scripts:** Loaded `smriti_ui_resolver.js` and `smriti_theme_manager.js` at the bottom of the body.

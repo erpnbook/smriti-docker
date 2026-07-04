@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-ARCH-004"
+Title: "SMRITI Design System"
+Owner: "UI/UX Team"
+Audience: "Frontend Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Design System
 
 > **Status: draft.** Phase 1 (token repair) is complete and validated.

@@ -36,3 +36,5 @@ Welcome to the **Knowledge Base & Troubleshooting** documentation set. Below is 
 | [KB-030](./windows_nginx_entrypoint_error.md) | Resolving Docker `nginx-entrypoint.sh` Script Not Found Error on Windows | Support Engineer | Core | Support Team | Active | 2026-06-25 |
 | [KB-031](./pos_profile_troubleshooting.md) | Troubleshooting SMRITI POS Profile Issues | Administrator | Core | Support Team | Active | 2026-06-25 |
 | [KB-032](./connectivity_troubleshooting.md) | Connectivity & UIE Troubleshooting Guide | Support Engineer | Core | Support Team | Active | 2026-06-28 |
+| [KB-PS-001](./purchase_troubleshooting.md) | SMRITI Purchase Studio — Troubleshooting Guide v1.0 | End User | Purchase Studio | Support Team | Active | 2026-07-02 |
+| [KB-UIE-001](./uie_tally_setup.md) | SMRITI UIE — TallyPrime Integration Setup & Troubleshooting | End User | UIE | Support Team | Active | 2026-07-02 |

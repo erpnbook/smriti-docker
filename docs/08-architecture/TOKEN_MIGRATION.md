@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-ARCH-007"
+Title: "SMRITI UI Midnight Token Migration Blueprint"
+Owner: "UI/UX Team"
+Audience: "Frontend Developer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Token Migration — Phase 1 (Repair)
 
 Status: **Phase 1 complete.** Phase 2 (Consolidate) and Phase 3 (Enforce)

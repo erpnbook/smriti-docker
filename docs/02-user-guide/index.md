@@ -35,3 +35,6 @@ Welcome to the **End User & Operations Guides** documentation set. Below is the 
 | [USER-030](./pos_profile_usage.md) | SMRITI OS POS Profile User Guide | End User | Core | Operations Team | Active | 2026-06-25 |
 | [USER-031](./connectivity_workspace.md) | SMRITI OS UIE Integration Center — User Manual v1.0 | End User | Core | Operations Team | Active | 2026-06-28 |
 | [USER-032](./volume_2_manager_guide.md) | SMRITI Retail OS User Manual — Volume 2: Manager & Supervisor Guide | Store Manager | Core | Support Team | Active | 2026-06-28 |
+| [USER-033](./purchase_center.md) | SMRITI Purchase Center — User Guide v1.0 | End User | Purchase Studio | Operations Team | Active | 2026-07-02 |
+| [USER-034](./purchase_analytics.md) | SMRITI Purchase Analytics — User Guide v1.0 | End User | SAS | Operations Team | Active | 2026-07-02 |
+| [USER-035](./negative_stock_management.md) | SMRITI Negative Stock Management — User Guide v1.0 | End User | SNSM | Operations Team | Active | 2026-07-02 |

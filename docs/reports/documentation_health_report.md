@@ -1,38 +1,24 @@
 # Documentation Health Report
 
-**Date**: 2026-06-30  
-**Overall Compliance**: 92.0%
+**Date**: 2026-07-04  
+**Overall Compliance**: 91.4%
 
 ## Summary Metrics
 
 | Metric | Value | Status |
 | --- | --- | --- |
-| Total Documents Scanned | 229 | - |
+| Total Documents Scanned | 241 | - |
 | Duplicate IDs | 0 | ✅ PASS |
 | Broken Links | 0 | ✅ PASS |
-| Missing Metadata | 11 | ❌ FAIL |
-| Missing Examples | 92 | ⚠️ Warning |
-| Missing Revision History | 5 | ⚠️ Warning |
+| Missing Metadata | 0 | ✅ PASS |
+| Missing Examples | 94 | ⚠️ Warning |
+| Missing Revision History | 27 | ⚠️ Warning |
 
 ---
 
-## ❌ Block Merge Violations (Errors)
+## ✅ Block Merge Violations (Errors)
 
-These violations must be resolved before changes can be merged.
-
-| File | Check Gate | Violation Detail |
-| --- | --- | --- |
-| `01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `01-product/walkthrough.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `08-architecture/DESIGN_SYSTEM.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `08-architecture/smriti_ui_governance_constitution.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `08-architecture/sprint_005_proposal.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `08-architecture/TOKEN_MIGRATION.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `certification/psv_certified_planner_guide.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `generated/api_inventory.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `generated/business_dictionary.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
-| `generated/doctype_inventory.md` | **Missing Metadata Header** | File does not start with a valid YAML '---' frontmatter block. |
+No blocking violations found. Documentation is clear for merge.
 
 ## ⚠️ Warnings & Improvements
 
@@ -40,13 +26,36 @@ These items should be addressed to improve quality but will not block merges.
 
 | File | Check Gate | Quality Suggestion |
 | --- | --- | --- |
+| `01-product/SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `01-product/SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `01-product/walkthrough.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `02-user-guide/connectivity_workspace.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `02-user-guide/negative_stock_management.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `02-user-guide/psv_planner_guide.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `02-user-guide/purchase_analytics.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `02-user-guide/purchase_center.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `02-user-guide/volume_2_manager_guide.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `05-developer/purchase_studio_developer.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `05-developer/sas_developer.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `05-developer/universal_integration_engine.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `06-api/purchase_api.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `06-api/sas_api.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `07-kb/connectivity_troubleshooting.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `07-kb/purchase_troubleshooting.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `07-kb/uie_tally_setup.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `08-architecture/DESIGN_SYSTEM.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `08-architecture/purchase_studio_architecture.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `08-architecture/sas_architecture.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `08-architecture/sprint_005_proposal.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `08-architecture/TOKEN_MIGRATION.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `certification/psv_certified_planner_guide.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `from-cld/ARCHITECTURE_MIGRATION_BACKLOG.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `generated/api_inventory.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `generated/business_dictionary.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `generated/doctype_inventory.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `04-installation/multi_image_migration.md, 05-developer/multi_tenancy.md` | *Duplicate Title* | Multiple files share the same Title '... removed for brevity': 04-installation/multi_image_migration.md, 05-developer/multi_tenancy.md |
 | `05-developer/walkthrough.md, 05-developer/walkthrough_thesmes.md` | *Duplicate Title* | Multiple files share the same Title 'walkthrough: smriti whitelabel branding & frappe default theme integration': 05-developer/walkthrough.md, 05-developer/walkthrough_thesmes.md |
+| `01-product/walkthrough.md, 05-developer/walkthrough.md` | *Duplicate Filename* | Filename 'walkthrough.md' is repeated in multiple directories: 01-product/walkthrough.md, 05-developer/walkthrough.md |
 | `01-product/about_aitdl.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `01-product/about_author.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `01-product/about_smriti.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
@@ -58,6 +67,7 @@ These items should be addressed to improve quality but will not block merges.
 | `02-user-guide/customer_management.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/eway_bill.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/manager_pos_override.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
+| `02-user-guide/negative_stock_management.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/pos.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/pos_profile_usage.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/psv_backlog.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
@@ -68,6 +78,7 @@ These items should be addressed to improve quality but will not block merges.
 | `02-user-guide/psv_leave_behind.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/psv_objection_handling.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/psv_sales_battlecard.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
+| `02-user-guide/purchase_analytics.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/single_compose_setup.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/sizewise_bulk_import.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `02-user-guide/volume_1_daily_operations.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
@@ -106,7 +117,6 @@ These items should be addressed to improve quality but will not block merges.
 | `07-kb/psv_executive_faq.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `07-kb/setup_wizard_configure_portal_pitfalls.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `07-kb/sfm.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
-| `07-kb/troubleshoot.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `07-kb/troubleshooting_backup_restore_failed.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `07-kb/troubleshooting_cge_issues.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `07-kb/troubleshooting_go_live_check_failed.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
@@ -136,6 +146,7 @@ These items should be addressed to improve quality but will not block merges.
 | `09-release-notes/changelog_core.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `09-release-notes/release_notes_v1.0.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `09-release-notes/sprint1_verification_report.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
+| `from-cld/ARCHITECTURE_MIGRATION_BACKLOG.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `generated/api_inventory.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `generated/business_dictionary.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `generated/doctype_inventory.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |

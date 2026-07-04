@@ -36,7 +36,9 @@ Welcome to the **Architecture Specifications & Proposals** documentation set. Be
 | [ARCH-030](./ui_profile_registry.md) | SMRITI UI Profile Registry | Architect | Core | Architecture Team | Active | 2026-06-25 |
 | [ARCH-031](./ux_theme_audit_v1.1.md) | SMRITI Retail OS — UX, UI & Theme Architecture Audit | Architect | PSV | Architecture Team | Active | 2026-06-25 |
 | [ARCH-032](./acp_snm_001.md) | Architecture Change Proposal (ACP-SNM-001) — SMRITI Navigation Manager (SNM) | Architect | Core | Architecture Team | Active | 2026-06-28 |
-| [N/A](./DESIGN_SYSTEM.md) | DESIGN_SYSTEM.md | N/A | Core | N/A | Active | 2026-06-25 |
-| [N/A](./smriti_ui_governance_constitution.md) | smriti_ui_governance_constitution.md | N/A | Core | N/A | Active | 2026-06-25 |
-| [N/A](./sprint_005_proposal.md) | sprint_005_proposal.md | N/A | Core | N/A | Active | 2026-06-25 |
-| [N/A](./TOKEN_MIGRATION.md) | TOKEN_MIGRATION.md | N/A | Core | N/A | Active | 2026-06-25 |
+| [ARCH-PS-001](./purchase_studio_architecture.md) | SMRITI Purchase Studio — Architecture Document v1.0 | Architect | Purchase Studio | Architecture Team | Active | 2026-07-02 |
+| [ARCH-SAS-001](./sas_architecture.md) | SMRITI Analytics Studio (SAS) — Architecture Document v1.0 | Architect | SAS | Architecture Team | Active | 2026-07-02 |
+| [SMRITI-ARCH-004](./DESIGN_SYSTEM.md) | SMRITI Design System | Frontend Developer | Core | UI/UX Team | Active | 2026-07-04 |
+| [SMRITI-ARCH-005](./smriti_ui_governance_constitution.md) | SMRITI UI Governance Constitution | Architect | Core | UI/UX Team | Active | 2026-07-04 |
+| [SMRITI-ARCH-006](./sprint_005_proposal.md) | Sprint 005 Architecture Proposal | Architect | Core | Product Team | Draft | 2026-07-04 |
+| [SMRITI-ARCH-007](./TOKEN_MIGRATION.md) | SMRITI UI Midnight Token Migration Blueprint | Frontend Developer | Core | UI/UX Team | Active | 2026-07-04 |

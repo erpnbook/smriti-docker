@@ -75,3 +75,5 @@ Welcome to the **Developer & Integration Guides** documentation set. Below is th
 | [DEV-070](./walkthrough_vendor_mapping.md) | Vendor Mapping — ItemMaster ↔ Supplier Linkage | Developer | Core | Development Team | Active | 2026-06-25 |
 | [DEV-071](./pos_profile_developer.md) | SMRITI POS Profile Developer Guide | Developer | Core | Development Team | Active | 2026-06-25 |
 | [DEV-072](./universal_integration_engine.md) | SMRITI Universal Integration Engine (UIE) — Developer Reference Spec v1.0 | Developer | Core | Development Team | Active | 2026-06-28 |
+| [DEV-PS-001](./purchase_studio_developer.md) | SMRITI Purchase Studio — Developer Guide v1.0 | Developer | Purchase Studio | Development Team | Active | 2026-07-02 |
+| [DEV-SAS-001](./sas_developer.md) | SMRITI Analytics Studio (SAS) — Developer Guide v1.0 | Developer | SAS | Development Team | Active | 2026-07-02 |

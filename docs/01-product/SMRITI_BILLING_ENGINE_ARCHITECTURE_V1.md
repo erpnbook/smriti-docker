@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-ARCH-003"
+Title: "SMRITI Billing Engine Architecture Specification"
+Owner: "Billing Team"
+Audience: "Support Engineer"
+Module: "Billing"
+Version: "1.0.0"
+Status: "Frozen"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Billing Engine Architecture Specification (v1.0 - Frozen)
 
 ## 1. Governing Constitutional Rule

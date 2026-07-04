@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-DOC-027"
+Title: "SMRITI Business Dictionary"
+Owner: "Product Team"
+Audience: "Support Engineer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Business Dictionary Glossary
 
 * **Compiler Version:** 1.1

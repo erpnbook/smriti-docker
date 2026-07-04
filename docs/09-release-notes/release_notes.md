@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-REL-001"
+Title: "SMRITI Master Release Notes"
+Owner: "Release Engineering Team"
+Audience: "Support Engineer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 ﻿---
 
 ## 🚀 v2.0.0 — Platform Expansion (2026-07-02)

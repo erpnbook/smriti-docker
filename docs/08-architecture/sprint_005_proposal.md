@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-ARCH-006"
+Title: "Sprint 005 Architecture Proposal"
+Owner: "Product Team"
+Audience: "Architect"
+Module: "Core"
+Version: "1.0.0"
+Status: "Draft"
+Primary Document: "No"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # Sprint SDC-005: Knowledge Governance & Support Intelligence
 ## Architectural Blueprint & Proposal
 

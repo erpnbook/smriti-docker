@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-CERT-001"
+Title: "PSV Certified Planner Guide"
+Owner: "Training Team"
+Audience: "Support Engineer"
+Module: "PSV"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI PSV Certified Planner Guide (Level 1)
 ## SMRITI Inventory Visibility Certified Planner Program
 

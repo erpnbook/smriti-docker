@@ -13,6 +13,6 @@ Welcome to the **Release Notes & Sprint Reports** documentation set. Below is th
 | [REL-007](./cge_sprint_c_implementation_plan.md) | SMRITI CGE Sprint C — Final Stabilization Implementation Plan | Executive / Team | CGE | Release Team | Active | 2026-06-25 |
 | [REL-008](./changelog.md) | SMRITI Retail OS — Customer Changelog | Executive / Team | CGE | Release Team | Active | 2026-06-25 |
 | [REL-009](./changelog_core.md) | Changelog — SMRITI Retail OS | Executive / Team | PSV | Release Team | Active | 2026-06-30 |
-| [REL-010](./release_notes.md) | 🚀 Release Notes — SMRITI Retail OS | Executive / Team | PSV | Release Team | Active | 2026-06-30 |
 | [REL-011](./release_notes_v1.0.md) | SMRITI Retail OS — Release Notes v1.0 GA | Executive / Team | Core | Release Team | Active | 2026-06-25 |
 | [REL-012](./sprint1_verification_report.md) | SPRINT 1 VERIFICATION REPORT | Executive / Team | CGE | Release Team | Active | 2026-06-25 |
+| [SMRITI-REL-001](./release_notes.md) | SMRITI Master Release Notes | Support Engineer | Core | Release Engineering Team | Active | 2026-07-04 |

@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-ARCH-005"
+Title: "SMRITI UI Governance Constitution"
+Owner: "UI/UX Team"
+Audience: "Architect"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI UI Governance Constitution & Architecture Directive
 
 ---

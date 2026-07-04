@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-ARCH-002"
+Title: "SMRITI Universal Document Numbering Engine (UDNE)"
+Owner: "Core Team"
+Audience: "Support Engineer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Draft"
+Primary Document: "Yes"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Universal Document Numbering Engine (UDNE) — Implementation Plan
 
 ---

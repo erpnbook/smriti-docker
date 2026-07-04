@@ -71,3 +71,23 @@ The sync entry goes into the Sync Queue with status "Queued". When TallyPrime co
 
 **Q: How do I check if a voucher was posted to Tally?**
 Go to UIE Integration Center → Sync Queue. Filter by the invoice name. Status = "Completed" means it was posted successfully.
+
+---
+
+## SMRITI v2.1.1 FAQs
+
+**Q: Why was the Product Catalog page showing a "TypeError: Cannot read properties of undefined (reading 'get_list')" error?**
+In version 2.1.0, the `/products` page attempted to call a client-side database query. This has been resolved in v2.1.1 by routing the request through the secure whitelisted backend API `get_catalog_metadata`.
+
+**Q: Why was the notification badge showing a "403 Forbidden" error?**
+The sidebar and topbar notification badges query unread counts. In version 2.1.1, the `get_unread_count` endpoint was whitelisted to grant proper access to store managers and cashiers without raising a permission exception.
+
+**Q: Why were POST requests returning a "400 Bad Request" error on the dashboard?**
+The client was not passing the global CSRF token to the backend API. In v2.1.1, the global `window.csrf_token` and `window.csrfToken` parameters are injected directly into the templates, resolving this issue.
+
+**Q: How does the new collapsed sidebar brand logo work?**
+In collapsed mode, the SMRITI brand logo now remains visible and centered on the 68px width header, while the text label is hidden.
+
+**Q: Why did the daily Negative Stock Safety Sweep scheduler fail with an ImportError during migrate?**
+The scheduler job was pointing to a classmethod rather than a module-level function, and the service package was missing `__init__.py`. In v2.1.1, this is fully resolved with a plain wrapper function and the correct package initialization.
+

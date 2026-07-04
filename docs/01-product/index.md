@@ -16,6 +16,6 @@ Welcome to the **Product Overview & Strategy** documentation set. Below is the l
 | [PROD-010](./sales_battlecard.md) | COMM-05 — PSV Sales Battlecard | Product / Executive | PSV | Product Team | Active | 2026-06-25 |
 | [PROD-011](./volume_3_executive_guide.md) | Volume 3 Executive Guide | Product / Executive | Core | Product Team | Active | 2026-06-25 |
 | [PROD-012](./pos_profile_overview.md) | SMRITI OS POS Profile Overview | Product / Executive | Core | Product Team | Active | 2026-06-25 |
-| [N/A](./SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md | N/A | Core | N/A | Active | 2026-06-25 |
-| [N/A](./SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md) | SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md | N/A | Core | N/A | Active | 2026-06-25 |
-| [N/A](./walkthrough.md) | walkthrough.md | N/A | Core | N/A | Active | 2026-06-25 |
+| [SMRITI-ARCH-002](./SMRITI_NUMBERING_ENGINE_ARCHITECTURE_V1.md) | SMRITI Universal Document Numbering Engine (UDNE) | Support Engineer | Core | Core Team | Draft | 2026-07-04 |
+| [SMRITI-ARCH-003](./SMRITI_BILLING_ENGINE_ARCHITECTURE_V1.md) | SMRITI Billing Engine Architecture Specification | Support Engineer | Billing | Billing Team | Frozen | 2026-07-04 |
+| [SMRITI-DOC-025](./walkthrough.md) | SMRITI Product Walkthrough | Support Engineer | Core | Product Team | Active | 2026-07-04 |

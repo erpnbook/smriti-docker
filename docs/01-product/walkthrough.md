@@ -1,3 +1,20 @@
+---
+Document ID: "SMRITI-DOC-025"
+Title: "SMRITI Product Walkthrough"
+Owner: "Product Team"
+Audience: "Support Engineer"
+Module: "Core"
+Version: "1.0.0"
+Status: "Active"
+Primary Document: "No"
+Depends On: ""
+Related Modules: ""
+Last Updated: "2026-07-04"
+Last Reviewed: "2026-07-04"
+AI Generated: "No"
+Reviewed By: "Jawahar R. Mallah"
+---
+
 # SMRITI Retail OS — Release Walkthrough (Milestones 1 & 2)
 
 ---

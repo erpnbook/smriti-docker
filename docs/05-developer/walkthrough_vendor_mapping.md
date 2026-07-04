@@ -184,7 +184,7 @@ frappe.db.exists("Supplier", {"custom_vendor_code": "SUP001"})
 |---|---|
 | [item_master_api.py](../../apps/smriti_retail_os/smriti_retail_os/item_master_api.py) | `_validate_vendor_code()`, `validate_import_rows()`, `_get_or_create_template()` |
 | [setup.py](../../apps/smriti_retail_os/smriti_retail_os/setup.py) | `custom_vendor_code` field on Supplier DocType |
-| [smriti_item_master.js](../../apps/smriti_retail_os/smriti_retail_os/smriti_retail_os/page/smriti_item_master/smriti_item_master.js) | `VENDOR CODE` column + `EXTRA_ALIASES` for fuzzy matching |
+| [smriti_item_master.js](../../apps/smriti_retail_os/smriti_retail_os/public/js/item.js) | `VENDOR CODE` column + `EXTRA_ALIASES` for fuzzy matching |
 
 ---
 
