@@ -1,18 +1,18 @@
 # Documentation Health Report
 
 **Date**: 2026-07-04  
-**Overall Compliance**: 91.2%
+**Overall Compliance**: 91.1%
 
 ## Summary Metrics
 
 | Metric | Value | Status |
 | --- | --- | --- |
-| Total Documents Scanned | 243 | - |
+| Total Documents Scanned | 244 | - |
 | Duplicate IDs | 0 | ✅ PASS |
 | Broken Links | 0 | ✅ PASS |
 | Missing Metadata | 0 | ✅ PASS |
-| Missing Examples | 96 | ⚠️ Warning |
-| Missing Revision History | 29 | ⚠️ Warning |
+| Missing Examples | 97 | ⚠️ Warning |
+| Missing Revision History | 30 | ⚠️ Warning |
 
 ---
 
@@ -48,6 +48,7 @@ These items should be addressed to improve quality but will not block merges.
 | `08-architecture/sas_architecture.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `08-architecture/sprint_005_proposal.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `08-architecture/TOKEN_MIGRATION.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
+| `adr/ADR-0002.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `adr/ADR-0008.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `adr/README.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
 | `certification/psv_certified_planner_guide.md` | *Missing Revision History Table* | Document is missing a '## Revision History' section. |
@@ -148,6 +149,7 @@ These items should be addressed to improve quality but will not block merges.
 | `09-release-notes/changelog_core.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `09-release-notes/release_notes_v1.0.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `09-release-notes/sprint1_verification_report.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
+| `adr/ADR-0002.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `adr/ADR-0008.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `adr/README.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
 | `from-cld/ARCHITECTURE_MIGRATION_BACKLOG.md` | *Missing Examples* | File does not contain an example heading (e.g. '## Example') or any code blocks. |
