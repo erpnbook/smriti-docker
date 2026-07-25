@@ -27,12 +27,24 @@ class ProductRepository:
         filters["disabled"] = 0
 
         if fields is None:
-            fields = ["name", "item_name", "brand", "item_group", "custom_mrp",
-                      "valuation_rate", "custom_gst_percentage", "stock_uom",
-                      "custom_style_code", "variant_of", "custom_sub_category",
-                      "custom_gender", "custom_vendor_code", "custom_purchase_class",
-                      "custom_department", "custom_heels", "custom_upper_material",
-                      "custom_outsole", "gst_hsn_code"]
+            requested_fields = [
+                "name", "item_name", "brand", "item_group", "custom_mrp",
+                "valuation_rate", "custom_gst_percentage", "stock_uom",
+                "custom_style_code", "variant_of", "custom_sub_category",
+                "custom_gender", "default_supplier", "custom_purchase_class",
+                "custom_department", "custom_heels", "custom_upper_material",
+                "custom_outsole", "gst_hsn_code"
+            ]
+            try:
+                raw_cols = frappe.db.sql("DESCRIBE `tabItem`", as_dict=True)
+                db_cols = {r.get("Field") for r in raw_cols if r.get("Field")}
+            except Exception:
+                db_cols = set()
+
+            if db_cols:
+                fields = [f for f in requested_fields if f in db_cols or f == "name"]
+            else:
+                fields = ["name", "item_name", "brand", "item_group", "custom_mrp", "valuation_rate", "stock_uom"]
 
         items = smriti.db.get_list(
             "Item",
@@ -43,39 +55,50 @@ class ProductRepository:
         )
 
         if items:
-            item_names = [i["name"] for i in items]
-            barcodes = smriti.db.get_list(
-                "Item Barcode",
-                filters={"parent": ["in", item_names]},
-                fields=["parent", "barcode", "custom_is_primary"]
-            )
-            # Group barcodes by parent
+            item_names = [i.get("name") if hasattr(i, "get") else getattr(i, "name", None) for i in items]
+            item_names = [name for name in item_names if name]
+
             barcode_map = {}
-            for b in barcodes:
-                parent = b["parent"] if (isinstance(b, dict) and "parent" in b) else getattr(b, "parent", None)
-                if not parent:
-                    continue
-                if parent not in barcode_map:
-                    barcode_map[parent] = []
-                barcode_map[parent].append(b)
+            has_barcode_table = False
+            try:
+                has_barcode_table = bool(frappe.db.table_exists("Item Barcode") or frappe.db.table_exists("tabItem Barcode"))
+            except Exception:
+                has_barcode_table = False
+
+            if item_names and has_barcode_table:
+                try:
+                    barcodes = smriti.db.get_list(
+                        "Item Barcode",
+                        filters={"parent": ["in", item_names]},
+                        fields=["parent", "barcode", "custom_is_primary"]
+                    )
+                    for b in barcodes:
+                        parent = b.get("parent") if hasattr(b, "get") else getattr(b, "parent", None)
+                        if not parent:
+                            continue
+                        if parent not in barcode_map:
+                            barcode_map[parent] = []
+                        barcode_map[parent].append(b)
+                except Exception:
+                    pass
 
             # Assign primary (or first available) barcode to each item
             for i in items:
-                item_name = i["name"] if (isinstance(i, dict) and "name" in i) else getattr(i, "name", None)
+                item_name = i.get("name") if hasattr(i, "get") else getattr(i, "name", None)
                 if not item_name:
                     continue
                 item_barcodes = barcode_map.get(item_name) or []
                 primary = [
-                    (b["barcode"] if (isinstance(b, dict) and "barcode" in b) else getattr(b, "barcode", None))
+                    (b.get("barcode") if hasattr(b, "get") else getattr(b, "barcode", None))
                     for b in item_barcodes
-                    if (isinstance(b, dict) and b.get("custom_is_primary")) or getattr(b, "custom_is_primary", False)
+                    if (hasattr(b, "get") and b.get("custom_is_primary")) or getattr(b, "custom_is_primary", False)
                 ]
                 primary = [p for p in primary if p]
                 if primary:
                     i["barcode"] = primary[0]
                 elif item_barcodes:
                     first_b = item_barcodes[0]
-                    first_bc = first_b["barcode"] if (isinstance(first_b, dict) and "barcode" in first_b) else getattr(first_b, "barcode", None)
+                    first_bc = first_b.get("barcode") if hasattr(first_b, "get") else getattr(first_b, "barcode", None)
                     i["barcode"] = first_bc or ""
                 else:
                     i["barcode"] = ""

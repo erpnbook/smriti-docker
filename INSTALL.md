@@ -7,12 +7,7 @@ Module: "Core"
 Version: "1.0.0"
 Status: "Active"
 Primary Document: "Yes"
-Depends On: ""
-Related Modules: ""
-Last Updated: "2026-06-25"
-Last Reviewed: "2026-06-25"
-AI Generated: "Yes"
-Reviewed By: "Jawahar R. Mallah"
+Last Updated: "2026-06-29"
 ---
 
 # SMRITI Retail OS — Setup & Onboarding Guide
@@ -166,8 +161,6 @@ http://localhost:8765/setup-wizard
 The wizard guides you through 5 key provisioning steps:
 
 - **Step 1: Administrator**: Establishes system administrator security credentials.
-  > [!CAUTION]
-  > Configure a secure, complex password during this step. Do not use default passwords.
 - **Step 2: Company**: Registers your Legal Entity, State Jurisdiction, base Currency, and fiscal calendars.
 - **Step 3: Defaults**: Provisions the primary retail structures, including default cash-in-hand accounts and Store Registers.
 - **Step 4: GST**: Links GSTIN registration codes, registers HSN codes, and sets up CGST/SGST/IGST tax slabs.
@@ -182,33 +175,9 @@ Run SMRITI's pre-flight validator to verify container status and server health:
 # Run health check
 .\check.ps1
 ```
-*Expected: All modules check showing green checks (`✔`).*
 
 ### Running Automated Unit Tests
 Verify the code state by running the test suite:
 ```bash
 docker exec smriti_retail-backend-1 bench --site smriti_retail run-tests --app smriti_retail_os
 ```
-*Expected Output: **Ran 94 tests** with **`OK`** status.*
-
-
-## Revision History
-
-| Version | Date | Author | Summary of Changes |
-| --- | --- | --- | --- |
-| 1.1.0 | 2026-06-29 | Jawahar R. Mallah | Added Windows folder icon customization details |
-| 1.0.0 | 2026-06-25 | Jawahar R. Mallah | Reorganized & standardized |
-
-
----
-
-## Author Profile
-
-- **Author**: Jawahar R. Mallah
-- **Designation**: Founder & Chief Architect
-- **Organization**: AITDL – AI Technology & Development Lab
-- **Professional Experience**: 20+ Years of Experience in Software Development, Retail Technology, Distribution Systems, POS Solutions, ERP Implementations, Business Process Automation, and Enterprise Application Design.
-
-> "Always decision-ready."  
-> — Jawahar R. Mallah  
-> Founder & Chief Architect, AITDL

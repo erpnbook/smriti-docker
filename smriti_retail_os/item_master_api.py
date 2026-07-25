@@ -632,18 +632,31 @@ def import_item_master(rows_json):
             created += 1
 
         except Exception as e:
+            # Extract clean, human-readable error message (stripping HTML tags & tracebacks)
+            import re
             err_msg = str(e)
             if hasattr(e, "args") and e.args and isinstance(e.args[0], str):
                 err_msg = e.args[0]
-            import re
-            clean_err = re.sub(r'<[^>]+>', '', str(err_msg)).strip()
-            if not clean_err:
-                clean_err = "An unexpected error occurred during item import."
+            
+            err_str = re.sub(r'<[^>]+>', '', str(err_msg)).strip()
+            if not err_str or err_str.startswith("Traceback"):
+                tb_lines = [line.strip() for line in frappe.get_traceback().splitlines() if line.strip()]
+                err_str = tb_lines[-1] if tb_lines else "An unexpected error occurred during item import."
+            
+            # Clean up redundant exception class names if present
+            if ":" in err_str and any(p in err_str for p in ("ValidationError", "DoesNotExistError", "DuplicateEntryError", "PermissionError")):
+                err_str = err_str.split(":", 1)[1].strip()
+
+            # Ensure clean single-line error string for UI data tables
+            if "\n" in err_str:
+                lines = [l.strip() for l in err_str.splitlines() if l.strip()]
+                err_str = lines[0] if lines else err_str
+
             failed.append({
                 "row": idx + 1,
                 "barcode": row.get("BARCODE NO", ""),
                 "style_code": row.get("PRODUCT STYLE CODE", ""),
-                "error": clean_err
+                "error": err_str
             })
             smriti.errors.log_error(
                 title=f"SMRITI Item Import — Row {idx + 1}",

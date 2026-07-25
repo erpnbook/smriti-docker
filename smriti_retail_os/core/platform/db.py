@@ -102,7 +102,10 @@ def get_list(model_name: str, filters=None, fields=None, order_by: str = None,
     kwargs_merged.update(kwargs)
     if "ignore_permissions" not in kwargs_merged:
         kwargs_merged["ignore_permissions"] = True
-    return frappe.db.get_all(resolve(model_name), **kwargs_merged)
+    res = frappe.db.get_all(resolve(model_name), **kwargs_merged)
+    if res and isinstance(res, list):
+        return [frappe._dict(d) if isinstance(d, dict) and not isinstance(d, frappe._dict) else d for d in res]
+    return res
 
 
 
@@ -144,6 +147,24 @@ def exists(model_name: str, filters):
     """
     import frappe
     return frappe.db.exists(resolve(model_name), filters)
+
+
+def table_exists(model_name: str) -> bool:
+    """
+    Check whether a document table exists in the database.
+
+    Args:
+        model_name (str): SMRITI model name or table name
+
+    Returns:
+        bool: True if table exists, False otherwise
+    """
+    import frappe
+    try:
+        resolved = resolve(model_name)
+        return bool(frappe.db.table_exists(resolved) or frappe.db.table_exists(f"tab{resolved}") or frappe.db.table_exists(model_name))
+    except Exception:
+        return False
 
 
 def count(model_name: str, filters=None, cache: bool = False) -> int:
