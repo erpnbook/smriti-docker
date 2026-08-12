@@ -1,0 +1,795 @@
+{% extends "smriti_retail_os/templates/blank.html" %}{% block content %}<!DOCTYPE html>
+<!--
+  @file: smriti_retail_os/www/item_export.html
+  @description: SMRITI Item Master Export — Standalone UI
+                Export all active items to CSV with barcode, article/style,
+                color, size, MRP, cost price, GST%, HSN, gender, vendor code,
+                and all other Item Master variants.
+  @author: Jawahar R Mallah <jawahar.mallah@gmail.com>
+  @version: 1.8.6
+  @license: GPL-3.0-only
+  SPDX-License-Identifier: GPL-3.0-only
+-->
+<html lang="en">
+<head>
+{%- include "smriti_retail_os/templates/includes/smriti_token_loader.html" -%}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMRITI Item Master Export</title>
+<meta name="description" content="Export all active SMRITI item master records to CSV with barcode, style, color, size, MRP, and all variants.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg:         var(--smriti-color-bg-page, #0f172a);
+    --bg2:        var(--smriti-color-bg-primary, #1e293b);
+    --card:       var(--smriti-color-bg-secondary, #1e293b);
+    --card2:      var(--smriti-color-bg-elevated, #334155);
+    --border:     var(--smriti-color-border-default, #334155);
+    --border2:    var(--smriti-color-border-strong, #475569);
+    --primary:    var(--smriti-color-brand-primary, #6366f1);
+    --primary-lt: var(--smriti-color-brand-light, #818cf8);
+    --success:    #10b981;
+    --warning:    #f59e0b;
+    --danger:     #ef4444;
+    --info:       #3b82f6;
+    --text:       #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-sub:   #475569;
+    --radius:     14px;
+    --radius-sm:  8px;
+    --radius-lg:  20px;
+    --t:          0.2s ease;
+}
+
+html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    background: var(--bg); color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif; font-size: 14px;
+}
+
+/* Animated ambient grid */
+.bg-grid {
+    position: fixed; inset: 0;
+    background-image:
+        linear-gradient(rgba(99,102,241,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.018) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+}
+
+#app {
+    position: relative; z-index: 1;
+    width: 100vw; height: 100vh;
+    display: flex; overflow: hidden;
+}
+
+/* ── Layout ── */
+.main-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* Topbar */
+.topbar {
+    height: 52px; background: var(--card);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 0 24px; gap: 14px; flex-shrink: 0;
+}
+.topbar-breadcrumbs {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+}
+.topbar-breadcrumbs span.sep { color: var(--text-sub); }
+.topbar-breadcrumbs span.active { color: var(--text); }
+.topbar-breadcrumbs a.breadcrumb-link { color: inherit; text-decoration: none; cursor: pointer; }
+.topbar-breadcrumbs a.breadcrumb-link:hover { color: var(--primary); text-decoration: underline; }
+.topbar-right { margin-left: auto; display: flex; gap: 8px; flex-shrink: 0; }
+.topbtn {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 6px 12px; border-radius: var(--radius-sm);
+    font-size: 12px; font-weight: 600;
+    border: 1px solid var(--border2); background: transparent;
+    color: var(--text-muted); cursor: pointer; transition: all var(--t); white-space: nowrap;
+}
+.topbtn:hover { border-color: var(--primary); color: var(--primary-lt); }
+
+/* Content */
+.content-area {
+    flex: 1; overflow-y: auto; padding: 32px 40px;
+    display: flex; flex-direction: column; gap: 24px;
+}
+
+/* Page header */
+.page-header {
+    display: flex; align-items: center; gap: 16px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border);
+}
+.page-header-icon {
+    width: 48px; height: 48px; border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+}
+.page-header-text h1 {
+    font-family: 'Outfit', sans-serif; font-size: 1.4rem;
+    font-weight: 800; color: var(--text); margin: 0;
+}
+.page-header-text p {
+    font-size: 0.82rem; color: var(--text-muted); margin: 4px 0 0;
+}
+
+/* Stats bar */
+.stats-bar {
+    display: flex; gap: 16px; flex-wrap: wrap;
+}
+.stat-chip {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 10px 18px;
+    display: flex; flex-direction: column; gap: 2px;
+    min-width: 120px;
+}
+.stat-chip .stat-val {
+    font-family: 'Outfit', sans-serif; font-size: 1.5rem;
+    font-weight: 800; color: var(--text); line-height: 1;
+}
+.stat-chip .stat-lbl {
+    font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--text-muted); font-weight: 600;
+}
+.stat-chip.accent { border-color: var(--primary); background: rgba(99,102,241,0.08); }
+.stat-chip.accent .stat-val { color: var(--primary-lt); }
+
+/* Filter panel */
+.filter-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 16px;
+}
+.filter-card-title {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted);
+    display: flex; align-items: center; gap: 8px;
+}
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+}
+.filter-field { display: flex; flex-direction: column; gap: 5px; }
+.filter-field label {
+    font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--text-muted);
+}
+.filter-field input,
+.filter-field select {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 8px 12px;
+    color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif;
+    transition: border-color var(--t), box-shadow var(--t);
+    outline: none; width: 100%;
+}
+.filter-field input:focus,
+.filter-field select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+.filter-field select option { background: var(--bg2); color: var(--text); }
+
+/* Column selector */
+.col-selector-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 14px;
+}
+.col-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+}
+.col-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 20px; cursor: pointer;
+    font-size: 12px; font-weight: 600;
+    border: 1px solid var(--border2); color: var(--text-muted);
+    background: transparent; transition: all var(--t); user-select: none;
+}
+.col-chip.active {
+    border-color: var(--primary); color: var(--primary-lt);
+    background: rgba(99,102,241,0.12);
+}
+.col-chip .chip-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--border2); transition: background var(--t);
+}
+.col-chip.active .chip-dot { background: var(--primary-lt); }
+.col-controls { display: flex; gap: 8px; }
+.link-btn {
+    font-size: 11px; font-weight: 600; color: var(--primary-lt);
+    background: none; border: none; cursor: pointer; padding: 2px 4px;
+    text-decoration: underline; transition: opacity var(--t);
+}
+.link-btn:hover { opacity: 0.75; }
+
+/* Export button */
+.export-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-export {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 28px; border-radius: var(--radius);
+    font-size: 14px; font-weight: 700; letter-spacing: 0.02em;
+    border: none; cursor: pointer; transition: all var(--t);
+    background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+    color: #fff; box-shadow: 0 4px 20px rgba(99,102,241,0.35);
+    white-space: nowrap;
+}
+.btn-export:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(99,102,241,0.5);
+}
+.btn-export:active:not(:disabled) { transform: translateY(0); }
+.btn-export:disabled { opacity: 0.55; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+.btn-export .btn-icon { font-size: 20px; }
+.btn-export.loading .btn-icon { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 20px; border-radius: var(--radius);
+    font-size: 13px; font-weight: 600;
+    border: 1px solid var(--border2); background: transparent;
+    color: var(--text-muted); cursor: pointer; transition: all var(--t);
+    white-space: nowrap;
+}
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary-lt); }
+
+/* Progress */
+.progress-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px;
+    display: none;
+}
+.progress-section.visible { display: block; }
+.progress-label {
+    font-size: 13px; font-weight: 600; color: var(--text-muted);
+    margin-bottom: 12px;
+}
+.progress-bar-wrap {
+    height: 6px; border-radius: 3px;
+    background: var(--border); overflow: hidden;
+}
+.progress-bar {
+    height: 100%; border-radius: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--primary), #8b5cf6);
+    transition: width 0.4s ease;
+}
+.progress-result {
+    margin-top: 14px; font-size: 13px; color: var(--text);
+    display: none;
+}
+.progress-result.visible { display: block; }
+.result-success { color: var(--success); font-weight: 600; }
+.result-error   { color: var(--danger);  font-weight: 600; }
+
+/* Columns info table */
+.cols-preview-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 14px;
+}
+.cols-table {
+    border-collapse: collapse; width: 100%;
+    font-size: 12px;
+}
+.cols-table th {
+    text-align: left; padding: 7px 10px;
+    color: var(--text-muted); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+}
+.cols-table td {
+    padding: 7px 10px; border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+.cols-table tr:last-child td { border-bottom: none; }
+.cols-table .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 10px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+}
+.badge-primary { background: rgba(99,102,241,0.15); color: var(--primary-lt); }
+.badge-muted   { background: var(--border); color: var(--text-muted); }
+
+/* Toast */
+#toast-container {
+    position: fixed; bottom: 24px; right: 24px;
+    display: flex; flex-direction: column; gap: 10px; z-index: 9999;
+}
+.toast {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 18px; border-radius: var(--radius-sm);
+    font-size: 13px; font-weight: 500; color: #fff;
+    animation: slideIn 0.3s ease; min-width: 240px; max-width: 380px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.toast.success { background: var(--success); }
+.toast.error   { background: var(--danger); }
+.toast.warning { background: var(--warning); color: #1a1a1a; }
+.toast.info    { background: var(--info); }
+@keyframes slideIn { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+.toast .material-symbols-outlined { font-size: 18px; }
+
+/* Responsive */
+@media (max-width: 640px) {
+    .content-area { padding: 20px 16px; }
+    .filter-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+<link rel="stylesheet" href="/assets/smriti_retail_os/css/smriti_sidebar_standalone.css">
+</head>
+<body>
+
+<script>
+    if (new URLSearchParams(window.location.search).get('popout') === 'true') {
+        document.body.classList.add('popout-mode');
+    }
+</script>
+
+<div class="bg-grid"></div>
+
+<div id="app">
+    <!-- Sidebar -->
+    <div id="smriti-sidebar-target" class="sidebar"></div>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="topbar-breadcrumbs">
+                <a href="/smriti" class="breadcrumb-link">SMRITI</a>
+                <span class="sep">/</span>
+                <a href="/item-master" class="breadcrumb-link">Item Master</a>
+                <span class="sep">/</span>
+                <span class="active">Export</span>
+            </div>
+            <div class="topbar-right">
+                <button class="topbtn" onclick="history.back()" title="Go Back">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button class="topbtn" onclick="window.location.href='/item-master'" title="Item Master Import">
+                    <span class="material-symbols-outlined">upload_file</span> Import
+                </button>
+                <button class="topbtn" onclick="window.location.href='/products'" title="View Products">
+                    <span class="material-symbols-outlined">inventory_2</span> Products
+                </button>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-area">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-icon">📤</div>
+                <div class="page-header-text">
+                    <h1>Item Master Export</h1>
+                    <p>Export all active items — barcode, style/article, color, size, MRP, cost, GST%, HSN and all variants — to CSV</p>
+                </div>
+            </div>
+
+            <!-- Live Stats -->
+            <div class="stats-bar" id="stats-bar">
+                <div class="stat-chip accent">
+                    <div class="stat-val" id="stat-total">—</div>
+                    <div class="stat-lbl">Total Items</div>
+                </div>
+                <div class="stat-chip">
+                    <div class="stat-val" id="stat-brands">—</div>
+                    <div class="stat-lbl">Brands</div>
+                </div>
+                <div class="stat-chip">
+                    <div class="stat-val" id="stat-barcoded">—</div>
+                    <div class="stat-lbl">With Barcode</div>
+                </div>
+                <div class="stat-chip">
+                    <div class="stat-val" id="stat-no-barcode">—</div>
+                    <div class="stat-lbl">Missing Barcode</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-card">
+                <div class="filter-card-title">
+                    <span class="material-symbols-outlined" style="font-size:16px;">filter_list</span>
+                    Filter Export (optional — leave blank to export everything)
+                </div>
+                <div class="filter-grid">
+                    <div class="filter-field">
+                        <label>Search (Name / Code)</label>
+                        <input type="text" id="flt-search" placeholder="e.g. CH-01, BELLARINA…">
+                    </div>
+                    <div class="filter-field">
+                        <label>Brand</label>
+                        <select id="flt-brand"><option value="">All Brands</option></select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Gender</label>
+                        <select id="flt-gender">
+                            <option value="">All Genders</option>
+                            <option>MENS</option>
+                            <option>LADIES</option>
+                            <option>BOYS</option>
+                            <option>GIRLS</option>
+                            <option>UNISEX</option>
+                            <option>KIDS</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Purchase Class</label>
+                        <select id="flt-purchase-class">
+                            <option value="">All Classes</option>
+                            <option>SIS</option><option>FW</option><option>MFW</option>
+                            <option>LFW</option><option>BFW</option><option>GFW</option>
+                            <option>KFW</option><option>ASSTED</option><option>SPORTS</option>
+                            <option>ACC</option><option>BAG</option><option>FORMAL</option><option>CASUAL</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Department</label>
+                        <input type="text" id="flt-department" placeholder="e.g. LADIES FTW">
+                    </div>
+                    <div class="filter-field">
+                        <label>Item Group</label>
+                        <select id="flt-item-group"><option value="">All Groups</option></select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Supplier / Vendor</label>
+                        <select id="flt-supplier"><option value="">All Suppliers</option></select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Merchandise Category</label>
+                        <input type="text" id="flt-merch-cat" placeholder="e.g. FLAT">
+                    </div>
+                    <div class="filter-field">
+                        <label>Sub Category</label>
+                        <input type="text" id="flt-sub-cat" placeholder="e.g. CASUAL">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Actions -->
+            <div class="export-actions">
+                <button class="btn-export" id="btn-export">
+                    <span class="material-symbols-outlined btn-icon">download</span>
+                    Export to CSV
+                </button>
+                <button class="btn-secondary" id="btn-reset-filters">
+                    <span class="material-symbols-outlined" style="font-size:16px;">filter_alt_off</span>
+                    Clear Filters
+                </button>
+                <span id="export-hint" style="font-size:12px;color:var(--text-muted);"></span>
+            </div>
+
+            <!-- Progress / Result -->
+            <div class="progress-section" id="progress-section">
+                <div class="progress-label" id="progress-label">Fetching items from server…</div>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="progress-result" id="progress-result"></div>
+            </div>
+
+            <!-- Column Reference Table -->
+            <div class="cols-preview-card">
+                <div class="filter-card-title">
+                    <span class="material-symbols-outlined" style="font-size:16px;">table_chart</span>
+                    Exported Columns (CSV Column Reference)
+                </div>
+                <table class="cols-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>CSV Column Header</th>
+                            <th>Description</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>BARCODE NO</td><td>Primary barcode (EAN-13 or custom)</td><td><span class="badge badge-primary">Item Barcode</span></td></tr>
+                        <tr><td>2</td><td>PRODUCT STYLE CODE</td><td>Article / Style code (e.g. CH-01-BLK)</td><td><span class="badge badge-primary">custom_style_code</span></td></tr>
+                        <tr><td>3</td><td>ITEM DESCRIPTION</td><td>Full product name</td><td><span class="badge badge-primary">item_name</span></td></tr>
+                        <tr><td>4</td><td>BRAND NAME</td><td>Brand</td><td><span class="badge badge-primary">brand</span></td></tr>
+                        <tr><td>5</td><td>COLOR</td><td>Color variant attribute</td><td><span class="badge badge-muted">Item Variant Attribute</span></td></tr>
+                        <tr><td>6</td><td>SIZE</td><td>Size variant attribute</td><td><span class="badge badge-muted">Item Variant Attribute</span></td></tr>
+                        <tr><td>7</td><td>PLANNED MRP</td><td>Maximum Retail Price</td><td><span class="badge badge-primary">custom_mrp / Standard Selling</span></td></tr>
+                        <tr><td>8</td><td>COST PRICE</td><td>Purchase / cost price</td><td><span class="badge badge-muted">Standard Buying</span></td></tr>
+                        <tr><td>9</td><td>PRODUCT TAX</td><td>GST percentage (0/5/12/18/28)</td><td><span class="badge badge-primary">custom_gst_percentage</span></td></tr>
+                        <tr><td>10</td><td>HSN CODE</td><td>GST HSN code</td><td><span class="badge badge-primary">gst_hsn_code</span></td></tr>
+                        <tr><td>11</td><td>GENDER</td><td>MENS / LADIES / BOYS / GIRLS / UNISEX / KIDS</td><td><span class="badge badge-primary">custom_gender</span></td></tr>
+                        <tr><td>12</td><td>VENDOR CODE</td><td>Supplier's custom vendor code</td><td><span class="badge badge-muted">Supplier.custom_vendor_code</span></td></tr>
+                        <tr><td>13</td><td>PURCHASE CLASS</td><td>FW / SIS / ACC / SPORTS etc.</td><td><span class="badge badge-primary">custom_purchase_class</span></td></tr>
+                        <tr><td>14</td><td>DEPARTMENT</td><td>Department name</td><td><span class="badge badge-primary">custom_department</span></td></tr>
+                        <tr><td>15</td><td>MERCHANDISE CATEGORY</td><td>Merch. category</td><td><span class="badge badge-primary">custom_merchandise_category</span></td></tr>
+                        <tr><td>16</td><td>Sub category</td><td>Sub category</td><td><span class="badge badge-primary">custom_sub_category</span></td></tr>
+                        <tr><td>17</td><td>HEELS</td><td>Heel type</td><td><span class="badge badge-primary">custom_heels</span></td></tr>
+                        <tr><td>18</td><td>UPPER MATERIAL</td><td>Upper material (CLOTH / LEATHER etc.)</td><td><span class="badge badge-primary">custom_upper_material</span></td></tr>
+                        <tr><td>19</td><td>OUTSOLE</td><td>Outsole material (EVA / TPR etc.)</td><td><span class="badge badge-primary">custom_outsole</span></td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">
+                    ✦ The exported CSV matches the <strong>SMRITI Item Master Import</strong> template exactly — you can re-import a filtered export to update items.
+                </p>
+            </div>
+
+        </div><!-- /.content-area -->
+    </div><!-- /.main-wrapper -->
+</div><!-- /#app -->
+
+<div id="toast-container"></div>
+
+<script>
+const CSRF_TOKEN = '{{ csrf_token }}';
+let loggedUser = '{{ cashier }}';
+
+// ── REST helper ────────────────────────────────────────────────────────────
+function api(method, params = {}) {
+    return fetch(`/api/method/${method}`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-frappe-csrf-token': CSRF_TOKEN
+        },
+        body: JSON.stringify(params)
+    })
+    .then(r => {
+        if (!r.ok) {
+            return r.json().then(d => {
+                throw new Error(d._error_message || d.exception || d.exc || `HTTP ${r.status}`);
+            }).catch(() => { throw new Error(`HTTP error ${r.status}`); });
+        }
+        return r.json();
+    })
+    .then(d => {
+        if (d.exc) throw new Error(d._error_message || d.exc);
+        return d.message;
+    });
+}
+
+// ── Toast ──────────────────────────────────────────────────────────────────
+function toast(msg, type = 'success', duration = 4000) {
+    const cont = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    const icons = { success: 'check_circle', error: 'error', warning: 'warning', info: 'info' };
+    t.innerHTML = `<span class="material-symbols-outlined">${icons[type] || 'info'}</span> <span>${msg}</span>`;
+    cont.appendChild(t);
+    setTimeout(() => t.remove(), duration);
+}
+
+// ── Progress helpers ───────────────────────────────────────────────────────
+function showProgress(label) {
+    const ps = document.getElementById('progress-section');
+    ps.classList.add('visible');
+    document.getElementById('progress-label').textContent = label;
+    document.getElementById('progress-bar').style.width = '0%';
+    const pr = document.getElementById('progress-result');
+    pr.classList.remove('visible');
+    pr.innerHTML = '';
+    // Animate bar to ~80% during fetch
+    setTimeout(() => { document.getElementById('progress-bar').style.width = '60%'; }, 100);
+    setTimeout(() => { document.getElementById('progress-bar').style.width = '80%'; }, 800);
+}
+
+function finishProgress(success, message) {
+    const bar = document.getElementById('progress-bar');
+    bar.style.width = '100%';
+    bar.style.background = success
+        ? 'linear-gradient(90deg, #10b981, #059669)'
+        : 'linear-gradient(90deg, #ef4444, #dc2626)';
+    const pr = document.getElementById('progress-result');
+    pr.innerHTML = `<span class="${success ? 'result-success' : 'result-error'}">${success ? '✅' : '❌'} ${message}</span>`;
+    pr.classList.add('visible');
+    document.getElementById('progress-label').textContent = success ? 'Export complete.' : 'Export failed.';
+    // Reset bar color after 3s
+    setTimeout(() => {
+        bar.style.background = 'linear-gradient(90deg, var(--primary), #8b5cf6)';
+    }, 3000);
+}
+
+// ── Populate dropdowns from server ────────────────────────────────────────
+async function loadDropdowns() {
+    try {
+        // Brands
+        const brands = await api('frappe.client.get_list', {
+            doctype: 'Brand', fields: ['name'], limit: 500, order_by: 'name asc'
+        });
+        const bSel = document.getElementById('flt-brand');
+        (brands || []).forEach(b => {
+            const o = document.createElement('option');
+            o.value = b.name; o.textContent = b.name;
+            bSel.appendChild(o);
+        });
+    } catch (e) { /* silently skip */ }
+
+    try {
+        // Item Groups
+        const groups = await api('frappe.client.get_list', {
+            doctype: 'Item Group', fields: ['name'], limit: 200, order_by: 'name asc'
+        });
+        const gSel = document.getElementById('flt-item-group');
+        (groups || []).forEach(g => {
+            const o = document.createElement('option');
+            o.value = g.name; o.textContent = g.name;
+            gSel.appendChild(o);
+        });
+    } catch (e) { /* silently skip */ }
+
+    try {
+        // Suppliers
+        const suppliers = await api('frappe.client.get_list', {
+            doctype: 'Supplier', fields: ['name', 'supplier_name'], limit: 300, order_by: 'name asc'
+        });
+        const sSel = document.getElementById('flt-supplier');
+        (suppliers || []).forEach(s => {
+            const o = document.createElement('option');
+            o.value = s.name;
+            o.textContent = s.supplier_name ? `${s.supplier_name} (${s.name})` : s.name;
+            sSel.appendChild(o);
+        });
+    } catch (e) { /* silently skip */ }
+}
+
+// ── Live stats ────────────────────────────────────────────────────────────
+async function loadStats() {
+    try {
+        // Total active variant items
+        const items = await api('frappe.client.get_list', {
+            doctype: 'Item',
+            filters: { disabled: 0, has_variants: 0 },
+            fields: ['name'],
+            limit: 0
+        });
+        const total = (items || []).length;
+        document.getElementById('stat-total').textContent = total.toLocaleString('en-IN');
+
+        // Distinct brands
+        try {
+            const bCounts = await api('frappe.client.get_list', {
+                doctype: 'Item',
+                filters: { disabled: 0, has_variants: 0 },
+                fields: ['brand'],
+                limit: 0
+            });
+            const brands = new Set((bCounts || []).map(i => i.brand).filter(Boolean));
+            document.getElementById('stat-brands').textContent = brands.size.toLocaleString('en-IN');
+        } catch(e) { document.getElementById('stat-brands').textContent = '—'; }
+
+        // Barcoded count
+        try {
+            const barcoded = await api('frappe.client.get_list', {
+                doctype: 'Item Barcode', fields: ['parent'], limit: 0
+            });
+            const barcodedSet = new Set((barcoded || []).map(b => b.parent));
+            const itemCodes = new Set((items || []).map(i => i.name));
+            const withBarcode = [...itemCodes].filter(c => barcodedSet.has(c)).length;
+            document.getElementById('stat-barcoded').textContent = withBarcode.toLocaleString('en-IN');
+            document.getElementById('stat-no-barcode').textContent = (total - withBarcode).toLocaleString('en-IN');
+        } catch(e) {
+            document.getElementById('stat-barcoded').textContent = '—';
+            document.getElementById('stat-no-barcode').textContent = '—';
+        }
+    } catch (e) {
+        document.getElementById('stat-total').textContent = 'ERR';
+    }
+}
+
+// ── Build filters object from form ────────────────────────────────────────
+function getFilters() {
+    const f = {};
+    const search = document.getElementById('flt-search').value.trim();
+    if (search) f.search_text = search;
+    const brand = document.getElementById('flt-brand').value;
+    if (brand) f.brand = brand;
+    const gender = document.getElementById('flt-gender').value;
+    if (gender) f.gender = gender;
+    const pc = document.getElementById('flt-purchase-class').value;
+    if (pc) f.purchase_class = pc;
+    const dept = document.getElementById('flt-department').value.trim();
+    if (dept) f.department = dept;
+    const grp = document.getElementById('flt-item-group').value;
+    if (grp) f.item_group = grp;
+    const sup = document.getElementById('flt-supplier').value;
+    if (sup) f.supplier = sup;
+    const mc = document.getElementById('flt-merch-cat').value.trim();
+    if (mc) f.merchandise_category = mc;
+    const sc = document.getElementById('flt-sub-cat').value.trim();
+    if (sc) f.sub_category = sc;
+    return f;
+}
+
+// ── Main export handler ───────────────────────────────────────────────────
+async function doExport() {
+    const $btn = document.getElementById('btn-export');
+    const origHTML = $btn.innerHTML;
+    $btn.disabled = true;
+    $btn.classList.add('loading');
+    $btn.innerHTML = `<span class="material-symbols-outlined btn-icon">progress_activity</span> Exporting…`;
+
+    const filters = getFilters();
+    const hasFilters = Object.keys(filters).length > 0;
+    const hintEl = document.getElementById('export-hint');
+    hintEl.textContent = hasFilters ? `Applying ${Object.keys(filters).length} filter(s)…` : 'Exporting all items…';
+
+    showProgress('Fetching items from server — this may take a moment for large catalogs…');
+
+    try {
+        const csvContent = await api(
+            'smriti_retail_os.item_master_api.export_all_items',
+            { filters_json: JSON.stringify(filters) }
+        );
+
+        if (!csvContent || typeof csvContent !== 'string') {
+            finishProgress(false, 'Server returned no data.');
+            toast('Export returned no data — check your filters.', 'warning');
+            return;
+        }
+
+        // UTF-8 BOM so Excel opens correctly without garbled characters
+        const bom  = '\uFEFF';
+        const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url  = URL.createObjectURL(blob);
+        const ts   = new Date().toISOString().slice(0, 10);
+        const suffix = hasFilters ? '_filtered' : '_all';
+        const a    = document.createElement('a');
+        a.href = url;
+        a.download = `smriti_item_master_export${suffix}_${ts}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        const rowCount = csvContent.trim().split('\n').length - 1;
+        finishProgress(true, `${rowCount.toLocaleString('en-IN')} item${rowCount !== 1 ? 's' : ''} exported successfully.`);
+        toast(`✅ ${rowCount.toLocaleString('en-IN')} items exported to CSV`, 'success');
+        hintEl.textContent = `Last export: ${rowCount.toLocaleString('en-IN')} rows`;
+
+    } catch (err) {
+        finishProgress(false, err.message || 'Unexpected error during export.');
+        toast(`Export failed: ${err.message || String(err)}`, 'error');
+        hintEl.textContent = '';
+    } finally {
+        $btn.disabled = false;
+        $btn.classList.remove('loading');
+        $btn.innerHTML = origHTML;
+    }
+}
+
+// ── Reset filters ─────────────────────────────────────────────────────────
+function resetFilters() {
+    document.getElementById('flt-search').value = '';
+    document.getElementById('flt-brand').selectedIndex = 0;
+    document.getElementById('flt-gender').selectedIndex = 0;
+    document.getElementById('flt-purchase-class').selectedIndex = 0;
+    document.getElementById('flt-department').value = '';
+    document.getElementById('flt-item-group').selectedIndex = 0;
+    document.getElementById('flt-supplier').selectedIndex = 0;
+    document.getElementById('flt-merch-cat').value = '';
+    document.getElementById('flt-sub-cat').value = '';
+    document.getElementById('export-hint').textContent = '';
+    toast('Filters cleared', 'info', 2000);
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btn-export').addEventListener('click', doExport);
+    document.getElementById('btn-reset-filters').addEventListener('click', resetFilters);
+    loadDropdowns();
+    loadStats();
+});
+</script>
+
+<script src="/assets/smriti_retail_os/js/smriti_sidebar_standalone.js"></script>
+<script>SMRITI.renderFlexibleSidebar("item_export");</script>
+</body>
+</html>
+{% endblock %}

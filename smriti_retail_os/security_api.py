@@ -895,7 +895,8 @@ def check_page_access(page_name):
         "cge_generic": manager_roles,
         "category_master": manager_roles,
         "brand_master": manager_roles,
-        
+        "item_export": manager_roles,
+
         # Cashier + Manager pages
         "supplier_returns": manager_roles | {cashier_role},
         "smriti-purchase": manager_roles | {cashier_role},
