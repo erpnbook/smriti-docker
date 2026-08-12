@@ -244,6 +244,31 @@ class ProductRepository:
         return len(valid_codes)
 
     @staticmethod
+    def purge_disabled():
+        """Permanently deletes all disabled items and their child records."""
+        items = smriti.db.get_list("Item", filters={"disabled": 1}, fields=["name", "variant_of"])
+        if not items:
+            return 0
+        item_codes = [i["name"] if isinstance(i, dict) else i.name for i in items]
+
+        for code in item_codes:
+            frappe.db.delete("Item Barcode", {"parent": code})
+            frappe.db.delete("Item Price", {"item_code": code})
+            frappe.db.delete("Bin", {"item_code": code})
+
+        variants = [i["name"] if isinstance(i, dict) else i.name for i in items if (i.get("variant_of") if isinstance(i, dict) else getattr(i, "variant_of", None))]
+        templates = [code for code in item_codes if code not in variants]
+
+        deleted_count = 0
+        for code in variants + templates:
+            if frappe.db.exists("Item", code):
+                frappe.delete_doc("Item", code, force=True, ignore_permissions=True)
+                deleted_count += 1
+
+        frappe.db.commit()
+        return deleted_count
+
+    @staticmethod
     def set_price(item_code, price_list, rate):
         """Helper to create/update Item Price records."""
         if not smriti.db.exists("Price List", price_list):

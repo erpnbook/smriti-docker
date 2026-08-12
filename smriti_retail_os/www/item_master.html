@@ -652,8 +652,11 @@ select.sim-cell-input {
             <div class="sim-page">
                 <div class="sim-page-header">
                   <h1>📋 Item Master Import <span class="sim-badge">SMRITI</span></h1>
-                  <div style="display:flex;gap:10px">
+                  <div style="display:flex;gap:10px;flex-wrap:wrap;">
                     <button class="sim-btn sim-btn-ghost" id="sim-download-tpl">⬇ Download Template</button>
+                    <button class="sim-btn sim-btn-ghost" id="sim-export-items" title="Export all active items as CSV">
+                      <span style="font-size:15px;">📤</span> Export All Items
+                    </button>
                     <button class="sim-btn sim-btn-ghost" id="sim-view-items">📦 View Items</button>
                   </div>
                 </div>
@@ -1116,6 +1119,7 @@ class SmritiItemMasterController {
             // SMRITI Policy (AITDL Rule 7): Navigate to SMRITI Products page, never to ERPNbook /app/item list
             window.location.href = '/products';
         });
+        $(this.wrapper).on('click', '#sim-export-items', () => self._export_all_items());
     }
 
     _handle_paste(text, suffix) {
@@ -1302,6 +1306,46 @@ class SmritiItemMasterController {
         a.href = url; a.download = 'smriti_item_master_template.csv';
         a.click();
         URL.revokeObjectURL(url);
+    }
+
+    async _export_all_items() {
+        const $btn = $('#sim-export-items');
+        const origHtml = $btn.html();
+        $btn.prop('disabled', true).html('<span style="font-size:14px;">⏳</span> Exporting…');
+        smriti.notify.info('Export', 'Preparing item export — please wait…');
+
+        try {
+            const csvContent = await smriti.api.call(
+                'smriti_retail_os.item_master_api.export_all_items',
+                {}
+            );
+
+            if (!csvContent || typeof csvContent !== 'string') {
+                smriti.notify.warning('Export', 'No data returned from server.');
+                return;
+            }
+
+            // BOM prefix for Excel UTF-8 auto-detection
+            const bom  = '\uFEFF';
+            const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url  = URL.createObjectURL(blob);
+            const ts   = new Date().toISOString().slice(0, 10);
+            const a    = document.createElement('a');
+            a.href = url;
+            a.download = `smriti_item_master_export_${ts}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            // Count rows (subtract 1 for header)
+            const rowCount = csvContent.trim().split('\n').length - 1;
+            smriti.notify.success('Export Complete', `${rowCount} item${rowCount !== 1 ? 's' : ''} exported to CSV`);
+        } catch (err) {
+            smriti.notify.error('Export Failed', err.message || String(err));
+        } finally {
+            $btn.prop('disabled', false).html(origHtml);
+        }
     }
 
     _update_stats(suffix) {

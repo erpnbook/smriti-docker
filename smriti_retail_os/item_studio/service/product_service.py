@@ -89,3 +89,8 @@ class ProductService:
     def bulk_delete_products(item_codes):
         """Batch disables selected or filtered items in catalog."""
         return ProductRepository.bulk_delete(item_codes)
+
+    @staticmethod
+    def purge_disabled_products():
+        """Permanently purges all disabled catalog items."""
+        return ProductRepository.purge_disabled()

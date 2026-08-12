@@ -2026,5 +2026,297 @@ def get_items_missing_barcodes():
     return missing
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+#  ITEM MASTER EXPORT
+# ─────────────────────────────────────────────────────────────────────────────
 
+@frappe.whitelist()
+def export_all_items(filters_json=None):
+    """
+    Exports all active Item Master records as a CSV-formatted string.
 
+    Columns (same order as the SMRITI import template for round-trip compatibility):
+        BARCODE NO, PRODUCT STYLE CODE, ITEM DESCRIPTION, BRAND NAME,
+        COLOR, SIZE, PLANNED MRP, COST PRICE, PRODUCT TAX, HSN CODE,
+        GENDER, VENDOR CODE, PURCHASE CLASS, DEPARTMENT,
+        MERCHANDISE CATEGORY, Sub category, HEELS, UPPER MATERIAL, OUTSOLE
+
+    Optional filters_json (JSON string):
+        brand, item_group, gender, department, purchase_class,
+        merchandise_category, sub_category, supplier, search_text
+    """
+    import csv
+    import io
+
+    # ── 1. Parse optional filters ───────────────────────────────────────────
+    flt_dict = {}
+    if filters_json:
+        try:
+            flt_dict = frappe.parse_json(filters_json)
+        except Exception:
+            flt_dict = {}
+
+    # ── 2. Build DB filter dict ─────────────────────────────────────────────
+    db_filters = {
+        "disabled": 0,
+        "has_variants": 0,   # Only leaf-level sellable variants, not template rows
+    }
+
+    if flt_dict.get("brand"):
+        db_filters["brand"] = flt_dict["brand"]
+    if flt_dict.get("item_group"):
+        db_filters["item_group"] = flt_dict["item_group"]
+    if flt_dict.get("gender") and frappe.db.has_column("Item", "custom_gender"):
+        db_filters["custom_gender"] = flt_dict["gender"]
+    if flt_dict.get("department") and frappe.db.has_column("Item", "custom_department"):
+        db_filters["custom_department"] = flt_dict["department"]
+    if flt_dict.get("purchase_class") and frappe.db.has_column("Item", "custom_purchase_class"):
+        db_filters["custom_purchase_class"] = flt_dict["purchase_class"]
+    if flt_dict.get("merchandise_category") and frappe.db.has_column("Item", "custom_merchandise_category"):
+        db_filters["custom_merchandise_category"] = flt_dict["merchandise_category"]
+    if flt_dict.get("sub_category") and frappe.db.has_column("Item", "custom_sub_category"):
+        db_filters["custom_sub_category"] = flt_dict["sub_category"]
+
+    # Supplier filter — resolve through Item Supplier child table
+    if flt_dict.get("supplier"):
+        supplier_items = smriti.db.get_list(
+            "Item Supplier",
+            filters={"supplier": flt_dict["supplier"]},
+            fields=["parent"]
+        )
+        supplier_codes = [
+            i.get("parent") if isinstance(i, dict) else getattr(i, "parent", None)
+            for i in supplier_items
+        ]
+        supplier_codes = [c for c in supplier_codes if c]
+        db_filters["name"] = ["in", supplier_codes] if supplier_codes else ["in", []]
+
+    # ── 3. Choose fields that exist on this installation ────────────────────
+    try:
+        raw_cols = frappe.db.sql("DESCRIBE `tabItem`", as_dict=True)
+        db_cols = {r.get("Field") for r in raw_cols if r.get("Field")}
+    except Exception:
+        db_cols = set()
+
+    # Always include these core fields; add custom fields only if they exist
+    select_fields = [
+        "name", "item_name", "brand", "item_group",
+        "valuation_rate", "custom_mrp", "variant_of",
+        "gst_hsn_code", "default_supplier",
+    ]
+    optional_custom_fields = [
+        "custom_gst_percentage", "custom_style_code", "custom_gender",
+        "custom_department", "custom_purchase_class",
+        "custom_merchandise_category", "custom_sub_category",
+        "custom_heels", "custom_upper_material", "custom_outsole",
+    ]
+    for f in optional_custom_fields:
+        if not db_cols or f in db_cols:
+            select_fields.append(f)
+
+    # ── 4. Fetch items ───────────────────────────────────────────────────────
+    or_filters = {}
+    if flt_dict.get("search_text"):
+        txt = flt_dict["search_text"]
+        or_filters = {
+            "item_code": ["like", f"%{txt}%"],
+            "item_name": ["like", f"%{txt}%"],
+        }
+
+    items = smriti.db.get_list(
+        "Item",
+        filters=db_filters,
+        or_filters=or_filters,
+        fields=select_fields,
+        limit=0,             # 0 = no cap — export everything
+        order_by="creation asc"
+    )
+
+    if not items:
+        # Return CSV with headers only when nothing found
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow([
+            "BARCODE NO", "PRODUCT STYLE CODE", "ITEM DESCRIPTION", "BRAND NAME",
+            "COLOR", "SIZE", "PLANNED MRP", "COST PRICE", "PRODUCT TAX", "HSN CODE",
+            "GENDER", "VENDOR CODE", "PURCHASE CLASS", "DEPARTMENT",
+            "MERCHANDISE CATEGORY", "Sub category", "HEELS", "UPPER MATERIAL", "OUTSOLE"
+        ])
+        return output.getvalue()
+
+    # ── 5. Collect all item codes for bulk lookups ───────────────────────────
+    item_names = [
+        (i.get("name") if isinstance(i, dict) else getattr(i, "name", None))
+        for i in items
+    ]
+    item_names = [n for n in item_names if n]
+
+    # ── 6. Bulk-load barcodes (primary flag takes priority) ──────────────────
+    barcode_map = {}
+    try:
+        barcodes = smriti.db.get_list(
+            "Item Barcode",
+            filters={"parent": ["in", item_names]},
+            fields=["parent", "barcode", "custom_is_primary"],
+            order_by="custom_is_primary desc, creation asc"
+        )
+        for b in barcodes:
+            parent = b.get("parent") if isinstance(b, dict) else getattr(b, "parent", None)
+            bc_val = b.get("barcode") if isinstance(b, dict) else getattr(b, "barcode", None)
+            if parent and bc_val and parent not in barcode_map:
+                barcode_map[parent] = bc_val
+    except Exception:
+        pass
+
+    # ── 7. Bulk-load MRP from Standard Selling price list ────────────────────
+    mrp_map = {}
+    try:
+        prices = smriti.db.get_list(
+            "Item Price",
+            filters={"item_code": ["in", item_names], "price_list": "Standard Selling"},
+            fields=["item_code", "price_list_rate"]
+        )
+        for p in prices:
+            ic = p.get("item_code") if isinstance(p, dict) else getattr(p, "item_code", None)
+            rate = p.get("price_list_rate") if isinstance(p, dict) else getattr(p, "price_list_rate", None)
+            if ic and rate is not None:
+                mrp_map[ic] = rate
+    except Exception:
+        pass
+
+    # ── 8. Bulk-load Cost Price from Standard Buying price list ──────────────
+    cost_map = {}
+    try:
+        cost_prices = smriti.db.get_list(
+            "Item Price",
+            filters={"item_code": ["in", item_names], "price_list": "Standard Buying"},
+            fields=["item_code", "price_list_rate"]
+        )
+        for p in cost_prices:
+            ic = p.get("item_code") if isinstance(p, dict) else getattr(p, "item_code", None)
+            rate = p.get("price_list_rate") if isinstance(p, dict) else getattr(p, "price_list_rate", None)
+            if ic and rate is not None:
+                cost_map[ic] = rate
+    except Exception:
+        pass
+
+    # ── 9. Bulk-load SIZE and COLOR from Item Variant Attribute ──────────────
+    size_map = {}
+    color_map = {}
+    try:
+        attrs = smriti.db.get_list(
+            "Item Variant Attribute",
+            filters={"parent": ["in", item_names]},
+            fields=["parent", "attribute", "attribute_value"]
+        )
+        for a in attrs:
+            parent = a.get("parent") if isinstance(a, dict) else getattr(a, "parent", None)
+            attr_name = (a.get("attribute") if isinstance(a, dict) else getattr(a, "attribute", "")) or ""
+            attr_val = (a.get("attribute_value") if isinstance(a, dict) else getattr(a, "attribute_value", "")) or ""
+            if not parent:
+                continue
+            if attr_name.upper() in ("SIZE", "SHOE SIZE", "FOOTWEAR SIZE") and parent not in size_map:
+                size_map[parent] = attr_val
+            elif attr_name.lower() in ("color", "colour", "shade") and parent not in color_map:
+                color_map[parent] = attr_val
+    except Exception:
+        pass
+
+    # ── 10. Bulk-load Vendor Code via default_supplier → Supplier.custom_vendor_code ──
+    supplier_names = set()
+    for it in items:
+        ds = (it.get("default_supplier") if isinstance(it, dict) else getattr(it, "default_supplier", None)) or ""
+        if ds:
+            supplier_names.add(ds)
+
+    vendor_code_map = {}
+    if supplier_names:
+        try:
+            sup_rows = smriti.db.get_list(
+                "Supplier",
+                filters={"name": ["in", list(supplier_names)]},
+                fields=["name", "custom_vendor_code"]
+            )
+            for s in sup_rows:
+                s_name = s.get("name") if isinstance(s, dict) else getattr(s, "name", None)
+                v_code = s.get("custom_vendor_code") if isinstance(s, dict) else getattr(s, "custom_vendor_code", None)
+                if s_name:
+                    vendor_code_map[s_name] = v_code or ""
+        except Exception:
+            pass
+
+    # ── 11. Build CSV ─────────────────────────────────────────────────────────
+    output = io.StringIO()
+    writer = csv.writer(output)
+
+    writer.writerow([
+        "BARCODE NO", "PRODUCT STYLE CODE", "ITEM DESCRIPTION", "BRAND NAME",
+        "COLOR", "SIZE", "PLANNED MRP", "COST PRICE", "PRODUCT TAX", "HSN CODE",
+        "GENDER", "VENDOR CODE", "PURCHASE CLASS", "DEPARTMENT",
+        "MERCHANDISE CATEGORY", "Sub category", "HEELS", "UPPER MATERIAL", "OUTSOLE"
+    ])
+
+    def _g(record, key, default=""):
+        """Safe getter for both dict and frappe._dict / Document objects."""
+        if isinstance(record, dict):
+            return record.get(key, default) or default
+        return getattr(record, key, default) or default
+
+    for it in items:
+        ic = _g(it, "name")
+        if not ic:
+            continue
+
+        barcode        = barcode_map.get(ic, "")
+        style_code     = _g(it, "custom_style_code") or _g(it, "variant_of") or ic
+        item_name      = _g(it, "item_name")
+        brand          = _g(it, "brand")
+        color          = color_map.get(ic, "")
+        size           = size_map.get(ic, "")
+
+        # MRP: custom_mrp → Standard Selling price list → valuation_rate
+        mrp = (
+            flt(_g(it, "custom_mrp"))
+            or flt(mrp_map.get(ic, 0))
+            or flt(_g(it, "valuation_rate"))
+        )
+
+        # Cost: Standard Buying price list → valuation_rate
+        cost = flt(cost_map.get(ic, 0)) or flt(_g(it, "valuation_rate"))
+
+        gst            = _g(it, "custom_gst_percentage") or "18"
+        hsn            = _g(it, "gst_hsn_code")
+        gender         = _g(it, "custom_gender")
+        default_sup    = _g(it, "default_supplier")
+        vendor_code    = vendor_code_map.get(default_sup, "") if default_sup else ""
+        purchase_class = _g(it, "custom_purchase_class")
+        department     = _g(it, "custom_department")
+        merch_cat      = _g(it, "custom_merchandise_category")
+        sub_cat        = _g(it, "custom_sub_category")
+        heels          = _g(it, "custom_heels")
+        upper_material = _g(it, "custom_upper_material")
+        outsole        = _g(it, "custom_outsole")
+
+        writer.writerow([
+            barcode,
+            style_code,
+            item_name,
+            brand,
+            color,
+            size,
+            mrp if mrp else "",
+            cost if cost else "",
+            gst,
+            hsn,
+            gender,
+            vendor_code,
+            purchase_class,
+            department,
+            merch_cat,
+            sub_cat,
+            heels,
+            upper_material,
+            outsole,
+        ])
+
+    return output.getvalue()

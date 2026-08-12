@@ -85,3 +85,11 @@ def get_catalog_metadata():
         "brands": [b for b in brands if b],
         "categories": [c for c in categories if c]
     }
+
+
+@frappe.whitelist()
+def purge_disabled_products():
+    """Permanently purges all disabled catalog products and child records."""
+    _check_access()
+    count = ProductService.purge_disabled_products()
+    return {"success": True, "count": count, "message": _("Successfully purged {0} disabled products.").format(count)}
